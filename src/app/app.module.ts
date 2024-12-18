@@ -3,14 +3,42 @@ import { BrowserModule, provideClientHydration } from '@angular/platform-browser
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { HomeComponent } from './home-page/home/home.component';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { HeaderMainComponent } from './home-page/header-main/header-main.component';
+import { HeaderFirstComponent } from './home-page/header-first/header-first.component';
+import { HeaderSecondComponent } from './home-page/header-second/header-second.component';
+import { SvgNotificationComponent } from './all-svg/svg-notification/svg-notification.component';
+import { SvgHelpComponent } from './all-svg/svg-help/svg-help.component';
+import { SvgLanguageComponent } from './all-svg/svg-language/svg-language.component';
+import { SvgArrowComponent } from './all-svg/svg-arrow/svg-arrow.component';
+import { SvgUserWithoutImgComponent } from './all-svg/svg-user-without-img/svg-user-without-img.component';
+import { SvgShoopeComponent } from './all-svg/svg-shoope/svg-shoope.component';
+import { SvgLoupeComponent } from './all-svg/svg-loupe/svg-loupe.component';
+import { SvgCartComponent } from './all-svg/svg-cart/svg-cart.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomeComponent,
+    HeaderMainComponent,
+    HeaderFirstComponent,
+    HeaderSecondComponent,
+    SvgNotificationComponent,
+    SvgHelpComponent,
+    SvgLanguageComponent,
+    SvgArrowComponent,
+    SvgUserWithoutImgComponent,
+    SvgShoopeComponent,
+    SvgLoupeComponent,
+    SvgCartComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule
   ],
   providers: [
     provideClientHydration()

@@ -1,0 +1,83 @@
+.container-main-header-second-main{
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.container-main-header-second{
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  margin: 0px 0px;
+  /* margin-right: 25px; */
+  width: 1180px;
+}
+
+.container-svg-shopee{
+  display: flex;
+  cursor: pointer;
+}
+
+.container-input-search-shopee {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  height: 40px;
+  padding: 0px 3px 0px 10px;
+  border-radius: 3px;
+
+  > input {
+    width: 754px;
+    height: 34px;
+    resize: none;
+    border: none;
+
+    &:focus{
+    outline: none;
+    }
+  }
+
+  > input::placeholder {
+    color: gray; /* Altere a cor aqui */
+  }
+
+  > button {
+    width: 60px;
+    height: 85%;
+    background: #fb5533;
+    border: none;
+    outline: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover{
+      background: #fb6546;
+    }
+  }
+}
+
+.container-cart {
+  display: flex;
+  width: 26px;
+  height: 26px;
+  margin-top: 15px;
+  margin-left: 20px;
+
+  position: relative;
+
+  >span {
+    position: absolute;
+    right: -14px;
+    top: -3px;
+    background: #fff;
+    color: red;
+    width: 20px;
+    height: 16px;
+    font-size: 12px;
+    display: flex;
+    justify-content: center;
+    border-radius: 10px;
+  }
+}

@@ -1,0 +1,15 @@
+:host {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background: #fff;
+  width: 21px;
+  height: 21px;
+  border-radius: 10px;
+}
+
+svg {
+  stroke: #c6c6c6;
+  -webkit-font-smoothing: antialiased;
+}
