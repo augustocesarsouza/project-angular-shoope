@@ -3,7 +3,13 @@
     <div class="container-first-nav">
       <a href="#">Central do Vendedor</a>
       <a href="#">Vender na Shopee</a>
-      <a href="#">Baixe o App</a>
+      <a
+        href="#"
+        #linkdownloadapp
+        (mouseenter)="onMouseEnterDownloadApp()"
+        (mouseleave)="onMouseLeaveDownloadApp()"
+        >Baixe o App</a
+      >
       <div class="container-follow-us">
         <span>Siga-nos no</span>
         <a href="#"></a>
@@ -13,7 +19,11 @@
     </div>
     <div class="container-second-nav">
       <div class="container-all-svg-second-nav">
-        <div class="container-svg-header-second">
+        <div
+          class="container-svg-header-second"
+          (mouseenter)="onMouseEnterNotification()"
+          (mouseleave)="onMouseLeaveNotification()"
+        >
           <app-svg-notification
             width="15px"
             height="19px"
@@ -49,5 +59,118 @@
         </div>
       </div>
     </div>
+  </div>
+
+  <div
+    class="container-download-app-floating"
+    *ngIf="showContainerDownloadAppFloating"
+    (mouseenter)="onMouseEnterDownloadAppFloating()"
+    (mouseleave)="onMouseLeaveDownloadAppFloating()"
+  >
+    <img
+      src="https://res.cloudinary.com/dyqsqg7pk/image/upload/v1734537041/img-download-app/f9c0cf5184864783_z0xwpz.png"
+      alt="img-qr-code"
+    />
+
+    <div class="container-app-store-and-google-play">
+      <div class="container-shop-to-download">
+        <img
+          src="https://res.cloudinary.com/dyqsqg7pk/image/upload/v1734537045/img-download-app/135555214a82d8e1_mmbfga.png"
+          alt="img-app-store"
+        />
+      </div>
+      <div class="container-shop-to-download">
+        <img
+          src="https://res.cloudinary.com/dyqsqg7pk/image/upload/v1734537048/img-download-app/1fddd5ee3e2ead84_bcepnc.png"
+          alt="img-google-play"
+        />
+      </div>
+    </div>
+  </div>
+
+  <div
+    class="container-notification-floating"
+    *ngIf="showContainerNotification"
+    (mouseenter)="onMouseEnterNotificationFloating()"
+    (mouseleave)="onMouseLeaveNotificationFloating()"
+  >
+    <div
+      class="container-arrow-top"
+      (mouseenter)="onMouseEnterArrowTopFloating()"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+        <path
+          d="M182.6 41.4c-12.5-12.5-32.8-12.5-45.3 0l-128 128c-9.2 9.2-11.9 22.9-6.9 34.9s16.6 19.8 29.6 19.8l256 0c12.9 0 24.6-7.8 29.6-19.8s2.2-25.7-6.9-34.9l-128-128z"
+        />
+      </svg>
+    </div>
+    <h1>Notificações Recebida Recentemente</h1>
+    <div class="container-notification-all">
+      <div class="container-each-notification">
+        <div class="container-img-notification">
+          <img
+            src="https://res.cloudinary.com/dyqsqg7pk/image/upload/v1734544315/img-notificacoes-promocoes/sg-11134004-7rd5v-lv0kjt4bs1kt71_tn_mbtsoj_sngqg1.jpg"
+            alt="img-notification-1"
+          />
+        </div>
+
+        <div class="container-details-notification">
+          <h1>Últimos dias do seu cupom 👋</h1>
+          <span
+            >Agora é o momento para usar seu cupom de FRETE GRÁTIS sem valor
+            mínimo. Aproveite já!</span
+          >
+        </div>
+      </div>
+      <div class="container-each-notification">
+        <div class="container-img-notification">
+          <img
+            src="https://res.cloudinary.com/dyqsqg7pk/image/upload/v1734544361/img-notificacoes-promocoes/sg-11134004-7rfgn-m3nrza71g657c3_tn_lxct0d.jpg"
+            alt="img-notification-2"
+          />
+        </div>
+
+        <div class="container-details-notification">
+          <h1>Últimas horas do 12.12 🏃‍♂️</h1>
+          <span
+            >Smartwatch Haylou por R$183,99 + CUPONS liberados para você
+            aproveitar a última liquidação do ano. Vem ver!</span
+          >
+        </div>
+      </div>
+      <div class="container-each-notification">
+        <div class="container-img-notification">
+          <img
+            src="https://res.cloudinary.com/dyqsqg7pk/image/upload/v1734544364/img-notificacoes-promocoes/sg-11134004-7rfho-m3mj7imfx5k81c_tn_v11dsp.jpg"
+            alt="img-notification-3"
+          />
+        </div>
+
+        <div class="container-details-notification">
+          <h1>12.12: Liquidação de Natal</h1>
+          <span
+            >Só hoje: Smart TV Samsung 50" UHD 4K por R$2.219,90 + Frete Grátis
+            acima de R$10 e R$7 Milhões em Cupons. Não perca! 🎅</span
+          >
+        </div>
+      </div>
+      <div class="container-each-notification">
+        <div class="container-img-notification">
+          <img
+            src="https://res.cloudinary.com/dyqsqg7pk/image/upload/v1734544315/img-notificacoes-promocoes/sg-11134004-7rd5v-lv0kjt4bs1kt71_tn_mbtsoj_sngqg1.jpg"
+            alt="img-notification-1"
+          />
+        </div>
+
+        <div class="container-details-notification">
+          <h1>Frete Grátis exclusivo para você 🤑</h1>
+          <span
+            >Aproveite já seu cupom de FRETE GRÁTIS sem valor mínimo na sua 1ª
+            compra. Confira já! 👉</span
+          >
+        </div>
+      </div>
+    </div>
+    <a href="#">ver tudo</a>
   </div>
 </div>
