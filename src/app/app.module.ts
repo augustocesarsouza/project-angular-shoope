@@ -17,6 +17,10 @@ import { SvgUserWithoutImgComponent } from './all-svg/svg-user-without-img/svg-u
 import { SvgShoopeComponent } from './all-svg/svg-shoope/svg-shoope.component';
 import { SvgLoupeComponent } from './all-svg/svg-loupe/svg-loupe.component';
 import { SvgCartComponent } from './all-svg/svg-cart/svg-cart.component';
+import { DownloadAppFloatingComponent } from './home-page/download-app-floating/download-app-floating.component';
+import { NotificationFloatingComponent } from './home-page/notification-floating/notification-floating.component';
+import { LanguageFloatingComponent } from './home-page/language-floating/language-floating.component';
+import { NameUserFloatingComponent } from './home-page/name-user-floating/name-user-floating.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +36,11 @@ import { SvgCartComponent } from './all-svg/svg-cart/svg-cart.component';
     SvgUserWithoutImgComponent,
     SvgShoopeComponent,
     SvgLoupeComponent,
-    SvgCartComponent
+    SvgCartComponent,
+    DownloadAppFloatingComponent,
+    NotificationFloatingComponent,
+    LanguageFloatingComponent,
+    NameUserFloatingComponent
   ],
   imports: [
     BrowserModule,

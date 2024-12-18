@@ -1,0 +1,33 @@
+.container-download-app-floating {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: absolute;
+  height: 249px;
+  left: 320px;
+  top: 20px;
+
+  >img {
+    border-radius: 2px;
+  }
+}
+
+.container-app-store-and-google-play {
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 15px;
+  gap: 10px;
+}
+
+.container-shop-to-download {
+  display: flex;
+  width: 80px;
+  height: 21px;
+
+  >img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+}
