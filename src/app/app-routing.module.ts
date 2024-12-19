@@ -3,8 +3,11 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home-page/home/home.component';
 
 const routes: Routes = [
-  {path: '', pathMatch: 'full', redirectTo: ''},
-  {path: '', component: HomeComponent}
+  {path: '', pathMatch: 'full', redirectTo: 'login'},
+  {path: '', component: HomeComponent},
+  {path: 'buyer',
+    loadChildren: () => import('./login-and-register-user/login-and-register-user.module').then(m => m.LoginUserModule)
+  }
 ];
 
 @NgModule({

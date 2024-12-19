@@ -1,0 +1,184 @@
+.container-body-main{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 600px;
+  background-color: rgb(238, 77, 45);
+}
+
+.container-middle-body{
+  /* width: 100%; */
+  height: 100%;
+  position: relative;
+  background-image: url("https://res.cloudinary.com/dyqsqg7pk/image/upload/v1724768580/img-shopee/img-super-shopping_rtrmhd.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+  margin: 0 auto;
+}
+
+.container-login-register-main{
+  width: 1040px;
+  height: 600px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.container-login-register{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 400px;
+  height: 428px;
+  background-color: #fff;
+  padding: 22px 30px;
+  border-radius: 5px;
+
+  >h1 {
+    font-size: 20px;
+    font-weight: 400;
+  }
+}
+
+.container-input{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  position: relative;
+
+  >input {
+    border: 0;
+    filter: none;
+    flex: 1;
+    flex-shrink: 0;
+    height: 16px;
+    outline: none;
+    padding: 12px;
+    border: 1px solid #73737347;
+  }
+
+  >svg {
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    right: 14px;
+    top: 11px;
+  }
+}
+
+.container-button-spans-or-white-line{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  height: 40px;
+}
+
+#button-next{
+  width: 100%;
+  padding: 10px 0px;
+  border: none;
+  background-color: #f3826c;
+  color: #fff;
+  cursor: not-allowed;
+  height: 100%;
+  width: 100%;
+}
+
+.container-lines-and-span-or{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.span-line-white{
+  width: 100%;
+  height: 1px;
+  background-color: #5f5f5f36;
+}
+
+.span-or{
+  font-size: 12px;
+  color: #5f5f5f73;
+}
+
+.container-facebook-google-apple {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.container-social-media {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.26);
+  padding: 5px;
+  border-radius: 3px;
+  width: 100%;
+  height: 40px;
+  cursor: pointer;
+
+  > span {
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.87);
+    line-height: 1;
+  }
+}
+
+.container-img-social-media {
+  display: flex;
+  width: 22px;
+  height: 22px;
+  background-image: url('https://res.cloudinary.com/dyqsqg7pk/image/upload/v1734611176/img-login/7ffa33c1e9518f30_b4kjkg.png');
+  background-repeat: no-repeat;
+}
+
+.facebook {
+  background-position: 5.55556% 62.6667%;
+  background-size: 325% 287.5%;
+}
+
+.google {
+  background-position: 83.9286% 5.15464%;
+  background-size: 722.222% 638.889%;
+}
+
+.container-new-in-the-shopee{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  font-size: 14px;
+
+  >span {
+    color: #00000073;
+  }
+
+  >a {
+    text-decoration: none;
+    color: rgb(238, 77, 45);
+    font-weight: 500;
+    cursor: pointer;
+  }
+}
+
+.container-span-warning{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.span-warning{
+  font-size: 12px;
+  text-align: center;
+  width: 300px;
+  color: rgba(0,0,0,.87);
+  padding: 0 10px;
+}
+
+.span-highlighted{
+  color: #ee4d2d;
+}

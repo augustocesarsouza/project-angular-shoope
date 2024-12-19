@@ -1,0 +1,77 @@
+<div class="container-body-main">
+  <div class="container-middle-body">
+    <div class="container-login-register-main">
+      <div class="container-login-register">
+        <h1>Entre</h1>
+        <!-- {!passwordIsCorrect && (
+        <div class="container-erro-login">
+          <SvgFailAuthentication></SvgFailAuthentication>
+          <Styled.H1>
+            Falha de autenticação. Tente novamente mais tarde ou use outro
+            método de autenticação
+          </Styled.H1>
+        </div>
+        )} -->
+        <div class="container-input">
+          <input
+            type="text"
+            placeholder="Número de telefone/Nome do usuário/Email"
+            id="input-number-name-user-email"
+            (input)="onInputPhoneEmailName($event)"
+          />
+          <input
+            type="password"
+            placeholder="Senha"
+            id="input-password"
+            (input)="onInputPassword($event)"
+          />
+          <app-svg-eye-close
+            width="22px"
+            height="15px"
+            fill="black"
+            *ngIf="!showEyeOpen"
+            (click)="onClickEyeOpenAndClose(true)"
+          ></app-svg-eye-close>
+          <app-svg-eye-open
+            width="22px"
+            height="15px"
+            fill="black"
+            *ngIf="showEyeOpen"
+            (click)="onClickEyeOpenAndClose(false)"
+          ></app-svg-eye-open>
+        </div>
+        <div class="container-button-spans-or-white-line">
+          <button id="button-enter" (click)="onClickEnter()">ENTRE</button>
+          <div class="container-span">
+            <span>Esqueci minha senha</span>
+            <span>Fazer login com SMS</span>
+          </div>
+          <div class="container-lines-and-span-or">
+            <span class="span-line-white"></span>
+            <span class="span-or">OU</span>
+            <span class="span-line-white"></span>
+          </div>
+        </div>
+        <div class="container-facebook-google-apple">
+          <div class="container-social-media">
+            <div class="container-img-social-media facebook"></div>
+            <span>Facebook</span>
+          </div>
+          <div class="container-social-media">
+            <div class="container-img-social-media google"></div>
+            <span>Google</span>
+          </div>
+          <div class="container-social-media">
+            <div class="container-img-social-media apple"></div>
+            <span>Apple</span>
+          </div>
+        </div>
+        <div class="container-new-in-the-shopee">
+          <span>Novo na Shopee?</span>
+          <!-- <a onClick={() => onClickRegister()}>Cadastrar</a> -->
+          <a (click)="clickRegister()">Cadastrar</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

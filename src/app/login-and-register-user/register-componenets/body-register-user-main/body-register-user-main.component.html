@@ -1,0 +1,53 @@
+<div class="container-body-main">
+  <div class="container-middle-body">
+    <div class="container-login-register-main">
+      <div class="container-login-register">
+        <h1>Cadastrar</h1>
+        <div class="container-input">
+          <input
+            type="text"
+            id="input-number-phone"
+            placeholder="Número de telefone"
+            (input)="onInputPhoneEmailName($event)"
+          />
+
+          <!-- {showSvgOkPhoneRight && <SvgAllRight></SvgAllRight>} -->
+        </div>
+        <div
+          class="container-button-spans-or-white-line"
+          (click)="clickNextButton()"
+        >
+          <button id="button-next">PRÓXIMO</button>
+        </div>
+        <div class="container-lines-and-span-or">
+          <span class="span-line-white"></span>
+          <span class="span-or">OU</span>
+          <span class="span-line-white"></span>
+        </div>
+        <div class="container-facebook-google-apple">
+          <div class="container-social-media">
+            <div class="container-img-social-media facebook"></div>
+            <span>Facebook</span>
+          </div>
+          <div class="container-social-media">
+            <div class="container-img-social-media google"></div>
+            <span>Google</span>
+          </div>
+        </div>
+        <div class="container-span-warning">
+          <span class="span-warning">
+            Ao se inscrever, você concorda com as políticas da Shopee
+            <span class="span-highlighted">Termos de serviço</span>
+            &
+            <span class="span-highlighted">Política de privacidade</span>
+          </span>
+        </div>
+        <div class="container-new-in-the-shopee">
+          <span>Tem uma Conta?</span>
+          <!-- <a onClick={() => onClickLoggin()}>Entre</a> -->
+          <a (click)="clickEntry()">Entre</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

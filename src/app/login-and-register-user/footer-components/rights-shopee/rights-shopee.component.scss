@@ -1,0 +1,19 @@
+.container-rights-shopee{
+  display: flex;
+  justify-content: space-between;
+  width: 1150px;
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.54);
+  padding: 40px 0px;
+  border-top: 1px solid #2121212b;
+}
+
+.container-country-and-region{
+  display: flex;
+  gap: 4px;
+}
+
+.span-country-with-bar{
+  border-right: 1px solid #21212166;
+  padding-right: 5px;
+}
