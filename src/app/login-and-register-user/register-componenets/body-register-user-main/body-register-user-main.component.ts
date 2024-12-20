@@ -11,6 +11,7 @@ export class BodyRegisterUserMainComponent {
   buttonNext!: HTMLElement | null;
   canClickButtonNext: boolean = false;
   clickNextStepRegister: boolean = true;
+  valueNumberPhoneCreate = "";
 
   constructor(private router: Router){}
 
@@ -43,6 +44,7 @@ export class BodyRegisterUserMainComponent {
     const inputValue = (event.target as HTMLInputElement).value;
     // (+55) 23 32323 3223
     let inputValueNew = inputValue.replace(/_/g, '').trim();
+    this.valueNumberPhoneCreate = inputValueNew;
 
     if (inputValueNew && inputValueNew.length >= 19) {
       this.buttonNext.style.background = '#ee4d2d';
