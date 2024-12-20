@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-third-step-create-account',
@@ -8,5 +9,9 @@ import { Component, Input } from '@angular/core';
 export class ThirdStepCreateAccountComponent {
   @Input() valueNumberPhoneCreate!: string;
 
-  constructor(){}
+  constructor(private router: Router){}
+
+  clickBackToShoope(){
+    this.router.navigate(['/buyer/login']);
+  }
 }

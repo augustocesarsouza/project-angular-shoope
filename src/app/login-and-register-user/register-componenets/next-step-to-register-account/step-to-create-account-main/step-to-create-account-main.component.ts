@@ -7,7 +7,7 @@ import { Component, Input } from '@angular/core';
 })
 export class StepToCreateAccountMainComponent {
   @Input() valueNumberPhoneCreate!: string;
-  whatStepIsNow: number = 3;
+  whatStepIsNow: number = 1;
 
   containerFirstStep!: HTMLElement;
   containerSecondStep!: HTMLElement;
@@ -34,6 +34,8 @@ export class StepToCreateAccountMainComponent {
     if(this.whatStepIsNow === 1){
       this.putColorGreenFirstStep(containerFirstStep, 0);
     }
+
+    this.changeValueStepIsNow = this.changeValueStepIsNow.bind(this);
   }
 
   ClickContainerSecondStep(){
@@ -89,6 +91,23 @@ export class StepToCreateAccountMainComponent {
     firstChild.style.color = 'rgba(0,0,0,.26)';
 
     (this.containerFirstBall[whichBallNumber].lastChild as HTMLElement).style.color = 'rgba(0,0,0,.26)';
+  }
+
+  changeValueStepIsNow(value: number){
+    this.whatStepIsNow = value;
+
+    if(value === 1){
+      this.putColorGreenFirstStep(this.containerFirstStep, 0);
+      this.putColorBlackFirstStep(this.containerSecondStep, 1);
+    }
+
+    if(value === 2){
+      this.putColorGreenFirstStep(this.containerSecondStep, 1);
+    }
+
+    if(value === 3){
+      this.putColorGreenFirstStep(this.containerLastOneStep, 2);
+    }
   }
 }
 

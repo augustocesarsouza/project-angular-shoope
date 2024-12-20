@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-second-step-create-account',
@@ -6,6 +6,7 @@ import { Component } from '@angular/core';
   styleUrl: './second-step-create-account.component.scss'
 })
 export class SecondStepCreateAccountComponent {
+  @Input() changeValueStepIsNow!: (value: number) => void;
   showEyeOpen = false;
   alreadyTypePassword = false;
 
@@ -17,7 +18,7 @@ export class SecondStepCreateAccountComponent {
   constructor(){}
 
   clickBackToStepOne(){
-
+    this.changeValueStepIsNow(1);
   }
 
   changeInputPassword(e: Event){
@@ -91,6 +92,11 @@ export class SecondStepCreateAccountComponent {
   }
 
   clickRegister(){
-
+    if(this.onlyLettersCommon &&
+      this.haveEightSixteenCharacters &&
+      this.atLestOneUppercaseCharacter &&
+      this.atLestOneLowercaseCharacter){
+        this.changeValueStepIsNow(3);
+      }
   }
 }

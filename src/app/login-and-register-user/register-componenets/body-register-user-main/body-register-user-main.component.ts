@@ -10,7 +10,7 @@ import Inputmask from 'inputmask';
 export class BodyRegisterUserMainComponent {
   buttonNext!: HTMLElement | null;
   canClickButtonNext: boolean = false;
-  clickNextStepRegister: boolean = true;
+  clickNextStepRegister: boolean = false;
   valueNumberPhoneCreate = "";
 
   constructor(private router: Router){}

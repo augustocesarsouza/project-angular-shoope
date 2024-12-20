@@ -29,10 +29,12 @@
     </div>
   </div>
   <app-first-step-create-account
+    [changeValueStepIsNow]="changeValueStepIsNow"
     [valueNumberPhoneCreate]="valueNumberPhoneCreate"
     *ngIf="whatStepIsNow === 1"
   ></app-first-step-create-account>
   <app-second-step-create-account
+    [changeValueStepIsNow]="changeValueStepIsNow"
     *ngIf="whatStepIsNow === 2"
   ></app-second-step-create-account>
   <app-third-step-create-account

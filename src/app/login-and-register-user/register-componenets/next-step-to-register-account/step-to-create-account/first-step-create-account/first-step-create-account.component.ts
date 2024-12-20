@@ -6,8 +6,8 @@ import { Component, Input } from '@angular/core';
   styleUrl: './first-step-create-account.component.scss'
 })
 export class FirstStepCreateAccountComponent {
+  @Input() changeValueStepIsNow!: (value: number) => void;
   @Input() valueNumberPhoneCreate!: string;
-  codeSendPhone: string = '(+55) 67 98114 5503';
   allInputs!: NodeListOf<HTMLInputElement>;
   buttonNext!: HTMLInputElement;
 
@@ -140,7 +140,6 @@ export class FirstStepCreateAccountComponent {
 
     if(quantityNumberInput === 6){
       this.allSixVerificationCodeIsComplet = true;
-      console.log(this.buttonNext);
 
       // this.buttonNext.style.backgroundColor = "#ee4d2d";
       this.buttonNext.style.cursor = "pointer";
@@ -180,9 +179,8 @@ export class FirstStepCreateAccountComponent {
 
   clickNextStep() {
     if(!this.allSixVerificationCodeIsComplet) return;
-    console.log(this.allSixVerificationCodeIsComplet);
 
-
+    this.changeValueStepIsNow(2);
   }
 
 }
