@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-third-step-create-account',
@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrl: './third-step-create-account.component.scss'
 })
 export class ThirdStepCreateAccountComponent {
+  @Input() valueNumberPhoneCreate!: string;
 
+  constructor(){}
 }

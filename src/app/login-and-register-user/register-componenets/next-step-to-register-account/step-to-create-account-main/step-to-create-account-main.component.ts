@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-step-to-create-account-main',
@@ -6,7 +6,8 @@ import { Component } from '@angular/core';
   styleUrl: './step-to-create-account-main.component.scss'
 })
 export class StepToCreateAccountMainComponent {
-  whatStepIsNow: number = 2;
+  @Input() valueNumberPhoneCreate!: string;
+  whatStepIsNow: number = 3;
 
   containerFirstStep!: HTMLElement;
   containerSecondStep!: HTMLElement;

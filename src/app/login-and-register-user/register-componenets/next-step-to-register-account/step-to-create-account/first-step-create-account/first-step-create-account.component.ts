@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-first-step-create-account',
@@ -6,6 +6,7 @@ import { Component } from '@angular/core';
   styleUrl: './first-step-create-account.component.scss'
 })
 export class FirstStepCreateAccountComponent {
+  @Input() valueNumberPhoneCreate!: string;
   codeSendPhone: string = '(+55) 67 98114 5503';
   allInputs!: NodeListOf<HTMLInputElement>;
   buttonNext!: HTMLInputElement;
