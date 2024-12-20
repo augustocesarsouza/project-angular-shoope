@@ -13,11 +13,11 @@ import { FollowUsComponent } from './footer-components/follow-us/follow-us.compo
 import { DownloadAppShopeeComponent } from './footer-components/download-app-shopee/download-app-shopee.component';
 import { RightsShopeeComponent } from './footer-components/rights-shopee/rights-shopee.component';
 import { RegisterMainComponent } from './register-componenets/register-main/register-main.component';
+import { FirstStepCreateAccountComponent } from './register-componenets/next-step-to-register-account/step-to-create-account/first-step-create-account/first-step-create-account.component';
+import { SecondStepCreateAccountComponent } from './register-componenets/next-step-to-register-account/step-to-create-account/second-step-create-account/second-step-create-account.component';
+import { ThirdStepCreateAccountComponent } from './register-componenets/next-step-to-register-account/step-to-create-account/third-step-create-account/third-step-create-account.component';
+import { StepToCreateAccountMainComponent } from './register-componenets/next-step-to-register-account/step-to-create-account-main/step-to-create-account-main.component';
 import { BodyRegisterUserMainComponent } from './register-componenets/body-register-user-main/body-register-user-main.component';
-import { FirstStepCreateAccountComponent } from './register-componenets/next-step-to-register-account/first-step-create-account/first-step-create-account.component';
-import { SecondStepCreateAccountComponent } from './register-componenets/next-step-to-register-account/second-step-create-account/second-step-create-account.component';
-import { ThirdStepCreateAccountComponent } from './register-componenets/next-step-to-register-account/third-step-create-account/third-step-create-account.component';
-import { StepToCreateAccountComponent } from './register-componenets/next-step-to-register-account/step-to-create-account/step-to-create-account.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +36,7 @@ import { StepToCreateAccountComponent } from './register-componenets/next-step-t
     FirstStepCreateAccountComponent,
     SecondStepCreateAccountComponent,
     ThirdStepCreateAccountComponent,
-    StepToCreateAccountComponent,
+    StepToCreateAccountMainComponent,
   ],
   imports: [
     CommonModule,

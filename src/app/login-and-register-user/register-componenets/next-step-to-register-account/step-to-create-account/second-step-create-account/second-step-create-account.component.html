@@ -1,0 +1,145 @@
+<div class="container-type-code-verification">
+  <div class="container-type-code">
+    <div class="container-svg-arrow" (click)="clickBackToStepOne()">
+      <app-svg-arrow-register
+        width="25px"
+        height="25px"
+        fill="#ee4d2d"
+      ></app-svg-arrow-register>
+    </div>
+    <span>Defina sua senha</span>
+  </div>
+  <div class="container-your-code-was-send-sms-main">
+    <div class="container-your-code-was-send-sms">
+      <span>Último passo! Defina sua senha para concluir a inscrição.</span>
+      <div class="container-input-password-and-validations">
+        <div class="container-input-password">
+          <input
+            type="password"
+            placeholder="Senha"
+            class="input-password"
+            (input)="changeInputPassword($event)"
+            #input
+          />
+          <div class="container-svg-eye" (click)="clickEye(input)">
+            <app-svg-eye-close
+              width="20px"
+              height="20px"
+              fill="red"
+              *ngIf="!showEyeOpen"
+            ></app-svg-eye-close>
+            <app-svg-eye-open
+              width="20px"
+              height="20px"
+              fill="red"
+              *ngIf="showEyeOpen"
+            ></app-svg-eye-open>
+          </div>
+        </div>
+        <div class="container-span-and-svg">
+          <span
+            class="span-color-grey"
+            [ngClass]="{
+              'span-color-red':
+                !atLestOneLowercaseCharacter && alreadyTypePassword,
+              'span-color-green':
+                atLestOneLowercaseCharacter && alreadyTypePassword,
+              'span-color-grey': !alreadyTypePassword
+            }"
+            >Pelo menos um caracter minúsculo</span
+          >
+          <app-svg-check
+            width="14px"
+            height="14px"
+            fill="green"
+            *ngIf="atLestOneLowercaseCharacter && alreadyTypePassword"
+          ></app-svg-check>
+          <app-svg-exit
+            width="14px"
+            height="14px"
+            fill="red"
+            *ngIf="!atLestOneLowercaseCharacter && alreadyTypePassword"
+          ></app-svg-exit>
+        </div>
+        <div class="container-span-and-svg">
+          <span
+            class="span-color-grey"
+            [ngClass]="{
+              'span-color-red':
+                !atLestOneUppercaseCharacter && alreadyTypePassword,
+              'span-color-green':
+                atLestOneUppercaseCharacter && alreadyTypePassword,
+              'span-color-grey': !alreadyTypePassword
+            }"
+            >Pelo menos um caracter maiúsculo</span
+          >
+          <app-svg-check
+            width="14px"
+            height="14px"
+            fill="green"
+            *ngIf="atLestOneUppercaseCharacter && alreadyTypePassword"
+          ></app-svg-check>
+          <app-svg-exit
+            width="14px"
+            height="14px"
+            fill="red"
+            *ngIf="!atLestOneUppercaseCharacter && alreadyTypePassword"
+          ></app-svg-exit>
+        </div>
+        <div class="container-span-and-svg">
+          <span
+            class="span-color-grey"
+            [ngClass]="{
+              'span-color-red':
+                !haveEightSixteenCharacters && alreadyTypePassword,
+              'span-color-green':
+                haveEightSixteenCharacters && alreadyTypePassword,
+              'span-color-grey': !alreadyTypePassword
+            }"
+            >8-16 caracteres</span
+          >
+          <app-svg-check
+            width="14px"
+            height="14px"
+            fill="green"
+            *ngIf="haveEightSixteenCharacters && alreadyTypePassword"
+          ></app-svg-check>
+          <app-svg-exit
+            width="14px"
+            height="14px"
+            fill="red"
+            *ngIf="!haveEightSixteenCharacters && alreadyTypePassword"
+          ></app-svg-exit>
+        </div>
+        <div class="container-span-and-svg">
+          <span
+            class="span-color-grey"
+            [ngClass]="{
+              'span-color-red': !onlyLettersCommon && alreadyTypePassword,
+              'span-color-green': onlyLettersCommon && alreadyTypePassword,
+              'span-color-grey': !alreadyTypePassword
+            }"
+            >Apenas letras números e pontuação comum podem ser utilizados</span
+          >
+          <app-svg-check
+            width="14px"
+            height="14px"
+            fill="green"
+            *ngIf="onlyLettersCommon && alreadyTypePassword"
+          ></app-svg-check>
+          <app-svg-exit
+            width="14px"
+            height="14px"
+            fill="red"
+            *ngIf="!onlyLettersCommon && alreadyTypePassword"
+          ></app-svg-exit>
+        </div>
+      </div>
+      <div class="container-button-next">
+        <button (click)="clickRegister()" class="button-register">
+          CADASTRAR
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

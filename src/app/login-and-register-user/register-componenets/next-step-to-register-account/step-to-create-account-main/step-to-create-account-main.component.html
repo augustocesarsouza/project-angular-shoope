@@ -29,8 +29,11 @@
     </div>
   </div>
   <app-first-step-create-account
-    *ngIf="whatStepIsNow"
+    *ngIf="whatStepIsNow === 1"
   ></app-first-step-create-account>
+  <app-second-step-create-account
+    *ngIf="whatStepIsNow === 2"
+  ></app-second-step-create-account>
 
   <!-- {whatStepIsNow === 2 && (
   <SecondStepCreateAccount

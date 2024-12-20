@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-second-step-create-account',
-  templateUrl: './second-step-create-account.component.html',
-  styleUrl: './second-step-create-account.component.scss'
+  selector: 'app-step-to-create-account-main',
+  templateUrl: './step-to-create-account-main.component.html',
+  styleUrl: './step-to-create-account-main.component.scss'
 })
-export class SecondStepCreateAccountComponent {
-  whatStepIsNow: number = 1;
+export class StepToCreateAccountMainComponent {
+  whatStepIsNow: number = 2;
 
   containerFirstStep!: HTMLElement;
   containerSecondStep!: HTMLElement;
@@ -90,6 +90,7 @@ export class SecondStepCreateAccountComponent {
     (this.containerFirstBall[whichBallNumber].lastChild as HTMLElement).style.color = 'rgba(0,0,0,.26)';
   }
 }
+
 
 // background-color: ${props => props.$colorgreen ? "#38af3c" : "#fff"};
 // border: ${props => props.$colorgreen ? "none" : "1px solid rgba(0,0,0,.26)"};
