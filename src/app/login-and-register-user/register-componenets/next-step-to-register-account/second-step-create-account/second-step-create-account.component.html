@@ -1,0 +1,44 @@
+<div class="container-step-one-main">
+  <div class="container-header-create-account">
+    <div class="container-first-ball">
+      <div class="container-first-step">
+        <span>1</span>
+      </div>
+      <span>Verifique número de telefone</span>
+    </div>
+    <div class="container-arrow"></div>
+    <div class="container-first-ball">
+      <div class="container-second-step" (click)="ClickContainerSecondStep()">
+        <span>2</span>
+      </div>
+      <span>Criar senha</span>
+    </div>
+    <div class="container-arrow"></div>
+    <div class="container-first-ball">
+      <div
+        class="container-last-one-step"
+        (click)="ClickContainerLastOneStep()"
+      >
+        <app-svg-check
+          width="14px"
+          height="14px"
+          fill="rgba(0,0,0,.26)"
+        ></app-svg-check>
+      </div>
+      <span>Concluído</span>
+    </div>
+  </div>
+  <app-first-step-create-account
+    *ngIf="whatStepIsNow"
+  ></app-first-step-create-account>
+
+  <!-- {whatStepIsNow === 2 && (
+  <SecondStepCreateAccount
+    changeValueWhatStepIsNow="{changeValueWhatStepIsNow}"
+  ></SecondStepCreateAccount>
+  )} {whatStepIsNow === 3 && (
+  <ThirdStepCreateAccount
+    numberToCreateAccount="{numberToCreateAccount}"
+  ></ThirdStepCreateAccount>
+  )} -->
+</div>

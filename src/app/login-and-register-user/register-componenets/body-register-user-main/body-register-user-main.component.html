@@ -1,4 +1,4 @@
-<div class="container-body-main">
+<div class="container-body-main" *ngIf="!clickNextStepRegister">
   <div class="container-middle-body">
     <div class="container-login-register-main">
       <div class="container-login-register">
@@ -51,3 +51,6 @@
     </div>
   </div>
 </div>
+<app-second-step-create-account
+  *ngIf="clickNextStepRegister"
+></app-second-step-create-account>

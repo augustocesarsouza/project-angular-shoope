@@ -14,6 +14,10 @@ import { DownloadAppShopeeComponent } from './footer-components/download-app-sho
 import { RightsShopeeComponent } from './footer-components/rights-shopee/rights-shopee.component';
 import { RegisterMainComponent } from './register-componenets/register-main/register-main.component';
 import { BodyRegisterUserMainComponent } from './register-componenets/body-register-user-main/body-register-user-main.component';
+import { FirstStepCreateAccountComponent } from './register-componenets/next-step-to-register-account/first-step-create-account/first-step-create-account.component';
+import { SecondStepCreateAccountComponent } from './register-componenets/next-step-to-register-account/second-step-create-account/second-step-create-account.component';
+import { ThirdStepCreateAccountComponent } from './register-componenets/next-step-to-register-account/third-step-create-account/third-step-create-account.component';
+import { StepToCreateAccountComponent } from './register-componenets/next-step-to-register-account/step-to-create-account/step-to-create-account.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +33,10 @@ import { BodyRegisterUserMainComponent } from './register-componenets/body-regis
     RightsShopeeComponent,
     RegisterMainComponent,
     BodyRegisterUserMainComponent,
+    FirstStepCreateAccountComponent,
+    SecondStepCreateAccountComponent,
+    ThirdStepCreateAccountComponent,
+    StepToCreateAccountComponent,
   ],
   imports: [
     CommonModule,

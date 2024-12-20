@@ -10,13 +10,14 @@ import { SvgShoopeComponent } from './svg-shoope/svg-shoope.component';
 import { SvgUserWithoutImgComponent } from './svg-user-without-img/svg-user-without-img.component';
 import { SvgEyeCloseComponent } from './svg-eye-close/svg-eye-close.component';
 import { SvgEyeOpenComponent } from './svg-eye-open/svg-eye-open.component';
+import { SvgCheckComponent } from './svg-check/svg-check.component';
 
 @NgModule({
   imports: [
     CommonModule
   ],
-  declarations: [SvgArrowComponent, SvgCartComponent, SvgHelpComponent, SvgLanguageComponent, SvgLoupeComponent, SvgNotificationComponent, SvgShoopeComponent, SvgUserWithoutImgComponent, SvgEyeCloseComponent, SvgEyeOpenComponent],
-  exports: [SvgArrowComponent, SvgCartComponent, SvgHelpComponent, SvgLanguageComponent, SvgLoupeComponent, SvgNotificationComponent, SvgShoopeComponent, SvgUserWithoutImgComponent, SvgEyeCloseComponent, SvgEyeOpenComponent]
+  declarations: [SvgArrowComponent, SvgCartComponent, SvgHelpComponent, SvgLanguageComponent, SvgLoupeComponent, SvgNotificationComponent, SvgShoopeComponent, SvgUserWithoutImgComponent, SvgEyeCloseComponent, SvgEyeOpenComponent, SvgCheckComponent],
+  exports: [SvgArrowComponent, SvgCartComponent, SvgHelpComponent, SvgLanguageComponent, SvgLoupeComponent, SvgNotificationComponent, SvgShoopeComponent, SvgUserWithoutImgComponent, SvgEyeCloseComponent, SvgEyeOpenComponent, SvgCheckComponent]
 
 })
 export class AllSvgModule { }

@@ -10,10 +10,15 @@ import Inputmask from 'inputmask';
 export class BodyRegisterUserMainComponent {
   buttonNext!: HTMLElement | null;
   canClickButtonNext: boolean = false;
+  clickNextStepRegister: boolean = true;
 
   constructor(private router: Router){}
 
   ngOnInit(): void {
+
+  }
+
+  ngAfterViewInit():void {
     if(typeof document === "undefined" || document === null) return;
 
     let inputNumberPhone = document.getElementById('input-number-phone');
@@ -55,13 +60,10 @@ export class BodyRegisterUserMainComponent {
   clickNextButton(): void {
     if(!this.canClickButtonNext) return;
 
-    console.log("clickNextButton");
-
+    this.clickNextStepRegister = true;
   }
 
   clickEntry(): void{
-    console.log("opkeviopjsdviop");
-
     // this.router.navigate(['/movie', movie.id]);
     this.router.navigate(['/buyer/login']);
   }

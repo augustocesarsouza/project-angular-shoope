@@ -16,7 +16,9 @@ export class BodyLoginMainComponent {
 
   constructor(private router: Router){}
 
-  ngOnInit(): void {
+  ngOnInit(): void { }
+
+  ngAfterViewInit(): void {
     if(typeof document === "undefined" || document === null) return;
 
     let inputCepNewAddress = document.getElementById('input-number-name-user-email');
