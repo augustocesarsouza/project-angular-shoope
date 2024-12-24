@@ -6,11 +6,7 @@ import { Component, Input } from '@angular/core';
   styleUrl: './svg-user-without-img.component.scss'
 })
 export class SvgUserWithoutImgComponent {
-  @Input() width: string = '10px';
-  @Input() height: string = '10px';
-  @Input() fill: string = 'white';
-
-  constructor(){
-
-  }
+  @Input() width = '10px';
+  @Input() height = '10px';
+  @Input() fill = 'white';
 }

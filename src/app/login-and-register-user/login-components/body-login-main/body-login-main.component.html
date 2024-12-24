@@ -12,11 +12,12 @@
           </Styled.H1>
         </div>
         )} -->
-        <div class="container-input">
+        <form class="container-input">
           <input
             type="text"
             placeholder="Número de telefone/Nome do usuário/Email"
             id="input-number-name-user-email"
+            autocomplete="off"
             (input)="onInputPhoneEmailName($event)"
           />
           <input
@@ -39,7 +40,7 @@
             *ngIf="showEyeOpen"
             (click)="onClickEyeOpenAndClose(false)"
           ></app-svg-eye-open>
-        </div>
+        </form>
         <div class="container-button-spans-or-white-line">
           <button id="button-enter" (click)="onClickEnter()">ENTRE</button>
           <div class="container-span">

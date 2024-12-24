@@ -102,6 +102,10 @@
 
   >span {
     font-size: 14px;
+
+    &:hover {
+      color: #c9c9c9;
+    }
   }
 }
 

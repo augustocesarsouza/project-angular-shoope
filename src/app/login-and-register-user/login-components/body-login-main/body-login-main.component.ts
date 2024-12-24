@@ -21,7 +21,7 @@ interface UserDTOProps {
 @Component({
   selector: 'app-body-login-main',
   templateUrl: './body-login-main.component.html',
-  styleUrl: './body-login-main.component.scss'
+  styleUrl: './body-login-main.component.scss',
 })
 export class BodyLoginMainComponent implements AfterViewInit {
   showEyeOpen = false;
@@ -70,9 +70,18 @@ export class BodyLoginMainComponent implements AfterViewInit {
   onInputPhoneEmailName(event: Event): void {
     if(this.buttonEnter === null) return;
 
-    const inputValue = (event.target as HTMLInputElement).value;
+    const target = event.target as HTMLInputElement;
 
-    if (inputValue) {
+    if (!target) {
+      console.warn("Target do evento está indefinido.");
+      return;
+    }
+
+    const inputValue = target?.value || '';
+
+    if(inputValue === null || inputValue === undefined) return;
+
+    if (inputValue.length > 0) {
       this.inputNumberHasValue = true;
       this.inputValuePhone = inputValue;
 
@@ -89,6 +98,7 @@ export class BodyLoginMainComponent implements AfterViewInit {
   }
 
   onInputPassword(event: Event): void {
+    event.preventDefault();
     if(this.buttonEnter === null) return;
 
     const inputValue = (event.target as HTMLInputElement).value;
@@ -114,6 +124,7 @@ export class BodyLoginMainComponent implements AfterViewInit {
 
     const inputPassword = this.inputPassword as HTMLInputElement;
     const password = inputPassword.value;
+
 
     this.userService.login(this.inputValuePhone, password).subscribe({
       next: (success: unknown) => {

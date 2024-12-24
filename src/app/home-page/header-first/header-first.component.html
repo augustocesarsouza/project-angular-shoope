@@ -44,14 +44,14 @@
           class="container-svg-header-second"
           (mouseenter)="onMouseEnterNameUser()"
           (mouseleave)="onMouseLeaveNameUser()"
-          *ngIf="userLoggedIn"
+          *ngIf="userLogged"
         >
           <app-svg-user-without-img
             width="16px"
             height="16px"
             fill="none"
           ></app-svg-user-without-img>
-          <span>e_2n0wqb10</span>
+          <span>{{ userLogged.name }}</span>
         </div>
         <div class="container-span-register-enter" *ngIf="!userLoggedIn">
           <button (click)="clickRegisterUser()">Cadastrar</button>

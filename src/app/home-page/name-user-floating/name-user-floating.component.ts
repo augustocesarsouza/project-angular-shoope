@@ -24,4 +24,18 @@ export class NameUserFloatingComponent {
   onMouseEnterArrowTopFloating(){
     this.clearNameUserTimeout();
   }
+
+  clickMyAccount(){
+    this.router.navigate(['/user/account']);
+  }
+
+  clickExitUser(){
+
+    if(typeof window !== "undefined"){
+      localStorage.removeItem("user");
+    }
+
+    this.router.navigate(['/buyer/login']);
+    // window.location.reload();
+  }
 }

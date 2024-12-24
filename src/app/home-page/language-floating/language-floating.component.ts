@@ -10,8 +10,6 @@ export class LanguageFloatingComponent {
   @Input() clearLanguageTimeout!: () => void;
   @Input() showContainerLenguage!: boolean;
 
-  constructor(){}
-
   onMouseEnterLanguageFloating(){
     this.handleShowContainerLenguage(true);
   }

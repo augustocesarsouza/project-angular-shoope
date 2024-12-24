@@ -1,0 +1,160 @@
+<div class="container-main-nav">
+  <app-home></app-home>
+
+  <div class="container-account-user-main">
+    <div class="container-account-user">
+      <div class="container-account-user-2">
+        <div class="container-user-name-img">
+          <div class="container-img-user">
+            <app-svg-user-without-img width="50px" height="50px"></app-svg-user-without-img>
+          </div>
+          <div class="container-user-name">
+            <h1>{{ userObjState?.name }}</h1>
+            <div class="container-edit-perfil-and-svg">
+              <svg viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M8.54 0L6.987 1.56l3.46 3.48L12 3.48M0 8.52l.073 3.428L3.46 12l6.21-6.18-3.46-3.48"
+                  fill="#9B9B9B"
+                  fillRule="evenodd"
+                ></path>
+              </svg>
+              <span>Editar Perfil</span>
+            </div>
+          </div>
+        </div>
+        <div class="container-info-profile-user">
+          <div class="container-my-account-main">
+            <div class="container-my-account">
+              <img
+                src="https://res.cloudinary.com/dyqsqg7pk/image/upload/v1725970368/img-shopee/ba61750a46794d8847c3f463c5e71cc4_o0oy1n.png"
+                alt="img-user"
+              />
+              <span>Minha Conta</span>
+            </div>
+            <div class="container-itens-my-account" #containerItensMyAccount>
+              <span
+                #mySpan
+                (click)="onClickMyAccountItens('1')"
+                (keydown.enter)="onClickMyAccountItens('1')"
+                tabindex="0"
+                >Perfil</span
+              >
+              <span
+                #mySpan
+                (click)="onClickMyAccountItens('2')"
+                (keydown.enter)="onClickMyAccountItens('2')"
+                tabindex="0"
+                >Cartões / Contas Bancárias</span
+              >
+              <span
+                #mySpan
+                (click)="onClickMyAccountItens('3')"
+                (keydown.enter)="onClickMyAccountItens('3')"
+                tabindex="0"
+                >Endereços</span
+              >
+              <span
+                #mySpan
+                (click)="onClickMyAccountItens('4')"
+                (keydown.enter)="onClickMyAccountItens('4')"
+                tabindex="0"
+                >Trocar Senha</span
+              >
+              <span
+                #mySpan
+                (click)="onClickMyAccountItens('5')"
+                (keydown.enter)="onClickMyAccountItens('5')"
+                tabindex="0"
+                >Preferências De Cookies</span
+              >
+              <span
+                #mySpan
+                (click)="onClickMyAccountItens('6')"
+                (keydown.enter)="onClickMyAccountItens('6')"
+                tabindex="0"
+                >Configurações De Privacidade</span
+              >
+            </div>
+          </div>
+          <div class="container-my-account-main">
+            <div class="container-my-account">
+              <img
+                src="https://res.cloudinary.com/dyqsqg7pk/image/upload/v1725977015/img-shopee/f0049e9df4e536bc3e7f140d071e9078_cn64xw.png"
+                alt="img-my-purchases"
+              />
+              <span>Minhas Compras</span>
+            </div>
+          </div>
+
+          <div class="container-my-account-main">
+            <div class="container-my-account">
+              <img
+                src="https://res.cloudinary.com/dyqsqg7pk/image/upload/v1725977158/img-shopee/e10a43b53ec8605f4829da5618e0717c_q1x07z.png"
+                alt="img-notifications"
+              />
+              <span>Notificações</span>
+            </div>
+            <div class="container-itens-my-account" #containerItensMyAccount>
+              <span
+                #mySpan
+                (click)="onClickMyAccountItens('7')"
+                (keydown.enter)="onClickMyAccountItens('7')"
+                tabindex="0"
+                >atualizações de pedidos</span
+              >
+              <span
+                #mySpan
+                (click)="onClickMyAccountItens('8')"
+                (keydown.enter)="onClickMyAccountItens('8')"
+                tabindex="0"
+                >promoções</span
+              >
+              <span
+                #mySpan
+                (click)="onClickMyAccountItens('9')"
+                (keydown.enter)="onClickMyAccountItens('9')"
+                tabindex="0"
+                >atualizações de carteira</span
+              >
+              <span
+                #mySpan
+                (click)="onClickMyAccountItens('10')"
+                (keydown.enter)="onClickMyAccountItens('10')"
+                tabindex="0"
+                >Atualizações da Shopee</span
+              >
+            </div>
+          </div>
+          <div class="container-my-account-main">
+            <div class="container-my-account">
+              <img
+                src="https://res.cloudinary.com/dyqsqg7pk/image/upload/v1725977225/img-shopee/84feaa363ce325071c0a66d3c9a88748_zet2uo.png"
+                alt="img-my-coupons"
+              />
+              <span>Meus Cupons</span>
+            </div>
+          </div>
+          <div class="container-my-account-main">
+            <div class="container-my-account">
+              <img
+                src="https://res.cloudinary.com/dyqsqg7pk/image/upload/v1725977292/img-shopee/a0ef4bd8e16e481b4253bd0eb563f784_tbrttv.png"
+                alt="img-my-couns-shopee"
+              />
+              <span>Minhas moedas Shopee</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
+
+<!-- <div class="container-main">
+  <div class="container-perfil-main">
+    <div class="container-only-perfil">
+      <h1>Meu Perfil</h1>
+      <span>Gerenciar e proteger sua conta</span>
+    </div>
+  </div>
+</div> -->

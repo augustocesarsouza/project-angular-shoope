@@ -157,11 +157,12 @@
     color: #00000073;
   }
 
-  >a {
+  >button {
     text-decoration: none;
     color: rgb(238, 77, 45);
-    font-weight: 500;
+    font-weight: 600;
     cursor: pointer;
+    border: none;
   }
 }
 

@@ -18,6 +18,7 @@ import { SecondStepCreateAccountComponent } from './register-componenets/next-st
 import { ThirdStepCreateAccountComponent } from './register-componenets/next-step-to-register-account/step-to-create-account/third-step-create-account/third-step-create-account.component';
 import { StepToCreateAccountMainComponent } from './register-componenets/next-step-to-register-account/step-to-create-account-main/step-to-create-account-main.component';
 import { BodyRegisterUserMainComponent } from './register-componenets/body-register-user-main/body-register-user-main.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { BodyRegisterUserMainComponent } from './register-componenets/body-regis
   imports: [
     CommonModule,
     LoginAndRegisterUserRoutingModule,
-    AllSvgModule
+    AllSvgModule,
+    FormsModule
   ]
 })
 export class LoginUserModule { }

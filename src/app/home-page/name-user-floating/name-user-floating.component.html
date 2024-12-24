@@ -11,7 +11,9 @@
       />
     </svg>
   </div>
-  <span>Minha Conta</span>
+  <span (click)="clickMyAccount()" (keydown.enter)="clickMyAccount()" tabindex="0"
+    >Minha Conta</span
+  >
   <span>Minha Compras</span>
-  <span>Sair</span>
+  <span (click)="clickExitUser()" (keydown.enter)="clickExitUser()" tabindex="0">Sair</span>
 </div>

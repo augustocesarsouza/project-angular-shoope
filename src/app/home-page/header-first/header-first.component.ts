@@ -1,5 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
+import { User } from '../../login-and-register-user/interface/user';
+import { UserLocalStorage } from '../../login-and-register-user/user-function/get-user-local-storage/user-local-storage';
 
 @Component({
   selector: 'app-header-first',
@@ -13,6 +15,7 @@ export class HeaderFirstComponent implements OnInit, OnDestroy {
   showContainerNameUser = false;
 
   userLoggedIn = false;
+  userLogged: User | null = null;
 
   settimeOutAny!: NodeJS.Timeout;
   settimeOutNotification!: NodeJS.Timeout;
@@ -23,6 +26,15 @@ export class HeaderFirstComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+
+    const decryptedData = UserLocalStorage();
+
+    if(!decryptedData.isNullUserLocalStorage){
+      this.userLoggedIn = true;
+      this.userLogged = decryptedData.user;
+    }
+
+
     this.handleShowContainerChange = this.handleShowContainerChange.bind(this);
     this.handleShowContainerNotification = this.handleShowContainerNotification.bind(this);
     this.handleShowContainerLenguage = this.handleShowContainerLenguage.bind(this);

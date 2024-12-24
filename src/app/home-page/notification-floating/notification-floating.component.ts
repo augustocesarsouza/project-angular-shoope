@@ -10,8 +10,6 @@ export class NotificationFloatingComponent {
   @Input() clearNotificationTimeout!: () => void;
   @Input() showContainerNotification!: boolean;
 
-  constructor(){}
-
   onMouseEnterNotificationFloating(){
     this.handleShowContainerNotification(true);
   }
