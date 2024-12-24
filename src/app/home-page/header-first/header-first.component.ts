@@ -1,22 +1,25 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header-first',
   templateUrl: './header-first.component.html',
   styleUrl: './header-first.component.scss'
 })
-export class HeaderFirstComponent {
+export class HeaderFirstComponent implements OnInit, OnDestroy {
   showContainerDownloadAppFloating = false;
   showContainerNotification = false;
   showContainerLenguage = false;
   showContainerNameUser = false;
 
-  settimeOutAny: any
-  settimeOutNotification: any
-  settimeOutLanguage: any
-  settimeOutNameUser: any
+  userLoggedIn = false;
 
-  constructor(){
+  settimeOutAny!: NodeJS.Timeout;
+  settimeOutNotification!: NodeJS.Timeout;
+  settimeOutLanguage!: NodeJS.Timeout;
+  settimeOutNameUser!: NodeJS.Timeout;
+
+  constructor(private router: Router){
   }
 
   ngOnInit(): void {
@@ -145,6 +148,14 @@ export class HeaderFirstComponent {
     if (this.settimeOutNameUser) {
       clearTimeout(this.settimeOutNameUser);
     }
+  }
+
+  clickEnterUser(){
+    this.router.navigate(['/buyer/login']);
+  }
+
+  clickRegisterUser(){
+    this.router.navigate(['/buyer/register']);
   }
 
   ngOnDestroy(): void {

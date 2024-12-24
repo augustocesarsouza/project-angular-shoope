@@ -1,37 +1,50 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, AfterViewInit, OnDestroy } from '@angular/core';
+import { ObjCodeUserPhoneToRegisterAccountService } from '../../../../service/obj-code-user-phone-to-register-account.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-first-step-create-account',
   templateUrl: './first-step-create-account.component.html',
   styleUrl: './first-step-create-account.component.scss'
 })
-export class FirstStepCreateAccountComponent {
+export class FirstStepCreateAccountComponent implements AfterViewInit, OnDestroy {
   @Input() changeValueStepIsNow!: (value: number) => void;
   @Input() valueNumberPhoneCreate!: string;
   allInputs!: NodeListOf<HTMLInputElement>;
   buttonNext!: HTMLInputElement;
+  private SubscriptionAll: Subscription[] = [];
 
-  valueInputPhoneOne: string = '';
-  valueInputPhoneTwo: string = '';
-  valueInputPhoneThree: string = '';
-  valueInputPhoneFour: string = '';
-  valueInputPhoneFive: string = '';
-  valueInputPhoneSix: string = '';
+  valueInputPhoneOne = '';
+  valueInputPhoneTwo = '';
+  valueInputPhoneThree = '';
+  valueInputPhoneFour = '';
+  valueInputPhoneFive = '';
+  valueInputPhoneSix = '';
 
   allSixVerificationCodeIsComplet = false;
+  codeUserCreate: Record<string, string> = {};
+  codeFull = '';
+  codeIsWrong = false;
 
-  constructor(){}
+  constructor(private objCodeUserPhone: ObjCodeUserPhoneToRegisterAccountService){}
 
   ngAfterViewInit(): void {
     if(typeof document === "undefined" || document === null) return;
 
     this.allInputs = document.querySelectorAll('.input-celphone') as NodeListOf<HTMLInputElement>;
     this.buttonNext = document.querySelector('.button-next') as HTMLInputElement;
+
+    if(this.objCodeUserPhone.currentObjCode){
+      this.SubscriptionAll.push(this.objCodeUserPhone.objCode$.subscribe((objCode) => {
+        this.codeUserCreate = objCode;
+        console.log(this.codeUserCreate);
+
+      }));
+    }
   }
 
   clickInputVerificationCode = () => {
-    for (let i = 0; i < this.allInputs.length; i++) {
-      const input = this.allInputs[i];
+    for (const input of Array.from(this.allInputs)) {
 
       if (Number(input.value) === 0) {
         input.focus();
@@ -69,6 +82,13 @@ export class FirstStepCreateAccountComponent {
         break;
     }
 
+    let codeFull = "";
+    for (const input of Array.from(this.allInputs)) {
+      codeFull += input.value;
+    }
+
+    this.codeFull = codeFull;
+
     if (input.value.length === 1 && index < this.allInputs.length - 1) {
       this.allInputs[index + 1].focus();
     }
@@ -78,7 +98,7 @@ export class FirstStepCreateAccountComponent {
 
   keyDownVerificationCode = (e: Event, index: number) => {
     const input = e.target as HTMLInputElement;
-    let event = e as KeyboardEvent;
+    const event = e as KeyboardEvent;
 
     if (event.code === 'Backspace' && index > 0) {
       if (input.value.length === 1) {
@@ -113,6 +133,7 @@ export class FirstStepCreateAccountComponent {
 
       let quantityNumberInput = 0;
 
+
       this.allInputs.forEach((el) => {
         if(Number(el.value)){
           quantityNumberInput += 1;
@@ -125,6 +146,12 @@ export class FirstStepCreateAccountComponent {
         this.buttonNext.style.opacity = "0.7";
       }
 
+      let codeFull = "";
+      for (const input of Array.from(this.allInputs)) {
+        codeFull += input.value;
+      }
+
+      this.codeFull = codeFull;
       e.preventDefault();
     }
   };
@@ -155,8 +182,12 @@ export class FirstStepCreateAccountComponent {
       numberRandom += code;
     }
 
-    console.log(numberRandom);
+    const phoneNumber = this.valueNumberPhoneCreate.replace(/\s+/g, '').replace(/_/g, '').trim();
 
+    this.codeUserCreate[phoneNumber] = numberRandom;
+
+    this.objCodeUserPhone.updateobjCode(this.codeUserCreate);
+    this.codeIsWrong = false;
 
     // setCodeUserCreate((code) => {
     //   return { ...code, [numberPhone]: numberRandom };
@@ -180,7 +211,24 @@ export class FirstStepCreateAccountComponent {
   clickNextStep() {
     if(!this.allSixVerificationCodeIsComplet) return;
 
-    this.changeValueStepIsNow(2);
+    const phoneUser = this.valueNumberPhoneCreate.replace(/\s+/g, '').replace(/_/g, '').trim();
+
+    const containerYourCode = document.querySelector(".container-your-code-was-send-sms-main") as HTMLElement;
+
+    if(this.codeUserCreate[phoneUser] === this.codeFull){
+      this.codeIsWrong = false;
+      this.changeValueStepIsNow(2);
+    }else {
+      this.codeIsWrong = true;
+      containerYourCode.style.paddingTop = "20px";
+    }
   }
 
+  ngOnDestroy(): void {
+    if (this.SubscriptionAll.length > 0) {
+      this.SubscriptionAll.forEach((el) => {
+        el.unsubscribe();
+      })
+    }
+  }
 }

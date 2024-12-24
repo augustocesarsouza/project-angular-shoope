@@ -12,9 +12,9 @@
       >
       <div class="container-follow-us">
         <span>Siga-nos no</span>
-        <a href="#"></a>
-        <a href="#"></a>
-        <a href="#"></a>
+        <a href="#" aria-label="Link para o Instagram"></a>
+        <a href="#" aria-label="Link para o Twitter"></a>
+        <a href="#" aria-label="Link para o Tiktok"></a>
       </div>
     </div>
     <div class="container-second-nav">
@@ -24,11 +24,7 @@
           (mouseenter)="onMouseEnterNotification()"
           (mouseleave)="onMouseLeaveNotification()"
         >
-          <app-svg-notification
-            width="15px"
-            height="19px"
-            fill="#fff"
-          ></app-svg-notification>
+          <app-svg-notification width="15px" height="19px" fill="#fff"></app-svg-notification>
           <span>Notificações</span>
         </div>
         <div class="container-svg-header-second">
@@ -40,23 +36,15 @@
           (mouseenter)="onMouseEnterLanguage()"
           (mouseleave)="onMouseLeaveLanguage()"
         >
-          <app-svg-language
-            width="19px"
-            height="19px"
-            fill="none"
-          ></app-svg-language>
+          <app-svg-language width="19px" height="19px" fill="none"></app-svg-language>
           <span>Português - BR</span>
-          <app-svg-arrow
-            width="13px"
-            height="13px"
-            fill="none"
-            rotate="rotate(0)"
-          ></app-svg-arrow>
+          <app-svg-arrow width="13px" height="13px" fill="none" rotate="rotate(0)"></app-svg-arrow>
         </div>
         <div
           class="container-svg-header-second"
           (mouseenter)="onMouseEnterNameUser()"
           (mouseleave)="onMouseLeaveNameUser()"
+          *ngIf="userLoggedIn"
         >
           <app-svg-user-without-img
             width="16px"
@@ -64,6 +52,11 @@
             fill="none"
           ></app-svg-user-without-img>
           <span>e_2n0wqb10</span>
+        </div>
+        <div class="container-span-register-enter" *ngIf="!userLoggedIn">
+          <button (click)="clickRegisterUser()">Cadastrar</button>
+          <span>|</span>
+          <button (click)="clickEnterUser()">Enter</button>
         </div>
       </div>
     </div>

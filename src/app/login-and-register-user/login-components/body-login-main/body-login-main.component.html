@@ -69,7 +69,7 @@
         <div class="container-new-in-the-shopee">
           <span>Novo na Shopee?</span>
           <!-- <a onClick={() => onClickRegister()}>Cadastrar</a> -->
-          <a (click)="clickRegister()">Cadastrar</a>
+          <a (click)="clickRegister()" (keydown.enter)="clickRegister()" tabindex="0">Cadastrar</a>
         </div>
       </div>
     </div>

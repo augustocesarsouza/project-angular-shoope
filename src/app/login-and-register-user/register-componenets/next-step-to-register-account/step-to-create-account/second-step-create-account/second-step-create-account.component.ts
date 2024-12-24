@@ -1,4 +1,6 @@
 import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
+import { UserService } from '../../../../service/user.service';
 
 @Component({
   selector: 'app-second-step-create-account',
@@ -7,6 +9,7 @@ import { Component, Input } from '@angular/core';
 })
 export class SecondStepCreateAccountComponent {
   @Input() changeValueStepIsNow!: (value: number) => void;
+  @Input() valueNumberPhoneCreate!: string;
   showEyeOpen = false;
   alreadyTypePassword = false;
 
@@ -14,8 +17,11 @@ export class SecondStepCreateAccountComponent {
   haveEightSixteenCharacters = false;
   atLestOneUppercaseCharacter = false;
   atLestOneLowercaseCharacter = false;
+  passwordChosen = "";
 
-  constructor(){}
+  constructor(private router: Router, private userService: UserService){
+
+  }
 
   clickBackToStepOne(){
     this.changeValueStepIsNow(1);
@@ -40,8 +46,8 @@ export class SecondStepCreateAccountComponent {
       this.haveEightSixteenCharacters = false;
     }
 
-    let oneLetterUpperCase = new RegExp(/[A-Z]/);
-    let oneLetterLowerCase = new RegExp(/[a-z]/);
+    const oneLetterUpperCase = new RegExp(/[A-Z]/);
+    const oneLetterLowerCase = new RegExp(/[a-z]/);
 
     if (oneLetterUpperCase.test(input.value)) {
       this.atLestOneUppercaseCharacter = true;
@@ -55,7 +61,9 @@ export class SecondStepCreateAccountComponent {
       this.atLestOneLowercaseCharacter = false;
     }
 
-    let buttonRegister = document.querySelector('.button-register') as HTMLElement;
+    this.passwordChosen = input.value;
+
+    const buttonRegister = document.querySelector('.button-register') as HTMLElement;
 
     if (buttonRegister === null) return;
 
@@ -91,12 +99,51 @@ export class SecondStepCreateAccountComponent {
     }
   }
 
-  clickRegister(){
+   clickRegister(){
     if(this.onlyLettersCommon &&
       this.haveEightSixteenCharacters &&
       this.atLestOneUppercaseCharacter &&
       this.atLestOneLowercaseCharacter){
-        this.changeValueStepIsNow(3);
-      }
+
+      const objCreate = {
+        phone: this.valueNumberPhoneCreate,
+        password: this.passwordChosen,
+      };
+
+      this.userService.createAccount(objCreate).subscribe({
+        next: (success: unknown) => {
+          console.log(success);
+          this.changeValueStepIsNow(3);
+        },
+        error: error => {
+          if(error.status === 400){
+            console.log(error);
+
+            // this.confirmEmail = false;
+          }
+        }
+      });
+
+      // const resp = await fetch(`${environment.angularUrlBackend}/public/user/create`, {
+      //   method: 'POST',
+      //   headers: {
+      //     'Content-Type': 'application/json',
+      //   },
+      //   body: JSON.stringify(objCreate),
+      // });
+
+      // if (resp.status === 200) {
+      //   await resp.json();
+
+      //   // localStorage.setItem('user', encrypted);
+      //   // this.router.navigate(['/']);
+      //   this.changeValueStepIsNow(3);
+      //   // localStorage.setItem('user', JSON.stringify(data));
+      //   // nav('/');
+      //   // changeValueWhatStepIsNow(3);
+      // } else if (resp.status === 400) {
+      //   // setShowStepToContinueCreateAccount(false);
+      // }
+    }
   }
 }

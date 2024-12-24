@@ -1,13 +1,14 @@
 <div class="container-type-code-verification">
   <div class="container-type-code">
     <div class="container-svg-arrow">
-      <app-svg-arrow-register
-        width="25px"
-        height="25px"
-        fill="#ee4d2d"
-      ></app-svg-arrow-register>
+      <app-svg-arrow-register width="25px" height="25px" fill="#ee4d2d"></app-svg-arrow-register>
     </div>
     <span>Digite o código de verificação</span>
+  </div>
+
+  <div class="code-is-wrong" *ngIf="codeIsWrong">
+    <app-code-is-wrong-x width="17px" height="17px" fill="red"></app-code-is-wrong-x>
+    <span>Código de verificação inválido. </span>
   </div>
   <div class="container-your-code-was-send-sms-main">
     <div class="container-your-code-was-send-sms">
@@ -94,22 +95,6 @@
         <div class="container-button-next">
           <button class="button-next" (click)="clickNextStep()">PRÓXIMO</button>
         </div>
-
-        <!-- {codeTypeIsWrong && (
-          <Styled.ContainerCodeIsWrong>
-            <Styled.H1>Código digitado errado</Styled.H1>
-          </Styled.ContainerCodeIsWrong>
-        )}
-        {!showSendCodeAgain && (
-          <Styled.ContainerTimePass>
-            <Styled.H1>{`Aguarde ${timeValue} segundos para reenviar`}</Styled.H1>
-          </Styled.ContainerTimePass>
-        )}
-        <Styled.ContainerButtonNext>
-          <Styled.Button ref={refButtonNext} onClick={() => onClickNextStep()}>
-            PRÓXIMO
-          </Styled.Button>
-        </Styled.ContainerButtonNext> -->
       </div>
     </div>
   </div>

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, HostBinding, Input } from '@angular/core';
 
 @Component({
   selector: 'app-svg-check',
@@ -6,10 +6,12 @@ import { Component, Input } from '@angular/core';
   styleUrl: './svg-check.component.scss'
 })
 export class SvgCheckComponent {
-  @Input() width: string = '10px';
-  @Input() height: string = '10px';
-  @Input() fill: string = 'red';
+  @Input() width = '10px';
+  @Input() height = '10px';
+  @Input() fill = 'red';
+  @Input() display = 'flex';
 
-  constructor(){
+  @HostBinding('style.display') get hostDisplay() {
+    return this.display;
   }
 }

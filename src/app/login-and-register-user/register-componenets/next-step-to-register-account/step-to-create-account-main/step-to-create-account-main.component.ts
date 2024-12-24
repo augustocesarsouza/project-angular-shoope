@@ -1,13 +1,14 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, AfterViewInit } from '@angular/core';
 
 @Component({
   selector: 'app-step-to-create-account-main',
   templateUrl: './step-to-create-account-main.component.html',
   styleUrl: './step-to-create-account-main.component.scss'
 })
-export class StepToCreateAccountMainComponent {
+export class StepToCreateAccountMainComponent implements AfterViewInit {
   @Input() valueNumberPhoneCreate!: string;
-  whatStepIsNow: number = 1;
+
+  whatStepIsNow = 1;
 
   containerFirstStep!: HTMLElement;
   containerSecondStep!: HTMLElement;
@@ -15,20 +16,18 @@ export class StepToCreateAccountMainComponent {
 
   containerFirstBall!: NodeListOf<HTMLElement>;
 
-  constructor(){}
-
   ngAfterViewInit(): void {
     if(typeof document === "undefined" || document === null) return;
 
-    let containerFirstStep = document.querySelector('.container-first-step') as HTMLElement;
-    let containerSecondStep = document.querySelector('.container-second-step') as HTMLElement;
-    let containerLastOneStep = document.querySelector('.container-last-one-step') as HTMLElement;
+    const containerFirstStep = document.querySelector('.container-first-step') as HTMLElement;
+    const containerSecondStep = document.querySelector('.container-second-step') as HTMLElement;
+    const containerLastOneStep = document.querySelector('.container-last-one-step') as HTMLElement;
 
     this.containerFirstStep = containerFirstStep;
     this.containerSecondStep = containerSecondStep;
     this.containerLastOneStep = containerLastOneStep;
 
-    let containerFirstBall = document.querySelectorAll('.container-first-ball') as NodeListOf<HTMLElement>;
+    const containerFirstBall = document.querySelectorAll('.container-first-ball') as NodeListOf<HTMLElement>;
     this.containerFirstBall = containerFirstBall;
 
     if(this.whatStepIsNow === 1){
@@ -58,22 +57,22 @@ export class StepToCreateAccountMainComponent {
     containerStep.style.backgroundColor = '#38af3c';
     containerStep.style.border = 'none';
 
-    let firstChild = containerStep.firstChild as HTMLElement;
+    const firstChild = containerStep.firstChild as HTMLElement;
 
     firstChild.style.color = '#fff';
 
     if(whichBallNumber === 0 || whichBallNumber === 1){
 
-      let firstChild2 = this.containerLastOneStep.firstChild as HTMLElement;
+      const firstChild2 = this.containerLastOneStep.firstChild as HTMLElement;
 
-      let svgElement = firstChild2.firstChild;
+      const svgElement = firstChild2.firstChild;
 
       if (svgElement instanceof SVGSVGElement) {
         svgElement.style.fill = 'rgba(0,0,0,.26)';
       }
     }
 
-    let svgElement = firstChild.firstChild;
+    const svgElement = firstChild.firstChild;
 
     if (svgElement instanceof SVGSVGElement) {
       svgElement.style.fill = '#fff';
@@ -86,7 +85,7 @@ export class StepToCreateAccountMainComponent {
     containerStep.style.backgroundColor = '#fff';
     containerStep.style.border = '1px solid rgba(0,0,0,.26)';
 
-    let firstChild = containerStep.firstChild as HTMLElement;
+    const firstChild = containerStep.firstChild as HTMLElement;
 
     firstChild.style.color = 'rgba(0,0,0,.26)';
 

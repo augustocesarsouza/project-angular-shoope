@@ -1,35 +1,50 @@
-import { Component } from '@angular/core';
+import { Component, AfterViewInit } from '@angular/core';
 import { Router } from '@angular/router';
 import Inputmask from 'inputmask';
+import CryptoJS from 'crypto-js';
+import { UserService } from '../../service/user.service';
+import { environment } from '../../../../environments/environment';
+
+interface PropsLogin {
+  data: {
+    passwordIsCorrect: true
+    userDTO: UserDTOProps;
+  }
+}
+
+interface UserDTOProps {
+  id: string;
+  name: string;
+  token: string;
+}
 
 @Component({
   selector: 'app-body-login-main',
   templateUrl: './body-login-main.component.html',
   styleUrl: './body-login-main.component.scss'
 })
-export class BodyLoginMainComponent {
-  showEyeOpen: boolean = false;
+export class BodyLoginMainComponent implements AfterViewInit {
+  showEyeOpen = false;
   inputPassword!: HTMLElement | null;
   buttonEnter!: HTMLElement | null;
-  inputNumberHasValue: boolean = false;
-  inputPasswordHasValue: boolean = false;
+  inputNumberHasValue = false;
+  inputPasswordHasValue = false;
+  inputValuePhone = "";
 
-  constructor(private router: Router){}
-
-  ngOnInit(): void { }
+  constructor(private router: Router, private userService: UserService){}
 
   ngAfterViewInit(): void {
     if(typeof document === "undefined" || document === null) return;
 
-    let inputCepNewAddress = document.getElementById('input-number-name-user-email');
-    let inputPassword = document.getElementById('input-password');
-    let buttonEnter = document.getElementById('button-enter');
+    const inputCepNewAddress = document.getElementById('input-number-name-user-email');
+    const inputPassword = document.getElementById('input-password');
+    const buttonEnter = document.getElementById('button-enter');
     this.buttonEnter = buttonEnter;
 
     this.inputPassword = inputPassword;
 
     if(inputCepNewAddress){
-      let mask = Inputmask({
+      const mask = Inputmask({
         mask: '(+99) 99 99999 9999',
         placeholder: '(+__) __ _____ ____',
         insertMode: true, // Ensure the mask does not insert mode to avoid jumping characters
@@ -59,6 +74,7 @@ export class BodyLoginMainComponent {
 
     if (inputValue) {
       this.inputNumberHasValue = true;
+      this.inputValuePhone = inputValue;
 
       if(this.inputPasswordHasValue){
         this.buttonEnter.style.background = '#ee4d2d';
@@ -93,10 +109,32 @@ export class BodyLoginMainComponent {
     }
   }
 
-  onClickEnter(): void {
+  async  onClickEnter(): Promise<Promise<void>> {
     if(!this.inputNumberHasValue || !this.inputPasswordHasValue) return;
 
-    console.log("onClickEnter");
+    const inputPassword = this.inputPassword as HTMLInputElement;
+    const password = inputPassword.value;
+
+    this.userService.login(this.inputValuePhone, password).subscribe({
+      next: (success: unknown) => {
+        const value = success as PropsLogin;
+        const data = value.data;
+
+        const secretKey = environment.angularAppSecretKeyUser;
+
+        const encrypted = CryptoJS.AES.encrypt(JSON.stringify(data.userDTO), secretKey).toString();
+
+        localStorage.setItem('user', encrypted);
+        this.router.navigate(['/']);
+      },
+      error: (error) => {
+        if(error.status === 400){
+          console.log(error);
+
+          // this.confirmEmail = false;
+        }
+      }
+    });
   }
 
   clickRegister(): void {

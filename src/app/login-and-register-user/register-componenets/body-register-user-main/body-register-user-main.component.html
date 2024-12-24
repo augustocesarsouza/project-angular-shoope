@@ -13,11 +13,8 @@
 
           <!-- {showSvgOkPhoneRight && <SvgAllRight></SvgAllRight>} -->
         </div>
-        <div
-          class="container-button-spans-or-white-line"
-          (click)="clickNextButton()"
-        >
-          <button id="button-next">PRÓXIMO</button>
+        <div class="container-button-spans-or-white-line">
+          <button id="button-next" (click)="clickNextButton()">PRÓXIMO</button>
         </div>
         <div class="container-lines-and-span-or">
           <span class="span-line-white"></span>
@@ -45,7 +42,7 @@
         <div class="container-new-in-the-shopee">
           <span>Tem uma Conta?</span>
           <!-- <a onClick={() => onClickLoggin()}>Entre</a> -->
-          <a (click)="clickEntry()">Entre</a>
+          <button (click)="clickEntry()">Entre</button>
         </div>
       </div>
     </div>

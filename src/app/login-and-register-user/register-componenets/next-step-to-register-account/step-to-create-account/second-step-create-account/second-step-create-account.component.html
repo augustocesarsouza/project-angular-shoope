@@ -1,10 +1,11 @@
 <div class="container-type-code-verification">
   <div class="container-type-code">
-    <div class="container-svg-arrow" (click)="clickBackToStepOne()">
+    <div class="container-svg-arrow">
       <app-svg-arrow-register
         width="25px"
         height="25px"
         fill="#ee4d2d"
+        (click)="clickBackToStepOne()"
       ></app-svg-arrow-register>
     </div>
     <span>Defina sua senha</span>
@@ -21,17 +22,19 @@
             (input)="changeInputPassword($event)"
             #input
           />
-          <div class="container-svg-eye" (click)="clickEye(input)">
+          <div class="container-svg-eye">
             <app-svg-eye-close
               width="20px"
               height="20px"
               fill="red"
+              (click)="clickEye(input)"
               *ngIf="!showEyeOpen"
             ></app-svg-eye-close>
             <app-svg-eye-open
               width="20px"
               height="20px"
               fill="red"
+              (click)="clickEye(input)"
               *ngIf="showEyeOpen"
             ></app-svg-eye-open>
           </div>
@@ -40,11 +43,9 @@
           <span
             class="span-color-grey"
             [ngClass]="{
-              'span-color-red':
-                !atLestOneLowercaseCharacter && alreadyTypePassword,
-              'span-color-green':
-                atLestOneLowercaseCharacter && alreadyTypePassword,
-              'span-color-grey': !alreadyTypePassword
+              'span-color-red': !atLestOneLowercaseCharacter && alreadyTypePassword,
+              'span-color-green': atLestOneLowercaseCharacter && alreadyTypePassword,
+              'span-color-grey': !alreadyTypePassword,
             }"
             >Pelo menos um caracter minúsculo</span
           >
@@ -52,6 +53,7 @@
             width="14px"
             height="14px"
             fill="green"
+            display="auto"
             *ngIf="atLestOneLowercaseCharacter && alreadyTypePassword"
           ></app-svg-check>
           <app-svg-exit
@@ -65,11 +67,9 @@
           <span
             class="span-color-grey"
             [ngClass]="{
-              'span-color-red':
-                !atLestOneUppercaseCharacter && alreadyTypePassword,
-              'span-color-green':
-                atLestOneUppercaseCharacter && alreadyTypePassword,
-              'span-color-grey': !alreadyTypePassword
+              'span-color-red': !atLestOneUppercaseCharacter && alreadyTypePassword,
+              'span-color-green': atLestOneUppercaseCharacter && alreadyTypePassword,
+              'span-color-grey': !alreadyTypePassword,
             }"
             >Pelo menos um caracter maiúsculo</span
           >
@@ -77,6 +77,7 @@
             width="14px"
             height="14px"
             fill="green"
+            display="auto"
             *ngIf="atLestOneUppercaseCharacter && alreadyTypePassword"
           ></app-svg-check>
           <app-svg-exit
@@ -90,11 +91,9 @@
           <span
             class="span-color-grey"
             [ngClass]="{
-              'span-color-red':
-                !haveEightSixteenCharacters && alreadyTypePassword,
-              'span-color-green':
-                haveEightSixteenCharacters && alreadyTypePassword,
-              'span-color-grey': !alreadyTypePassword
+              'span-color-red': !haveEightSixteenCharacters && alreadyTypePassword,
+              'span-color-green': haveEightSixteenCharacters && alreadyTypePassword,
+              'span-color-grey': !alreadyTypePassword,
             }"
             >8-16 caracteres</span
           >
@@ -102,6 +101,7 @@
             width="14px"
             height="14px"
             fill="green"
+            display="auto"
             *ngIf="haveEightSixteenCharacters && alreadyTypePassword"
           ></app-svg-check>
           <app-svg-exit
@@ -117,7 +117,7 @@
             [ngClass]="{
               'span-color-red': !onlyLettersCommon && alreadyTypePassword,
               'span-color-green': onlyLettersCommon && alreadyTypePassword,
-              'span-color-grey': !alreadyTypePassword
+              'span-color-grey': !alreadyTypePassword,
             }"
             >Apenas letras números e pontuação comum podem ser utilizados</span
           >
@@ -125,6 +125,7 @@
             width="14px"
             height="14px"
             fill="green"
+            display="block"
             *ngIf="onlyLettersCommon && alreadyTypePassword"
           ></app-svg-check>
           <app-svg-exit
@@ -136,9 +137,7 @@
         </div>
       </div>
       <div class="container-button-next">
-        <button (click)="clickRegister()" class="button-register">
-          CADASTRAR
-        </button>
+        <button (click)="clickRegister()" class="button-register">CADASTRAR</button>
       </div>
     </div>
   </div>

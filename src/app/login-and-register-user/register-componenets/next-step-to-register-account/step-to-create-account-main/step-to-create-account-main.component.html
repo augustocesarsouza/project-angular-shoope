@@ -8,22 +8,17 @@
     </div>
     <div class="container-arrow"></div>
     <div class="container-first-ball">
-      <div class="container-second-step" (click)="ClickContainerSecondStep()">
+      <!-- (click)="ClickContainerSecondStep()" -->
+      <div class="container-second-step">
         <span>2</span>
       </div>
       <span>Criar senha</span>
     </div>
     <div class="container-arrow"></div>
     <div class="container-first-ball">
-      <div
-        class="container-last-one-step"
-        (click)="ClickContainerLastOneStep()"
-      >
-        <app-svg-check
-          width="14px"
-          height="14px"
-          fill="rgba(0,0,0,.26)"
-        ></app-svg-check>
+      <!-- (click)="ClickContainerLastOneStep()" -->
+      <div class="container-last-one-step">
+        <app-svg-check width="14px" height="14px" fill="rgba(0,0,0,.26)"></app-svg-check>
       </div>
       <span>Concluído</span>
     </div>
@@ -35,6 +30,7 @@
   ></app-first-step-create-account>
   <app-second-step-create-account
     [changeValueStepIsNow]="changeValueStepIsNow"
+    [valueNumberPhoneCreate]="valueNumberPhoneCreate"
     *ngIf="whatStepIsNow === 2"
   ></app-second-step-create-account>
   <app-third-step-create-account
