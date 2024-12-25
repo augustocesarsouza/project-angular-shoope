@@ -34,8 +34,13 @@ export class ProfileComponent implements OnInit, AfterViewInit {
         el.nativeElement.style.display = "flex";
 
       }
+    });
 
-    })
+    this.spans.forEach((span, index) => {
+      if(index === 0){
+        span.nativeElement.style.color = "#ee4d2d";
+      }
+    });
   }
 
   onClickMyAccountItens = (number: string) => {
@@ -48,15 +53,7 @@ export class ProfileComponent implements OnInit, AfterViewInit {
     const spanNumber = Number(number);
 
     if (number === '1') {
-      this.spans.forEach((span, index) => {
-        if(spanNumber === index + 1){
-          // span.nativeElement.classList.add('active');
-          span.nativeElement.style.color = "red";
-
-        }else {
-          span.nativeElement.style.color = "rgba(0, 0, 0, 0.65)";
-        }
-      });
+      this.changeSpanColor(spanNumber);
 
       if (this.userObjState) {
         // nav('/user/account/profile', { state: { user: this.userObjState } });
@@ -65,39 +62,21 @@ export class ProfileComponent implements OnInit, AfterViewInit {
     }
 
     if (number === '2') {
-      this.spans.forEach((span, index) => {
-        if(spanNumber === index + 1){
-          span.nativeElement.style.color = "red";
-        }else {
-          span.nativeElement.style.color = "rgba(0, 0, 0, 0.65)";
-        }
-      });
+      this.changeSpanColor(spanNumber);
 
       // nav('/user/account/payment', { state: { user: userObjState } });
       this.router.navigate(['/user/account/payment' , { state: { userObj } }]);
     }
 
     if (number === '3') {
-      this.spans.forEach((span, index) => {
-        if(spanNumber === index + 1){
-          span.nativeElement.style.color = "red";
-        }else {
-          span.nativeElement.style.color = "rgba(0, 0, 0, 0.65)";
-        }
-      });
+      this.changeSpanColor(spanNumber);
 
       // nav('/user/account/address', { state: { user: userObjState } });
       this.router.navigate(['/user/account/address' , { state: { userObj } }]);
     }
 
     if (number === '4') {
-      this.spans.forEach((span, index) => {
-        if(spanNumber === index + 1){
-          span.nativeElement.style.color = "red";
-        }else {
-          span.nativeElement.style.color = "rgba(0, 0, 0, 0.65)";
-        }
-      });
+      this.changeSpanColor(spanNumber);
 
       // nav('/user/account/password', { state: { user: userObjState } });
       // nav('/verify', { state: { user: userObjState } });
@@ -105,13 +84,7 @@ export class ProfileComponent implements OnInit, AfterViewInit {
     }
 
     if (number === '5') {
-      this.spans.forEach((span, index) => {
-        if(spanNumber === index + 1){
-          span.nativeElement.style.color = "red";
-        }else {
-          span.nativeElement.style.color = "rgba(0, 0, 0, 0.65)";
-        }
-      });
+      this.changeSpanColor(spanNumber);
 
       // nav('/user/account/password', { state: { user: userObjState } });
       // nav('/user/account/cookie', { state: { user: userObjState } });
@@ -119,13 +92,7 @@ export class ProfileComponent implements OnInit, AfterViewInit {
     }
 
     if (number === '6') {
-      this.spans.forEach((span, index) => {
-        if(spanNumber === index + 1){
-          span.nativeElement.style.color = "red";
-        }else {
-          span.nativeElement.style.color = "rgba(0, 0, 0, 0.65)";
-        }
-      });
+      this.changeSpanColor(spanNumber);
 
       // nav('/user/account/password', { state: { user: userObjState } });
       // nav('/user/setting/privacy', { state: { user: userObjState } });
@@ -148,4 +115,16 @@ export class ProfileComponent implements OnInit, AfterViewInit {
     //   nav('/user/notifications/shopee', { state: { user: userObjState } });
     // }
   };
+
+  changeSpanColor(spanNumber: number): void{
+    this.spans.forEach((span, index) => {
+      if(spanNumber === index + 1){
+        // span.nativeElement.classList.add('active');
+        span.nativeElement.style.color = "#ee4d2d";
+
+      }else {
+        span.nativeElement.style.color = "rgba(0, 0, 0, 0.65)";
+      }
+    });
+  }
 }

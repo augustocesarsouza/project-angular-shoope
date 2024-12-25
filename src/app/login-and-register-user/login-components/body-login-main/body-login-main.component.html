@@ -3,15 +3,11 @@
     <div class="container-login-register-main">
       <div class="container-login-register">
         <h1>Entre</h1>
-        <!-- {!passwordIsCorrect && (
-        <div class="container-erro-login">
-          <SvgFailAuthentication></SvgFailAuthentication>
-          <Styled.H1>
-            Falha de autenticação. Tente novamente mais tarde ou use outro
-            método de autenticação
-          </Styled.H1>
+
+        <div class="container-erro-login" *ngIf="someInfoIsWrong">
+          <app-svg-exit width="17px" height="17px"></app-svg-exit>
+          <h1>Sua conta e/ou senha estão incorretas, tente novamente</h1>
         </div>
-        )} -->
         <form class="container-input">
           <input
             type="text"

@@ -6,11 +6,7 @@ import { Component, Input } from '@angular/core';
   styleUrl: './svg-exit.component.scss'
 })
 export class SvgExitComponent {
-  @Input() width: string = '10px';
-  @Input() height: string = '10px';
-  @Input() fill: string = 'white';
-
-  constructor(){
-
-  }
+  @Input() width = '10px';
+  @Input() height = '10px';
+  @Input() fill = 'white';
 }

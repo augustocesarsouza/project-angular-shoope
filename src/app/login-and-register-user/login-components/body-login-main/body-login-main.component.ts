@@ -7,8 +7,9 @@ import { environment } from '../../../../environments/environment';
 
 interface PropsLogin {
   data: {
-    passwordIsCorrect: true
+    passwordIsCorrect: true;
     userDTO: UserDTOProps;
+    message: string;
   }
 }
 
@@ -30,6 +31,7 @@ export class BodyLoginMainComponent implements AfterViewInit {
   inputNumberHasValue = false;
   inputPasswordHasValue = false;
   inputValuePhone = "";
+  someInfoIsWrong = false;
 
   constructor(private router: Router, private userService: UserService){}
 
@@ -122,9 +124,13 @@ export class BodyLoginMainComponent implements AfterViewInit {
   async  onClickEnter(): Promise<Promise<void>> {
     if(!this.inputNumberHasValue || !this.inputPasswordHasValue) return;
 
+    this.someInfoIsWrong = false;
+
     const inputPassword = this.inputPassword as HTMLInputElement;
     const password = inputPassword.value;
 
+    const containerLoginRegister = document.querySelector(".container-login-register") as HTMLElement;
+    containerLoginRegister.style.height = "470px";
 
     this.userService.login(this.inputValuePhone, password).subscribe({
       next: (success: unknown) => {
@@ -140,7 +146,13 @@ export class BodyLoginMainComponent implements AfterViewInit {
       },
       error: (error) => {
         if(error.status === 400){
-          console.log(error);
+          const dataLogin = error.error as PropsLogin;
+          const login = dataLogin.data;
+
+          setTimeout(() => {
+            containerLoginRegister.style.height = "535px";
+            this.someInfoIsWrong = !login.passwordIsCorrect;
+          }, 1000);
 
           // this.confirmEmail = false;
         }

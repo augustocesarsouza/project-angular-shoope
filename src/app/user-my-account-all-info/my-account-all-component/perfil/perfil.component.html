@@ -1,3 +1,138 @@
 <div class="container-main-perfil">
-  <p>perfil works!</p>
+  <div class="container-perfil-main">
+    <div class="container-only-perfil">
+      <h1>Meu perfil</h1>
+      <span>Gerenciar e proteger sua conta</span>
+    </div>
+
+    <div class="container-my-perfil-info">
+      <form>
+        <table>
+          <tbody>
+            <tr>
+              <td class="td-main">
+                <label for="username">Nome de usuário</label>
+              </td>
+              <td class="td-second">
+                <div class="container-only-input-name-user">
+                  <input type="text" placeholder="Nome de usuário" />
+                  <span>Nome do usuário pode ser alterado apenas uma vez.</span>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td class="td-main-second">
+                <label for="name">Nome</label>
+              </td>
+              <td class="td-second">
+                <div class="container-only-input-name-user">
+                  <input type="text" placeholder="Nome" />
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td class="td-main-second">
+                <label for="name">Email</label>
+              </td>
+              <td class="td-second">
+                <div class="container-link-insert">
+                  <span *ngIf="showChangeEmailLink">{{ emailUser }}</span>
+                  <a href="#" *ngIf="!showChangeEmailLink" (click)="onClickInsertEmail()"
+                    >Inserir</a
+                  >
+                  <a href="#" *ngIf="showChangeEmailLink" (click)="onClickChangeEmail()">Trocar</a>
+                </div>
+              </td>
+            </tr>
+
+            <tr>
+              <td class="td-main-second">
+                <label for="name">Número de telefone</label>
+              </td>
+              <td class="td-second">
+                <div class="container-link-insert">
+                  <div *ngIf="phoneToShowUser.length > 0">{{ phoneToShowUser }}</div>
+                  <div href="#" *ngIf="phoneToShowUser.length <= 0">***********23</div>
+                  <a href="#" *ngIf="phoneToShowUser.length > 0" (click)="onClickChangePhone()"
+                    >Trocar</a
+                  >
+                  <a href="#" *ngIf="phoneToShowUser.length <= 0">Inserir</a>
+                </div>
+              </td>
+            </tr>
+
+            <tr>
+              <td class="td-main-second">
+                <label for="gender">Sexo</label>
+              </td>
+              <td class="td-second">
+                <div class="container-main-inputs">
+                  <div class="container-inputs">
+                    <div
+                      class="input-checkbox"
+                      (click)="clickChooseGender('m')"
+                      (keydown.enter)="clickChooseGender('m')"
+                      tabindex="0"
+                      #inputCheckbox
+                    >
+                      <div class="check-box"></div>
+                    </div>
+                    <span>masculino</span>
+                  </div>
+                  <div class="container-inputs">
+                    <div
+                      class="input-checkbox"
+                      (click)="clickChooseGender('f')"
+                      (keydown.enter)="clickChooseGender('f')"
+                      tabindex="0"
+                      #inputCheckbox
+                    >
+                      <div class="check-box"></div>
+                    </div>
+                    <span>feminino</span>
+                  </div>
+                  <div class="container-inputs">
+                    <div
+                      class="input-checkbox"
+                      (click)="clickChooseGender('o')"
+                      (keydown.enter)="clickChooseGender('o')"
+                      tabindex="0"
+                      #inputCheckbox
+                    >
+                      <div class="check-box"></div>
+                    </div>
+                    <span>Outros</span>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td class="td-main-second">
+                <label for="gender">CPF/Data de nascimento</label>
+              </td>
+              <td class="td-second">
+                <div class="container-cel-phone">
+                  <span *ngIf="cpf !== null">{{ cpf }}</span>
+                  <a href="#" *ngIf="cpf === null" (click)="onClickFillCpfBirthdate()"
+                    >Preencher agora</a
+                  >
+                  <a href="#" *ngIf="cpf !== null" (click)="onClickFillCpfBirthdate()">Alterar</a>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td class="td-main-second">
+                <label for="#"></label>
+              </td>
+              <td class="td-second">
+                <div class="container-button-save">
+                  <button (click)="onClickSavePefil()">Gravar</button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </form>
+    </div>
+  </div>
 </div>
