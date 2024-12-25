@@ -6,7 +6,7 @@
 .container-perfil-main{
   display: flex;
   flex-direction: column;
-  width: 70%;
+  width: 100%;
 }
 
 .container-only-perfil{
@@ -25,10 +25,10 @@
 
 .container-my-perfil-info {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
 
   >form {
-    width: 602px;
+    width: 65%;
 
     >table {
       width: 100%;
@@ -103,6 +103,10 @@
   >a {
     border-bottom: 1px solid rgb(0, 85, 170);
     cursor: pointer;
+
+    &:hover {
+      text-decoration: none;
+    }
   }
 }
 
@@ -181,4 +185,47 @@
       background-color: #ee4d2ded;
     }
   }
+}
+
+.container-select-image{
+  display: flex;
+  flex-direction: column;
+  // justify-content: center;
+  padding-top: 40px;
+  align-items: center;
+
+  >button {
+    border: 1px solid #00000014;
+    padding: 10px 15px;
+    border-radius: 3px;
+    color: #000000a1;
+    cursor: pointer;
+    margin-bottom: 15px;
+    width: 70%;
+  }
+
+  >svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.container-img-user{
+  background-color: #a5a5a538;
+  border-radius: 50%;
+  margin-right: 5px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.container-span-info-about-select-image{
+  display: flex;
+  flex-direction: column;
+
+  font-size: 15px;
+  font-weight: 400;
+  color: rgb(153, 153, 153);
 }

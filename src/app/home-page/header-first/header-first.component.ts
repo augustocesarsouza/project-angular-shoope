@@ -175,6 +175,5 @@ export class HeaderFirstComponent implements OnInit, OnDestroy {
     clearTimeout(this.settimeOutNotification);
     clearTimeout(this.settimeOutLanguage);
     clearTimeout(this.settimeOutNameUser);
-
   }
 }

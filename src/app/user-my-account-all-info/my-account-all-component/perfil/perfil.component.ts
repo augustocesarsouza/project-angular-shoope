@@ -1,20 +1,28 @@
-import { Component, ElementRef, OnInit, QueryList, ViewChildren } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit, QueryList, ViewChildren } from '@angular/core';
 import { User } from '../../../login-and-register-user/interface/user';
 import { UserLocalStorage } from '../../../login-and-register-user/user-function/get-user-local-storage/user-local-storage';
+import { UserService } from '../../../login-and-register-user/service/user.service';
 
 @Component({
   selector: 'app-perfil',
   templateUrl: './perfil.component.html',
   styleUrl: './perfil.component.scss'
 })
-export class PerfilComponent implements OnInit {
+export class PerfilComponent implements OnInit, AfterViewInit, OnDestroy {
   userObjState!: User | null;
   showChangeEmailLink = false;
+  nameUser = "";
   emailUser = "";
-  phoneToShowUser = "";
+  newPhoneUser = "";
   genderChooseByUser = "";
+  phoneToShowUser = "";
+  base64StringImage = "";
   cpf: string | null = null;
   @ViewChildren('inputCheckbox') inputCheckboxs!: QueryList<ElementRef<HTMLElement>>;
+
+  settimeOutGender!: NodeJS.Timeout;
+
+  constructor(private userService: UserService){}
 
   ngOnInit(): void {
     const userResult = UserLocalStorage();
@@ -24,12 +32,51 @@ export class PerfilComponent implements OnInit {
 
       if(user === null) return;
 
-      this.userObjState = user;
-
-      this.emailToShowToUserMyPerfil(user.email);
-      this.phoneToShowToUserMyPerfil(user);
-      this.cpfConfiguration(user);
+      this.findByIdOnly(user.id);
     }
+  }
+
+  ngAfterViewInit(): void {
+    console.log();
+  }
+
+  async findByIdOnly(userId: string){
+
+    this.userService.findByIdOnly(userId).subscribe({
+      next: (success) => {
+        const user: User = success.data;
+
+        this.userObjState = user;
+        this.nameUser = user.name;
+
+        this.newPhoneUser = user.phone;
+
+        if(user.gender){
+          this.genderChooseByUser = user.gender;
+        }
+
+        if(user.email){
+          this.emailUser = user.email;
+        }
+
+        this.emailToShowToUserMyPerfil(user.email);
+        this.phoneToShowToUserMyPerfil(user);
+        this.cpfConfiguration(user);
+
+
+        this.settimeOutGender = setTimeout(() => {
+          this.clickChooseGender(user.gender);
+        }, 10);
+      },
+      error: error => {
+        if(error.status === 400){
+          console.log(error);
+
+
+          // this.confirmEmail = false;
+        }
+      }
+    });
   }
 
   onClickInsertEmail = () => {
@@ -86,7 +133,6 @@ export class PerfilComponent implements OnInit {
       }
 
       // setEmailToShowUser(emailNew);
-
       this.phoneToShowUser = phoneNew;
     }
   }
@@ -96,7 +142,7 @@ export class PerfilComponent implements OnInit {
   };
 
   clickChooseGender(gender: string){
-    // const inputCheckbox = document.querySelector('.input-checkbox') as HTMLElement;
+    this.genderChooseByUser = gender;
 
     this.inputCheckboxs.forEach((el, index) => {
       el.nativeElement.style.border = "2px solid rgba(0, 0, 0, .26)";
@@ -118,8 +164,6 @@ export class PerfilComponent implements OnInit {
         elCheckBox.style.background = "#ee4d2d";
       }
     });
-
-    this.genderChooseByUser = gender;
     // background: ${props => props.$showCheckbox ? "#ee4d2d" : "none"};
     // border: 2px solid ${props => props.$showCheckbox ? "#ee4d2d" : "rgba(0, 0, 0, .26)"};
   }
@@ -158,8 +202,73 @@ export class PerfilComponent implements OnInit {
     // nav('/user/account/kyc', { state: { user: userObj } });
   }
 
-  onClickSavePefil(){
-    console.log();
+  onClickSavePefil(event: MouseEvent){
+    event.preventDefault();
+
+    if(this.userObjState === null) return;
+
+    const userUpdate = {
+      userId: this.userObjState.id,
+      name: this.nameUser,
+      email: this.emailUser,
+      gender: this.genderChooseByUser,
+      phone: this.newPhoneUser,
+      cpf: this.cpf,
+      birthDate: '',
+      base64StringImage: this.base64StringImage,
+    };
+
+    this.userService.updateUserAll(userUpdate).subscribe({
+      next: (success) => {
+        this.userObjState = success.data;
+      },
+      error: error => {
+        if(error.status === 400){
+          console.log(error);
+
+          // this.confirmEmail = false;
+        }
+      }
+    });
+  }
+
+  onClickButtonSelectionImage = () => {
+    const fileInput = document.createElement('input');
+    fileInput.type = 'file';
+    fileInput.accept = 'image/*';
+
+    fileInput.addEventListener('change', (e: Event) => {
+      const target = e.target as HTMLInputElement;
+
+      if (target.files === null || target.files.length <= 0) return;
+
+      const file = target.files[0];
+      const reader = new FileReader();
+
+      reader.readAsDataURL(file);
+
+      reader.onload = () => {
+        const base64String = reader.result as string;
+        this.base64StringImage = base64String;
+      };
+
+      reader.onerror = (error) => {
+        console.error('Erro ao ler o arquivo:', error);
+      };
+    });
+
+    fileInput.click();
+  };
+
+  changeInputName(e: Event){
+    const input = e.target as HTMLInputElement;
+
+    if(input.value.length > 0){
+      this.nameUser = input.value;
+    }
+  }
+
+  ngOnDestroy(): void {
+    clearTimeout(this.settimeOutGender);
   }
 }
-

@@ -1,4 +1,4 @@
-<div class="container-main-perfil">
+<div class="container-main-perfil" *ngIf="this.userObjState">
   <div class="container-perfil-main">
     <div class="container-only-perfil">
       <h1>Meu perfil</h1>
@@ -15,11 +15,17 @@
               </td>
               <td class="td-second">
                 <div class="container-only-input-name-user">
-                  <input type="text" placeholder="Nome de usuário" />
+                  <input
+                    type="text"
+                    placeholder="Nome de usuário"
+                    [value]="this.userObjState.name"
+                    (input)="changeInputName($event)"
+                  />
                   <span>Nome do usuário pode ser alterado apenas uma vez.</span>
                 </div>
               </td>
             </tr>
+
             <tr>
               <td class="td-main-second">
                 <label for="name">Nome</label>
@@ -30,6 +36,7 @@
                 </div>
               </td>
             </tr>
+
             <tr>
               <td class="td-main-second">
                 <label for="name">Email</label>
@@ -37,10 +44,20 @@
               <td class="td-second">
                 <div class="container-link-insert">
                   <span *ngIf="showChangeEmailLink">{{ emailUser }}</span>
-                  <a href="#" *ngIf="!showChangeEmailLink" (click)="onClickInsertEmail()"
+                  <a
+                    *ngIf="!showChangeEmailLink"
+                    (click)="onClickInsertEmail()"
+                    (keydown.enter)="onClickInsertEmail()"
+                    tabindex="0"
                     >Inserir</a
                   >
-                  <a href="#" *ngIf="showChangeEmailLink" (click)="onClickChangeEmail()">Trocar</a>
+                  <a
+                    *ngIf="showChangeEmailLink"
+                    (click)="onClickChangeEmail()"
+                    (keydown.enter)="onClickChangeEmail()"
+                    tabindex="0"
+                    >Trocar</a
+                  >
                 </div>
               </td>
             </tr>
@@ -52,11 +69,15 @@
               <td class="td-second">
                 <div class="container-link-insert">
                   <div *ngIf="phoneToShowUser.length > 0">{{ phoneToShowUser }}</div>
-                  <div href="#" *ngIf="phoneToShowUser.length <= 0">***********23</div>
-                  <a href="#" *ngIf="phoneToShowUser.length > 0" (click)="onClickChangePhone()"
+                  <!-- <div *ngIf="phoneToShowUser.length <= 0">***********23</div> -->
+                  <a
+                    *ngIf="phoneToShowUser.length > 0"
+                    (click)="onClickChangePhone()"
+                    (keydown.enter)="onClickChangePhone()"
+                    tabindex="0"
                     >Trocar</a
                   >
-                  <a href="#" *ngIf="phoneToShowUser.length <= 0">Inserir</a>
+                  <a *ngIf="phoneToShowUser.length <= 0">Inserir</a>
                 </div>
               </td>
             </tr>
@@ -113,10 +134,20 @@
               <td class="td-second">
                 <div class="container-cel-phone">
                   <span *ngIf="cpf !== null">{{ cpf }}</span>
-                  <a href="#" *ngIf="cpf === null" (click)="onClickFillCpfBirthdate()"
+                  <a
+                    *ngIf="cpf === null"
+                    (click)="onClickFillCpfBirthdate()"
+                    (keydown.enter)="onClickFillCpfBirthdate()"
+                    tabindex="0"
                     >Preencher agora</a
                   >
-                  <a href="#" *ngIf="cpf !== null" (click)="onClickFillCpfBirthdate()">Alterar</a>
+                  <a
+                    *ngIf="cpf !== null"
+                    (click)="onClickFillCpfBirthdate()"
+                    (keydown.enter)="onClickFillCpfBirthdate()"
+                    tabindex="0"
+                    >Alterar</a
+                  >
                 </div>
               </td>
             </tr>
@@ -126,13 +157,23 @@
               </td>
               <td class="td-second">
                 <div class="container-button-save">
-                  <button (click)="onClickSavePefil()">Gravar</button>
+                  <button (click)="onClickSavePefil($event)">Gravar</button>
                 </div>
               </td>
             </tr>
           </tbody>
         </table>
       </form>
+      <div class="container-select-image">
+        <div class="container-img-user">
+          <app-body-user width="60px" height="60px" color="#c6c6c6"></app-body-user>
+        </div>
+        <button (click)="onClickButtonSelectionImage()">Selecionar a Imagem</button>
+        <div class="container-span-info-about-select-image">
+          <span>Tamanho do arquivo: no máximo 1 MB</span>
+          <span>Extensão de arquivo: .JPEG, .PNG</span>
+        </div>
+      </div>
     </div>
   </div>
 </div>
