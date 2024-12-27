@@ -6,10 +6,7 @@ import { Component, Input } from '@angular/core';
   styleUrl: './svg-arrow-register.component.scss'
 })
 export class SvgArrowRegisterComponent {
-  @Input() width: string = '10px';
-  @Input() height: string = '10px';
-  @Input() fill: string = 'red';
-
-  constructor(){
-  }
+  @Input() width = '10px';
+  @Input() height = '10px';
+  @Input() fill = 'red';
 }

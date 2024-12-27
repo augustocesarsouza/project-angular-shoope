@@ -1,0 +1,48 @@
+<div class="container-show-insert-email-main">
+  <h1>Adicionar Endereço de E-mail</h1>
+  <div class="container-insert-email">
+    <label for="new-address-email">Novo Endereço de E-mail</label>
+    <div class="container-input-email-button-checkbox">
+      <div class="container-input-to-email-and-error-if-email-already-registered">
+        <div class="container-input-email">
+          <input
+            type="text"
+            placeholder="Insira seu Endereço de E-mail"
+            (input)="onChangeInputInsertEmail($event)"
+          />
+        </div>
+        <span *ngIf="emailAlreadyRegisteredAnotherAccount">O e-mail já foi registrado</span>
+        <span *ngIf="emailEqualEmailAlreadyRegisteredThisAccount"
+          >esse e-mail é o mesmo já registrado</span
+        >
+
+        <!-- <span *ngIf="emailAlreadyRegisteredAnotherAccount">O e-mail foi registrado</span> -->
+      </div>
+      <!-- <button
+        ref={RefButtonNext}
+        onClick={() => onClickSendCodeEmail()}
+        onMouseEnter={() => onMouseEnterButtonNext()}
+        onMouseLeave={() => onMouseLeaveButtonNext()}
+      >
+        Próximo
+      </button> -->
+      <button class="button-next" (click)="onClickSendCodeEmail()">Próximo</button>
+      <div class="container-checkbox-to-email-main">
+        <!-- <div
+        class="container-checkbox-to-email"
+          onClick={() => onClickCheckbox()}
+          $showCheckbox={showCheckbox}
+        ></div> -->
+        <div
+          class="container-checkbox-to-email"
+          (click)="onClickCheckbox()"
+          (keydown.enter)="onClickCheckbox()"
+          tabindex="0"
+        ></div>
+        <span (click)="onClickCheckbox()" (keydown.enter)="onClickCheckbox()" tabindex="0">
+          Envie-me notícias sobre as últimas atualizações, em alta e negócios.
+        </span>
+      </div>
+    </div>
+  </div>
+</div>

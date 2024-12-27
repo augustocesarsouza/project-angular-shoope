@@ -1,0 +1,121 @@
+<div class="container-type-code-verification-main">
+  <div class="container-verification-code-header-main">
+    <div class="container-verification-code-header">
+      <div class="container-img-shopee-span-verfication-code">
+        <div class="container-svg-shopee-div">
+          <app-svg-shoope width="150px" height="50px" fill="red"></app-svg-shoope>
+          <span>Código de Verificação</span>
+        </div>
+      </div>
+      <span>Precisa de ajuda?</span>
+    </div>
+  </div>
+  <div class="container-type-code-verification">
+    <div class="container-type-code">
+      <div
+        class="container-svg-arrow"
+        (click)="onClickBackStar()"
+        (keydown.enter)="onClickBackStar()"
+        tabindex="0"
+      >
+        <!-- <SvgArrowLeft></SvgArrowLeft> -->
+        <app-svg-arrow-register width="30px" height="30px" fill="#ee4d2d"></app-svg-arrow-register>
+      </div>
+      <span>Digite o código de verificação</span>
+    </div>
+    <!-- {codeTypeIsWrong && (
+      <Styled.ContainerInvalidCode>
+        <SvgExit></SvgExit>
+        <span>Código Inválido.</span>
+      </Styled.ContainerInvalidCode>
+    )} -->
+    <div class="container-your-code-was-wend-sms-main">
+      <div class="container-your-code-was-send-sms">
+        <span>Seu código de verificação é enviado por Email para</span>
+        <span class="span-phone">{{ emailThatWasSent }}</span>
+        <div class="container-input-code">
+          <input
+            class="input-celphone"
+            type="text"
+            maxlength="1"
+            placeholder="·"
+            autocomplete="off"
+            [value]="valueInputPhoneOne"
+            (click)="clickInputVerificationCode()"
+            (input)="changeInputVerificationCode($event, 0)"
+            (keydown)="keyDownVerificationCode($event, 0)"
+          />
+          <input
+            class="input-celphone"
+            type="text"
+            maxlength="1"
+            placeholder="·"
+            autoComplete="off"
+            [value]="valueInputPhoneTwo"
+            (click)="clickInputVerificationCode()"
+            (input)="changeInputVerificationCode($event, 1)"
+            (keydown)="keyDownVerificationCode($event, 1)"
+          />
+          <input
+            class="input-celphone"
+            type="text"
+            maxlength="1"
+            placeholder="·"
+            autoComplete="off"
+            [value]="valueInputPhoneThree"
+            (click)="clickInputVerificationCode()"
+            (input)="changeInputVerificationCode($event, 2)"
+            (keydown)="keyDownVerificationCode($event, 2)"
+          />
+          <input
+            class="input-celphone"
+            type="text"
+            maxlength="1"
+            placeholder="·"
+            autoComplete="off"
+            (click)="clickInputVerificationCode()"
+            [value]="valueInputPhoneFour"
+            (input)="changeInputVerificationCode($event, 3)"
+            (keydown)="keyDownVerificationCode($event, 3)"
+          />
+          <input
+            class="input-celphone"
+            type="text"
+            maxlength="1"
+            placeholder="·"
+            autoComplete="off"
+            [value]="valueInputPhoneFive"
+            (click)="clickInputVerificationCode()"
+            (input)="changeInputVerificationCode($event, 4)"
+            (keydown)="keyDownVerificationCode($event, 4)"
+          />
+          <input
+            class="input-celphone"
+            type="text"
+            maxlength="1"
+            placeholder="·"
+            autoComplete="off"
+            [value]="valueInputPhoneSix"
+            (click)="clickInputVerificationCode()"
+            (input)="changeInputVerificationCode($event, 5)"
+            (keydown)="keyDownVerificationCode($event, 5)"
+          />
+        </div>
+        <div class="container-split"></div>
+        <div class="container-did-not-receive-the-code-and-button-next">
+          <div class="container-did-not-receive-the-code">
+            <span>Não recebeu o código?</span>
+            <button (click)="onClickResendCode()">Reenviar</button>
+          </div>
+
+          <div class="container-button-next">
+            <button class="button-next" (click)="onClickNextStep()">PRÓXIMO</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- <FooterLoginAndRegister></FooterLoginAndRegister> -->
+  <app-footer-login-and-register></app-footer-login-and-register>
+</div>

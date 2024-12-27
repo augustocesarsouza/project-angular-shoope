@@ -1,15 +1,21 @@
+:host {
+  display: flex;
+  position: absolute;
+  right: 0px;
+  top: 28px;
+  z-index: 5;
+}
+
 .container-name-user-floating {
   display: flex;
   flex-direction: column;
-  position: absolute;
+
   width: 151px;
-  right: 25px;
-  top: 28px;
   background: #fff;
   padding: 10px 10px;
   border: 1px solid #00000024;
   gap: 15px;
-  z-index: 5;
+
 
   >span {
     font-size: 15px;
@@ -28,7 +34,7 @@
   width: 45px;
   height: 45px;
   position: absolute;
-  right: 50px;
+  right: 15px;
   top: -10px;
 
   >svg {

@@ -88,12 +88,12 @@
 .container-link-insert{
   display: flex;
   align-items: flex-end;
-  line-height: 1.2;
+  // line-height: 1.2;
   font-size: 15px;
+  line-height: 1;
 
   >div {
     margin-right: 5px;
-    line-height: 1;
   }
 
   >span {
@@ -219,6 +219,23 @@
   align-items: center;
   justify-content: center;
   margin-bottom: 20px;
+}
+
+.container-img-user-2{
+  // background-color: #a5a5a538;
+  border-radius: 50%;
+  margin-right: 5px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+
+  >img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+  }
 }
 
 .container-span-info-about-select-image{

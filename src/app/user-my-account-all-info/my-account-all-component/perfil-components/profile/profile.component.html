@@ -5,8 +5,11 @@
     <div class="container-account-user">
       <div class="container-account-user-2">
         <div class="container-user-name-img">
-          <div class="container-img-user">
+          <div class="container-img-user" *ngIf="userObjState && !userObjState.userImage">
             <app-svg-user-without-img width="50px" height="50px"></app-svg-user-without-img>
+          </div>
+          <div class="container-img-user-2" *ngIf="userObjState && userObjState.userImage">
+            <img src="{{ userObjState.userImage }}" alt="img-user" />
           </div>
           <div class="container-user-name">
             <h1>{{ userObjState?.name }}</h1>

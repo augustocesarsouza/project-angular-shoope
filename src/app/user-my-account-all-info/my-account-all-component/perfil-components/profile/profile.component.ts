@@ -1,7 +1,8 @@
 import { AfterViewInit, Component, ElementRef, OnInit, QueryList, ViewChildren } from '@angular/core';
-import { UserLocalStorage } from '../../../login-and-register-user/user-function/get-user-local-storage/user-local-storage';
-import { User } from '../../../login-and-register-user/interface/user';
+import { UserLocalStorage } from '../../../../login-and-register-user/user-function/get-user-local-storage/user-local-storage';
+import { User } from '../../../../login-and-register-user/interface/user';
 import { Router } from '@angular/router';
+import {  GetUserPerfilService } from '../../../../login-and-register-user/service/get-user-perfil.service';
 
 @Component({
   selector: 'app-profile',
@@ -13,8 +14,9 @@ export class ProfileComponent implements OnInit, AfterViewInit {
   whichWasClicked = "1";
   @ViewChildren('mySpan') spans!: QueryList<ElementRef<HTMLSpanElement>>;
   @ViewChildren('containerItensMyAccount') containerItensMyAccountAll!: QueryList<ElementRef<HTMLSpanElement>>;
+  imgUserPerfil = "";
 
-  constructor(private router: Router){
+  constructor(private router: Router, private getUserPerfilService: GetUserPerfilService){
   }
 
   ngOnInit(): void {
@@ -22,13 +24,18 @@ export class ProfileComponent implements OnInit, AfterViewInit {
 
     if(!userResult.isNullUserLocalStorage){
       const user = userResult.user;
+
       this.userObjState = user;
     }
+
+    setTimeout(() => {
+      this.getUserPerfilService.user$.subscribe((user) => {
+        this.userObjState = user;
+      });
+    }, 10);
   }
 
   ngAfterViewInit(): void {
-    //Called after ngAfterContentInit when the component's view has been initialized. Applies to components only.
-    //Add 'implements AfterViewInit' to the class.
     this.containerItensMyAccountAll.forEach((el, index) => {
       if(index === 0){
         el.nativeElement.style.display = "flex";
@@ -45,12 +52,14 @@ export class ProfileComponent implements OnInit, AfterViewInit {
 
   onClickMyAccountItens = (number: string) => {
     // setWhichWasClicked(number);
+    console.log("xfvbp´ldfbpko");
     this.whichWasClicked = number;
     const userObj = this.userObjState;
 
     if(userObj === null) return;
 
     const spanNumber = Number(number);
+
 
     if (number === '1') {
       this.changeSpanColor(spanNumber);

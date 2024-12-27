@@ -18,7 +18,7 @@ import { HomePageModule } from './home-page/home-page.module';
     FormsModule,
     HttpClientModule,
     AllSvgModule,
-    HomePageModule
+    HomePageModule,
   ],
   providers: [
     provideClientHydration()

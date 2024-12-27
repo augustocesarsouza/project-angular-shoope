@@ -1,0 +1,33 @@
+<div class="container-show-insert-phone-main">
+  <h1>Editar Número de Telefone</h1>
+  <div class="container-insert-phone">
+    <label for="new-phone-number">Novo Número de Telefone</label>
+    <div class="container-input-phone-button-checkbox">
+      <div class="container-input-to-phone-and-error-if-phone-already-registered">
+        <div class="container-input-phone">
+          <input
+            type="text"
+            placeholder=""
+            class="input-number-phone"
+            (input)="onInputPhoneEmailName($event)"
+          />
+        </div>
+        <!-- {emailAlreadyExist && <Styled.Span>O e-mail foi registrado</Styled.Span>} -->
+        <span *ngIf="phoneAlreadyRegistered"
+          >Você inseriu o seu número de telefone já cadastrado. Por favor, insira o seu novo número
+          de telefone.
+        </span>
+      </div>
+      <button
+        class="button-next"
+        (click)="onClickSendCodeEmail()"
+        (mouseenter)="onMouseEnterButtonNext()"
+        (mouseleave)="onMouseLeaveButtonNext()"
+      >
+        Próximo
+      </button>
+    </div>
+  </div>
+</div>
+<!-- onMouseEnter={() => onMouseEnterButtonNext()}
+onMouseLeave={() => onMouseLeaveButtonNext()} -->

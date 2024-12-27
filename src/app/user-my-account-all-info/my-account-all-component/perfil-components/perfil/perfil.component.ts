@@ -1,7 +1,18 @@
 import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit, QueryList, ViewChildren } from '@angular/core';
-import { User } from '../../../login-and-register-user/interface/user';
-import { UserLocalStorage } from '../../../login-and-register-user/user-function/get-user-local-storage/user-local-storage';
-import { UserService } from '../../../login-and-register-user/service/user.service';
+import { User } from '../../../../login-and-register-user/interface/user';
+import { UserLocalStorage } from '../../../../login-and-register-user/user-function/get-user-local-storage/user-local-storage';
+import { Router } from '@angular/router';
+import { GetUserPerfilService } from '../../../../login-and-register-user/service/get-user-perfil.service';
+import { environment } from '../../../../../environments/environment';
+import CryptoJS from 'crypto-js';
+import { UserService } from '../../../../login-and-register-user/service/user.service';
+
+interface UserToLocalStorage {
+  id: string;
+  name: string;
+  phone: string;
+  token: string;
+}
 
 @Component({
   selector: 'app-perfil',
@@ -16,13 +27,15 @@ export class PerfilComponent implements OnInit, AfterViewInit, OnDestroy {
   newPhoneUser = "";
   genderChooseByUser = "";
   phoneToShowUser = "";
-  base64StringImage = "";
+  base64StringImage: string | null = null;
   cpf: string | null = null;
   @ViewChildren('inputCheckbox') inputCheckboxs!: QueryList<ElementRef<HTMLElement>>;
 
   settimeOutGender!: NodeJS.Timeout;
+  settimeOutFindByIdOnly!: NodeJS.Timeout;
+  token: string | null = null;
 
-  constructor(private userService: UserService){}
+  constructor(private userService: UserService, private getUserPerfilService: GetUserPerfilService, private router: Router){}
 
   ngOnInit(): void {
     const userResult = UserLocalStorage();
@@ -32,7 +45,9 @@ export class PerfilComponent implements OnInit, AfterViewInit, OnDestroy {
 
       if(user === null) return;
 
-      this.findByIdOnly(user.id);
+      this.token = user.token;
+
+      this.findByIdOnly(user);
     }
   }
 
@@ -40,39 +55,48 @@ export class PerfilComponent implements OnInit, AfterViewInit, OnDestroy {
     console.log();
   }
 
-  async findByIdOnly(userId: string){
-
-    this.userService.findByIdOnly(userId).subscribe({
+  findByIdOnly(user: User){
+    const userId = user.id;
+    this.userService.findByIdOnly(userId, user.token).subscribe({
       next: (success) => {
-        const user: User = success.data;
+        const userFind: User = success.data;
 
-        this.userObjState = user;
-        this.nameUser = user.name;
-
-        this.newPhoneUser = user.phone;
-
-        if(user.gender){
-          this.genderChooseByUser = user.gender;
+        const userToLocalStorage = {
+          id: userFind.id,
+          name: userFind.name,
+          phone: userFind.phone,
+          token: user.token,
         }
 
-        if(user.email){
-          this.emailUser = user.email;
-        }
+        this.updateLocalStorage(userToLocalStorage);
 
-        this.emailToShowToUserMyPerfil(user.email);
-        this.phoneToShowToUserMyPerfil(user);
-        this.cpfConfiguration(user);
+        this.userObjState = userFind;
+        this.newPhoneUser = userFind.phone;
+        this.nameUser = userFind.name;
 
+        this.getUserPerfilService.updateImgUser(userFind);
+
+        this.emailToShowToUserMyPerfil(userFind.email);
+
+        this.phoneToShowToUserMyPerfil(userFind.phone);
+
+        this.cpfConfiguration(userFind);
 
         this.settimeOutGender = setTimeout(() => {
-          this.clickChooseGender(user.gender);
+          this.clickChooseGender(userFind.gender);
         }, 10);
       },
       error: error => {
+        console.log(error);
+
         if(error.status === 400){
           console.log(error);
+          // this.confirmEmail = false;
+        }
 
-
+        if(error.status === 403){
+          localStorage.removeItem('user');
+          this.router.navigate(['/buyer/login']);
           // this.confirmEmail = false;
         }
       }
@@ -82,11 +106,13 @@ export class PerfilComponent implements OnInit, AfterViewInit, OnDestroy {
   onClickInsertEmail = () => {
     // setShowInsertEmail(true);
     // setShowMyPerfil(false);
+    this.router.navigate(['/user/account/email']);
   };
 
   onClickChangeEmail = () => {
     // setShowChangeEmail(true);
     // setShowMyPerfil(false);
+    this.router.navigate(['/user/account/change-email']);
   };
 
   emailToShowToUserMyPerfil = (email: string) => {
@@ -118,11 +144,10 @@ export class PerfilComponent implements OnInit, AfterViewInit, OnDestroy {
 
   // const [emailToShowUser, setEmailToShowUser] = useState('');
 
-  phoneToShowToUserMyPerfil = (user: User) => {
-    if (user && user.phone) {
-
-      const phoneSlice = user.phone.slice(6);
-      let phoneNew = '';
+  phoneToShowToUserMyPerfil = (phone: string) => {
+    let phoneNew = '';
+    if (phone) {
+      const phoneSlice = phone.slice(6);
 
       for (let i = 0; i < phoneSlice.length; i++) {
         if (i >= 11) {
@@ -138,7 +163,8 @@ export class PerfilComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   onClickChangePhone = () => {
-    // nav('/user/account/phone', { state: { user: userObj } });
+    // nav('/user/account/phone');
+    this.router.navigate(['/user/account/phone']);
   };
 
   clickChooseGender(gender: string){
@@ -221,6 +247,19 @@ export class PerfilComponent implements OnInit, AfterViewInit, OnDestroy {
     this.userService.updateUserAll(userUpdate).subscribe({
       next: (success) => {
         this.userObjState = success.data;
+
+        if(this.token === null) return;
+
+        const userToLocalStorage = {
+          id: success.data.id,
+          name: success.data.name,
+          phone: success.data.phone,
+          token: this.token,
+        }
+
+        this.updateLocalStorage(userToLocalStorage);
+
+        this.base64StringImage = null;
       },
       error: error => {
         if(error.status === 400){
@@ -268,7 +307,16 @@ export class PerfilComponent implements OnInit, AfterViewInit, OnDestroy {
     }
   }
 
+  updateLocalStorage(userToLocalStorage: UserToLocalStorage){
+
+
+    const secretKey = environment.angularAppSecretKeyUser;
+    const encrypted = CryptoJS.AES.encrypt(JSON.stringify(userToLocalStorage), secretKey).toString();
+    localStorage.setItem('user', encrypted);
+  }
+
   ngOnDestroy(): void {
     clearTimeout(this.settimeOutGender);
+    clearTimeout(this.settimeOutFindByIdOnly);
   }
 }

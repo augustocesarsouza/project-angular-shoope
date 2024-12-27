@@ -53,6 +53,11 @@
           ></app-svg-user-without-img>
           <span>{{ userLogged.name }}</span>
         </div>
+        <app-name-user-floating
+          [handleShowContainerNameUser]="handleShowContainerNameUser"
+          [clearNameUserTimeout]="clearNameUserTimeout"
+          [showContainerNameUser]="showContainerNameUser"
+        ></app-name-user-floating>
         <div class="container-span-register-enter" *ngIf="!userLoggedIn">
           <button (click)="clickRegisterUser()">Cadastrar</button>
           <span>|</span>
@@ -81,10 +86,4 @@
     [clearLanguageTimeout]="clearLanguageTimeout"
     [showContainerLenguage]="showContainerLenguage"
   ></app-language-floating>
-
-  <app-name-user-floating
-    [handleShowContainerNameUser]="handleShowContainerNameUser"
-    [clearNameUserTimeout]="clearNameUserTimeout"
-    [showContainerNameUser]="showContainerNameUser"
-  ></app-name-user-floating>
 </div>

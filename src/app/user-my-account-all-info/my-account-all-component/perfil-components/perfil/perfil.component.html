@@ -165,9 +165,19 @@
         </table>
       </form>
       <div class="container-select-image">
-        <div class="container-img-user">
+        <div class="container-img-user" *ngIf="!userObjState.userImage && !base64StringImage">
           <app-body-user width="60px" height="60px" color="#c6c6c6"></app-body-user>
         </div>
+        <div
+          class="container-img-user-2"
+          *ngIf="userObjState.userImage && userObjState.userImage.length > 0"
+        >
+          <img src="{{ userObjState.userImage }}" alt="img-user" />
+        </div>
+        <div class="container-img-user-2" *ngIf="base64StringImage && base64StringImage.length > 0">
+          <img src="{{ base64StringImage }}" alt="img-user" />
+        </div>
+
         <button (click)="onClickButtonSelectionImage()">Selecionar a Imagem</button>
         <div class="container-span-info-about-select-image">
           <span>Tamanho do arquivo: no máximo 1 MB</span>
