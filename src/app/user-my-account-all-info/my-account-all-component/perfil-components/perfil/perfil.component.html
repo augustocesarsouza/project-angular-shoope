@@ -18,10 +18,17 @@
                   <input
                     type="text"
                     placeholder="Nome de usuário"
+                    class="input-name-user"
                     [value]="this.userObjState.name"
                     (input)="changeInputName($event)"
                   />
-                  <span>Nome do usuário pode ser alterado apenas uma vez.</span>
+                  <span *ngIf="!errorNameUser" class="span-without-error-user"
+                    >Nome do usuário pode ser alterado apenas uma vez.</span
+                  >
+                  <span *ngIf="errorNameUser" class="span-error-message-user-invalid"
+                    >O nome de usuário deve ter 5 a 30 caracteres com pelo menos uma letra (a-z).
+                    Você pode incluir números (0-9), pontos (.), e sublinhados (_).</span
+                  >
                 </div>
               </td>
             </tr>
@@ -159,7 +166,9 @@
               </td>
               <td class="td-second">
                 <div class="container-button-save">
-                  <button (click)="onClickSavePefil($event)">Gravar</button>
+                  <button (click)="onClickSavePefil($event)" class="button-save-perfil">
+                    Gravar
+                  </button>
                 </div>
               </td>
             </tr>

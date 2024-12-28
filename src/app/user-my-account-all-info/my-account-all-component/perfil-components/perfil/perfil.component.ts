@@ -34,9 +34,14 @@ export class PerfilComponent implements OnInit, AfterViewInit, OnDestroy {
   cpf: string | null = null;
   @ViewChildren('inputCheckbox') inputCheckboxs!: QueryList<ElementRef<HTMLElement>>;
 
-  settimeOutGender!: NodeJS.Timeout;
-  settimeOutFindByIdOnly!: NodeJS.Timeout;
+  settimeOutArray: NodeJS.Timeout[] = [];
+
   token: string | null = null;
+
+  allowSavePerfil = true;
+  errorNameUser = false;
+  buttonSavePerfil!: HTMLButtonElement;
+  inputNameUser!: HTMLInputElement;
 
   constructor(private userService: UserService, private getUserPerfilService: GetUserPerfilService, private router: Router){}
 
@@ -55,7 +60,17 @@ export class PerfilComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngAfterViewInit(): void {
-    console.log();
+    this.settimeOutArray.push(
+      setTimeout(() => {
+        if(typeof document === "undefined" || document === null) return;
+
+        const buttonSavePerfil = document.querySelector(".button-save-perfil")as HTMLButtonElement;
+        this.buttonSavePerfil = buttonSavePerfil;
+
+        const inputNameUser = document.querySelector(".input-name-user") as HTMLInputElement;
+        this.inputNameUser = inputNameUser;
+      }, 100)
+    )
   }
 
   findByIdOnly(user: User){
@@ -88,9 +103,11 @@ export class PerfilComponent implements OnInit, AfterViewInit, OnDestroy {
         this.cpfConfiguration(userFind);
         this.birthDayConfiguration(userFind);
 
-        this.settimeOutGender = setTimeout(() => {
-          this.clickChooseGender(userFind.gender);
-        }, 10);
+        this.settimeOutArray.push(
+          setTimeout(() => {
+            this.clickChooseGender(userFind.gender);
+          }, 10)
+        );
       },
       error: error => {
         console.log(error);
@@ -269,7 +286,7 @@ export class PerfilComponent implements OnInit, AfterViewInit, OnDestroy {
   onClickSavePefil(event: MouseEvent){
     event.preventDefault();
 
-    if(this.userObjState === null) return;
+    if(this.userObjState === null || !this.allowSavePerfil) return;
 
     const userUpdate = {
       userId: this.userObjState.id,
@@ -282,31 +299,34 @@ export class PerfilComponent implements OnInit, AfterViewInit, OnDestroy {
       base64StringImage: this.base64StringImage,
     };
 
-    this.userService.updateUserAll(userUpdate).subscribe({
-      next: (success) => {
-        this.userObjState = success.data;
+    console.log(userUpdate);
 
-        if(this.token === null) return;
 
-        const userToLocalStorage = {
-          id: success.data.id,
-          name: success.data.name,
-          phone: success.data.phone,
-          token: this.token,
-        }
+    // this.userService.updateUserAll(userUpdate).subscribe({
+    //   next: (success) => {
+    //     this.userObjState = success.data;
 
-        this.updateLocalStorage(userToLocalStorage);
+    //     if(this.token === null) return;
 
-        this.base64StringImage = null;
-      },
-      error: error => {
-        if(error.status === 400){
-          console.log(error);
+    //     const userToLocalStorage = {
+    //       id: success.data.id,
+    //       name: success.data.name,
+    //       phone: success.data.phone,
+    //       token: this.token,
+    //     }
 
-          // this.confirmEmail = false;
-        }
-      }
-    });
+    //     this.updateLocalStorage(userToLocalStorage);
+
+    //     this.base64StringImage = null;
+    //   },
+    //   error: error => {
+    //     if(error.status === 400){
+    //       console.log(error);
+
+    //       // this.confirmEmail = false;
+    //     }
+    //   }
+    // });
   }
 
   onClickButtonSelectionImage = () => {
@@ -342,19 +362,49 @@ export class PerfilComponent implements OnInit, AfterViewInit, OnDestroy {
 
     if(input.value.length > 0){
       this.nameUser = input.value;
+
+      const regex = /^(?=.*[a-zA-Z])[a-zA-Z0-9._]{5,30}$/;
+
+      if(regex.test(input.value)){
+        this.allowSavePerfil = true;
+        this.errorNameUser = false;
+
+        this.buttonSavePerfilAndInputNameNoError();
+      }else {
+        this.allowSavePerfil = false;
+        this.errorNameUser = true;
+
+        this.buttonSavePerfilAndInputNameError();
+      }
+    }else {
+      this.allowSavePerfil = false;
+      this.errorNameUser = true;
+
+      this.buttonSavePerfilAndInputNameError();
     }
   }
 
+  buttonSavePerfilAndInputNameNoError(){
+    this.inputNameUser.style.borderColor = "rgba(0, 0, 0, 0.1490196078)";
+
+    this.buttonSavePerfil.style.opacity = "1";
+    this.buttonSavePerfil.style.cursor = "pointer";
+  }
+
+  buttonSavePerfilAndInputNameError(){
+    this.inputNameUser.style.borderColor = "red";
+
+    this.buttonSavePerfil.style.opacity = "0.7";
+    this.buttonSavePerfil.style.cursor = "not-allowed";
+  }
+
   updateLocalStorage(userToLocalStorage: UserToLocalStorage){
-
-
     const secretKey = environment.angularAppSecretKeyUser;
     const encrypted = CryptoJS.AES.encrypt(JSON.stringify(userToLocalStorage), secretKey).toString();
     localStorage.setItem('user', encrypted);
   }
 
   ngOnDestroy(): void {
-    clearTimeout(this.settimeOutGender);
-    clearTimeout(this.settimeOutFindByIdOnly);
+    this.settimeOutArray.forEach((timeoutId) => clearTimeout(timeoutId));
   }
 }
