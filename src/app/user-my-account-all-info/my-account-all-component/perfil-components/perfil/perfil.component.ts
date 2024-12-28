@@ -27,6 +27,9 @@ export class PerfilComponent implements OnInit, AfterViewInit, OnDestroy {
   newPhoneUser = "";
   genderChooseByUser = "";
   phoneToShowUser = "";
+  emailToShowUser = "";
+  birthDateShowUser = "";
+  cpfShowUser = "";
   base64StringImage: string | null = null;
   cpf: string | null = null;
   @ViewChildren('inputCheckbox') inputCheckboxs!: QueryList<ElementRef<HTMLElement>>;
@@ -60,6 +63,7 @@ export class PerfilComponent implements OnInit, AfterViewInit, OnDestroy {
     this.userService.findByIdOnly(userId, user.token).subscribe({
       next: (success) => {
         const userFind: User = success.data;
+        console.log(userFind);
 
         const userToLocalStorage = {
           id: userFind.id,
@@ -73,6 +77,7 @@ export class PerfilComponent implements OnInit, AfterViewInit, OnDestroy {
         this.userObjState = userFind;
         this.newPhoneUser = userFind.phone;
         this.nameUser = userFind.name;
+        this.emailUser = userFind.email;
 
         this.getUserPerfilService.updateImgUser(userFind);
 
@@ -81,6 +86,7 @@ export class PerfilComponent implements OnInit, AfterViewInit, OnDestroy {
         this.phoneToShowToUserMyPerfil(userFind.phone);
 
         this.cpfConfiguration(userFind);
+        this.birthDayConfiguration(userFind);
 
         this.settimeOutGender = setTimeout(() => {
           this.clickChooseGender(userFind.gender);
@@ -119,9 +125,8 @@ export class PerfilComponent implements OnInit, AfterViewInit, OnDestroy {
     // email = "augustocesarsantana90@gmail.com";
     if (!email) return;
 
-
     if (email.length <= 0) {
-      this.emailUser = "";
+      this.emailToShowUser = "";
 
       return;
     }
@@ -139,7 +144,7 @@ export class PerfilComponent implements OnInit, AfterViewInit, OnDestroy {
     emailNew += '@gmail.com';
 
     this.showChangeEmailLink = true;
-    this.emailUser = emailNew;
+    this.emailToShowUser = emailNew;
   };
 
   // const [emailToShowUser, setEmailToShowUser] = useState('');
@@ -199,8 +204,9 @@ export class PerfilComponent implements OnInit, AfterViewInit, OnDestroy {
 
     if(!user.cpf) return;
 
-    let cpf = user.cpf;
-    cpf = "07285007102";
+    const cpf = user.cpf;
+    this.cpf = cpf;
+    // cpf = "07285007102";
     let newCpf = '';
 
     for (let i = 0; i < cpf.length; i++) {
@@ -221,11 +227,43 @@ export class PerfilComponent implements OnInit, AfterViewInit, OnDestroy {
       }
     }
 
-    this.cpf = newCpf;
+    this.cpfShowUser = newCpf;
   }
+
+  birthDayConfiguration(user: User){
+    if(user === null) return;
+
+    if(!user.birthDate) return;
+
+    const birthDate = user.birthDate;
+
+    const birthDateInner = birthDate.split("T")[0];
+    const birthDateYearMonthDate = birthDateInner.split("-");
+    const birthDateInConfigBrazil = `${birthDateYearMonthDate[2]}-${birthDateYearMonthDate[1]}-${birthDateYearMonthDate[0]}`;
+
+    let birthDateConfig = "";
+
+    for (const el of birthDateInConfigBrazil) {
+      if(el !== "-"){
+        birthDateConfig += "*";
+      }
+
+      if(el === "-"){
+        birthDateConfig += ".";
+      }
+    }
+
+    this.birthDateShowUser = birthDateConfig;
+  }
+
 
   onClickFillCpfBirthdate(){
     // nav('/user/account/kyc', { state: { user: userObj } });
+    this.router.navigate(['/user/account/kyc'], { queryParams: { cpf: null } });
+  }
+
+  onClickChangeCpfBirthdate(){
+    this.router.navigate(['/user/account/kyc'], { queryParams: { cpf: this.cpf } });
   }
 
   onClickSavePefil(event: MouseEvent){

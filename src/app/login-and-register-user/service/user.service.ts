@@ -127,4 +127,18 @@ export class UserService {
 
     return this._http.post<ResultCodeSendToPhoneData>(`/api/public/user/send-code-phone`, objSend, options).pipe(take(1));
   }
+
+  updateCpfAndBirthDayUser(user: unknown, uuid: string, token: string){
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`, // Se necessário
+      'uid': uuid
+    });
+
+    const options = {
+      headers: headers,
+    };
+
+    return this._http.put<ResultData>(`/api/user/update-cpf-and-birthday-user`, user, options).pipe(take(1));
+  }
 }

@@ -17,6 +17,7 @@ import { RightsShopeeComponent } from '../footer-my-account-components/rights-sh
 import { ChangeEmailComponent } from './perfil-components/change-email/change-email.component';
 import { PhoneChangeComponent } from './perfil-components/phone-change/phone-change.component';
 import { EmailAndPhoneConfirmCodeComponent } from './perfil-components/email-and-phone-confirm-code/email-and-phone-confirm-code.component';
+import { FillCpfAndBirthDateComponent } from './perfil-components/fill-cpf-and-birth-date/fill-cpf-and-birth-date.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { EmailAndPhoneConfirmCodeComponent } from './perfil-components/email-and
     PaymentComponent,
     RightsShopeeComponent,
     ChangeEmailComponent,
-    PhoneChangeComponent
+    PhoneChangeComponent,
+    FillCpfAndBirthDateComponent
   ],
   imports: [
     CommonModule,

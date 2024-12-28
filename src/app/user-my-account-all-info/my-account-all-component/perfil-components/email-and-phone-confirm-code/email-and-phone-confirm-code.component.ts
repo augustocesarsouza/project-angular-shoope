@@ -80,42 +80,44 @@ export class EmailAndPhoneConfirmCodeComponent implements OnInit, AfterViewInit 
 
     if (this.userLogin === null || this.codeFull.length <= 5) return;
 
-    const phoneUser = this.userLogin?.phone.replace(/\s+/g, '').replace(/_/g, '').trim();
-    if(phoneUser === null || phoneUser === undefined) return;
+    if(!this.emailThatWasSent){
+      const phoneUser = this.userLogin?.phone.replace(/\s+/g, '').replace(/_/g, '').trim();
+      if(phoneUser === null || phoneUser === undefined) return;
 
-    if(this.codeUserCreate[phoneUser] === this.codeFull){
-      this.router.navigate(['/user/account/profile']);
+      if(this.codeUserCreate[phoneUser] === this.codeFull){
+        this.router.navigate(['/user/account/profile']);
+      }else {
+        console.log("NOT OK");
+      }
     }else {
-      console.log("NOT OK");
-    }
+      const userId = this.userLogin.id;
 
-    // const userId = this.userLogin.id; -> ESSE É O CORRETO
+      const bodyUserEmailCode = {
+        code: this.codeFull,
+        userId: userId,
+        email: this.emailThatWasSent,
+        phone: this.phoneThatWasSent
+      };
 
-    // const bodyUserEmailCode = {
-    //   code: this.codeFull,
-    //   userId: userId,
-    //   email: this.emailThatWasSent,
-    //   phone: this.phoneThatWasSent
-    // };
+      this.userService.verifyCodeUser(bodyUserEmailCode).subscribe({
+        next: (success) => {
+          // this.userObjState = success.data;
+          const resultData = success.data;
+          console.log(resultData);
+          this.router.navigate(['/user/account/profile']);
 
-    // this.userService.verifyCodeUser(bodyUserEmailCode).subscribe({
-    //   next: (success) => {
-    //     // this.userObjState = success.data;
-    //     const resultData = success.data;
-    //     console.log(resultData);
-    //     this.router.navigate(['/user/account/profile']);
-    //
 
-    //     // nav('/user/account/profile', { state: { user: { email: emailThatWasSent } } });
-    //   },
-    //   error: error => {
-    //     if(error.status === 400){
-    //       console.log(error);
+          // nav('/user/account/profile', { state: { user: { email: emailThatWasSent } } });
+        },
+        error: error => {
+          if(error.status === 400){
+            console.log(error);
 
-    //       // this.confirmEmail = false;
-    //     }
-    //   }
-    // });
+            // this.confirmEmail = false;
+          }
+        }
+      });
+      }
   };
 
   clickInputVerificationCode = () => {

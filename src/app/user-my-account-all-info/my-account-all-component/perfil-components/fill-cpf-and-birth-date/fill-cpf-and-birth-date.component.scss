@@ -1,0 +1,176 @@
+.container-show-insert-phone-main{
+  /* width: 750px; */
+  width: 900px;
+
+  >h1 {
+    color: rgba(0, 0, 0, .87);
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1.5rem;
+    padding-left: 2px;
+
+    border-bottom: 1px solid rgba(0, 0, 0, .09);
+    padding-bottom: 20px;
+    margin-bottom: 40px;
+  }
+
+  >button {
+    height: 40px;
+    width: 121px;
+
+    /* background: #ee4d2d; */
+    /* cursor: pointer; */
+    color: #fff;
+    /* outline: 0; */
+    /* overflow: visible; */
+    position: relative;
+    border: none;
+    border-radius: 3px;
+    font-size: 16px;
+
+    background: #facac0;
+    box-shadow: none;
+    cursor: not-allowed;
+  }
+}
+
+.container-label-and-input{
+  display: flex;
+  margin-bottom: 25px;
+
+  >label {
+    color: rgba(0, 0, 0, .65);
+    font-size: 16px;
+    min-width: 170px;
+    padding: 10px 20px 0 0;
+    text-align: end;
+  }
+}
+
+.container-input-to-cpf-and-error-if-phone-already-registered{
+
+  >span {
+    font-size: 12px;
+    color: rgb(255, 66, 79);
+  }
+}
+
+.container-input-cpf-button-checkbox{
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  width: 65%;
+}
+
+.container-input-phone{
+  /* display: flex;
+  box-shadow: 0 0 4px rgba(0, 0, 0, .14);
+  background: #fff6f7;
+
+  border: 1px solid rgba(0, 0, 0, .14);
+  border-radius: 2px;
+  box-shadow: inset 0 2px 0 rgba(0, 0, 0, .02);
+  box-sizing: border-box;
+  height: 38px;
+  overflow: hidden;
+  width: 100%; */
+
+  border: 1px solid rgba(0, 0, 0, .14);
+  border-radius: 2px;
+  box-shadow: inset 0 2px 0 rgba(0, 0, 0, .02);
+  box-sizing: border-box;
+  height: 38px;
+  overflow: hidden;
+  width: 100%;
+  display: flex;
+  align-items: center;
+
+  >input {
+    border: 0;
+    filter: none;
+    flex: 1;
+    flex-shrink: 0;
+    height: 16px;
+    outline: none;
+    padding: 12px;
+    width: 100%;
+
+    &::placeholder {
+      color: #888; /* Escolha a cor que deseja para o placeholder */
+      opacity: 1;  /* Controla a opacidade do placeholder, por padrão pode ser menor */
+    }
+  }
+}
+
+.container-checkbox-to-phone-main{
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.65);
+
+  >span {
+    cursor: default;
+  }
+}
+
+
+.container-link-insert{
+  display: flex;
+
+  >a {
+    border-bottom: 1px solid rgb(0, 85, 170);
+    cursor: pointer;
+  }
+}
+
+.container-main-day-month-year{
+  display: flex;
+  justify-content: space-between;
+  width: 65%;
+}
+
+.container-birthday{
+  width: 190px;
+
+  >select {
+    user-select: none;
+    outline: none;
+    padding: 10px;
+    color: #676767;
+    border: 1px solid #00000024;
+    margin-bottom: 6px;
+    width: 100%;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+}
+
+// export const Select = styled.select`
+
+// `
+
+// export const Option = styled.option``
+
+.container-select{
+  display: flex;
+  width: 19rem;
+}
+
+.button-verify{
+  height: 40px;
+  width: 105px;
+
+  color: #fff;
+  position: relative;
+  border: none;
+  border-radius: 3px;
+  font-size: 16px;
+
+  /* background: #facac0; */
+  background: #ee4d2d;
+  box-shadow: none;
+  opacity: 0.7;
+  cursor: not-allowed;
+  // cursor: pointer;
+}

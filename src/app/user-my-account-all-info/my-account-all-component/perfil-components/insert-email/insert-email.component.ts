@@ -84,56 +84,20 @@ export class InsertEmailComponent implements OnInit {
         if (codeSendEmailUserValidator.codeSendToEmailSuccessfully) {
           this.router.navigate(['confirm-code-email'], { queryParams: { email: email } });
         }
-
-        // Fazer a Troca Do Email
       },
       error: error => {
+        console.log(error);
+
         if(error.status === 400){
           console.log(error);
+        }
 
-          // this.confirmEmail = false;
+        if(error.status === 403){
+          localStorage.removeItem('user');
+          this.router.navigate(['/buyer/login']);
         }
       }
     });
-
-
-
-
-
-    // const resp = await fetch(`${Url}/user/confirm-email-send-code`, {
-    //   method: 'POST',
-    //   headers: {
-    //     Authorization: `Bearer ${userObj.token}`,
-    //     uid: userObj.id,
-    //     'Content-Type': 'application/json',
-    //   },
-    //   body: JSON.stringify(objSend),
-    // });
-
-    // if (resp.status === 200) {
-    //   const json = await resp.json();
-    //   const data: DataObjConfirmCodeEmail = json.data;
-
-    //   if (data.userAlreadyExist) {
-    //     setEmailAlreadyExist(data.userAlreadyExist);
-    //   }
-
-    //   if (data.codeSendToEmailSuccessfully) {
-    //     nav('/confirm-code-email', { state: { user: { email: objSend.Email } } });
-    //   }
-
-    //   // setShowStepToContinueCreateAccount(true);
-    // }
-
-    // if (resp.status === 400) {
-    //   const json = await resp.json();
-    // }
-
-    // if (resp.status === 403 || resp.status === 401) {
-    //   localStorage.removeItem('user');
-    //   nav('/login');
-    //   return;
-    // }
   };
 
   onClickCheckbox = () => {

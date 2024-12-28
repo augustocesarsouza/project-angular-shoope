@@ -1,0 +1,103 @@
+<div class="container-show-insert-phone-main">
+  <h1>Preencher CPF/Data de nascimento</h1>
+  <div class="container-label-and-input">
+    <label for="cpf">CPF</label>
+    <div class="container-input-cpf-button-checkbox">
+      <div
+        class="container-input-to-cpf-and-error-if-phone-already-registered"
+        (click)="clickContainerInputCpf()"
+        (keydown.enter)="clickContainerInputCpf()"
+        tabindex="0"
+      >
+        <div class="container-input-phone">
+          <input
+            type="text"
+            placeholder="CPF"
+            id="input-cpf-fill-birthday"
+            (input)="handleInputCpf($event)"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container-label-and-input">
+    <label for="date-birthday">Data de nascimento</label>
+    <div class="container-main-day-month-year">
+      <div class="container-birthday">
+        <select
+          class="select-month-of-month"
+          (click)="handleClickOption()"
+          (mouseenter)="onMouseEnterSelectDay()"
+          (mouseleave)="onMouseLeaveSelectDay()"
+        >
+          <option *ngFor="let number of dayMes" value="{{ number }}">{{ number }}</option>
+          <option *ngIf="dayMes.length <= 0">Data</option>
+          <!-- {dayMes.length > 0 ? (
+            <>
+              {dayMes.map((number) => (
+                <Styled.Option key={number}>{number}</Styled.Option>
+              ))}
+            </>
+          ) : (
+            <Styled.Option>Data</Styled.Option>
+          )} -->
+        </select>
+      </div>
+      <div class="container-birthday">
+        <select
+          class="select-month"
+          (click)="handleClickOption()"
+          (mouseenter)="onMouseEnterSelectMonth()"
+          (mouseleave)="onMouseLeaveSelectMonth()"
+        >
+          <option>Mês</option>
+          <option>Janeiro</option>
+          <option>Fevereiro</option>
+          <option>Março</option>
+          <option>Abril</option>
+          <option>Maio</option>
+          <option>Junho</option>
+          <option>Julho</option>
+          <option>Agosto</option>
+          <option>Setembro</option>
+          <option>Outubro</option>
+          <option>Novembro</option>
+          <option>Dezembro</option>
+        </select>
+      </div>
+      <div class="container-birthday">
+        <!-- value={valueYear} -->
+        <select
+          class="select-year"
+          (click)="handleClickOption()"
+          (input)="handleChange($event)"
+          (mouseenter)="onMouseEnterSelectYear()"
+          (mouseleave)="onMouseLeaveSelectYear()"
+        >
+          <option>Ano</option>
+          <option *ngFor="let year of years" id="option-years">
+            {{ year }}
+          </option>
+          <!-- {years.map((year) => (
+            <Styled.Option id="option-years" key={Number(year)}>
+              {year}
+            </Styled.Option>
+          ))} -->
+        </select>
+      </div>
+    </div>
+  </div>
+  <div class="container-label-and-input">
+    <label for="#"></label>
+    <div class="container-input-cpf-button-checkbox">
+      <button
+        class="button-verify"
+        (click)="clickVerify()"
+        (mouseenter)="onMouseEnterButtonNext()"
+        (mouseleave)="onMouseLeaveButtonNext()"
+      >
+        Verificar
+      </button>
+    </div>
+  </div>
+</div>

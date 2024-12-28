@@ -43,7 +43,7 @@
               </td>
               <td class="td-second">
                 <div class="container-link-insert">
-                  <span *ngIf="showChangeEmailLink">{{ emailUser }}</span>
+                  <span *ngIf="showChangeEmailLink">{{ emailToShowUser }}</span>
                   <a
                     *ngIf="!showChangeEmailLink"
                     (click)="onClickInsertEmail()"
@@ -133,7 +133,9 @@
               </td>
               <td class="td-second">
                 <div class="container-cel-phone">
-                  <span *ngIf="cpf !== null">{{ cpf }}</span>
+                  <span *ngIf="cpfShowUser.length > 0">{{ cpfShowUser }}</span>
+                  <span>/</span>
+                  <span *ngIf="birthDateShowUser.length > 0">{{ birthDateShowUser }}</span>
                   <a
                     *ngIf="cpf === null"
                     (click)="onClickFillCpfBirthdate()"
@@ -143,8 +145,8 @@
                   >
                   <a
                     *ngIf="cpf !== null"
-                    (click)="onClickFillCpfBirthdate()"
-                    (keydown.enter)="onClickFillCpfBirthdate()"
+                    (click)="onClickChangeCpfBirthdate()"
+                    (keydown.enter)="onClickChangeCpfBirthdate()"
                     tabindex="0"
                     >Alterar</a
                   >
