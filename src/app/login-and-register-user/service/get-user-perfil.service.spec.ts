@@ -1,13 +1,12 @@
 import { TestBed } from '@angular/core/testing';
-
-import { GetImgUserPerfilService } from './get-user-perfil.service';
+import { GetUserPerfilService } from './get-user-perfil.service';
 
 describe('GetImgUserPerfilService', () => {
-  let service: GetImgUserPerfilService;
+  let service: GetUserPerfilService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(GetImgUserPerfilService);
+    service = TestBed.inject(GetUserPerfilService);
   });
 
   it('should be created', () => {

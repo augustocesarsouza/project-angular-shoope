@@ -1,0 +1,199 @@
+<div
+  class="container-modal-new-address"
+  (click)="onClickContainerModalInner()"
+  (keydown.enter)="onClickContainerModalInner()"
+  tabindex="0"
+>
+  <div class="container-modal-inner">
+    <span *ngIf="!clickedEditAddress">Novo Endereço</span>
+    <!-- {clickedEditAddress && <Styled.Span>Editar endereço</Styled.Span>} -->
+
+    <div class="container-all-inputs">
+      <div class="container-cpf-and-errors">
+        <div class="container-input-all" #divContainerInputNameFull>
+          <div class="container-name-input" #divNameInput>Nome Completo</div>
+          <input
+            type="text"
+            class="input-all"
+            autocomplete="off"
+            placeholder="Nome Completo"
+            id="input-name-full"
+            #inputNameFull
+            (input)="changeInputNameFull($event, divNameInput, divContainerInputNameFull)"
+          />
+        </div>
+        <span class="span-name-full-error" *ngIf="NameFullError"
+          >O nome é muito curto. Ele deve ter 2 caracteres ou mais.</span
+        >
+      </div>
+      <div class="container-cpf-and-errors">
+        <div
+          class="container-input-all"
+          (mouseenter)="onMouseEnterContainerNumberPhone()"
+          (mouseleave)="onMouseLeaveContainerNumberPhone()"
+          #divContainerNumberPhone
+        >
+          <div class="container-name-input" #divNumberPhone id="number-phone">
+            Número de Telefone
+          </div>
+          <input
+            type="text"
+            class="input-all"
+            autocomplete="new-password"
+            placeholder="Número de Telefone"
+            id="input-number-telephone"
+            #inputNumberPhone
+            (click)="onClickInputNumberCelPhone()"
+            (input)="changeInputNumberPhone($event, divNumberPhone, divContainerNumberPhone)"
+          />
+        </div>
+        <span *ngIf="NumberPhoneError" id="fill-phone-valid">Preencha um telefone válido</span>
+        <div
+          *ngIf="showNumberOfTheUser"
+          class="container-show-number-phone-user"
+          (click)="containerShowNumberPhoneUser(divNumberPhone, divContainerNumberPhone)"
+          (keydown.enter)="containerShowNumberPhoneUser(divNumberPhone, divContainerNumberPhone)"
+          tabindex="0"
+        >
+          <span>{{ user.phone }}</span>
+          <div>Usar</div>
+        </div>
+        <!-- {errorCelPhone && <Styled.Span>erro complete o numero de telefone</Styled.Span>} -->
+      </div>
+    </div>
+    <div class="container-all-inputs">
+      <div class="container-cpf-and-errors">
+        <div class="container-input-all" #divContainerCep>
+          <div class="container-name-input" #divCep id="div-cep">CEP</div>
+          <input
+            type="text"
+            class="input-all"
+            autocomplete="off"
+            placeholder="CEP"
+            id="input-cep-new-address"
+            #inputCep
+            (input)="changeInputCep($event, divCep, divContainerCep)"
+          />
+        </div>
+        <!-- {inputCepIsLessThanEight && (
+            <Styled.Span>Você deve digitar o valor todo do CPF!</Styled.Span>
+          )} -->
+        <!-- <span *ngIf="cpfInvalid">Você deve digitar o valor todo do CPF!</span> -->
+        <!-- {errorCepIsInvalid && <Styled.Span>CEP inválido</Styled.Span>} -->
+        <span *ngIf="cpfInvalid" id="cep-invalid">CEP inválido</span>
+      </div>
+    </div>
+    <div class="container-all-inputs">
+      <div class="container-input-all" #divContainerStateCity>
+        <div class="container-name-input" #divStateCity id="container-state-city">
+          Estado - Cidade
+        </div>
+        <input
+          type="text"
+          class="input-all"
+          autocomplete="off"
+          placeholder="Estado - Cidade"
+          id="input-state-city"
+          #inputStateCity
+          (input)="changeInputStateCity($event, divStateCity, divContainerStateCity)"
+        />
+      </div>
+    </div>
+    <div class="container-all-inputs">
+      <div class="container-cpf-and-errors">
+        <div class="container-input-all" #divContainerNeighborhood>
+          <div class="container-name-input" #divNeighborhood id="container-neighborhood-id">
+            Bairro
+          </div>
+          <input
+            type="text"
+            class="input-all"
+            autocomplete="off"
+            placeholder="Bairro"
+            id="input-neighborhood"
+            #inputNeighborhood
+            (input)="changeInputNeighborhood($event, divNeighborhood, divContainerNeighborhood)"
+          />
+        </div>
+        <!-- {errorNeighborhood && (
+            <Styled.Span>Bairro precisa conter no mínimo 2 caracteres</Styled.Span>
+          )} -->
+      </div>
+    </div>
+    <div class="container-all-inputs">
+      <div class="container-cpf-and-errors">
+        <div class="container-input-all" #divContainerStreetAvenue>
+          <div class="container-name-input" #divStreetAvenue id="container-street-avenue">
+            Rua / Avenida
+          </div>
+          <input
+            type="text"
+            class="input-all"
+            autocomplete="off"
+            placeholder="Rua / Avenida"
+            id="input-street-avenue"
+            #inputStreetAvenue
+            (input)="changeInputStreetAvenue($event, divStreetAvenue, divContainerStreetAvenue)"
+          />
+        </div>
+        <!-- {errorStreetAvenue && (
+            <Styled.Span>
+              Rua / Avenida is too short. The Rua / Avenida must be 2 characters or more.
+            </Styled.Span>
+          )} -->
+      </div>
+      <div class="container-input-all" #divContainerNumber>
+        <div class="container-name-input" #divNumber id="container-number">Número</div>
+        <input
+          type="text"
+          class="input-all"
+          autocomplete="off"
+          placeholder="Número"
+          id="input-number"
+          #inputNumber
+          (input)="changeInputNumber($event, divNumber, divContainerNumber)"
+        />
+      </div>
+    </div>
+    <div class="container-all-inputs">
+      <div class="container-input-all" #divContainerComplementReferences>
+        <div class="container-name-input" id="container-complement-references">
+          Complemento/Referências Próx./Descrição do Prédio
+        </div>
+        <input
+          type="text"
+          class="input-all"
+          autocomplete="off"
+          placeholder="Complemento/Referências Próx./Descrição do Prédio"
+          id="input-complement-references"
+          #inputComplementReferences
+        />
+      </div>
+    </div>
+    <div class="container-save-as">
+      <span>Salvar Como:</span>
+      <div class="container-save-home-work">
+        <div
+          class="container-save-home"
+          (click)="onClickSaveHome()"
+          (keydown.enter)="onClickSaveHome()"
+          tabindex="0"
+        >
+          <span>Casa</span>
+        </div>
+        <div
+          class="container-save-work"
+          (click)="onClickSaveWork()"
+          (keydown.enter)="onClickSaveWork()"
+          tabindex="0"
+        >
+          <span>Trabalho</span>
+        </div>
+      </div>
+    </div>
+    <div class="container-two-button">
+      <button class="button-cancel" (click)="onClickCancelNewAddress()">Cancelar</button>
+      <button class="button-send" (click)="onClickSendToDb()">Enviar</button>
+    </div>
+  </div>
+</div>

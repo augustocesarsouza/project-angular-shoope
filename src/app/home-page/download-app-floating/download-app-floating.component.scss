@@ -1,12 +1,20 @@
+:host {
+  display: flex;
+  position: absolute;
+  right: 40px;
+  top: 28px;
+  z-index: 5;
+}
+
 .container-download-app-floating {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  position: absolute;
   height: 249px;
-  left: 320px;
-  top: 20px;
+  // position: absolute;
+  // left: 320px;
+  // top: 20px;
 
   >img {
     border-radius: 2px;

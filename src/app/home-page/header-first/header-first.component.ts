@@ -17,10 +17,10 @@ export class HeaderFirstComponent implements OnInit, OnDestroy {
   userLoggedIn = false;
   userLogged: User | null = null;
 
-  settimeOutAny!: NodeJS.Timeout;
-  settimeOutNotification!: NodeJS.Timeout;
-  settimeOutLanguage!: NodeJS.Timeout;
-  settimeOutNameUser!: NodeJS.Timeout;
+  settimeOutAny!: number;
+  settimeOutNotification!: number;
+  settimeOutLanguage!: number;
+  settimeOutNameUser!: number;
 
   constructor(private router: Router){
   }
@@ -86,7 +86,7 @@ export class HeaderFirstComponent implements OnInit, OnDestroy {
 
     this.settimeOutAny = setTimeout(() => {
       this.showContainerDownloadAppFloating = false;
-    }, 100);
+    }, 100) as unknown as number;
   }
 
   onMouseEnterNotification(){
@@ -98,7 +98,7 @@ export class HeaderFirstComponent implements OnInit, OnDestroy {
 
     this.settimeOutNotification = setTimeout(() => {
       this.showContainerNotification = false;
-    }, 100);
+    }, 100)as unknown as number;
   }
 
   clearNotificationTimeout() {
@@ -118,7 +118,7 @@ export class HeaderFirstComponent implements OnInit, OnDestroy {
 
     this.settimeOutLanguage = setTimeout(() => {
       this.showContainerLenguage = false;
-    }, 100);
+    }, 100)as unknown as number;
   }
 
   clearLanguageTimeout() {
@@ -138,7 +138,7 @@ export class HeaderFirstComponent implements OnInit, OnDestroy {
 
     this.settimeOutNameUser = setTimeout(() => {
       this.showContainerNameUser = false;
-    }, 50);
+    }, 50)as unknown as number;
   }
 
   onMouseEnterNameUserFloating(){

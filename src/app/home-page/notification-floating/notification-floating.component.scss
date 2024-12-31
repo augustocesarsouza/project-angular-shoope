@@ -1,13 +1,22 @@
+:host {
+  display: flex;
+  position: absolute;
+  right: 320px;
+  top: 32px;
+  z-index: 5;
+}
+
+
 .container-notification-floating {
   display: flex;
   // align-items: center;
   justify-content: space-between;
   flex-direction: column;
-  position: absolute;
   width: 420px;
   height: 400px;
-  left: 505px;
-  top: 30px;
+  // position: absolute;
+  // left: 505px;
+  // top: 30px;
   background: #fff;
   padding: 10px 10px 0px 10px;
   border: 1px solid #00000024;

@@ -15,13 +15,15 @@ import { SvgExitComponent } from './svg-exit/svg-exit.component';
 import { SvgArrowRegisterComponent } from './svg-arrow-register/svg-arrow-register.component';
 import { CodeIsWrongXComponent } from './code-is-wrong-x/code-is-wrong-x.component';
 import { BodyUserComponent } from './body-user/body-user.component';
+import { SvgMoreComponent } from './svg-more/svg-more.component';
+import { SvgAddressComponent } from './svg-address/svg-address.component';
 
 @NgModule({
   imports: [
     CommonModule
   ],
-  declarations: [SvgArrowComponent, SvgCartComponent, SvgHelpComponent, SvgLanguageComponent, SvgLoupeComponent, SvgNotificationComponent, SvgShoopeComponent, SvgUserWithoutImgComponent, SvgEyeCloseComponent, SvgEyeOpenComponent, SvgCheckComponent, SvgExitComponent, SvgArrowRegisterComponent, CodeIsWrongXComponent, BodyUserComponent],
-  exports: [SvgArrowComponent, SvgCartComponent, SvgHelpComponent, SvgLanguageComponent, SvgLoupeComponent, SvgNotificationComponent, SvgShoopeComponent, SvgUserWithoutImgComponent, SvgEyeCloseComponent, SvgEyeOpenComponent, SvgCheckComponent, SvgExitComponent, SvgArrowRegisterComponent, CodeIsWrongXComponent, BodyUserComponent]
+  declarations: [SvgArrowComponent, SvgCartComponent, SvgHelpComponent, SvgLanguageComponent, SvgLoupeComponent, SvgNotificationComponent, SvgShoopeComponent, SvgUserWithoutImgComponent, SvgEyeCloseComponent, SvgEyeOpenComponent, SvgCheckComponent, SvgExitComponent, SvgArrowRegisterComponent, CodeIsWrongXComponent, BodyUserComponent, SvgMoreComponent, SvgAddressComponent],
+  exports: [SvgArrowComponent, SvgCartComponent, SvgHelpComponent, SvgLanguageComponent, SvgLoupeComponent, SvgNotificationComponent, SvgShoopeComponent, SvgUserWithoutImgComponent, SvgEyeCloseComponent, SvgEyeOpenComponent, SvgCheckComponent, SvgExitComponent, SvgArrowRegisterComponent, CodeIsWrongXComponent, BodyUserComponent, SvgMoreComponent, SvgAddressComponent]
 
 })
 export class AllSvgModule { }

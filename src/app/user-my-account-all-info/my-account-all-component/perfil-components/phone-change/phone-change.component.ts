@@ -19,7 +19,7 @@ export class PhoneChangeComponent implements AfterViewInit, OnInit, OnDestroy {
   valueNumberPhoneCreate = "";
   codeUserCreate: Record<string, string> = {};
   user!: User | null;
-  settimeOutGender!: NodeJS.Timeout;
+  settimeOutGender!: number;
 
   constructor(private userService: UserService, private router: Router, private objCodeUserPhone: ObjCodeUserPhoneToRegisterAccountService){}
 

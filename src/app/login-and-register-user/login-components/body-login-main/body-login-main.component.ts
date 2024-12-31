@@ -1,4 +1,4 @@
-import { Component, AfterViewInit } from '@angular/core';
+import { Component, AfterViewInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import Inputmask from 'inputmask';
 import CryptoJS from 'crypto-js';
@@ -24,7 +24,7 @@ interface UserDTOProps {
   templateUrl: './body-login-main.component.html',
   styleUrl: './body-login-main.component.scss',
 })
-export class BodyLoginMainComponent implements AfterViewInit {
+export class BodyLoginMainComponent implements AfterViewInit, OnDestroy {
   showEyeOpen = false;
   inputPassword!: HTMLElement | null;
   buttonEnter!: HTMLElement | null;
@@ -32,6 +32,8 @@ export class BodyLoginMainComponent implements AfterViewInit {
   inputPasswordHasValue = false;
   inputValuePhone = "";
   someInfoIsWrong = false;
+
+  settimeOutAny!: number;
 
   constructor(private router: Router, private userService: UserService){}
 
@@ -149,10 +151,10 @@ export class BodyLoginMainComponent implements AfterViewInit {
           const dataLogin = error.error as PropsLogin;
           const login = dataLogin.data;
 
-          setTimeout(() => {
+          this.settimeOutAny = setTimeout(() => {
             containerLoginRegister.style.height = "535px";
             this.someInfoIsWrong = !login.passwordIsCorrect;
-          }, 1000);
+          }, 1000) as unknown as number;
 
           // this.confirmEmail = false;
         }
@@ -163,5 +165,9 @@ export class BodyLoginMainComponent implements AfterViewInit {
   clickRegister(): void {
     // this.router.navigate(['/movie', movie.id]);
     this.router.navigate(['/buyer/register']);
+  }
+
+  ngOnDestroy(): void {
+    clearTimeout(this.settimeOutAny);
   }
 }

@@ -1,0 +1,67 @@
+.container-main {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 950px;
+}
+
+.container-first{
+  display: flex;
+  justify-content: space-between;
+
+  >h1 {
+    font-size: 18px;
+    font-weight: 400;
+    margin: 0px;
+  }
+}
+
+.you-yet-dont-have-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 90px 0;
+
+  font-size: 19px;
+  font-weight: 500;
+  color: rgb(85, 85, 85);
+}
+
+.container-button-add-new-card-credit {
+  display: flex;
+  align-items: center;
+  background-color: #ee4d2d;
+  height: 40px;
+  padding: 0px 15px;
+  line-height: 1;
+  cursor: pointer;
+
+  app-svg-more {
+    margin-right: 5px;
+  }
+
+  >button {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 15px;
+    padding: 0px;
+    cursor: inherit;
+  }
+
+  &:hover {
+    background-color: #ec593b;
+  }
+}
+
+.container-second{
+  display: flex;
+  justify-content: space-between;
+
+  >h1 {
+    font-size: 18px;
+    font-weight: 400;
+    margin: 0px;
+  }
+}

@@ -16,6 +16,12 @@
         <a href="#" aria-label="Link para o Twitter"></a>
         <a href="#" aria-label="Link para o Tiktok"></a>
       </div>
+      <download-app-floating
+        [handleShowContainerChange]="handleShowContainerChange"
+        [showContainerDownloadAppFloating]="showContainerDownloadAppFloating"
+      >
+        ></download-app-floating
+      >
     </div>
     <div class="container-second-nav">
       <div class="container-all-svg-second-nav">
@@ -58,6 +64,18 @@
           [clearNameUserTimeout]="clearNameUserTimeout"
           [showContainerNameUser]="showContainerNameUser"
         ></app-name-user-floating>
+        <app-language-floating
+          [handleShowContainerLenguage]="handleShowContainerLenguage"
+          [clearLanguageTimeout]="clearLanguageTimeout"
+          [showContainerLenguage]="showContainerLenguage"
+        ></app-language-floating>
+        <app-notification-floating
+          [handleShowContainerNotification]="handleShowContainerNotification"
+          [clearNotificationTimeout]="clearNotificationTimeout"
+          [showContainerNotification]="showContainerNotification"
+        >
+        </app-notification-floating>
+
         <div class="container-span-register-enter" *ngIf="!userLoggedIn">
           <button (click)="clickRegisterUser()">Cadastrar</button>
           <span>|</span>
@@ -66,24 +84,4 @@
       </div>
     </div>
   </div>
-
-  <download-app-floating
-    [handleShowContainerChange]="handleShowContainerChange"
-    [showContainerDownloadAppFloating]="showContainerDownloadAppFloating"
-  >
-    ></download-app-floating
-  >
-
-  <app-notification-floating
-    [handleShowContainerNotification]="handleShowContainerNotification"
-    [clearNotificationTimeout]="clearNotificationTimeout"
-    [showContainerNotification]="showContainerNotification"
-  >
-  </app-notification-floating>
-
-  <app-language-floating
-    [handleShowContainerLenguage]="handleShowContainerLenguage"
-    [clearLanguageTimeout]="clearLanguageTimeout"
-    [showContainerLenguage]="showContainerLenguage"
-  ></app-language-floating>
 </div>

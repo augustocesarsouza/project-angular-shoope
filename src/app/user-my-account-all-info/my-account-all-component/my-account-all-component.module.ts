@@ -18,6 +18,9 @@ import { ChangeEmailComponent } from './perfil-components/change-email/change-em
 import { PhoneChangeComponent } from './perfil-components/phone-change/phone-change.component';
 import { EmailAndPhoneConfirmCodeComponent } from './perfil-components/email-and-phone-confirm-code/email-and-phone-confirm-code.component';
 import { FillCpfAndBirthDateComponent } from './perfil-components/fill-cpf-and-birth-date/fill-cpf-and-birth-date.component';
+import { CardBackAccountsComponent } from './cards-back-accounts-componets/card-back-accounts/card-back-accounts.component';
+import { AddressComponent } from './address-components/address/address.component';
+import { ModalNewAddressComponent } from './address-components/modal-new-address/modal-new-address.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +37,10 @@ import { FillCpfAndBirthDateComponent } from './perfil-components/fill-cpf-and-b
     RightsShopeeComponent,
     ChangeEmailComponent,
     PhoneChangeComponent,
-    FillCpfAndBirthDateComponent
+    FillCpfAndBirthDateComponent,
+    CardBackAccountsComponent,
+    AddressComponent,
+    ModalNewAddressComponent
   ],
   imports: [
     CommonModule,

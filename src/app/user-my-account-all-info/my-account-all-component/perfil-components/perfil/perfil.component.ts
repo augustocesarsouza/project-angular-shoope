@@ -14,7 +14,7 @@ interface UserToLocalStorage {
   token: string;
 }
 
-@Component({
+@Component({ // VERIFICAR AS OUTRAS VALIDAÇÃO DO MEU PERFIL O RESTO QUE FALTA DO "FORMULARIO" JÁ FIZ, Nome de Usuario
   selector: 'app-perfil',
   templateUrl: './perfil.component.html',
   styleUrl: './perfil.component.scss'
@@ -34,7 +34,7 @@ export class PerfilComponent implements OnInit, AfterViewInit, OnDestroy {
   cpf: string | null = null;
   @ViewChildren('inputCheckbox') inputCheckboxs!: QueryList<ElementRef<HTMLElement>>;
 
-  settimeOutArray: NodeJS.Timeout[] = [];
+  settimeOutArray: number[] = [];
 
   token: string | null = null;
 
@@ -60,17 +60,17 @@ export class PerfilComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngAfterViewInit(): void {
-    this.settimeOutArray.push(
-      setTimeout(() => {
-        if(typeof document === "undefined" || document === null) return;
+    const value = setTimeout(() => {
+      if(typeof document === "undefined" || document === null) return;
 
-        const buttonSavePerfil = document.querySelector(".button-save-perfil")as HTMLButtonElement;
-        this.buttonSavePerfil = buttonSavePerfil;
+      const buttonSavePerfil = document.querySelector(".button-save-perfil")as HTMLButtonElement;
+      this.buttonSavePerfil = buttonSavePerfil;
 
-        const inputNameUser = document.querySelector(".input-name-user") as HTMLInputElement;
-        this.inputNameUser = inputNameUser;
-      }, 100)
-    )
+      const inputNameUser = document.querySelector(".input-name-user") as HTMLInputElement;
+      this.inputNameUser = inputNameUser;
+    }, 100) as unknown as number;
+
+    this.settimeOutArray.push(value);
   }
 
   findByIdOnly(user: User){
@@ -78,7 +78,6 @@ export class PerfilComponent implements OnInit, AfterViewInit, OnDestroy {
     this.userService.findByIdOnly(userId, user.token).subscribe({
       next: (success) => {
         const userFind: User = success.data;
-        console.log(userFind);
 
         const userToLocalStorage = {
           id: userFind.id,
@@ -103,11 +102,12 @@ export class PerfilComponent implements OnInit, AfterViewInit, OnDestroy {
         this.cpfConfiguration(userFind);
         this.birthDayConfiguration(userFind);
 
-        this.settimeOutArray.push(
-          setTimeout(() => {
-            this.clickChooseGender(userFind.gender);
-          }, 10)
-        );
+
+        const value = setTimeout(() => {
+          this.clickChooseGender(userFind.gender);
+        }, 10) as unknown as number;
+
+        this.settimeOutArray.push(value);
       },
       error: error => {
         console.log(error);
@@ -299,34 +299,32 @@ export class PerfilComponent implements OnInit, AfterViewInit, OnDestroy {
       base64StringImage: this.base64StringImage,
     };
 
-    console.log(userUpdate);
 
+    this.userService.updateUserAll(userUpdate).subscribe({
+      next: (success) => {
+        this.userObjState = success.data;
 
-    // this.userService.updateUserAll(userUpdate).subscribe({
-    //   next: (success) => {
-    //     this.userObjState = success.data;
+        if(this.token === null) return;
 
-    //     if(this.token === null) return;
+        const userToLocalStorage = {
+          id: success.data.id,
+          name: success.data.name,
+          phone: success.data.phone,
+          token: this.token,
+        }
 
-    //     const userToLocalStorage = {
-    //       id: success.data.id,
-    //       name: success.data.name,
-    //       phone: success.data.phone,
-    //       token: this.token,
-    //     }
+        this.updateLocalStorage(userToLocalStorage);
 
-    //     this.updateLocalStorage(userToLocalStorage);
+        this.base64StringImage = null;
+      },
+      error: error => {
+        if(error.status === 400){
+          console.log(error);
 
-    //     this.base64StringImage = null;
-    //   },
-    //   error: error => {
-    //     if(error.status === 400){
-    //       console.log(error);
-
-    //       // this.confirmEmail = false;
-    //     }
-    //   }
-    // });
+          // this.confirmEmail = false;
+        }
+      }
+    });
   }
 
   onClickButtonSelectionImage = () => {

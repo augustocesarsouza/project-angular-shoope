@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, OnInit, QueryList, ViewChildren } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit, QueryList, ViewChildren } from '@angular/core';
 import { UserLocalStorage } from '../../../../login-and-register-user/user-function/get-user-local-storage/user-local-storage';
 import { User } from '../../../../login-and-register-user/interface/user';
 import { Router } from '@angular/router';
@@ -9,12 +9,14 @@ import {  GetUserPerfilService } from '../../../../login-and-register-user/servi
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.scss'
 })
-export class ProfileComponent implements OnInit, AfterViewInit {
+export class ProfileComponent implements OnInit, AfterViewInit, OnDestroy {
   userObjState!: User | null;
   whichWasClicked = "1";
   @ViewChildren('mySpan') spans!: QueryList<ElementRef<HTMLSpanElement>>;
   @ViewChildren('containerItensMyAccount') containerItensMyAccountAll!: QueryList<ElementRef<HTMLSpanElement>>;
   imgUserPerfil = "";
+
+  settimeOutAny!: number;
 
   constructor(private router: Router, private getUserPerfilService: GetUserPerfilService){
   }
@@ -28,11 +30,11 @@ export class ProfileComponent implements OnInit, AfterViewInit {
       this.userObjState = user;
     }
 
-    setTimeout(() => {
+    this.settimeOutAny = setTimeout(() => {
       this.getUserPerfilService.user$.subscribe((user) => {
         this.userObjState = user;
       });
-    }, 10);
+    }, 10) as unknown as number;
   }
 
   ngAfterViewInit(): void {
@@ -52,7 +54,6 @@ export class ProfileComponent implements OnInit, AfterViewInit {
 
   onClickMyAccountItens = (number: string) => {
     // setWhichWasClicked(number);
-    console.log("xfvbp´ldfbpko");
     this.whichWasClicked = number;
     const userObj = this.userObjState;
 
@@ -74,14 +75,14 @@ export class ProfileComponent implements OnInit, AfterViewInit {
       this.changeSpanColor(spanNumber);
 
       // nav('/user/account/payment', { state: { user: userObjState } });
-      this.router.navigate(['/user/account/payment' , { state: { userObj } }]);
+      this.router.navigate(['/user/account/payment']);
     }
 
     if (number === '3') {
       this.changeSpanColor(spanNumber);
 
       // nav('/user/account/address', { state: { user: userObjState } });
-      this.router.navigate(['/user/account/address' , { state: { userObj } }]);
+      this.router.navigate(['/user/account/address']);
     }
 
     if (number === '4') {
@@ -135,5 +136,9 @@ export class ProfileComponent implements OnInit, AfterViewInit {
         span.nativeElement.style.color = "rgba(0, 0, 0, 0.65)";
       }
     });
+  }
+
+  ngOnDestroy(): void {
+    clearTimeout(this.settimeOutAny);
   }
 }

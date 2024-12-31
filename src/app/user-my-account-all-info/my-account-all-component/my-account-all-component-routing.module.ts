@@ -6,6 +6,8 @@ import { InsertEmailComponent } from './perfil-components/insert-email/insert-em
 import { ChangeEmailComponent } from './perfil-components/change-email/change-email.component';
 import { PhoneChangeComponent } from './perfil-components/phone-change/phone-change.component';
 import { FillCpfAndBirthDateComponent } from './perfil-components/fill-cpf-and-birth-date/fill-cpf-and-birth-date.component';
+import { CardBackAccountsComponent } from './cards-back-accounts-componets/card-back-accounts/card-back-accounts.component';
+import { AddressComponent } from './address-components/address/address.component';
 
 const routes: Routes = [
   { path: '', component: ProfileComponent,
@@ -15,6 +17,8 @@ const routes: Routes = [
       { path: 'change-email', component: ChangeEmailComponent },
       { path: 'phone', component: PhoneChangeComponent },
       { path: 'kyc', component: FillCpfAndBirthDateComponent },
+      { path: 'payment', component: CardBackAccountsComponent },
+      { path: 'address', component: AddressComponent },
       { path: '', redirectTo: 'perfil', pathMatch: 'full' },
       { path: '**', redirectTo: 'perfil' }
     ]
