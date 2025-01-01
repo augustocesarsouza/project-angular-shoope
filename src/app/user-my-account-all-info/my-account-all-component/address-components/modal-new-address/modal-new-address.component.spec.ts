@@ -2,6 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ModalNewAddressComponent } from './modal-new-address.component';
 import { User } from '../../../../login-and-register-user/interface/user';
+import { AllSvgModule } from '../../../../all-svg/all-svg.module';
 
 describe('ModalNewAddressComponent', () => {
   let component: ModalNewAddressComponent;
@@ -9,7 +10,8 @@ describe('ModalNewAddressComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ModalNewAddressComponent]
+      declarations: [ModalNewAddressComponent],
+      imports: [AllSvgModule]
     })
     .compileComponents();
 
@@ -26,10 +28,10 @@ describe('ModalNewAddressComponent', () => {
     fixture.detectChanges();
 
     const span = fixture.nativeElement.querySelector('.container-modal-inner span');
-    expect(span.textContent).toContain('Novo Endereço');
+    expect(span.textContent.trim()).toBe('Novo Endereço');
 
     const containerNameInput = fixture.nativeElement.querySelector('.container-name-input');
-    expect(containerNameInput.textContent).toContain('Nome Completo');
+    expect(containerNameInput.textContent).toBe('Nome Completo');
 
     const inputNameFull = fixture.nativeElement.querySelector('#input-name-full');
     expect(inputNameFull).not.toBeNull();
@@ -40,14 +42,14 @@ describe('ModalNewAddressComponent', () => {
     fixture.detectChanges();
 
     const spanNameFullError = fixture.nativeElement.querySelector('.span-name-full-error');
-    expect(spanNameFullError.textContent).toContain('O nome é muito curto. Ele deve ter 2 caracteres ou mais.');
+    expect(spanNameFullError.textContent.trim()).toBe('O nome é muito curto. Ele deve ter 2 caracteres ou mais.');
   });
 
   it('should test span number phone', () => {
     fixture.detectChanges();
 
     const spanNumberPhone = fixture.nativeElement.querySelector('#number-phone');
-    expect(spanNumberPhone.textContent).toContain('Número de Telefone');
+    expect(spanNumberPhone.textContent.trim()).toBe('Número de Telefone');
   });
 
   it('should test input input number telephone', () => {
@@ -62,7 +64,7 @@ describe('ModalNewAddressComponent', () => {
     fixture.detectChanges();
 
     const spanFillPhoneValid = fixture.nativeElement.querySelector('#fill-phone-valid');
-    expect(spanFillPhoneValid.textContent).toContain('Preencha um telefone válido');
+    expect(spanFillPhoneValid.textContent.trim()).toBe('Preencha um telefone válido');
   });
 
   it('should test container show number phone user', () => {
@@ -84,17 +86,17 @@ describe('ModalNewAddressComponent', () => {
     fixture.detectChanges();
 
     const spanNumberPhone = fixture.nativeElement.querySelector('.container-show-number-phone-user span');
-    expect(spanNumberPhone.textContent).toContain(phone);
+    expect(spanNumberPhone.textContent.trim()).toBe(phone);
 
     const divUse = fixture.nativeElement.querySelector('.container-show-number-phone-user div');
-    expect(divUse.textContent).toContain("Usar");
+    expect(divUse.textContent.trim()).toBe("Usar");
   });
 
   it('should test span fill phone valid', () => {
     fixture.detectChanges();
 
     const divCep = fixture.nativeElement.querySelector('#div-cep');
-    expect(divCep.textContent).toContain('CEP');
+    expect(divCep.textContent.trim()).toBe('CEP');
   });
 
   it('should test span cep invalid', () => {
@@ -116,7 +118,7 @@ describe('ModalNewAddressComponent', () => {
     fixture.detectChanges();
 
     const containerNeighborhood = fixture.nativeElement.querySelector('#container-neighborhood-id');
-    expect(containerNeighborhood.textContent).toContain("Bairro");
+    expect(containerNeighborhood.textContent.trim()).toBe("Bairro");
   });
 
   it('should test input neighborhood', () => {
@@ -130,7 +132,7 @@ describe('ModalNewAddressComponent', () => {
     fixture.detectChanges();
 
     const containerStreetAvenue = fixture.nativeElement.querySelector('#container-street-avenue');
-    expect(containerStreetAvenue.textContent).toContain("Rua / Avenida");
+    expect(containerStreetAvenue.textContent.trim()).toBe("Rua / Avenida");
   });
 
   it('should test input stree avenue', () => {
@@ -144,7 +146,7 @@ describe('ModalNewAddressComponent', () => {
     fixture.detectChanges();
 
     const containerNumber = fixture.nativeElement.querySelector('#container-number');
-    expect(containerNumber.textContent).toContain("Número");
+    expect(containerNumber.textContent.trim()).toBe("Número");
   });
 
   it('should test input number', () => {
@@ -158,7 +160,7 @@ describe('ModalNewAddressComponent', () => {
     fixture.detectChanges();
 
     const containerComplementReferences = fixture.nativeElement.querySelector('#container-complement-references');
-    expect(containerComplementReferences.textContent).toContain("Complemento/Referências Próx./Descrição do Prédio");
+    expect(containerComplementReferences.textContent.trim()).toBe("Complemento/Referências Próx./Descrição do Prédio");
   });
 
   it('should test input complement references', () => {
@@ -172,34 +174,34 @@ describe('ModalNewAddressComponent', () => {
     fixture.detectChanges();
 
     const spanSaveAs = fixture.nativeElement.querySelector('.container-save-as span');
-    expect(spanSaveAs.textContent).toContain("Salvar Como:");
+    expect(spanSaveAs.textContent.trim()).toBe("Salvar Como:");
   });
 
   it('should test span home', () => {
     fixture.detectChanges();
 
     const spanSaveHome = fixture.nativeElement.querySelector('.container-save-home span');
-    expect(spanSaveHome.textContent).toContain("Casa");
+    expect(spanSaveHome.textContent.trim()).toBe("Casa");
   });
 
   it('should test span work', () => {
     fixture.detectChanges();
 
     const spanWork = fixture.nativeElement.querySelector('.container-save-work span');
-    expect(spanWork.textContent).toContain("Trabalho");
+    expect(spanWork.textContent.trim()).toBe("Trabalho");
   });
 
   it('should test button cancel', () => {
     fixture.detectChanges();
 
     const buttonCancel = fixture.nativeElement.querySelector('.button-cancel');
-    expect(buttonCancel.textContent).toContain("Cancelar");
+    expect(buttonCancel.textContent.trim()).toBe("Cancelar");
   });
 
   it('should test button cancel', () => {
     fixture.detectChanges();
 
     const buttonSend = fixture.nativeElement.querySelector('.button-send');
-    expect(buttonSend.textContent).toContain("Enviar");
+    expect(buttonSend.textContent.trim()).toBe("Enviar");
   });
 });

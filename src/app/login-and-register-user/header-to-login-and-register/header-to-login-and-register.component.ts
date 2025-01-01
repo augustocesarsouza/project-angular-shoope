@@ -6,6 +6,5 @@ import { Component, Input } from '@angular/core';
   styleUrl: './header-to-login-and-register.component.scss'
 })
 export class HeaderToLoginAndRegisterComponent {
-  @Input() valueToSpan: string = 'Entre';
-
+  @Input() valueToSpan = 'Entre';
 }

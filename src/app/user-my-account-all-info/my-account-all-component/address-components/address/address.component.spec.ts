@@ -31,9 +31,8 @@ describe('AddressComponent', () => {
 
     const spanElement = fixture.nativeElement.querySelector('.container-insert-address span');
 
-    expect(header.textContent).toContain('Meus endereços');
-    expect(spanElement.textContent).toContain('Inserir novo endereço');
-    // expect(spanElement.textContent).toContain('Inserir novo endereço');
+    expect(header.textContent).toBe('Meus endereços');
+    expect(spanElement.textContent).toBe('Inserir novo endereço');
   });
 
 });

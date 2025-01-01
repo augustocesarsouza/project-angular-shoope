@@ -25,7 +25,10 @@
                   <span *ngIf="!errorNameUser" class="span-without-error-user"
                     >Nome do usuário pode ser alterado apenas uma vez.</span
                   >
-                  <span *ngIf="errorNameUser" class="span-error-message-user-invalid"
+                  <span
+                    *ngIf="errorNameUser"
+                    class="span-error-message-user-invalid"
+                    id="span-error-message-user-invalid"
                     >O nome de usuário deve ter 5 a 30 caracteres com pelo menos uma letra (a-z).
                     Você pode incluir números (0-9), pontos (.), e sublinhados (_).</span
                   >
@@ -39,23 +42,26 @@
               </td>
               <td class="td-second">
                 <div class="container-only-input-name-user">
-                  <input type="text" placeholder="Nome" />
+                  <input type="text" placeholder="Nome" id="input-name-user" />
                 </div>
               </td>
             </tr>
 
             <tr>
               <td class="td-main-second">
-                <label for="name">Email</label>
+                <label for="email">Email</label>
               </td>
               <td class="td-second">
                 <div class="container-link-insert">
-                  <span *ngIf="showChangeEmailLink">{{ emailToShowUser }}</span>
+                  <span *ngIf="showChangeEmailLink" id="span-email-user">{{
+                    emailToShowUser
+                  }}</span>
                   <a
                     *ngIf="!showChangeEmailLink"
                     (click)="onClickInsertEmail()"
                     (keydown.enter)="onClickInsertEmail()"
                     tabindex="0"
+                    id="link-insert-email"
                     >Inserir</a
                   >
                   <a
@@ -63,6 +69,7 @@
                     (click)="onClickChangeEmail()"
                     (keydown.enter)="onClickChangeEmail()"
                     tabindex="0"
+                    id="link-change-email"
                     >Trocar</a
                   >
                 </div>
@@ -71,20 +78,23 @@
 
             <tr>
               <td class="td-main-second">
-                <label for="name">Número de telefone</label>
+                <label for="number-phone">Número de telefone</label>
               </td>
               <td class="td-second">
                 <div class="container-link-insert">
-                  <div *ngIf="phoneToShowUser.length > 0">{{ phoneToShowUser }}</div>
+                  <div *ngIf="phoneToShowUser.length > 0" id="container-phone-to-show-user">
+                    {{ phoneToShowUser }}
+                  </div>
                   <!-- <div *ngIf="phoneToShowUser.length <= 0">***********23</div> -->
                   <a
                     *ngIf="phoneToShowUser.length > 0"
                     (click)="onClickChangePhone()"
                     (keydown.enter)="onClickChangePhone()"
                     tabindex="0"
+                    id="link-change-phone"
                     >Trocar</a
                   >
-                  <a *ngIf="phoneToShowUser.length <= 0">Inserir</a>
+                  <a *ngIf="phoneToShowUser.length <= 0" id="link-insert-phone">Inserir</a>
                 </div>
               </td>
             </tr>
@@ -102,10 +112,11 @@
                       (keydown.enter)="clickChooseGender('m')"
                       tabindex="0"
                       #inputCheckbox
+                      id="input-checkbox-gender-m"
                     >
                       <div class="check-box"></div>
                     </div>
-                    <span>masculino</span>
+                    <span id="span-gender-user-m">masculino</span>
                   </div>
                   <div class="container-inputs">
                     <div
@@ -114,10 +125,11 @@
                       (keydown.enter)="clickChooseGender('f')"
                       tabindex="0"
                       #inputCheckbox
+                      id="input-checkbox-gender-f"
                     >
                       <div class="check-box"></div>
                     </div>
-                    <span>feminino</span>
+                    <span id="span-gender-user-f">feminino</span>
                   </div>
                   <div class="container-inputs">
                     <div
@@ -126,28 +138,34 @@
                       (keydown.enter)="clickChooseGender('o')"
                       tabindex="0"
                       #inputCheckbox
+                      id="input-checkbox-gender-o"
                     >
                       <div class="check-box"></div>
                     </div>
-                    <span>Outros</span>
+                    <span id="span-gender-user-o">Outros</span>
                   </div>
                 </div>
               </td>
             </tr>
             <tr>
               <td class="td-main-second">
-                <label for="gender">CPF/Data de nascimento</label>
+                <label for="cpf-birth-date">CPF/Data de nascimento</label>
               </td>
               <td class="td-second">
                 <div class="container-cel-phone">
-                  <span *ngIf="cpfShowUser.length > 0">{{ cpfShowUser }}</span>
-                  <span>/</span>
-                  <span *ngIf="birthDateShowUser.length > 0">{{ birthDateShowUser }}</span>
+                  <span *ngIf="cpfShowUser.length > 0" id="span-cpf-show-user">{{
+                    cpfShowUser
+                  }}</span>
+                  <span id="span-slash">/</span>
+                  <span *ngIf="birthDateShowUser.length > 0" id="span-birth-date-show-user">{{
+                    birthDateShowUser
+                  }}</span>
                   <a
                     *ngIf="cpf === null"
                     (click)="onClickFillCpfBirthdate()"
                     (keydown.enter)="onClickFillCpfBirthdate()"
                     tabindex="0"
+                    id="link-fill-now"
                     >Preencher agora</a
                   >
                   <a
@@ -155,6 +173,7 @@
                     (click)="onClickChangeCpfBirthdate()"
                     (keydown.enter)="onClickChangeCpfBirthdate()"
                     tabindex="0"
+                    id="link-change-cpf"
                     >Alterar</a
                   >
                 </div>
@@ -176,20 +195,22 @@
         </table>
       </form>
       <div class="container-select-image">
-        <div class="container-img-user" *ngIf="!userObjState.userImage && !base64StringImage">
+        <div class="container-img-user-1" *ngIf="!userObjState.userImage && !base64StringImage">
           <app-body-user width="60px" height="60px" color="#c6c6c6"></app-body-user>
         </div>
         <div
           class="container-img-user-2"
           *ngIf="userObjState.userImage && userObjState.userImage.length > 0"
         >
-          <img src="{{ userObjState.userImage }}" alt="img-user" />
+          <img src="{{ userObjState.userImage }}" alt="img-user" id="img-user-profile" />
         </div>
         <div class="container-img-user-2" *ngIf="base64StringImage && base64StringImage.length > 0">
-          <img src="{{ base64StringImage }}" alt="img-user" />
+          <img src="{{ base64StringImage }}" alt="img-user" id="img-user-base-64" />
         </div>
 
-        <button (click)="onClickButtonSelectionImage()">Selecionar a Imagem</button>
+        <button (click)="onClickButtonSelectionImage()" id="button-select-img">
+          Selecionar a Imagem
+        </button>
         <div class="container-span-info-about-select-image">
           <span>Tamanho do arquivo: no máximo 1 MB</span>
           <span>Extensão de arquivo: .JPEG, .PNG</span>

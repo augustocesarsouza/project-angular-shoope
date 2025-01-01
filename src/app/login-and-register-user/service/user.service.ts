@@ -38,10 +38,6 @@ export class UserService {
 
   constructor(private _http: HttpClient) { }
 
-  // sendTokenForEmail(emailOrCpf: string){
-  //   return this.http.get(`/api/v1/public/user/send-token-email-change-password/${emailOrCpf}`).pipe(take(1));
-  // }
-
   findByIdOnly(userId: string, token: string){
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',

@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import {  NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LoginAndRegisterUserRoutingModule } from './login-and-register-user-routing.module';
 import { LoginComponent } from './login-components/login/login.component';
@@ -19,6 +19,7 @@ import { PaymentComponent } from './login-components/footer-components/payment/p
 import { FollowUsComponent } from './login-components/footer-components/follow-us/follow-us.component';
 import { DownloadAppShopeeComponent } from './login-components/footer-components/download-app-shopee/download-app-shopee.component';
 import { RightsShopeeComponent } from './login-components/footer-components/rights-shopee/rights-shopee.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,9 @@ import { RightsShopeeComponent } from './login-components/footer-components/righ
     CommonModule,
     LoginAndRegisterUserRoutingModule,
     AllSvgModule,
-    FormsModule
-  ]
+    FormsModule,
+    HttpClientModule
+  ],
+  exports: [CustomerServiceComponent]
 })
 export class LoginUserModule { }

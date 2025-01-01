@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MyPurchasesComponent } from './my-purchases.component';
+import { AllSvgModule } from '../../all-svg/all-svg.module';
 
 describe('MyPurchasesComponent', () => {
   let component: MyPurchasesComponent;
@@ -8,10 +9,11 @@ describe('MyPurchasesComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [MyPurchasesComponent]
+      declarations: [MyPurchasesComponent],
+      imports: [AllSvgModule]
     })
     .compileComponents();
-    
+
     fixture = TestBed.createComponent(MyPurchasesComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

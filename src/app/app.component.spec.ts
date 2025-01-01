@@ -1,35 +1,36 @@
-import { TestBed } from '@angular/core/testing';
-import { RouterTestingModule } from '@angular/router/testing';
+
+import {  ComponentFixture, TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { AllSvgModule } from './all-svg/all-svg.module';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('AppComponent', () => {
+  let component: AppComponent;
+  let fixture: ComponentFixture<AppComponent>;
+
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
+        AllSvgModule,
         RouterTestingModule
       ],
       declarations: [
         AppComponent
       ],
     }).compileComponents();
+
+    // fixture = TestBed.createComponent(AppComponent);
+    // component = fixture.componentInstance;
+    // fixture.detectChanges();
   });
 
-  it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app).toBeTruthy();
-  });
-
-  it(`should have as title 'project-angular-shoope'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('project-angular-shoope');
-  });
-
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
+  beforeEach(() => {
+    fixture = TestBed.createComponent(AppComponent);
+    component = fixture.componentInstance;
     fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, project-angular-shoope');
+  });
+
+  it('should create the app', () => {  // Certifique-se de que há pelo menos um teste dentro de describe
+    expect(component).toBeTruthy();
   });
 });

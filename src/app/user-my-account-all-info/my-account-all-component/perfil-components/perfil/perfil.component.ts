@@ -222,6 +222,7 @@ export class PerfilComponent implements OnInit, AfterViewInit, OnDestroy {
     if(!user.cpf) return;
 
     const cpf = user.cpf;
+
     this.cpf = cpf;
     // cpf = "07285007102";
     let newCpf = '';

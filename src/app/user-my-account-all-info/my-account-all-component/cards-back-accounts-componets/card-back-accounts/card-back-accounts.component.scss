@@ -16,7 +16,7 @@
   }
 }
 
-.you-yet-dont-have-card {
+.container-you-yet-dont-have-card {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -64,4 +64,16 @@
     font-weight: 400;
     margin: 0px;
   }
+}
+
+.container-you-yet-dont-have-bank-account {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 90px 0;
+
+  font-size: 19px;
+  font-weight: 500;
+  color: rgb(85, 85, 85);
 }

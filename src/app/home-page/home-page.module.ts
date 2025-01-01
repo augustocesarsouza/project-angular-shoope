@@ -36,6 +36,6 @@ import { HeaderSecondComponent } from './header-second/header-second.component';
     CommonModule,
     AllSvgModule,
     FormsModule,
-  ]
+  ],
 })
 export class HomePageModule { }
