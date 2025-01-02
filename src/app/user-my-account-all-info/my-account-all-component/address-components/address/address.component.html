@@ -19,13 +19,20 @@
   </div>
   <!-- G -->
 
-  <div class="container-svg-there-is-no-addresses">
+  <div class="container-svg-there-is-no-addresses" *ngIf="addressArray.length <= 0">
     <app-svg-address width="140px" height="140px"></app-svg-address>
     <span>Você ainda não tem endereços.</span>
   </div>
 
+  <app-view-address-user
+    *ngIf="addressArray.length > 0"
+    [clickInEditAddress]="clickInEditAddress"
+    [address]="addressArray"
+  ></app-view-address-user>
+
   <app-modal-new-address
     [changeValueNewAddress]="changeValueNewAddress"
-    *ngIf="newAddress"
+    [addressEdit]="addressEdit"
+    *ngIf="newAddress || addressEdit"
   ></app-modal-new-address>
 </div>

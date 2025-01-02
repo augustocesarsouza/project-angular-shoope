@@ -5,7 +5,8 @@
   tabindex="0"
 >
   <div class="container-modal-inner">
-    <span *ngIf="!clickedEditAddress">Novo Endereço</span>
+    <span *ngIf="!clickedEditAddress && !addressEdit">Novo Endereço</span>
+    <span *ngIf="addressEdit">Editar endereço</span>
     <!-- {clickedEditAddress && <Styled.Span>Editar endereço</Styled.Span>} -->
 
     <div class="container-all-inputs">
@@ -20,6 +21,7 @@
             id="input-name-full"
             #inputNameFull
             (input)="changeInputNameFull($event, divNameInput, divContainerInputNameFull)"
+            [value]="addressEdit ? addressEdit.fullName : ''"
           />
         </div>
         <span class="span-name-full-error" *ngIf="NameFullError"
@@ -45,6 +47,7 @@
             #inputNumberPhone
             (click)="onClickInputNumberCelPhone()"
             (input)="changeInputNumberPhone($event, divNumberPhone, divContainerNumberPhone)"
+            [value]="addressEdit ? addressEdit.phoneNumber : ''"
           />
         </div>
         <span *ngIf="NumberPhoneError" id="fill-phone-valid">Preencha um telefone válido</span>
@@ -73,6 +76,7 @@
             id="input-cep-new-address"
             #inputCep
             (input)="changeInputCep($event, divCep, divContainerCep)"
+            [value]="addressEdit ? addressEdit.cep : ''"
           />
         </div>
         <!-- {inputCepIsLessThanEight && (
@@ -96,6 +100,7 @@
           id="input-state-city"
           #inputStateCity
           (input)="changeInputStateCity($event, divStateCity, divContainerStateCity)"
+          [value]="addressEdit ? addressEdit.stateCity : ''"
         />
       </div>
     </div>
@@ -113,6 +118,7 @@
             id="input-neighborhood"
             #inputNeighborhood
             (input)="changeInputNeighborhood($event, divNeighborhood, divContainerNeighborhood)"
+            [value]="addressEdit ? addressEdit.neighborhood : ''"
           />
         </div>
         <!-- {errorNeighborhood && (
@@ -134,6 +140,7 @@
             id="input-street-avenue"
             #inputStreetAvenue
             (input)="changeInputStreetAvenue($event, divStreetAvenue, divContainerStreetAvenue)"
+            [value]="addressEdit ? addressEdit.street : ''"
           />
         </div>
         <!-- {errorStreetAvenue && (
@@ -152,12 +159,17 @@
           id="input-number"
           #inputNumber
           (input)="changeInputNumber($event, divNumber, divContainerNumber)"
+          [value]="addressEdit ? addressEdit.numberHome : ''"
         />
       </div>
     </div>
     <div class="container-all-inputs">
       <div class="container-input-all" #divContainerComplementReferences>
-        <div class="container-name-input" id="container-complement-references">
+        <div
+          class="container-name-input"
+          #divComplementReferences
+          id="container-complement-references"
+        >
           Complemento/Referências Próx./Descrição do Prédio
         </div>
         <input
@@ -167,6 +179,14 @@
           placeholder="Complemento/Referências Próx./Descrição do Prédio"
           id="input-complement-references"
           #inputComplementReferences
+          (input)="
+            changeInputComplementReferences(
+              $event,
+              divComplementReferences,
+              divContainerComplementReferences
+            )
+          "
+          [value]="addressEdit ? addressEdit.complement : ''"
         />
       </div>
     </div>

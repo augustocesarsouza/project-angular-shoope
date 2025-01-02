@@ -2,6 +2,9 @@ import { AfterViewInit, Component, ElementRef, Input, OnDestroy, OnInit, ViewChi
 import { UserLocalStorage } from '../../../../login-and-register-user/user-function/get-user-local-storage/user-local-storage';
 import { User } from '../../../../login-and-register-user/interface/user';
 import { CepService } from '../../../../login-and-register-user/service/cep.service';
+import { AddressService } from '../../../service/address.service';
+import { Router } from '@angular/router';
+import { Address } from '../../../../login-and-register-user/interface/address';
 
 interface AddressCep {
   bairro: string;
@@ -64,9 +67,19 @@ export class ModalNewAddressComponent implements OnInit, AfterViewInit, OnDestro
   @ViewChild('inputNumber') inputNumber!: ElementRef<HTMLInputElement>;
   @ViewChild('inputComplementReferences') inputComplementReferences!: ElementRef<HTMLInputElement>;
 
-  @Input() changeValueNewAddress!: (newAddress: boolean) => void;
+  @ViewChild('divNameInput') divNameInput!: ElementRef<HTMLDivElement>;
+  @ViewChild('divNumberPhone') divNumberPhone!: ElementRef<HTMLDivElement>;
+  @ViewChild('divCep') divCep!: ElementRef<HTMLDivElement>;
+  @ViewChild('divStateCity') divStateCity!: ElementRef<HTMLDivElement>;
+  @ViewChild('divNeighborhood') divNeighborhood!: ElementRef<HTMLDivElement>;
+  @ViewChild('divStreetAvenue') divStreetAvenue!: ElementRef<HTMLDivElement>;
+  @ViewChild('divNumber') divNumber!: ElementRef<HTMLDivElement>;
+  @ViewChild('divComplementReferences') divComplementReferences!: ElementRef<HTMLDivElement>;
 
-  constructor(private cepService: CepService){
+  @Input() changeValueNewAddress!: (newAddress: boolean) => void;
+  @Input() addressEdit!: Address | null;
+
+  constructor(private cepService: CepService, private addressService: AddressService, private router: Router){
   }
 
   ngOnInit(): void {
@@ -133,6 +146,20 @@ export class ModalNewAddressComponent implements OnInit, AfterViewInit, OnDestro
     }, 50) as unknown as number;
 
     this.settimeOutArray.push(value);
+
+    if(this.addressEdit){
+      this.divNameInput.nativeElement.style.display = 'block';
+      this.divNumberPhone.nativeElement.style.display = 'block';
+      this.divCep.nativeElement.style.display = 'block';
+      this.divStateCity.nativeElement.style.display = 'block';
+      this.divNeighborhood.nativeElement.style.display = 'block';
+      this.divStreetAvenue.nativeElement.style.display = 'block';
+      this.divNumber.nativeElement.style.display = 'block';
+
+      if(this.addressEdit.complement.length > 0){
+        this.divComplementReferences.nativeElement.style.display = 'block';
+      }
+    }
   }
 
   onClickSaveHome = () => {
@@ -144,10 +171,13 @@ export class ModalNewAddressComponent implements OnInit, AfterViewInit, OnDestro
   }
 
   onClickCancelNewAddress = () => {
+    this.addressEdit = null;
     this.changeValueNewAddress(false);
   }
 
   onClickSendToDb = () => {
+    // addressEdit -> se for diferente de null é porque é para editar então nao é criar e atualizar no DB
+
     this.changeColorContainer(this.divContainerInputNameFull.nativeElement);
     this.changeColorContainer(this.divContainerNumberPhone.nativeElement);
     this.changeColorContainer(this.divContainerCep.nativeElement);
@@ -167,17 +197,39 @@ export class ModalNewAddressComponent implements OnInit, AfterViewInit, OnDestro
     };
 
     const obj = {
-      nameFull: this.inputNameFull.nativeElement.value,
-      numberPhone: this.inputNumberPhone.nativeElement.value,
+      fullName: this.inputNameFull.nativeElement.value,
+      phoneNumber: this.inputNumberPhone.nativeElement.value,
       cep: this.inputCep.nativeElement.value,
       stateCity: this.inputStateCity.nativeElement.value,
       neighborhood: this.inputNeighborhood.nativeElement.value,
-      streetAvenue: this.inputStreetAvenue.nativeElement.value,
-      number: this.inputNumber.nativeElement.value,
-      complementReferences: this.inputComplementReferences.nativeElement.value,
+      street: this.inputStreetAvenue.nativeElement.value,
+      numberHome: this.inputNumber.nativeElement.value,
+      complement: this.inputComplementReferences.nativeElement.value,
+      userId: this.user.id,
     }
 
     console.log(obj);
+
+    this.addressService.createAddress(obj).subscribe({
+      next: (success) => {
+        const address = success.data;
+
+        console.log(address);
+        this.changeValueNewAddress(false);
+      },
+      error: error => {
+        if(error.status === 400){
+          console.log(error);
+          // this.confirmEmail = false;
+        }
+
+        if(error.status === 403){
+          localStorage.removeItem('user');
+          this.router.navigate(['/buyer/login']);
+          // this.confirmEmail = false;
+        }
+      }
+    });;
 
   }
 
@@ -454,6 +506,19 @@ export class ModalNewAddressComponent implements OnInit, AfterViewInit, OnDestro
       input.classList.remove('placeholder-red');
 
       this.numberError = false;
+    }
+  }
+
+  changeInputComplementReferences(e: Event, divComplementReferences: HTMLDivElement, divContainerComplementReferences: HTMLDivElement){
+    const input = e.target as HTMLInputElement;
+
+    if(input.value.length > 0){
+      divComplementReferences.style.display = 'block';
+
+      divComplementReferences.style.color = "rgba(0, 0, 0, 0.4)";
+      divContainerComplementReferences.style.borderColor = "rgba(0, 0, 0, 0.14)";
+    }else {
+      divComplementReferences.style.display = 'none';
     }
   }
 

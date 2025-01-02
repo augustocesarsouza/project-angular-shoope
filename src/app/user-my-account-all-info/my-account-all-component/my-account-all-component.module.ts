@@ -21,6 +21,7 @@ import { FillCpfAndBirthDateComponent } from './perfil-components/fill-cpf-and-b
 import { CardBackAccountsComponent } from './cards-back-accounts-componets/card-back-accounts/card-back-accounts.component';
 import { AddressComponent } from './address-components/address/address.component';
 import { ModalNewAddressComponent } from './address-components/modal-new-address/modal-new-address.component';
+import { ViewAddressUserComponent } from './address-components/view-address-user/view-address-user.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { ModalNewAddressComponent } from './address-components/modal-new-address
     FillCpfAndBirthDateComponent,
     CardBackAccountsComponent,
     AddressComponent,
-    ModalNewAddressComponent
+    ModalNewAddressComponent,
+    ViewAddressUserComponent
   ],
   imports: [
     CommonModule,
