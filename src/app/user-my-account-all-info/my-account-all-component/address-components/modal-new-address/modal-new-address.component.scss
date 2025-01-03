@@ -120,6 +120,8 @@ input::placeholder {
   display: flex;
   font-size: 13px;
   font-weight: 500;
+
+  user-select: none;
 }
 
 // interface ContainerSaveHomeProps {
@@ -141,6 +143,11 @@ input::placeholder {
   // color: ${props => props.$whatwasclicksave === "home" ? "#fff" : "rgb(0 0 0 / 42%)"};
   // background: ${props => props.$whatwasclicksave === "home" ? "#ff6c00" : "#fff"};
   cursor: pointer;
+
+  // &:hover {
+  //   border: 1px solid #ee4d2d;
+  //   color: #ee4d2d;
+  // }
 }
 
 // interface ContainerSaveWorkProps {

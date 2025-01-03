@@ -195,17 +195,19 @@
       <div class="container-save-home-work">
         <div
           class="container-save-home"
-          (click)="onClickSaveHome()"
-          (keydown.enter)="onClickSaveHome()"
           tabindex="0"
+          #containerSaveHome
+          (click)="onClickSaveHome(containerSaveHome)"
+          (keydown.enter)="onClickSaveHome(containerSaveHome)"
         >
           <span>Casa</span>
         </div>
         <div
           class="container-save-work"
-          (click)="onClickSaveWork()"
-          (keydown.enter)="onClickSaveWork()"
           tabindex="0"
+          #containerSaveWork
+          (click)="onClickSaveWork(containerSaveWork)"
+          (keydown.enter)="onClickSaveWork(containerSaveWork)"
         >
           <span>Trabalho</span>
         </div>

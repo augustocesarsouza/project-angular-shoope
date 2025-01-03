@@ -27,12 +27,17 @@
   <app-view-address-user
     *ngIf="addressArray.length > 0"
     [clickInEditAddress]="clickInEditAddress"
+    [updateArrayAddressDefault]="updateArrayAddressDefault"
+    [deleteAddress]="deleteAddress"
     [address]="addressArray"
   ></app-view-address-user>
 
   <app-modal-new-address
     [changeValueNewAddress]="changeValueNewAddress"
+    [createNewAddress]="createNewAddress"
+    [updateArrayAddress]="updateArrayAddress"
     [addressEdit]="addressEdit"
     *ngIf="newAddress || addressEdit"
   ></app-modal-new-address>
 </div>
+<!-- *ngIf="newAddress || addressEdit" -->

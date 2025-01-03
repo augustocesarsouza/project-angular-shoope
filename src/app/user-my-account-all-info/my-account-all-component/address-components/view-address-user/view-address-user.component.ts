@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Address } from '../../../../login-and-register-user/interface/address';
 import { Router } from '@angular/router';
+import { AddressService } from '../../../service/address.service';
 
 @Component({
   selector: 'app-view-address-user',
@@ -10,11 +11,12 @@ import { Router } from '@angular/router';
 export class ViewAddressUserComponent {
   @Input() address!: Address[];
   @Input() clickInEditAddress!: (editAddress: Address) => void;
+  @Input() updateArrayAddressDefault!: (addressDefault: Address) => void;
+  @Input() deleteAddress!: (addressDefault: Address) => void;
   addressToDelete!: Address;
-
   showModalDeleteAddress = false;
 
-  constructor(private router: Router){
+  constructor(private router: Router, private addressService: AddressService){
   }
 
   onClickEditAddress(el: Address){
@@ -28,27 +30,30 @@ export class ViewAddressUserComponent {
   }
 
   onClickSetAsDefault(el: Address){
-    this.address.map((address) => {
-      if(address.defaultAddress === 1){
-        address.defaultAddress = 0;
-        return address;
-      }
+    const addressUpdateDefault = {
+      id: el.id,
+      defaultAddress: 1
+    }
 
-      if(el.id === address.id){
-        address.defaultAddress = 1;
-        return address;
-      }
+    this.addressService.updateAddressDefault(addressUpdateDefault).subscribe({
+      next: (success) => {
+        const address = success.data;
 
-      return address;;
+        this.updateArrayAddressDefault(address);
+      },
+      error: error => {
+        if(error.status === 400){
+          console.log(error);
+          // this.confirmEmail = false;
+        }
+
+        if(error.status === 403){
+          localStorage.removeItem('user');
+          this.router.navigate(['/buyer/login']);
+          // this.confirmEmail = false;
+        }
+      }
     });
-
-    this.address = this.address
-    .filter(address => address.defaultAddress === 1)
-    .concat(
-      this.address.filter(address => address.defaultAddress !== 1)
-    );
-
-    console.log(this.address);
   }
 
   onClickCancelDeleteAddress(){
@@ -56,8 +61,25 @@ export class ViewAddressUserComponent {
   }
 
   onClickDeleteAddressModal(){
-    this.address = this.address.filter((address) => address.id !== this.addressToDelete.id);
+    this.addressService.deleteAddress(this.addressToDelete.id).subscribe({
+      next: (success) => {
+        const address = success.data;
 
-    this.showModalDeleteAddress = false;
+        this.deleteAddress(address);
+        this.showModalDeleteAddress = false;
+      },
+      error: error => {
+        if(error.status === 400){
+          console.log(error);
+          // this.confirmEmail = false;
+        }
+
+        if(error.status === 403){
+          localStorage.removeItem('user');
+          this.router.navigate(['/buyer/login']);
+          // this.confirmEmail = false;
+        }
+      }
+    });
   }
 }

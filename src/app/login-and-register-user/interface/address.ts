@@ -14,4 +14,5 @@ export interface Address {
 
   userId: string;
   userDTO: User | null;
+  saveAs: number;
 }

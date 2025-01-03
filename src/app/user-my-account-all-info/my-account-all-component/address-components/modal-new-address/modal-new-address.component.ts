@@ -76,8 +76,15 @@ export class ModalNewAddressComponent implements OnInit, AfterViewInit, OnDestro
   @ViewChild('divNumber') divNumber!: ElementRef<HTMLDivElement>;
   @ViewChild('divComplementReferences') divComplementReferences!: ElementRef<HTMLDivElement>;
 
+  @ViewChild('containerSaveHome') containerSaveHome!: ElementRef<HTMLDivElement>;
+  @ViewChild('containerSaveWork') containerSaveWork!: ElementRef<HTMLDivElement>;
+
   @Input() changeValueNewAddress!: (newAddress: boolean) => void;
+  @Input() createNewAddress!: (newAddress: Address) => void;
+  @Input() updateArrayAddress!: (newAddress: Address) => void;
   @Input() addressEdit!: Address | null;
+
+  whichWasClickedSaveAs = -1;
 
   constructor(private cepService: CepService, private addressService: AddressService, private router: Router){
   }
@@ -93,6 +100,15 @@ export class ModalNewAddressComponent implements OnInit, AfterViewInit, OnDestro
       this.token = user.token;
       this.user = user;
       // this.findByIdOnly(user);
+    }
+
+    if(this.addressEdit){
+      this.NumberPhoneError = false;
+      this.NameFullError = false;
+      this.cpfError = false;
+      this.neighborhoodError = false;
+      this.streetAvenueError = false;
+      this.numberError = false;
     }
   }
 
@@ -156,18 +172,50 @@ export class ModalNewAddressComponent implements OnInit, AfterViewInit, OnDestro
       this.divStreetAvenue.nativeElement.style.display = 'block';
       this.divNumber.nativeElement.style.display = 'block';
 
+      this.whichWasClickedSaveAs = this.addressEdit.saveAs;
+
+      if(this.addressEdit.saveAs === 0){
+        this.containerSaveHome.nativeElement.style.borderColor = "#ee4d2d";
+        this.containerSaveHome.nativeElement.style.color = "rgb(238, 77, 45)";
+      }else if(this.addressEdit.saveAs === 1){
+        this.containerSaveWork.nativeElement.style.borderColor = "#ee4d2d";
+        this.containerSaveWork.nativeElement.style.color = "rgb(238, 77, 45)";
+      }
+
       if(this.addressEdit.complement.length > 0){
         this.divComplementReferences.nativeElement.style.display = 'block';
       }
     }
   }
 
-  onClickSaveHome = () => {
-    console.log();
+  onClickSaveHome = (containerSaveHome: HTMLDivElement) => {
+    if(this.whichWasClickedSaveAs === 0){
+      containerSaveHome.style.borderColor = "rgba(0, 0, 0, 0.09)";
+      containerSaveHome.style.color = "rgba(0, 0, 0, 0.42)";
+      this.whichWasClickedSaveAs = -1;
+    }else {
+      this.whichWasClickedSaveAs = 0;
+      containerSaveHome.style.borderColor = "#ee4d2d";
+      containerSaveHome.style.color = "rgb(238, 77, 45)";
+    }
+
+    this.containerSaveWork.nativeElement.style.borderColor = "rgba(0, 0, 0, 0.09)";
+    this.containerSaveWork.nativeElement.style.color = "rgba(0, 0, 0, 0.42)";
   }
 
-  onClickSaveWork = () => {
-    console.log();
+  onClickSaveWork = (containerSaveWork: HTMLDivElement) => {
+    if(this.whichWasClickedSaveAs === 1){
+      containerSaveWork.style.borderColor = "rgba(0, 0, 0, 0.09)";
+      containerSaveWork.style.color = "rgba(0, 0, 0, 0.42)";
+      this.whichWasClickedSaveAs = -1;
+    }else {
+      this.whichWasClickedSaveAs = 1;
+      containerSaveWork.style.borderColor = "#ee4d2d";
+      containerSaveWork.style.color = "rgb(238, 77, 45)";
+    }
+
+    this.containerSaveHome.nativeElement.style.borderColor = "rgba(0, 0, 0, 0.09)";
+    this.containerSaveHome.nativeElement.style.color = "rgba(0, 0, 0, 0.42)";
   }
 
   onClickCancelNewAddress = () => {
@@ -197,6 +245,7 @@ export class ModalNewAddressComponent implements OnInit, AfterViewInit, OnDestro
     };
 
     const obj = {
+      id: "",
       fullName: this.inputNameFull.nativeElement.value,
       phoneNumber: this.inputNumberPhone.nativeElement.value,
       cep: this.inputCep.nativeElement.value,
@@ -205,32 +254,57 @@ export class ModalNewAddressComponent implements OnInit, AfterViewInit, OnDestro
       street: this.inputStreetAvenue.nativeElement.value,
       numberHome: this.inputNumber.nativeElement.value,
       complement: this.inputComplementReferences.nativeElement.value,
+      defaultAddress: 0,
       userId: this.user.id,
+      saveAs: this.whichWasClickedSaveAs,
     }
 
-    console.log(obj);
+    if(!this.addressEdit){
+      this.addressService.createAddress(obj).subscribe({
+        next: (success) => {
+          const address = success.data;
 
-    this.addressService.createAddress(obj).subscribe({
-      next: (success) => {
-        const address = success.data;
+          this.changeValueNewAddress(false);
+          this.createNewAddress(address);
+        },
+        error: error => {
+          if(error.status === 400){
+            console.log(error);
+            // this.confirmEmail = false;
+          }
 
-        console.log(address);
-        this.changeValueNewAddress(false);
-      },
-      error: error => {
-        if(error.status === 400){
-          console.log(error);
-          // this.confirmEmail = false;
+          if(error.status === 403){
+            localStorage.removeItem('user');
+            this.router.navigate(['/buyer/login']);
+            // this.confirmEmail = false;
+          }
         }
+      });
+    }else {
+      obj.id = this.addressEdit.id;
+      obj.defaultAddress = this.addressEdit.defaultAddress;
 
-        if(error.status === 403){
-          localStorage.removeItem('user');
-          this.router.navigate(['/buyer/login']);
-          // this.confirmEmail = false;
+      this.addressService.updateAddress(obj).subscribe({
+        next: (success) => {
+          const address = success.data;
+
+          this.changeValueNewAddress(false);
+          this.updateArrayAddress(address);
+        },
+        error: error => {
+          if(error.status === 400){
+            console.log(error);
+            // this.confirmEmail = false;
+          }
+
+          if(error.status === 403){
+            localStorage.removeItem('user');
+            this.router.navigate(['/buyer/login']);
+            // this.confirmEmail = false;
+          }
         }
-      }
-    });;
-
+      });
+    }
   }
 
   onClickInputNumberCelPhone = () => {
@@ -358,7 +432,6 @@ export class ModalNewAddressComponent implements OnInit, AfterViewInit, OnDestro
           this.cpfError = false;
 
           const addressValue: AddressCep = json;
-          console.log(addressValue);
 
           const stateAndCity = `${addressValue.estado} - ${addressValue.localidade}`;
 

@@ -17,7 +17,12 @@
 
       <div class="container-button">
         <button (click)="onClickEditAddress(el)">Editar</button>
-        <button *ngIf="el.defaultAddress === 0" (click)="onClickDeleteAddress(el)">Excluir</button>
+        <button
+          *ngIf="el.defaultAddress === 0 || address.length <= 1"
+          (click)="onClickDeleteAddress(el)"
+        >
+          Excluir
+        </button>
       </div>
     </div>
     <div class="container-street-number-complement-neighborhood-and-set-as-default">

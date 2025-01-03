@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { UserLocalStorage } from '../../../../login-and-register-user/user-function/get-user-local-storage/user-local-storage';
 import { User } from '../../../../login-and-register-user/interface/user';
 import { Address } from '../../../../login-and-register-user/interface/address';
+import { AddressService } from '../../../service/address.service';
 
 @Component({
   selector: 'app-address',
@@ -18,7 +19,7 @@ export class AddressComponent implements OnInit {
   addressArray: Address[] = [];
   addressEdit: Address | null = null;
 
-  constructor(private router: Router){}
+  constructor(private router: Router, private addressService: AddressService){}
 
   ngOnInit(): void {
     const userResult = UserLocalStorage();
@@ -31,41 +32,39 @@ export class AddressComponent implements OnInit {
       this.token = user.token;
       this.user = user;
       // this.findByIdOnly(user);
+
+      const userId = user.id;
+      const token = user.token;
+
+      this.addressService.getAddressByUserId(userId, token).subscribe({
+        next: (success) => {
+          const address = success.data;
+
+          this.addressArray = address;
+          console.log(address);
+
+          // this.changeValueNewAddress(false);
+        },
+        error: error => {
+          if(error.status === 400){
+            console.log(error);
+            // this.confirmEmail = false;
+          }
+
+          if(error.status === 403){
+            localStorage.removeItem('user');
+            this.router.navigate(['/buyer/login']);
+            // this.confirmEmail = false;
+          }
+        }
+      });
     }
 
-    const address1 = {
-      id: "22f4c5dc-07c7-4d1d-991a-da11cf71f0cd",
-      fullName: "Augusto Cesar Souza Santana",
-      phoneNumber: "(+55) 67 98114 5503",
-      cep: "79083-590",
-      stateCity: "Mato Grosso do Sul - Campo Grande",
-      neighborhood: "Jardim Aero Rancho",
-      street: "Rua Cajazeira",
-      numberHome: "2420",
-      complement: "",
-      defaultAddress: 1,
-      userId:  "573c597e-c95f-42fc-9b9c-47b79c5b99fc",
-      userDTO: null
-    }
-
-    const address2 = {
-      id: "08cb2554-b4c9-4c20-9609-296abeedf682",
-      fullName: "Augusto Cesar",
-      phoneNumber: "(+55) 67 98114 5503",
-      cep: "79083-590",
-      stateCity: "Mato Grosso do Sul - Campo Grande",
-      neighborhood: "Jardim Aero Rancho",
-      street: "Rua Cajazeira",
-      numberHome: "2420",
-      complement: "ascascas",
-      defaultAddress: 0,
-      userId:  "573c597e-c95f-42fc-9b9c-47b79c5b99fc",
-      userDTO: null
-    }
-
-    this.address = address1;
-    this.addressArray.push(address1, address2);
     this.changeValueNewAddress = this.changeValueNewAddress.bind(this);
+    this.createNewAddress = this.createNewAddress.bind(this);
+    this.updateArrayAddress = this.updateArrayAddress.bind(this);
+    this.updateArrayAddressDefault = this.updateArrayAddressDefault.bind(this);
+    this.deleteAddress = this.deleteAddress.bind(this);
     this.clickInEditAddress = this.clickInEditAddress.bind(this);
   }
 
@@ -84,5 +83,42 @@ export class AddressComponent implements OnInit {
 
   clickInEditAddress(editAddress: Address): void{
     this.addressEdit = editAddress;
+  }
+
+  createNewAddress(newAddress: Address): void{
+    this.addressArray.push(newAddress);
+  }
+
+  updateArrayAddress(addressToUpdate: Address){
+    // const newArrayAddress = this.addressArray.filter((el) => el.id !== addressToUpdate.id);
+    // newArrayAddress.push(addressToUpdate);
+
+    // this.addressArray = newArrayAddress
+    // .filter(address => address.defaultAddress === 1)
+    // .concat(
+    //   newArrayAddress.filter(address => address.defaultAddress !== 1)
+    // );
+
+    this.addressArray = this.addressArray
+    .map(address => address.id === addressToUpdate.id ? addressToUpdate : address)
+    .sort((a, b) => b.defaultAddress - a.defaultAddress)
+  }
+
+  updateArrayAddressDefault(addressDefault: Address){
+    this.addressArray = this.addressArray
+    .map((address => {
+      if(address.id === addressDefault.id){
+        return addressDefault;
+      } else {
+        address.defaultAddress = 0;
+        return address;
+      }
+    }))
+    .sort((a, b) => b.defaultAddress - a.defaultAddress)
+  }
+
+  deleteAddress(addressToDelete: Address){
+    this.addressArray = this.addressArray.filter(address => address.id !== addressToDelete.id)
+    .sort((a, b) => b.defaultAddress - a.defaultAddress)
   }
 }
