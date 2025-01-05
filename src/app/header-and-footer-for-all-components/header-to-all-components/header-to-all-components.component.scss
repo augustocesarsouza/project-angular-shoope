@@ -1,0 +1,47 @@
+.container-header-login-component-main {
+  display: flex;
+  justify-content: center;
+  padding: 10px 0px 25px 20px;
+}
+
+.container-header-login-component{
+  display: flex;
+  justify-content: space-between;
+  width: 1150px;
+}
+
+.container-svg-shopee-and-span-register{
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+
+  >span {
+    font-size: 24px;
+    line-height: 28.8px;
+    color: rgb(34, 34, 34);
+    margin-bottom: 5px;
+  }
+}
+
+.container-svg-shopee-login{
+  display: flex;
+  width: auto;
+  height: auto;
+
+  >svg {
+    width: 100%;
+    height: 100%;
+    fill: #ee4d2d;
+  }
+}
+
+.container-need-help{
+  display: flex;
+  align-items: end;
+
+  >span {
+    font-size: 14px;
+    color: rgb(238, 77, 45);
+    line-height: 1;
+  }
+}

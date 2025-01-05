@@ -88,9 +88,10 @@ export class ProfileComponent implements OnInit, AfterViewInit, OnDestroy {
     if (number === '4') {
       this.changeSpanColor(spanNumber);
 
+      this.router.navigate(['/verify']);
+
       // nav('/user/account/password', { state: { user: userObjState } });
       // nav('/verify', { state: { user: userObjState } });
-      // this.router.navigate(['/verify' , { state: { userObj } }]);
     }
 
     if (number === '5') {

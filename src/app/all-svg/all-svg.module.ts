@@ -17,13 +17,15 @@ import { CodeIsWrongXComponent } from './code-is-wrong-x/code-is-wrong-x.compone
 import { BodyUserComponent } from './body-user/body-user.component';
 import { SvgMoreComponent } from './svg-more/svg-more.component';
 import { SvgAddressComponent } from './svg-address/svg-address.component';
+import { SvgShieldShopeeComponent } from './svg-shield-shopee/svg-shield-shopee.component';
+import { SvgLockComponent } from './svg-lock/svg-lock.component';
 
 @NgModule({
   imports: [
     CommonModule
   ],
-  declarations: [SvgArrowComponent, SvgCartComponent, SvgHelpComponent, SvgLanguageComponent, SvgLoupeComponent, SvgNotificationComponent, SvgShoopeComponent, SvgUserWithoutImgComponent, SvgEyeCloseComponent, SvgEyeOpenComponent, SvgCheckComponent, SvgExitComponent, SvgArrowRegisterComponent, CodeIsWrongXComponent, BodyUserComponent, SvgMoreComponent, SvgAddressComponent],
-  exports: [SvgArrowComponent, SvgCartComponent, SvgHelpComponent, SvgLanguageComponent, SvgLoupeComponent, SvgNotificationComponent, SvgShoopeComponent, SvgUserWithoutImgComponent, SvgEyeCloseComponent, SvgEyeOpenComponent, SvgCheckComponent, SvgExitComponent, SvgArrowRegisterComponent, CodeIsWrongXComponent, BodyUserComponent, SvgMoreComponent, SvgAddressComponent]
+  declarations: [SvgArrowComponent, SvgCartComponent, SvgHelpComponent, SvgLanguageComponent, SvgLoupeComponent, SvgNotificationComponent, SvgShoopeComponent, SvgUserWithoutImgComponent, SvgEyeCloseComponent, SvgEyeOpenComponent, SvgCheckComponent, SvgExitComponent, SvgArrowRegisterComponent, CodeIsWrongXComponent, BodyUserComponent, SvgMoreComponent, SvgAddressComponent, SvgShieldShopeeComponent, SvgLockComponent],
+  exports: [SvgArrowComponent, SvgCartComponent, SvgHelpComponent, SvgLanguageComponent, SvgLoupeComponent, SvgNotificationComponent, SvgShoopeComponent, SvgUserWithoutImgComponent, SvgEyeCloseComponent, SvgEyeOpenComponent, SvgCheckComponent, SvgExitComponent, SvgArrowRegisterComponent, CodeIsWrongXComponent, BodyUserComponent, SvgMoreComponent, SvgAddressComponent, SvgShieldShopeeComponent, SvgLockComponent]
 
 })
 export class AllSvgModule { }
