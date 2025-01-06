@@ -3,6 +3,8 @@ import { UserLocalStorage } from '../../../../login-and-register-user/user-funct
 import { User } from '../../../../login-and-register-user/interface/user';
 import { Router } from '@angular/router';
 import {  GetUserPerfilService } from '../../../../login-and-register-user/service/get-user-perfil.service';
+import { Subscription } from 'rxjs';
+import { UpdateNumberUrlMyAccountService } from '../../../../login-and-register-user/service/update-number-url-my-account.service';
 
 @Component({
   selector: 'app-profile',
@@ -17,8 +19,9 @@ export class ProfileComponent implements OnInit, AfterViewInit, OnDestroy {
   imgUserPerfil = "";
 
   settimeOutAny!: number;
+  private routeSubscription!: Subscription;
 
-  constructor(private router: Router, private getUserPerfilService: GetUserPerfilService){
+  constructor(private router: Router, private getUserPerfilService: GetUserPerfilService, private updateNumberUrlMyAccountService: UpdateNumberUrlMyAccountService){
   }
 
   ngOnInit(): void {
@@ -50,6 +53,17 @@ export class ProfileComponent implements OnInit, AfterViewInit, OnDestroy {
         span.nativeElement.style.color = "#ee4d2d";
       }
     });
+
+    const numberUrl = this.updateNumberUrlMyAccountService.currentUser;
+
+    if(numberUrl){
+      this.changeSpanColor(numberUrl);
+    };
+
+    // if(state){
+    //   const number = state.number;
+    //   console.log(number);
+    // }
   }
 
   onClickMyAccountItens = (number: string) => {
@@ -88,9 +102,10 @@ export class ProfileComponent implements OnInit, AfterViewInit, OnDestroy {
     if (number === '4') {
       this.changeSpanColor(spanNumber);
 
+      this.router.navigate(['/verify']);
+
       // nav('/user/account/password', { state: { user: userObjState } });
       // nav('/verify', { state: { user: userObjState } });
-      // this.router.navigate(['/verify' , { state: { userObj } }]);
     }
 
     if (number === '5') {
