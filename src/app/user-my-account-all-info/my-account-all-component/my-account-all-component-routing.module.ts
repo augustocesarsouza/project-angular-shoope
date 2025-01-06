@@ -8,6 +8,7 @@ import { PhoneChangeComponent } from './perfil-components/phone-change/phone-cha
 import { FillCpfAndBirthDateComponent } from './perfil-components/fill-cpf-and-birth-date/fill-cpf-and-birth-date.component';
 import { CardBackAccountsComponent } from './cards-back-accounts-componets/card-back-accounts/card-back-accounts.component';
 import { AddressComponent } from './address-components/address/address.component';
+import { ChangePasswordWithInputComponent } from './change-password/change-password-with-input/change-password-with-input.component';
 
 const routes: Routes = [
   { path: '', component: ProfileComponent,
@@ -19,6 +20,7 @@ const routes: Routes = [
       { path: 'kyc', component: FillCpfAndBirthDateComponent },
       { path: 'payment', component: CardBackAccountsComponent },
       { path: 'address', component: AddressComponent },
+      { path: 'password', component: ChangePasswordWithInputComponent },
       { path: '', redirectTo: 'perfil', pathMatch: 'full' },
       { path: '**', redirectTo: 'perfil' }
     ]

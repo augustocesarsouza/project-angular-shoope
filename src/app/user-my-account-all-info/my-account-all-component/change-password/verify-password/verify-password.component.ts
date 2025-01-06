@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-verify-password',
@@ -7,8 +8,10 @@ import { Component } from '@angular/core';
 })
 export class VerifyPasswordComponent {
 
-  onClickInputVerifyWithPassword(){
-    console.log("click input");
+  constructor(private router: Router){
+  }
 
+  onClickInputVerifyWithPassword(){
+    this.router.navigate(['/verify/password']);
   }
 }

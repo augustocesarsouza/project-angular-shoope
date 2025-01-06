@@ -17,6 +17,9 @@ import { ModalNewAddressComponent } from './address-components/modal-new-address
 import { ViewAddressUserComponent } from './address-components/view-address-user/view-address-user.component';
 import { VerifyPasswordComponent } from './change-password/verify-password/verify-password.component';
 import { HeaderAndFooterForAllComponentsModule } from '../../header-and-footer-for-all-components/header-and-footer-for-all-components.module';
+import { VerifyPasswordStepTwoComponent } from './change-password/verify-password-step-two/verify-password-step-two.component';
+import { FullCheckPasswordComponent } from './change-password/full-check-password/full-check-password.component';
+import { ChangePasswordWithInputComponent } from './change-password/change-password-with-input/change-password-with-input.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +35,9 @@ import { HeaderAndFooterForAllComponentsModule } from '../../header-and-footer-f
     ModalNewAddressComponent,
     ViewAddressUserComponent,
     VerifyPasswordComponent,
+    VerifyPasswordStepTwoComponent,
+    FullCheckPasswordComponent,
+    ChangePasswordWithInputComponent,
   ],
   imports: [
     CommonModule,

@@ -6,6 +6,7 @@ import { GetUserPerfilService } from '../../../../login-and-register-user/servic
 import { environment } from '../../../../../environments/environment';
 import CryptoJS from 'crypto-js';
 import { UserService } from '../../../../login-and-register-user/service/user.service';
+import { UpdateNumberUrlMyAccountService } from '../../../../login-and-register-user/service/update-number-url-my-account.service';
 
 interface UserToLocalStorage {
   id: string;
@@ -43,7 +44,8 @@ export class PerfilComponent implements OnInit, AfterViewInit, OnDestroy {
   buttonSavePerfil!: HTMLButtonElement;
   inputNameUser!: HTMLInputElement;
 
-  constructor(private userService: UserService, private getUserPerfilService: GetUserPerfilService, private router: Router){}
+  constructor(private userService: UserService, private getUserPerfilService: GetUserPerfilService, private updateNumberUrlMyAccountService: UpdateNumberUrlMyAccountService,
+    private router: Router){}
 
   ngOnInit(): void {
     const userResult = UserLocalStorage();
@@ -60,6 +62,8 @@ export class PerfilComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngAfterViewInit(): void {
+    if(typeof document === "undefined" || document === null) return;
+
     const value = setTimeout(() => {
       if(typeof document === "undefined" || document === null) return;
 
@@ -71,6 +75,24 @@ export class PerfilComponent implements OnInit, AfterViewInit, OnDestroy {
     }, 100) as unknown as number;
 
     this.settimeOutArray.push(value);
+
+    const spanPerfilFromMyAccount = document.querySelector("#span-perfil-from-my-account") as HTMLSpanElement;
+    const spanCardAndBankAccountsFromMyAccount = document.querySelector("#span-card-and-bank-accounts-from-my-account") as HTMLSpanElement;
+    const spanAddressFromMyAccount = document.querySelector("#span-address-from-my-account") as HTMLSpanElement;
+    const spanChangePasswordFromMyAccount = document.querySelector("#span-change-password-from-my-account") as HTMLSpanElement;
+    const spanCookiePreferencesFromMyAccount = document.querySelector("#span-cookie-preferences-from-my-account") as HTMLSpanElement;
+    const spanPrivacySettingsFromMyAccount = document.querySelector("#span-privacy-settings-from-my-account") as HTMLSpanElement;
+
+    spanCardAndBankAccountsFromMyAccount.style.color = "rgba(0, 0, 0, 0.65)";
+    spanAddressFromMyAccount.style.color = "rgba(0, 0, 0, 0.65)";
+    spanChangePasswordFromMyAccount.style.color = "rgba(0, 0, 0, 0.65)";
+    spanCookiePreferencesFromMyAccount.style.color = "rgba(0, 0, 0, 0.65)";
+    spanPrivacySettingsFromMyAccount.style.color = "rgba(0, 0, 0, 0.65)";
+
+    const numberUrl = this.updateNumberUrlMyAccountService.currentUser;
+    if(numberUrl === 0){
+      spanPerfilFromMyAccount.style.color = "#ee4d2d";
+    }
   }
 
   findByIdOnly(user: User){

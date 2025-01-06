@@ -3,12 +3,16 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home-page/home/home.component';
 import { EmailAndPhoneConfirmCodeComponent } from './user-my-account-all-info/my-account-all-component/perfil-components/email-and-phone-confirm-code/email-and-phone-confirm-code.component';
 import { VerifyPasswordComponent } from './user-my-account-all-info/my-account-all-component/change-password/verify-password/verify-password.component';
+import { VerifyPasswordStepTwoComponent } from './user-my-account-all-info/my-account-all-component/change-password/verify-password-step-two/verify-password-step-two.component';
+import { FullCheckPasswordComponent } from './user-my-account-all-info/my-account-all-component/change-password/full-check-password/full-check-password.component';
 
 const routes: Routes = [
   {path: '', pathMatch: 'full', redirectTo: 'login'},
   {path: '', component: HomeComponent},
   {path: 'confirm-code-email', component: EmailAndPhoneConfirmCodeComponent},
   {path: 'verify', component: VerifyPasswordComponent},
+  {path: 'verify/password', component: VerifyPasswordStepTwoComponent},
+  {path: 'verify/ivs', component: FullCheckPasswordComponent},
   {path: 'buyer',
     loadChildren: () => import('./login-and-register-user/login-and-register-user.module').then(m => m.LoginUserModule)
   },

@@ -2,9 +2,18 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { take } from 'rxjs';
 import { User } from '../interface/user';
+import { UserLogin } from '../interface/user-login';
 
 export interface ResultData {
   data: User;
+}
+
+export interface ResultLoginUserData {
+  data: UserLogin;
+}
+
+export interface ResultChangePasswordData {
+  data: ChangePassword;
 }
 
 export interface CodeSendToPhone {
@@ -31,6 +40,10 @@ export interface ResultCodeSendToPhoneData {
   data: CodeSendToPhone;
 }
 
+export interface ChangePassword {
+  passwordUpdateSuccessfully: boolean;
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -52,6 +65,10 @@ export class UserService {
     return this._http.get<ResultData>(`/api/public/user/login/${phone}/${password}`).pipe(take(1));
   }
 
+  verifyPassword(phone: string, password: string){
+    return this._http.get<ResultLoginUserData>(`/api/public/user/verify-password/${phone}/${password}`).pipe(take(1));
+  }
+
   createAccount(user: unknown){
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
@@ -68,6 +85,21 @@ export class UserService {
 
 
     return this._http.post<ResultData>(`/api/public/user/create`, user, options).pipe(take(1));
+  }
+
+  updateUserPassword(userChangePasswordDTO: unknown){
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      // 'Authorization': 'Bearer your-auth-token' // Se necessário
+    });
+
+    const options = {
+      headers: headers,
+    };
+
+    // Colocar "Bearer" token e validar se der error o token tiver sem validação vai lançar error
+
+    return this._http.put<ResultChangePasswordData>(`/api/public/user/update-user-password`, userChangePasswordDTO, options).pipe(take(1));
   }
 
   verifyCodeUser(user: unknown){

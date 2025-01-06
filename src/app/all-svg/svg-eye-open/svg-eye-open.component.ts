@@ -6,11 +6,7 @@ import { Component, Input } from '@angular/core';
   styleUrl: './svg-eye-open.component.scss'
 })
 export class SvgEyeOpenComponent {
-  @Input() width: string = '10px';
-  @Input() height: string = '10px';
-  @Input() fill: string = 'red';
-
-  constructor(){
-
-  }
+  @Input() width = '10px';
+  @Input() height = '10px';
+  @Input() fill = 'red';
 }
