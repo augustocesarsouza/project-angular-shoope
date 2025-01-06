@@ -44,7 +44,6 @@ export class ProfileComponent implements OnInit, AfterViewInit, OnDestroy {
     this.containerItensMyAccountAll.forEach((el, index) => {
       if(index === 0){
         el.nativeElement.style.display = "flex";
-
       }
     });
 
@@ -113,7 +112,7 @@ export class ProfileComponent implements OnInit, AfterViewInit, OnDestroy {
 
       // nav('/user/account/password', { state: { user: userObjState } });
       // nav('/user/account/cookie', { state: { user: userObjState } });
-      this.router.navigate(['/user/account/cookie' , { state: { userObj } }]);
+      this.router.navigate(['/user/account/cookie']);
     }
 
     if (number === '6') {

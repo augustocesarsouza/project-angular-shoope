@@ -1,0 +1,257 @@
+<div class="container-main-cokie">
+  <div>
+    <h1>Preferências de cookies</h1>
+  </div>
+
+  <span>
+    Usamos cookies e ferramentas semelhantes (coletivamente referidos como "cookies") para os fins
+    descritos abaixo. Para cada uma das finalidades a seguir, você pode optar por ativar os cookies
+    selecionando a respectiva chave. Observe que, a menos que você esteja conectado, suas escolhas
+    só serão efetivas no navegador da web e no dispositivo que você está usando no momento.
+  </span>
+
+  <div class="container-checkout">
+    <div
+      (click)="onClickContainerCheckout($event, null)"
+      (keydown.enter)="onClickContainerCheckout($event, null)"
+      tabindex="0"
+      class="container-checkout-inner"
+      #containerAcceptAllCoockies
+    ></div>
+    <span
+      (click)="onClickContainerCheckout($event, null)"
+      (keydown.enter)="onClickContainerCheckout($event, null)"
+      tabindex="0"
+    >
+      Aceitar todos os cookies
+    </span>
+  </div>
+
+  <div class="container-cookies-essential">
+    <h1>Cookies essenciais</h1>
+    <span>
+      Essencial para tornar a plataforma utilizável, permitindo funções básicas, como navegação na
+      página e acesso a áreas seguras da plataforma. A utilização destes cookies não requer o seu
+      consentimento.
+    </span>
+  </div>
+
+  <div class="container-coockie-after-coockies-essential-three">
+    <div class="container-coockie-after-coockies-essential-three-inner">
+      <h1>Cookies analíticos</h1>
+      <span>
+        Coleta informações técnicas sobre sua visita e interações com a plataforma para entender seu
+        uso dos serviços e melhorar sua experiência de usuário.
+      </span>
+    </div>
+
+    <div class="container-checkout">
+      <div
+        (click)="onClickContainerCheckout($event, 0)"
+        (keydown.enter)="onClickContainerCheckout($event, 0)"
+        tabindex="0"
+        class="container-checkout-inner"
+        #containerCheckoutInner
+      ></div>
+      <span
+        (click)="onClickContainerCheckout($event, 0)"
+        (keydown.enter)="onClickContainerCheckout($event, 0)"
+        tabindex="0"
+      >
+        Aceitar
+      </span>
+    </div>
+  </div>
+
+  <div class="container-coockie-after-coockies-essential-three">
+    <div class="container-coockie-after-coockies-essential-three-inner">
+      <h1>Cookies funcionais</h1>
+      <span>
+        Habilita determinadas funções da plataforma, coleta informações sobre suas atividades e
+        lembra de certas preferências e configurações que você especifica na plataforma.
+      </span>
+    </div>
+
+    <div class="container-checkout">
+      <div
+        (click)="onClickContainerCheckout($event, 1)"
+        (keydown.enter)="onClickContainerCheckout($event, 1)"
+        tabindex="0"
+        class="container-checkout-inner"
+        #containerCheckoutInner
+      ></div>
+      <span
+        (click)="onClickContainerCheckout($event, 1)"
+        (keydown.enter)="onClickContainerCheckout($event, 1)"
+        tabindex="0"
+      >
+        Aceitar
+      </span>
+    </div>
+  </div>
+
+  <div class="container-coockie-after-coockies-essential-three">
+    <div class="container-coockie-after-coockies-essential-three-inner">
+      <h1>Cookies de publicidade personalizada</h1>
+      <span>
+        Recolhe informações sobre a sua atividade no site ou atividade de navegação para apresentar
+        conteúdos mais relevantes para você e para os seus interesses.
+      </span>
+    </div>
+
+    <div class="container-checkout">
+      <div
+        (click)="onClickContainerCheckout($event, 2)"
+        (keydown.enter)="onClickContainerCheckout($event, 2)"
+        tabindex="0"
+        class="container-checkout-inner"
+        #containerCheckoutInner
+      ></div>
+      <span
+        (click)="onClickContainerCheckout($event, 2)"
+        (keydown.enter)="onClickContainerCheckout($event, 2)"
+        tabindex="0"
+      >
+        Aceitar
+      </span>
+    </div>
+  </div>
+
+  <div class="container-coockie-after-coockies-essential-three">
+    <div class="container-coockie-after-coockies-essential-three-inner">
+      <h1>Cookies terceirizados</h1>
+      <span>
+        Esses cookies podem ser fornecidos por provedores de análise de terceiros ou para fins de
+        publicidade, mas são usados apenas para fins relacionados aos nossos serviços.
+      </span>
+    </div>
+
+    <div class="container-checkout">
+      <div
+        (click)="onClickContainerCheckout($event, 3)"
+        (keydown.enter)="onClickContainerCheckout($event, 3)"
+        tabindex="0"
+        class="container-checkout-inner"
+        #containerCheckoutInner
+      ></div>
+      <span
+        (click)="onClickContainerCheckout($event, 3)"
+        (keydown.enter)="onClickContainerCheckout($event, 3)"
+        tabindex="0"
+      >
+        Aceitar
+      </span>
+    </div>
+  </div>
+
+  <div class="container-see-more-main">
+    <div
+      class="container-see-more-inner"
+      (click)="onClickContainerSeeMore()"
+      (keydown.enter)="onClickContainerSeeMore()"
+      tabindex="0"
+    >
+      <span>Ver mais</span>
+      <app-svg-arrow
+        *ngIf="!showArrowTop"
+        width="20px"
+        height="20px"
+        fill="red"
+        rotate="rotate(0)"
+      ></app-svg-arrow>
+      <app-svg-arrow
+        *ngIf="showArrowTop"
+        width="20px"
+        height="20px"
+        fill="red"
+        rotate="rotate(180)"
+      ></app-svg-arrow>
+    </div>
+  </div>
+
+  <div class="container-see-more-google-and-tiktok" *ngIf="showArrowTop">
+    <div class="container-google-and-tiktok-accept">
+      <div class="container-google-tiktok-inner">
+        <svg viewBox="0 0 24 24" fill="none" className="sVcOPf">
+          <path
+            d="M23.52 12.273c0-.851-.076-1.67-.218-2.455H12v4.642h6.458a5.52 5.52 0 0 1-2.394 3.622v3.01h3.878c2.269-2.088 3.578-5.164 3.578-8.82Z"
+            fill="#4285F4"
+          ></path>
+          <path
+            d="M12 24c3.24 0 5.956-1.075 7.942-2.907l-3.878-3.011c-1.075.72-2.45 1.145-4.064 1.145-3.125 0-5.77-2.11-6.715-4.947H1.276v3.109A11.995 11.995 0 0 0 12 23.999Z"
+            fill="#34A853"
+          ></path>
+          <path
+            d="M5.285 14.28A7.213 7.213 0 0 1 4.91 12c0-.791.136-1.56.376-2.28V6.61H1.276A11.995 11.995 0 0 0 0 12c0 1.936.464 3.769 1.276 5.389l4.01-3.11Z"
+            fill="#FBBC05"
+          ></path>
+          <path
+            d="M12 4.773c1.762 0 3.344.605 4.587 1.794l3.442-3.442C17.951 1.19 15.235 0 12 0 7.31 0 3.25 2.69 1.276 6.61l4.01 3.11C6.228 6.884 8.874 4.773 12 4.773Z"
+            fill="#EA4335"
+          ></path>
+        </svg>
+        <span>Google</span>
+      </div>
+
+      <div class="container-checkout">
+        <div
+          (click)="onClickContainerCheckout($event, 6)"
+          (keydown.enter)="onClickContainerCheckout($event, 6)"
+          tabindex="0"
+        ></div>
+        <span
+          (click)="onClickContainerCheckout($event, 6)"
+          (keydown.enter)="onClickContainerCheckout($event, 6)"
+          tabindex="0"
+          >Aceitar</span
+        >
+      </div>
+    </div>
+    <div class="container-google-and-tiktok-accept">
+      <div class="container-google-tiktok-inner">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" class="iLv_24">
+          <rect width="24" height="24" rx="2" fill="black" fill-opacity="0.87"></rect>
+          <path
+            d="M10.4474 10.3155V9.68393C10.2369 9.6313 10.0264 9.63135 9.81585 9.63135C7.13164 9.63135 4.97375 11.7892 4.97375 14.4734C4.97375 16.105 5.81586 17.5786 7.02638 18.4207L6.97375 18.3681C6.18428 17.526 5.76323 16.3682 5.76323 15.1576C5.76323 12.4734 7.86848 10.3681 10.4474 10.3155Z"
+            fill="#25F4EE"
+          ></path>
+          <path
+            d="M10.5528 17.3684C11.7633 17.3684 12.7107 16.421 12.7633 15.2105V4.68421H14.658C14.6054 4.47368 14.6054 4.26316 14.6054 4H11.9738V14.5263C11.9212 15.6842 10.9738 16.6315 9.7633 16.6315C9.39488 16.6315 9.02646 16.5263 8.76331 16.3684C9.18436 16.9473 9.81593 17.3684 10.5528 17.3684ZM18.2895 8.26315V7.63157C17.5526 7.63157 16.8684 7.42104 16.2895 7.05262C16.8158 7.63157 17.5 8.10525 18.2895 8.26315Z"
+            fill="#25F4EE"
+          ></path>
+          <path
+            d="M16.2895 7.05239C15.7105 6.42082 15.3947 5.57871 15.3947 4.63135H14.6579C14.8684 5.68398 15.5 6.52608 16.2895 7.05239ZM9.81587 12.2102C8.60534 12.2102 7.60535 13.2102 7.60535 14.4207C7.60535 15.2628 8.13166 15.9997 8.81587 16.3681C8.55271 15.9997 8.39482 15.5786 8.39482 15.1049C8.39482 13.8944 9.39482 12.8944 10.6053 12.8944C10.8159 12.8944 11.0264 12.9471 11.2369 12.9997V10.3155C11.0264 10.2629 10.8159 10.2629 10.6053 10.2629H10.5001V12.2629C10.2369 12.2629 10.0264 12.2102 9.81587 12.2102Z"
+            fill="#FE2C55"
+          ></path>
+          <path
+            d="M18.2894 8.26318V10.2632C16.921 10.2632 15.6578 9.84213 14.6578 9.10529V14.4737C14.6578 17.1579 12.4999 19.3158 9.81571 19.3158C8.76308 19.3158 7.81572 19 7.02625 18.4737C7.92098 19.421 9.18413 20 10.5526 20C13.2368 20 15.3946 17.8421 15.3946 15.1579V9.7895C16.4473 10.5263 17.7104 10.9474 19.0262 10.9474V8.31582C18.8157 8.31582 18.5525 8.31582 18.2894 8.26318Z"
+            fill="#FE2C55"
+          ></path>
+          <path
+            d="M14.6579 14.4734V9.10502C15.7105 9.84191 16.9737 10.2629 18.2895 10.2629V8.21028C17.5 8.05239 16.8158 7.63134 16.2895 7.05239C15.4474 6.52608 14.8684 5.63134 14.7105 4.63135H12.7632V15.1577C12.7106 16.3156 11.7632 17.2629 10.5527 17.2629C9.81582 17.2629 9.18425 16.8945 8.76319 16.3682C8.07899 16.0524 7.6053 15.3155 7.6053 14.4734C7.6053 13.2629 8.6053 12.263 9.81582 12.263C10.0263 12.263 10.2369 12.3155 10.4474 12.3682V10.3155C7.81583 10.3682 5.71057 12.5261 5.71057 15.1577C5.71057 16.4208 6.18425 17.5787 7.02636 18.4734C7.81583 18.9997 8.76319 19.3682 9.81582 19.3682C12.5 19.3156 14.6579 17.105 14.6579 14.4734Z"
+            fill="white"
+          ></path>
+        </svg>
+        <span>Tiktok</span>
+      </div>
+
+      <div class="container-checkout">
+        <div
+          (click)="onClickContainerCheckout($event, 6)"
+          (keydown.enter)="onClickContainerCheckout($event, 6)"
+          tabindex="0"
+        ></div>
+        <span
+          (click)="onClickContainerCheckout($event, 6)"
+          (keydown.enter)="onClickContainerCheckout($event, 6)"
+          tabindex="0"
+          >Aceitar</span
+        >
+      </div>
+    </div>
+  </div>
+
+  <div class="container-button-confirm">
+    <button>Confirmar</button>
+  </div>
+</div>

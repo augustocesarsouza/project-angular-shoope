@@ -20,6 +20,7 @@ import { HeaderAndFooterForAllComponentsModule } from '../../header-and-footer-f
 import { VerifyPasswordStepTwoComponent } from './change-password/verify-password-step-two/verify-password-step-two.component';
 import { FullCheckPasswordComponent } from './change-password/full-check-password/full-check-password.component';
 import { ChangePasswordWithInputComponent } from './change-password/change-password-with-input/change-password-with-input.component';
+import { CookieComponent } from './cookie-components/cookie/cookie.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { ChangePasswordWithInputComponent } from './change-password/change-passw
     VerifyPasswordStepTwoComponent,
     FullCheckPasswordComponent,
     ChangePasswordWithInputComponent,
+    CookieComponent,
   ],
   imports: [
     CommonModule,
