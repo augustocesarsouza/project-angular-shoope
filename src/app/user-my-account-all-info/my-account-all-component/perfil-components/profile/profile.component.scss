@@ -161,18 +161,33 @@
 
     &:hover {
       color: #ee4d2d;
-
     }
   }
 }
 
-ContainerMyAccount
+.container-itens-my-pourches {
+  display: none;
+  // display: ${props => props.$accountDelete ? "none" : "flex"};
+  flex-direction: column;
+  gap: 10px;
 
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.65);
+  padding-left: 38px;
+  padding-top: 13px;
+  padding-bottom: 7px;
+  width: 150px;
 
+  >span {
+    cursor: pointer;
 
+    &:hover {
+      color: #ee4d2d;
 
-
-
+    }
+  }
+}
 
 .container-main {
   display: flex;

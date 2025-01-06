@@ -1,0 +1,42 @@
+.container-main{
+  display: flex;
+  flex-direction: column;
+  width: 950px;
+  gap: 20px;
+
+  >h1 {
+    font-size: 20px;
+    font-weight: 500;
+    /* padding-bottom: 15px; */
+  }
+}
+
+.container-request-delete-account{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  border-top: 1px solid #1e1e1e1a;
+  padding-top: 10px;
+
+  >span {
+    font-size: 16px;
+    font-weight: 400;
+  }
+}
+
+.container-button-delete{
+  display: flex;
+
+  >button {
+    padding: 12px 50px;
+    border: none;
+    background-color: #ee4d2d;
+    color: #fff;
+    cursor: pointer;
+  }
+
+  >button:hover {
+    background-color: #ee5c3f;
+  }
+}

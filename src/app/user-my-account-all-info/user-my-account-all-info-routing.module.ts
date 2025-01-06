@@ -8,6 +8,9 @@ const routes: Routes = [
   {path: 'account',
     loadChildren: () => import('./my-account-all-component/my-account-all-component.module').then(m => m.MyAccountAllComponentModule)
   },
+  {path: 'setting',
+    loadChildren: () => import('./setting-user/setting-user.module').then(m => m.SettingUserModule)
+  },
   { path: 'coin', component: MyCoinsShopeeComponent },
   { path: 'voucher-wallet', component: MyCuponsComponent },
   { path: 'purchase', component: MyPurchasesComponent },

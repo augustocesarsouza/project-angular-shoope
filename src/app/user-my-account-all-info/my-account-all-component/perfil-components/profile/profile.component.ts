@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit, QueryList, ViewChildren } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { UserLocalStorage } from '../../../../login-and-register-user/user-function/get-user-local-storage/user-local-storage';
 import { User } from '../../../../login-and-register-user/interface/user';
 import { Router } from '@angular/router';
@@ -16,10 +16,12 @@ export class ProfileComponent implements OnInit, AfterViewInit, OnDestroy {
   whichWasClicked = "1";
   @ViewChildren('mySpan') spans!: QueryList<ElementRef<HTMLSpanElement>>;
   @ViewChildren('containerItensMyAccount') containerItensMyAccountAll!: QueryList<ElementRef<HTMLSpanElement>>;
+  @ViewChild('spanMyAccount') spanMyAccount!: ElementRef<HTMLSpanElement>;
   imgUserPerfil = "";
-
   settimeOutAny!: number;
   private routeSubscription!: Subscription;
+  containerItensMyPourches!: HTMLDivElement;
+  containerItensMyAccount!: HTMLDivElement;
 
   constructor(private router: Router, private getUserPerfilService: GetUserPerfilService, private updateNumberUrlMyAccountService: UpdateNumberUrlMyAccountService){
   }
@@ -41,6 +43,8 @@ export class ProfileComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngAfterViewInit(): void {
+    if(typeof document === "undefined" || document === null) return;
+
     this.containerItensMyAccountAll.forEach((el, index) => {
       if(index === 0){
         el.nativeElement.style.display = "flex";
@@ -58,6 +62,13 @@ export class ProfileComponent implements OnInit, AfterViewInit, OnDestroy {
     if(numberUrl){
       this.changeSpanColor(numberUrl);
     };
+
+    const containerItensMyPourches = document.querySelector(".container-itens-my-pourches")as HTMLDivElement;
+    this.containerItensMyPourches = containerItensMyPourches;
+
+    const containerItensMyAccount = document.querySelector(".container-itens-my-account")as HTMLDivElement;
+    this.containerItensMyAccount = containerItensMyAccount;
+
 
     // if(state){
     //   const number = state.number;
@@ -77,9 +88,9 @@ export class ProfileComponent implements OnInit, AfterViewInit, OnDestroy {
 
     if (number === '1') {
       this.changeSpanColor(spanNumber);
-
       if (this.userObjState) {
         // nav('/user/account/profile', { state: { user: this.userObjState } });
+        this.updateNumberUrlMyAccountService.updateImgUser(1);
         this.router.navigate(['/user/account/perfil']);
       }
     }
@@ -88,6 +99,7 @@ export class ProfileComponent implements OnInit, AfterViewInit, OnDestroy {
       this.changeSpanColor(spanNumber);
 
       // nav('/user/account/payment', { state: { user: userObjState } });
+      this.updateNumberUrlMyAccountService.updateImgUser(2);
       this.router.navigate(['/user/account/payment']);
     }
 
@@ -95,12 +107,14 @@ export class ProfileComponent implements OnInit, AfterViewInit, OnDestroy {
       this.changeSpanColor(spanNumber);
 
       // nav('/user/account/address', { state: { user: userObjState } });
+      this.updateNumberUrlMyAccountService.updateImgUser(3);
       this.router.navigate(['/user/account/address']);
     }
 
     if (number === '4') {
       this.changeSpanColor(spanNumber);
 
+      this.updateNumberUrlMyAccountService.updateImgUser(4);
       this.router.navigate(['/verify']);
 
       // nav('/user/account/password', { state: { user: userObjState } });
@@ -112,15 +126,16 @@ export class ProfileComponent implements OnInit, AfterViewInit, OnDestroy {
 
       // nav('/user/account/password', { state: { user: userObjState } });
       // nav('/user/account/cookie', { state: { user: userObjState } });
+      this.updateNumberUrlMyAccountService.updateImgUser(5);
       this.router.navigate(['/user/account/cookie']);
     }
 
     if (number === '6') {
       this.changeSpanColor(spanNumber);
-
+      this.updateNumberUrlMyAccountService.updateImgUser(6);
       // nav('/user/account/password', { state: { user: userObjState } });
       // nav('/user/setting/privacy', { state: { user: userObjState } });
-      this.router.navigate(['/user/account/privacy' , { state: { userObj } }]);
+      this.router.navigate(['/user/setting/privacy']);
     }
 
     // if (number === '7') {
@@ -150,6 +165,19 @@ export class ProfileComponent implements OnInit, AfterViewInit, OnDestroy {
         span.nativeElement.style.color = "rgba(0, 0, 0, 0.65)";
       }
     });
+  }
+
+  onClickContainerMyAccount(){
+    this.containerItensMyAccount.style.display = "flex";
+    this.spanMyAccount.nativeElement.style.color = "black";
+
+    this.updateNumberUrlMyAccountService.updateImgUser(1);
+    this.router.navigate(['/user/account/perfil']);
+  }
+
+  onClickMyPurches(){
+    this.containerItensMyAccount.style.display = "none";
+    this.spanMyAccount.nativeElement.style.color = "#ee4d2d";
   }
 
   ngOnDestroy(): void {

@@ -27,7 +27,12 @@
         </div>
         <div class="container-info-profile-user">
           <div class="container-my-account-main">
-            <div class="container-my-account">
+            <div
+              class="container-my-account"
+              (click)="onClickContainerMyAccount()"
+              (keydown.enter)="onClickContainerMyAccount()"
+              tabindex="0"
+            >
               <img
                 src="https://res.cloudinary.com/dyqsqg7pk/image/upload/v1725970368/img-shopee/ba61750a46794d8847c3f463c5e71cc4_o0oy1n.png"
                 alt="img-user"
@@ -86,12 +91,17 @@
             </div>
           </div>
           <div class="container-my-account-main">
-            <div class="container-my-account">
+            <div
+              class="container-my-account"
+              (click)="onClickMyPurches()"
+              (keydown.enter)="onClickMyPurches()"
+              tabindex="0"
+            >
               <img
                 src="https://res.cloudinary.com/dyqsqg7pk/image/upload/v1725977015/img-shopee/f0049e9df4e536bc3e7f140d071e9078_cn64xw.png"
                 alt="img-my-purchases"
               />
-              <span>Minhas Compras</span>
+              <span #spanMyAccount>Minhas Compras</span>
             </div>
           </div>
 
@@ -103,7 +113,7 @@
               />
               <span>Notificações</span>
             </div>
-            <div class="container-itens-my-account" #containerItensMyAccount>
+            <div class="container-itens-my-pourches" #containerItensMyAccount>
               <span
                 #mySpan
                 (click)="onClickMyAccountItens('7')"
