@@ -14,6 +14,9 @@ const routes: Routes = [
   {path: 'purchase',
     loadChildren: () => import('./purchase/purchase.module').then(m => m.PurchaseModule)
   },
+  {path: 'notifications',
+    loadChildren: () => import('./notifications/notifications.module').then(m => m.NotificationsModule)
+  },
   { path: 'coin', component: MyCoinsShopeeComponent },
   { path: 'voucher-wallet', component: MyCuponsComponent },
   { path: 'purchase', component: MyPurchasesComponent },

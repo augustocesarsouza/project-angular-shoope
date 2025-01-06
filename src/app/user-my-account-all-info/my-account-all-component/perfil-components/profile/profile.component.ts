@@ -16,7 +16,10 @@ export class ProfileComponent implements OnInit, AfterViewInit, OnDestroy {
   whichWasClicked = "1";
   @ViewChildren('mySpan') spans!: QueryList<ElementRef<HTMLSpanElement>>;
   @ViewChildren('containerItensMyAccount') containerItensMyAccountAll!: QueryList<ElementRef<HTMLSpanElement>>;
+  @ViewChild('containerNotification') containerNotification!: ElementRef<HTMLDivElement>;
   @ViewChild('spanMyAccount') spanMyAccount!: ElementRef<HTMLSpanElement>;
+  @ViewChild('spanNotification') spanNotification!: ElementRef<HTMLSpanElement>;
+  @ViewChild('spanOrderUpdates') spanOrderUpdates!: ElementRef<HTMLSpanElement>;
   imgUserPerfil = "";
   settimeOutAny!: number;
   private routeSubscription!: Subscription;
@@ -72,6 +75,14 @@ export class ProfileComponent implements OnInit, AfterViewInit, OnDestroy {
     if(numberUrl === 10){
       this.containerItensMyAccount.style.display = "none";
       this.spanMyAccount.nativeElement.style.color = "#ee4d2d";
+    }
+
+    if(numberUrl === 20){
+      this.containerItensMyAccount.style.display = "none";
+      this.spanOrderUpdates.nativeElement.style.color = "#ee4d2d";
+
+      this.containerNotification.nativeElement.style.display = "flex";
+      this.containerNotification.nativeElement.style.color = "#ee4d2d";
     }
   }
 
@@ -137,9 +148,10 @@ export class ProfileComponent implements OnInit, AfterViewInit, OnDestroy {
       this.router.navigate(['/user/setting/privacy']);
     }
 
-    // if (number === '7') {
-    //   nav('/user/notifications/order', { state: { user: userObjState } });
-    // }
+    if (number === '7') {
+      // nav('/user/notifications/order', { state: { user: userObjState } });
+      this.router.navigate(['/user/notifications/order']);
+    }
 
     // if (number === '8') {
     //   nav('/user/notifications/promotion', { state: { user: userObjState } });
@@ -177,6 +189,11 @@ export class ProfileComponent implements OnInit, AfterViewInit, OnDestroy {
   onClickMyPurches(){
     this.updateNumberUrlMyAccountService.updateImgUser(10);
     this.router.navigate(['/user/purchase']);
+  }
+
+  onClickNotifications(){
+    this.updateNumberUrlMyAccountService.updateImgUser(20);
+    this.router.navigate(['/user/notifications/order']);
   }
 
   ngOnDestroy(): void {

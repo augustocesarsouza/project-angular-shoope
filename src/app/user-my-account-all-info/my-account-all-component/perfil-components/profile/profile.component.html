@@ -106,19 +106,25 @@
           </div>
 
           <div class="container-my-account-main">
-            <div class="container-my-account">
+            <div
+              class="container-my-account"
+              (click)="onClickNotifications()"
+              (keydown.enter)="onClickNotifications()"
+              tabindex="0"
+            >
               <img
                 src="https://res.cloudinary.com/dyqsqg7pk/image/upload/v1725977158/img-shopee/e10a43b53ec8605f4829da5618e0717c_q1x07z.png"
                 alt="img-notifications"
               />
-              <span>Notificações</span>
+              <span #spanNotification>Notificações</span>
             </div>
-            <div class="container-itens-my-pourches" #containerItensMyAccount>
+            <div class="container-itens-my-pourches" #containerNotification>
               <span
                 #mySpan
                 (click)="onClickMyAccountItens('7')"
                 (keydown.enter)="onClickMyAccountItens('7')"
                 tabindex="0"
+                #spanOrderUpdates
                 >atualizações de pedidos</span
               >
               <span
