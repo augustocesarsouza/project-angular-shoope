@@ -69,11 +69,10 @@ export class ProfileComponent implements OnInit, AfterViewInit, OnDestroy {
     const containerItensMyAccount = document.querySelector(".container-itens-my-account")as HTMLDivElement;
     this.containerItensMyAccount = containerItensMyAccount;
 
-
-    // if(state){
-    //   const number = state.number;
-    //   console.log(number);
-    // }
+    if(numberUrl === 10){
+      this.containerItensMyAccount.style.display = "none";
+      this.spanMyAccount.nativeElement.style.color = "#ee4d2d";
+    }
   }
 
   onClickMyAccountItens = (number: string) => {
@@ -176,8 +175,8 @@ export class ProfileComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   onClickMyPurches(){
-    this.containerItensMyAccount.style.display = "none";
-    this.spanMyAccount.nativeElement.style.color = "#ee4d2d";
+    this.updateNumberUrlMyAccountService.updateImgUser(10);
+    this.router.navigate(['/user/purchase']);
   }
 
   ngOnDestroy(): void {

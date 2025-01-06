@@ -11,6 +11,9 @@ const routes: Routes = [
   {path: 'setting',
     loadChildren: () => import('./setting-user/setting-user.module').then(m => m.SettingUserModule)
   },
+  {path: 'purchase',
+    loadChildren: () => import('./purchase/purchase.module').then(m => m.PurchaseModule)
+  },
   { path: 'coin', component: MyCoinsShopeeComponent },
   { path: 'voucher-wallet', component: MyCuponsComponent },
   { path: 'purchase', component: MyPurchasesComponent },

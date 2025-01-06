@@ -1,0 +1,104 @@
+.container-main{
+  display: flex;
+  flex-direction: column;
+  width: 950px;
+}
+
+.container-top-main{
+  display: flex;
+  justify-content: space-between;
+  gap: 1px;
+  margin-bottom: 10px;
+}
+
+// interface ContainerSpanNameProps {
+//   $whichWasClickedTopLayer: string;
+// }
+
+.container-span-name{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 2px solid #2d2d2d2b;
+  // width: 100%;
+  width: 141px;
+  padding: 16px 0px;
+  cursor: pointer;
+
+  // border-color: ${props => props.$whichWasClickedTopLayer === '1' && "red"};
+  // border-color: ${props => props.$whichWasClickedTopLayer === '2' && "red"};
+  // border-color: ${props => props.$whichWasClickedTopLayer === '3' && "red"};
+  // border-color: ${props => props.$whichWasClickedTopLayer === '4' && "red"};
+  // border-color: ${props => props.$whichWasClickedTopLayer === '5' && "red"};
+  // border-color: ${props => props.$whichWasClickedTopLayer === '6' && "red"};
+  // border-color: ${props => props.$whichWasClickedTopLayer === '7' && "red"};
+
+  >span {
+    font-size: 16px;
+    font-weight: 500;
+    color: black;
+    // color: ${props => props.$whichWasClickedTopLayer === '1' && "#ee4d2d"};
+    // color: ${props => props.$whichWasClickedTopLayer === '2' && "#ee4d2d"};
+    // color: ${props => props.$whichWasClickedTopLayer === '3' && "#ee4d2d"};
+    // color: ${props => props.$whichWasClickedTopLayer === '4' && "#ee4d2d"};
+    // color: ${props => props.$whichWasClickedTopLayer === '5' && "#ee4d2d"};
+    // color: ${props => props.$whichWasClickedTopLayer === '6' && "#ee4d2d"};
+    // color: ${props => props.$whichWasClickedTopLayer === '7' && "#ee4d2d"};
+  }
+}
+
+.container-input-search{
+  display: flex;
+  align-items: center;
+  background: #00000017;
+  padding: 10px 15px;
+  width: 100%;
+  height: 55px;
+
+  >svg {
+    fill: #bbb;
+    width: 36px;
+    height: 19px;
+    padding-right: 14px;
+  }
+
+  >input {
+    border: none;
+    background: #00000000;
+    font-size: 14px;
+    width: 100%;
+
+    &:focus{
+     outline: none;
+    }
+
+    &::placeholder {
+      color: #00000050;
+    }
+  }
+}
+
+.container-main{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: 580px;
+  gap: 15px;
+
+  >h1 {
+    font-size: 18px;
+    font-weight: 400;
+    color: rgba(0, 0, 0, 0.8);
+  }
+}
+
+.container-img{
+  background-image: url(https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/orderlist/5fafbb923393b712b964.png);
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 100px;
+  width: 100px;
+}
