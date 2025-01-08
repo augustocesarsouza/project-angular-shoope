@@ -1,0 +1,24 @@
+.container-main{
+  width: 950px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  height: 100%;
+
+  >h1 {
+    font-size: 15px;
+    font-weight: 400;
+    color: #4d4d4d;
+    margin: 0px;
+  }
+}
+
+.container-none-update{
+
+  >img {
+    width: 100px;
+    height: 100px;
+  }
+}

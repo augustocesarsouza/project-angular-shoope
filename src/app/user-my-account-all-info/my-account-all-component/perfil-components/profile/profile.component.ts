@@ -17,10 +17,13 @@ export class ProfileComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChildren('mySpan') spans!: QueryList<ElementRef<HTMLSpanElement>>;
   @ViewChildren('containerItensMyAccount') containerItensMyAccountAll!: QueryList<ElementRef<HTMLSpanElement>>;
   @ViewChild('containerNotification') containerNotification!: ElementRef<HTMLDivElement>;
+
   @ViewChild('spanMyAccount') spanMyAccount!: ElementRef<HTMLSpanElement>;
   @ViewChild('spanNotification') spanNotification!: ElementRef<HTMLSpanElement>;
   @ViewChild('spanOrderUpdates') spanOrderUpdates!: ElementRef<HTMLSpanElement>;
   @ViewChild('spanPromotion') spanPromotion!: ElementRef<HTMLSpanElement>;
+  @ViewChild('spanWalletUpdates') spanWalletUpdates!: ElementRef<HTMLSpanElement>;
+
   imgUserPerfil = "";
   settimeOutAny!: number;
   private routeSubscription!: Subscription;
@@ -148,20 +151,25 @@ export class ProfileComponent implements OnInit, AfterViewInit, OnDestroy {
     }
 
     if (number === '7') {
-      this.spanOrderUpdates.nativeElement.style.color = "#ee4d2d";
       this.spanPromotion.nativeElement.style.color = "rgba(0, 0, 0, 0.65)";
+      this.spanWalletUpdates.nativeElement.style.color = "rgba(0, 0, 0, 0.65)";
+      this.spanOrderUpdates.nativeElement.style.color = "#ee4d2d";
       this.router.navigate(['/user/notifications/order']);
     }
 
     if (number === '8') {
       this.spanOrderUpdates.nativeElement.style.color = "rgba(0, 0, 0, 0.65)";
+      this.spanWalletUpdates.nativeElement.style.color = "rgba(0, 0, 0, 0.65)";
       this.spanPromotion.nativeElement.style.color = "#ee4d2d";
       this.router.navigate(['/user/notifications/promotion']);
     }
 
-    // if (number === '9') {
-    //   nav('/user/notifications/wallet', { state: { user: userObjState } });
-    // }
+    if (number === '9') {
+      this.spanOrderUpdates.nativeElement.style.color = "rgba(0, 0, 0, 0.65)";
+      this.spanPromotion.nativeElement.style.color = "rgba(0, 0, 0, 0.65)";
+      this.spanWalletUpdates.nativeElement.style.color = "#ee4d2d";
+      this.router.navigate(['/user/notifications/wallet']);
+    }
 
     // if (number === '10') {
     //   nav('/user/notifications/shopee', { state: { user: userObjState } });
