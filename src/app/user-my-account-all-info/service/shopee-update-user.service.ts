@@ -28,6 +28,6 @@ export class ShopeeUpdateUserService {
       // console.log(options);
 
 
-      return this._http.get<ResultData>(`/api/public/shopee-update-user/get-by-user-id-all/${userId}`, options).pipe(take(1));
+      return this._http.get<ResultData>(`/api/shopee-update-user/get-by-user-id-all/${userId}`, options).pipe(take(1));
     }
 }
