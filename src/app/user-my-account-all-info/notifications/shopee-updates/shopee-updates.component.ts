@@ -1,20 +1,20 @@
-import { Component, OnInit} from '@angular/core';
-import {  PromotionUserService } from '../../service/promotion-user.service';
+import { Component, OnInit } from '@angular/core';
 import { User } from '../../../login-and-register-user/interface/user';
+import { ShopeeUpdateUserService } from '../../service/shopee-update-user.service';
 import { UserLocalStorage } from '../../../login-and-register-user/user-function/get-user-local-storage/user-local-storage';
 import { Router } from '@angular/router';
-import { PromotionUser } from '../../../login-and-register-user/interface/promotion-user';
+import { ShopeeUpdateUser } from '../../../login-and-register-user/interface/shopee-update-user';
 
 @Component({
-  selector: 'app-promotion',
-  templateUrl: './promotion.component.html',
-  styleUrl: './promotion.component.scss'
+  selector: 'app-shopee-updates',
+  templateUrl: './shopee-updates.component.html',
+  styleUrl: './shopee-updates.component.scss'
 })
-export class PromotionComponent implements OnInit {
+export class ShopeeUpdatesComponent implements OnInit {
   userObjState!: User | null;
-  promotionUser!: PromotionUser[];
+  shopeeUpdateUser!: ShopeeUpdateUser[];
 
-  constructor(private router: Router, private promotionUserService: PromotionUserService){
+  constructor(private router: Router, private shopeeUpdateUserService: ShopeeUpdateUserService){
   }
 
   ngOnInit(): void {
@@ -26,11 +26,11 @@ export class PromotionComponent implements OnInit {
       this.userObjState = user;
 
       if(user){
-        this.promotionUserService.getByUserIdAll(user.id).subscribe({
+        this.shopeeUpdateUserService.getByUserIdAll(user.id, user.token).subscribe({
           next: (success) => {
-            const promotionUser = success.data;
-
-            this.promotionUser = promotionUser;
+            const shopeeUpdateUser = success.data;
+            console.log(shopeeUpdateUser);
+            this.shopeeUpdateUser = shopeeUpdateUser;
           },
           error: error => {
             if(error.status === 400){

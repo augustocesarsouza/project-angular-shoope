@@ -23,6 +23,7 @@ export class ProfileComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild('spanOrderUpdates') spanOrderUpdates!: ElementRef<HTMLSpanElement>;
   @ViewChild('spanPromotion') spanPromotion!: ElementRef<HTMLSpanElement>;
   @ViewChild('spanWalletUpdates') spanWalletUpdates!: ElementRef<HTMLSpanElement>;
+  @ViewChild('spanShopeeUpdates') spanShopeeUpdates!: ElementRef<HTMLSpanElement>;
 
   imgUserPerfil = "";
   settimeOutAny!: number;
@@ -153,6 +154,7 @@ export class ProfileComponent implements OnInit, AfterViewInit, OnDestroy {
     if (number === '7') {
       this.spanPromotion.nativeElement.style.color = "rgba(0, 0, 0, 0.65)";
       this.spanWalletUpdates.nativeElement.style.color = "rgba(0, 0, 0, 0.65)";
+      this.spanShopeeUpdates.nativeElement.style.color = "rgba(0, 0, 0, 0.65)";
       this.spanOrderUpdates.nativeElement.style.color = "#ee4d2d";
       this.router.navigate(['/user/notifications/order']);
     }
@@ -160,6 +162,7 @@ export class ProfileComponent implements OnInit, AfterViewInit, OnDestroy {
     if (number === '8') {
       this.spanOrderUpdates.nativeElement.style.color = "rgba(0, 0, 0, 0.65)";
       this.spanWalletUpdates.nativeElement.style.color = "rgba(0, 0, 0, 0.65)";
+      this.spanShopeeUpdates.nativeElement.style.color = "rgba(0, 0, 0, 0.65)";
       this.spanPromotion.nativeElement.style.color = "#ee4d2d";
       this.router.navigate(['/user/notifications/promotion']);
     }
@@ -167,13 +170,19 @@ export class ProfileComponent implements OnInit, AfterViewInit, OnDestroy {
     if (number === '9') {
       this.spanOrderUpdates.nativeElement.style.color = "rgba(0, 0, 0, 0.65)";
       this.spanPromotion.nativeElement.style.color = "rgba(0, 0, 0, 0.65)";
+      this.spanShopeeUpdates.nativeElement.style.color = "rgba(0, 0, 0, 0.65)";
       this.spanWalletUpdates.nativeElement.style.color = "#ee4d2d";
       this.router.navigate(['/user/notifications/wallet']);
     }
 
-    // if (number === '10') {
-    //   nav('/user/notifications/shopee', { state: { user: userObjState } });
-    // }
+    if (number === '10') {
+      this.spanOrderUpdates.nativeElement.style.color = "rgba(0, 0, 0, 0.65)";
+      this.spanPromotion.nativeElement.style.color = "rgba(0, 0, 0, 0.65)";
+      this.spanWalletUpdates.nativeElement.style.color = "rgba(0, 0, 0, 0.65)";
+      this.spanShopeeUpdates.nativeElement.style.color = "#ee4d2d";
+      this.router.navigate(['/user/notifications/shopee']);
+      // nav('/user/notifications/shopee', { state: { user: userObjState } });
+    }
   };
 
   changeSpanColor(spanNumber: number): void{
