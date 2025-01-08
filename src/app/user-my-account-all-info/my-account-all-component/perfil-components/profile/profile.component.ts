@@ -20,6 +20,7 @@ export class ProfileComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild('spanMyAccount') spanMyAccount!: ElementRef<HTMLSpanElement>;
   @ViewChild('spanNotification') spanNotification!: ElementRef<HTMLSpanElement>;
   @ViewChild('spanOrderUpdates') spanOrderUpdates!: ElementRef<HTMLSpanElement>;
+  @ViewChild('spanPromotion') spanPromotion!: ElementRef<HTMLSpanElement>;
   imgUserPerfil = "";
   settimeOutAny!: number;
   private routeSubscription!: Subscription;
@@ -84,6 +85,11 @@ export class ProfileComponent implements OnInit, AfterViewInit, OnDestroy {
       this.containerNotification.nativeElement.style.display = "flex";
       this.containerNotification.nativeElement.style.color = "#ee4d2d";
     }
+
+    // if(numberUrl === 21){
+    //   this.spanOrderUpdates.nativeElement.style.color = "rgba(0, 0, 0, 0.65)";
+    //   this.spanPromotion.nativeElement.style.color = "#ee4d2d";
+    // }
   }
 
   onClickMyAccountItens = (number: string) => {
@@ -126,16 +132,11 @@ export class ProfileComponent implements OnInit, AfterViewInit, OnDestroy {
 
       this.updateNumberUrlMyAccountService.updateImgUser(4);
       this.router.navigate(['/verify']);
-
-      // nav('/user/account/password', { state: { user: userObjState } });
-      // nav('/verify', { state: { user: userObjState } });
     }
 
     if (number === '5') {
       this.changeSpanColor(spanNumber);
 
-      // nav('/user/account/password', { state: { user: userObjState } });
-      // nav('/user/account/cookie', { state: { user: userObjState } });
       this.updateNumberUrlMyAccountService.updateImgUser(5);
       this.router.navigate(['/user/account/cookie']);
     }
@@ -143,19 +144,20 @@ export class ProfileComponent implements OnInit, AfterViewInit, OnDestroy {
     if (number === '6') {
       this.changeSpanColor(spanNumber);
       this.updateNumberUrlMyAccountService.updateImgUser(6);
-      // nav('/user/account/password', { state: { user: userObjState } });
-      // nav('/user/setting/privacy', { state: { user: userObjState } });
       this.router.navigate(['/user/setting/privacy']);
     }
 
     if (number === '7') {
-      // nav('/user/notifications/order', { state: { user: userObjState } });
+      this.spanOrderUpdates.nativeElement.style.color = "#ee4d2d";
+      this.spanPromotion.nativeElement.style.color = "rgba(0, 0, 0, 0.65)";
       this.router.navigate(['/user/notifications/order']);
     }
 
-    // if (number === '8') {
-    //   nav('/user/notifications/promotion', { state: { user: userObjState } });
-    // }
+    if (number === '8') {
+      this.spanOrderUpdates.nativeElement.style.color = "rgba(0, 0, 0, 0.65)";
+      this.spanPromotion.nativeElement.style.color = "#ee4d2d";
+      this.router.navigate(['/user/notifications/promotion']);
+    }
 
     // if (number === '9') {
     //   nav('/user/notifications/wallet', { state: { user: userObjState } });

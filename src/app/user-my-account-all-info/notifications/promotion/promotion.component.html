@@ -1,0 +1,41 @@
+<div class="container-main">
+  <div class="container-header">
+    <h1>Marcar todas as mensagens como lidas</h1>
+  </div>
+
+  <div class="container-body" *ngIf="promotionUser !== null">
+    <div class="container-first-promotion" *ngFor="let item of promotionUser">
+      <div class="container-first-inner-promotion" *ngIf="item.promotionDTO !== null">
+        <div class="container-img-inner">
+          <img src="{{ item.promotionDTO.img }}" alt="{{ item.promotionDTO.title }}" />
+        </div>
+        <div class="container-title-and-description">
+          <h1>{{ item.promotionDTO.title }}</h1>
+
+          <div class="container-description-imgs-date">
+            <span>{{ item.promotionDTO.description }}</span>
+
+            <div
+              class="container-second-img-inner"
+              #containerSecondImgInner
+              *ngIf="item.promotionDTO.whatIsThePromotion === 2"
+            >
+              <img
+                *ngFor="let itemList of item.promotionDTO.listImgInner"
+                src="{{ itemList }}"
+                alt="alt-img-of-list"
+              />
+            </div>
+
+            <span>{{ formatDateUser(item.promotionDTO.date) }}</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="container-button-detail">
+        <button>Ver Detalhes</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- // ver se tudo está certo amanha e arrumar as coisas -->
