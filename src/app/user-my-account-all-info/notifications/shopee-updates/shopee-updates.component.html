@@ -1,0 +1,28 @@
+<div class="container-main">
+  <div class="container-header">
+    <h1>Marcar todas as mensagens como lidas</h1>
+  </div>
+
+  <div class="container-body" *ngIf="shopeeUpdateUser !== null">
+    <div class="container-first-promotion" *ngFor="let item of shopeeUpdateUser">
+      <div class="container-first-inner-promotion" *ngIf="item.shopeeUpdateDTO !== null">
+        <div class="container-img-inner">
+          <img src="{{ item.shopeeUpdateDTO.img }}" alt="{{ item.shopeeUpdateDTO.title }}" />
+        </div>
+        <div class="container-title-and-description">
+          <h1>{{ item.shopeeUpdateDTO.title }}</h1>
+
+          <div class="container-description-imgs-date">
+            <span>{{ item.shopeeUpdateDTO.description }}</span>
+
+            <span>{{ formatDateUser(item.shopeeUpdateDTO.date) }}</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="container-button-detail">
+        <button>Ver Detalhes</button>
+      </div>
+    </div>
+  </div>
+</div>
