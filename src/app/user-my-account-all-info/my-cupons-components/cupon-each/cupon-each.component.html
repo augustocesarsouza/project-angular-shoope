@@ -1,0 +1,53 @@
+<div class="container-cupon-main">
+  <div class="container-quantity-cupons">
+    <div class="container-svg-quantity-x">
+      <!-- <SvgExitRed fill={'#EE4D2D'} /> -->
+      <svg
+        width="6"
+        height="6"
+        viewBox="0 0 6 6"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        class="izn8vl oHnnYi"
+      >
+        <path
+          d="M1.50391 0.716797L2.50977 2.46973L3.53516 0.716797H4.8291L3.22754 3.30957L4.89258 6H3.59863L2.52441 4.17383L1.4502 6H0.151367L1.81152 3.30957L0.214844 0.716797H1.50391Z"
+          fill="#EE4D2D"
+        ></path>
+      </svg>
+      <span>{{ objCupons.quantityCupons }}</span>
+    </div>
+  </div>
+  <div class="container-cupon-header">
+    <div class="container-img-header">
+      <img
+        src="https://res.cloudinary.com/dyqsqg7pk/image/upload/v1728988707/img-shopee/br-11134004-7r98o-lsikizwd3q4ta6_phkhk8.png"
+        alt="img-cupon"
+      />
+      <!-- {objCupons.secondImg && objCupons.secondImgAlt && (
+        <Styled.ContainerImgExclusive>
+          <img src={objCupons.secondImg} alt={objCupons.secondImgAlt} />
+        </Styled.ContainerImgExclusive>
+      )} -->
+      <div class="container-img-exclusive" *ngIf="objCupons.secondImg">
+        <img src="{{ objCupons.secondImg }}" alt="Logo" />
+      </div>
+    </div>
+    <div class="container-title-description-cupon">
+      <span>{{ objCupons.firstText }}</span>
+      <h1>{{ objCupons.secondText }}</h1>
+      <span>{{ objCupons.thirdText }}</span>
+    </div>
+  </div>
+  <div class="container-border"></div>
+  <div class="container-cupon-footer">
+    <div class="container-cupon-bottom-first">
+      <span>{{ formatDateString() }}</span>
+      <span>Condições</span>
+    </div>
+
+    <div class="container-cupon-bottom-second">
+      <button>Usar</button>
+    </div>
+  </div>
+</div>

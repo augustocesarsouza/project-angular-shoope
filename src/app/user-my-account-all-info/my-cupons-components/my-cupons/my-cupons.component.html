@@ -1,0 +1,68 @@
+<div class="container-main">
+  <div class="container-header">
+    <h1>Meus cupons</h1>
+
+    <div class="container-second-spans">
+      <span>Pegue mais cupons</span>
+      <span>Ver histórico de cupons</span>
+      <span>Veja mais</span>
+    </div>
+  </div>
+
+  <div class="container-input-add-cupon">
+    <span>Adicionar Cupom</span>
+    <div class="container-input-insert-code-cupon">
+      <input
+        placeholder="Insira o código do cupom aqui"
+        (input)="onChangeInputInsertCode($event)"
+        #inputInsertCode
+      />
+      <div
+        *ngIf="isValidClickRescueButton"
+        (click)="onClickContainerSvgExit()"
+        (keydown.enter)="onClickContainerSvgExit()"
+        tabindex="0"
+        class="container-svg-x"
+      >
+        <app-erase-x width="17px" height="17px" fill="rgb(73 73 73)"></app-erase-x>
+      </div>
+    </div>
+    <div class="container-button-rescue">
+      <button (click)="onClickRescue()" #buttonClaim>Resgatar</button>
+    </div>
+  </div>
+
+  <div class="container-topics-my-cupons">
+    <div
+      class="container-topic-cupons"
+      *ngFor="let item of objQuantityCupons"
+      #containerTopicCupons
+      (click)="onClickShopee(containerTopicCupons, item.whichCupon)"
+      (keydown.enter)="onClickShopee(containerTopicCupons, item.whichCupon)"
+      tabindex="0"
+    >
+      <div>
+        <div>{{ item.nameTopCupon }} ({{ item.quantityCupons }})</div>
+      </div>
+    </div>
+  </div>
+  <div class="container-cupon-ench-all" *ngIf="!showContainerWithoutCupon">
+    <app-cupon-each *ngFor="let cupon of allObjCupon" [objCupons]="cupon.cuponDTO"></app-cupon-each>
+  </div>
+  <div class="container-cupon-ench-all" *ngIf="allObjCuponsFilters.length > 0">
+    <app-cupon-each
+      *ngFor="let cupon of allObjCuponsFilters"
+      [objCupons]="cupon.cuponDTO"
+    ></app-cupon-each>
+  </div>
+
+  <div *ngIf="showContainerWithoutCupon" class="container-without-cupon">
+    <img
+      src="https://res.cloudinary.com/dyqsqg7pk/image/upload/v1736443191/img-cupons/CuponsNoneFound_xk3qe2.png"
+      alt="without-cupon"
+    />
+    <h1>Nenhum cupom correspondente</h1>
+    <span>Resgate mais cupons e encontre-os aqui!</span>
+    <button>Pegue mais cupons</button>
+  </div>
+</div>

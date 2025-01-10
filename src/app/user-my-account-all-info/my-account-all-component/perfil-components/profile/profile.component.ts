@@ -24,6 +24,7 @@ export class ProfileComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild('spanPromotion') spanPromotion!: ElementRef<HTMLSpanElement>;
   @ViewChild('spanWalletUpdates') spanWalletUpdates!: ElementRef<HTMLSpanElement>;
   @ViewChild('spanShopeeUpdates') spanShopeeUpdates!: ElementRef<HTMLSpanElement>;
+  @ViewChild('spanMyCupons') spanMyCupons!: ElementRef<HTMLSpanElement>;
 
   imgUserPerfil = "";
   settimeOutAny!: number;
@@ -79,6 +80,7 @@ export class ProfileComponent implements OnInit, AfterViewInit, OnDestroy {
 
     if(numberUrl === 10){
       this.containerItensMyAccount.style.display = "none";
+      this.containerNotification.nativeElement.style.display = "none";
       this.spanMyAccount.nativeElement.style.color = "#ee4d2d";
     }
 
@@ -88,6 +90,16 @@ export class ProfileComponent implements OnInit, AfterViewInit, OnDestroy {
 
       this.containerNotification.nativeElement.style.display = "flex";
       this.containerNotification.nativeElement.style.color = "#ee4d2d";
+    }
+
+    if(numberUrl === 30){
+      this.containerItensMyAccount.style.display = "none";
+      this.spanOrderUpdates.nativeElement.style.color = "#ee4d2d";
+
+      this.containerNotification.nativeElement.style.display = "none";
+      this.containerNotification.nativeElement.style.color = "#ee4d2d";
+
+      this.spanMyCupons.nativeElement.style.color = "#ee4d2d";
     }
 
     // if(numberUrl === 21){
@@ -215,7 +227,13 @@ export class ProfileComponent implements OnInit, AfterViewInit, OnDestroy {
     this.router.navigate(['/user/notifications/order']);
   }
 
+  onClickContainerMyCupons(){
+    this.updateNumberUrlMyAccountService.updateImgUser(30);
+    this.router.navigate(['/user/voucher-wallet']);
+  }
+
   ngOnDestroy(): void {
     clearTimeout(this.settimeOutAny);
   }
 }
+// voucher-wallet

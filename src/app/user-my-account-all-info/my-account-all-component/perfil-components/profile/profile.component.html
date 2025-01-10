@@ -154,12 +154,17 @@
             </div>
           </div>
           <div class="container-my-account-main">
-            <div class="container-my-account">
+            <div
+              class="container-my-account"
+              (click)="onClickContainerMyCupons()"
+              (keydown.enter)="onClickContainerMyCupons()"
+              tabindex="0"
+            >
               <img
                 src="https://res.cloudinary.com/dyqsqg7pk/image/upload/v1725977225/img-shopee/84feaa363ce325071c0a66d3c9a88748_zet2uo.png"
                 alt="img-my-coupons"
               />
-              <span>Meus Cupons</span>
+              <span #spanMyCupons>Meus Cupons</span>
             </div>
           </div>
           <div class="container-my-account-main">

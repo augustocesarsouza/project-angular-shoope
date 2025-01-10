@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { MyCoinsShopeeComponent } from './my-coins-shopee/my-coins-shopee.component';
-import { MyCuponsComponent } from './my-cupons/my-cupons.component';
 import { MyPurchasesComponent } from './my-purchases/my-purchases.component';
 
 const routes: Routes = [
@@ -17,8 +16,11 @@ const routes: Routes = [
   {path: 'notifications',
     loadChildren: () => import('./notifications/notifications.module').then(m => m.NotificationsModule)
   },
+  {path: 'voucher-wallet',
+    loadChildren: () => import('./my-cupons-components/my-cupons-components.module').then(m => m.MyCuponsComponentsModule)
+  },
   { path: 'coin', component: MyCoinsShopeeComponent },
-  { path: 'voucher-wallet', component: MyCuponsComponent },
+  // { path: 'voucher-wallet', component: MyCuponsComponent },
   { path: 'purchase', component: MyPurchasesComponent },
   {path: 'notifications',
     loadChildren: () => import('./notifications-all-component/notifications-all-component.module').then(m => m.NotificationsAllComponentModule)
