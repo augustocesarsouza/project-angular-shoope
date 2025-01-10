@@ -37,11 +37,6 @@ export class MyCuponsComponent implements OnInit, OnDestroy {
 
   @ViewChildren('containerTopicCupons') containerTopicCupons!: QueryList<ElementRef<HTMLDivElement>>;
 
-  // const [, setObjQuantityCupons] = useState<ObjQuantityCupons[] | null>(null);
-  // const [allObjCupon, setAllObjCupon] = useState<DataCuposProps[] | null>(null);
-  // const [objCuponRecommendedAll, setObjCuponRecommendedAll] = useState<
-  //   CuponRecommendedProps[] | null
-  // >(null);
   objQuantityCupons!: ObjQuantityCupons[];
   allObjCupon!: UserCupon[];
   objCuponRecommendedAll!: CuponRecommendedProps[];

@@ -65,4 +65,18 @@
     <span>Resgate mais cupons e encontre-os aqui!</span>
     <button>Pegue mais cupons</button>
   </div>
+
+  <div class="container-cupons-recommended">
+    <h1>Cupons Recomendados</h1>
+
+    <div class="container-cupons-recommended-item">
+      <!-- {objCuponRecommendedAll &&
+        objCuponRecommendedAll.length > 0 &&
+        objCuponRecommendedAll.map((obj) => <CuponRecommended obj={obj} />)} -->
+      <app-cupon-recommended
+        [obj]="obj"
+        *ngFor="let obj of objCuponRecommendedAll"
+      ></app-cupon-recommended>
+    </div>
+  </div>
 </div>

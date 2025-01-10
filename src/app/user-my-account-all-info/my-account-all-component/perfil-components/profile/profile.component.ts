@@ -25,6 +25,7 @@ export class ProfileComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild('spanWalletUpdates') spanWalletUpdates!: ElementRef<HTMLSpanElement>;
   @ViewChild('spanShopeeUpdates') spanShopeeUpdates!: ElementRef<HTMLSpanElement>;
   @ViewChild('spanMyCupons') spanMyCupons!: ElementRef<HTMLSpanElement>;
+  @ViewChild('spanMyShopeeCoins') spanMyShopeeCoins!: ElementRef<HTMLSpanElement>;
 
   imgUserPerfil = "";
   settimeOutAny!: number;
@@ -100,6 +101,17 @@ export class ProfileComponent implements OnInit, AfterViewInit, OnDestroy {
       this.containerNotification.nativeElement.style.color = "#ee4d2d";
 
       this.spanMyCupons.nativeElement.style.color = "#ee4d2d";
+    }
+
+    if(numberUrl === 40){
+      this.containerItensMyAccount.style.display = "none";
+      this.spanOrderUpdates.nativeElement.style.color = "#ee4d2d";
+
+      this.containerNotification.nativeElement.style.display = "none";
+      this.containerNotification.nativeElement.style.color = "#ee4d2d";
+
+      this.spanMyCupons.nativeElement.style.color = "black";
+      this.spanMyShopeeCoins.nativeElement.style.color = "#ee4d2d";
     }
 
     // if(numberUrl === 21){
@@ -230,6 +242,11 @@ export class ProfileComponent implements OnInit, AfterViewInit, OnDestroy {
   onClickContainerMyCupons(){
     this.updateNumberUrlMyAccountService.updateImgUser(30);
     this.router.navigate(['/user/voucher-wallet']);
+  }
+
+  onClickContainerMyShopeeCoins(){
+    this.updateNumberUrlMyAccountService.updateImgUser(40);
+    this.router.navigate(['/user/coin']);
   }
 
   ngOnDestroy(): void {
