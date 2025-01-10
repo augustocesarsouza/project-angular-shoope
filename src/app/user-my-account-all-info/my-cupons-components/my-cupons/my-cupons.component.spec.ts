@@ -1,7 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MyCuponsComponent } from './my-cupons.component';
-import { AllSvgModule } from '../../all-svg/all-svg.module';
 
 describe('MyCuponsComponent', () => {
   let component: MyCuponsComponent;
@@ -9,11 +8,10 @@ describe('MyCuponsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [MyCuponsComponent],
-      imports: [AllSvgModule]
+      declarations: [MyCuponsComponent]
     })
     .compileComponents();
-
+    
     fixture = TestBed.createComponent(MyCuponsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

@@ -1,20 +1,20 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { ShopeeUpdateUser } from '../../login-and-register-user/interface/shopee-update-user';
+import { UserCupon } from '../../login-and-register-user/interface/user-cupon';
 import { take } from 'rxjs';
 
 export interface ResultData {
-  data: ShopeeUpdateUser[];
+  data: UserCupon[];
 }
 
 @Injectable({
   providedIn: 'root'
 })
-export class ShopeeUpdateUserService {
+export class UserCuponService {
 
   constructor(private _http: HttpClient) { }
 
-  getByUserIdAll(userId: string, token: string){
+  GetAllCuponByUserId(userId: string, token: string){
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${token}`,
@@ -28,6 +28,6 @@ export class ShopeeUpdateUserService {
     // console.log(options);
 
 
-    return this._http.get<ResultData>(`/api/shopee-update-user/get-by-user-id-all/${userId}`, options).pipe(take(1));
+    return this._http.get<ResultData>(`/api/user-cupon/get-all-cupon-by-user-id/${userId}`, options).pipe(take(1));
   }
 }
