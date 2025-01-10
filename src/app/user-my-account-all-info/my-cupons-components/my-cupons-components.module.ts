@@ -6,13 +6,15 @@ import { MyCuponsComponent } from './my-cupons/my-cupons.component';
 import { AllSvgModule } from '../../all-svg/all-svg.module';
 import { EraseXComponent } from './erase-x/erase-x.component';
 import { CuponEachComponent } from './cupon-each/cupon-each.component';
+import { CuponRecommendedComponent } from './cupon-recommended/cupon-recommended.component';
 
 
 @NgModule({
   declarations: [
     MyCuponsComponent,
     EraseXComponent,
-    CuponEachComponent
+    CuponEachComponent,
+    CuponRecommendedComponent
   ],
   imports: [
     CommonModule,

@@ -168,12 +168,17 @@
             </div>
           </div>
           <div class="container-my-account-main">
-            <div class="container-my-account">
+            <div
+              class="container-my-account"
+              (click)="onClickContainerMyShopeeCoins()"
+              (keydown.enter)="onClickContainerMyShopeeCoins()"
+              tabindex="0"
+            >
               <img
                 src="https://res.cloudinary.com/dyqsqg7pk/image/upload/v1725977292/img-shopee/a0ef4bd8e16e481b4253bd0eb563f784_tbrttv.png"
                 alt="img-my-couns-shopee"
               />
-              <span>Minhas moedas Shopee</span>
+              <span #spanMyShopeeCoins>Minhas moedas Shopee</span>
             </div>
           </div>
         </div>

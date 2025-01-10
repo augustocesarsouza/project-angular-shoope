@@ -1,0 +1,18 @@
+<div class="container-cupon-main">
+  <div class="container-img-cupon">
+    <img src="{{ obj.imgCupon }}" alt="{{ obj.imgAltCupon }}" />
+
+    <div class="container-indicated" *ngIf="obj.showImgHeighlight">
+      <span>Indicado</span>
+    </div>
+  </div>
+  <div class="container-info-cupon">
+    <span>{{ stringTitle }}</span>
+    <span>{{ obj.valueCupon | currency: 'BRL' : 'symbol' : '1.2-2' }}</span>
+  </div>
+  <div class="container-off-and-button">
+    <h1>{{ obj.offPrice }}</h1>
+    <span>{{ offDescription }}</span>
+    <button>Ativar</button>
+  </div>
+</div>
