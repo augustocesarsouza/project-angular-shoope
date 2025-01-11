@@ -1,0 +1,17 @@
+<div class="container-flash-deals-header-main">
+  <div class="container-flash-deals-main">
+    <div class="container-flash-deals-header">
+      <div class="container-flash-deals-img"></div>
+    </div>
+    <div class="countdown-container" *ngIf="timeLeft">
+      <div class="digit-box">{{ formatHourMinuteSecond(timeLeft.hours) }}</div>
+      <div class="digit-box">{{ formatHourMinuteSecond(timeLeft.minutes) }}</div>
+      <div class="digit-box">{{ formatHourMinuteSecond(timeLeft.seconds) }}</div>
+    </div>
+  </div>
+
+  <div class="container-see-all">
+    <span>Ver Tudo</span>
+    <app-svg-arrow width="10px" height="10px" fill="none" rotate="rotate(-90)"></app-svg-arrow>
+  </div>
+</div>

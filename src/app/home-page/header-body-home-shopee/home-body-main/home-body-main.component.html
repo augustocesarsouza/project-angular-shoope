@@ -1,6 +1,14 @@
 <div class="container-main">
-  <div class="container-with-for-all">
-    <app-header-body-home-shopee></app-header-body-home-shopee>
-    <app-category-itens-bar></app-category-itens-bar>
+  <div class="contrainer-header-and-cegegory-itens">
+    <div class="container-with-for-all">
+      <app-header-body-home-shopee></app-header-body-home-shopee>
+      <app-category-itens-bar></app-category-itens-bar>
+    </div>
   </div>
+  <app-flash-deals-and-countdown
+    *ngIf="objTimeFlashDeals"
+    [hours]="objTimeFlashDeals.hours"
+    [minutes]="objTimeFlashDeals.minutes"
+    [seconds]="objTimeFlashDeals.seconds"
+  ></app-flash-deals-and-countdown>
 </div>

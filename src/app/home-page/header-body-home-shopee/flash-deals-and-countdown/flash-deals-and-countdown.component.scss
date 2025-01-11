@@ -1,0 +1,52 @@
+:host {
+  display: flex;
+  width: 1200px;
+  padding: 15px 20px;
+}
+
+.container-flash-deals-header-main{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.container-flash-deals-main{
+  display: flex;
+  align-items: center;
+}
+
+.container-flash-deals-header{
+  display: flex;
+  margin-right: 10px;
+}
+
+.container-flash-deals-img{
+  background: url(https://res.cloudinary.com/dyqsqg7pk/image/upload/v1729512130/img-flash-deals/2c66c570e9bc4309bc51_eb0lw4.png) 50% no-repeat;
+  background-position-y: 4px;
+  background-size: contain;
+  width: 168px;
+  height: 25px;
+}
+
+.countdown-container{
+  display: flex;
+  gap: 4px;
+}
+
+.digit-box{
+  background-color: black;
+  color: white;
+  font-size: 15px;
+  padding: 2px 5px;
+  border-radius: 4px;
+}
+
+.container-see-all{
+  display: flex;
+  align-items: center;
+
+  >span {
+    font-size: 15px;
+    color: #ee4d2d;
+  }
+}
