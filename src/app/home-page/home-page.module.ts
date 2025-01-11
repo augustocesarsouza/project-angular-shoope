@@ -10,6 +10,7 @@ import { LanguageFloatingComponent } from './language-floating/language-floating
 import { NameUserFloatingComponent } from './name-user-floating/name-user-floating.component';
 import { NotificationFloatingComponent } from './notification-floating/notification-floating.component';
 import { HeaderSecondComponent } from './header-second/header-second.component';
+import { HeaderBodyHomeShopeeModule } from './header-body-home-shopee/header-body-home-shopee.module';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { HeaderSecondComponent } from './header-second/header-second.component';
     CommonModule,
     AllSvgModule,
     FormsModule,
+    HeaderBodyHomeShopeeModule
   ],
 })
 export class HomePageModule { }
