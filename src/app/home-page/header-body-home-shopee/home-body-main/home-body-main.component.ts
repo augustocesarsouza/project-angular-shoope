@@ -1,8 +1,10 @@
-import {  Component, OnInit } from '@angular/core';
+import {  AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { environment } from '../../../../environments/environment';
 import CryptoJS from 'crypto-js';
 import { FlashSaleCountdownService } from '../../../service-all-components/flash-sale-countdown.service';
+import { ProductsOfferFlashService } from '../../service/products-offer-flash.service';
+import { ProductFlashDeals } from '../../../login-and-register-user/interface/product-flash-deals';
 
 export interface ObjTimeFleshOffer {
   hours: number;
@@ -20,14 +22,35 @@ export interface ObjTime {
   templateUrl: './home-body-main.component.html',
   styleUrl: './home-body-main.component.scss'
 })
-export class HomeBodyMainComponent implements OnInit {
-  // const [objTimeFlashDeals, setObjTimeFlashDeals] = useState<ObjTimeFleshOffer | null>(null);
+export class HomeBodyMainComponent implements OnInit, AfterViewInit {
   objTimeFlashDeals: ObjTimeFleshOffer | null = null;
+  allProductFlashDeals!: ProductFlashDeals[];
 
-  constructor(private router: Router, private flashSaleCountdownService: FlashSaleCountdownService){}
+  @ViewChild('carouselCustom') carouselCustom!: ElementRef<HTMLDivElement>;
+  @ViewChild('containerArrowLeft') containerArrowLeft!: ElementRef<HTMLDivElement>;
+  @ViewChild('containerArrowRight') containerArrowRight!: ElementRef<HTMLDivElement>;
+
+  constructor(private router: Router, private flashSaleCountdownService: FlashSaleCountdownService, private productsOfferFlashService: ProductsOfferFlashService){}
 
   ngOnInit(): void {
     if (typeof document === 'undefined') return;
+
+    this.productsOfferFlashService.GetAllProduct().subscribe({
+      next: (success) => {
+        const data = success.data;
+
+        const array = Array(3).fill(data).flat();
+
+        this.allProductFlashDeals = array;
+      },
+      error: error => {
+        if(error.status === 400){
+          console.log(error);
+
+          // this.confirmEmail = false;
+        }
+      }
+    });
 
     const dateNow = new Date();
 
@@ -167,6 +190,41 @@ export class HomeBodyMainComponent implements OnInit {
     objsHoursFleshOffersFilter[0].inProgress = true;
 
     this.functionGetTheValueTimeFleshOffer(objsHoursFleshOffersFilter[1].time);
+  }
+
+  // @ViewChild('carouselCustom') carouselCustom!: ElementRef<HTMLDivElement>;
+  // @ViewChild('containerArrowLeft') containerArrowLeft!: ElementRef<HTMLDivElement>;
+  // @ViewChild('containerArrowRight') containerArrowRight!: ElementRef<HTMLDivElement>;
+
+  ngAfterViewInit(): void {
+    if(typeof window === 'undefined')return;
+
+    const scrollElement = this.carouselCustom.nativeElement;
+    const containerLeft = this.containerArrowLeft.nativeElement;
+    const containerRight = this.containerArrowRight.nativeElement;
+
+    const scrollLeft = () => scrollElement?.scrollBy({ left: -1200, behavior: 'smooth' });
+    const scrollRight = () => scrollElement?.scrollBy({ left: 1200, behavior: 'smooth' });
+
+    const updateArrowsVisibility = () => {
+      if (scrollElement) {
+        let maxScrollLeft = scrollElement.scrollWidth - scrollElement.clientWidth;
+
+        if (maxScrollLeft === 0) {
+          maxScrollLeft = 10;
+        }
+
+        containerLeft!.style.display = scrollElement.scrollLeft > 0 ? 'flex' : 'none';
+        containerRight!.style.display = scrollElement.scrollLeft >= maxScrollLeft ? 'none' : 'flex';
+      }
+    };
+
+    containerLeft?.addEventListener('click', scrollLeft);
+    containerRight?.addEventListener('click', scrollRight);
+    scrollElement?.addEventListener('scroll', updateArrowsVisibility);
+    window.addEventListener('resize', updateArrowsVisibility);
+
+    updateArrowsVisibility();
   }
 
   functionGetTheValueTimeFleshOffer = (time: Date) => {
