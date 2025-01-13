@@ -28,6 +28,6 @@ export class PromotionUserService {
     // console.log(options);
 
 
-    return this._http.get<ResultData>(`/api/public/promotion-user/get-by-user-id-all/${userId}`, options).pipe(take(1));
+    return this._http.get<ResultData>(`/api/public/promotion-user/get-by-user-id-all-to-promotion-user/${userId}`, options).pipe(take(1));
   }
 }

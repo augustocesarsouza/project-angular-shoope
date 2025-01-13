@@ -29,6 +29,8 @@ export class PromotionComponent implements OnInit {
         this.promotionUserService.getByUserIdAll(user.id).subscribe({
           next: (success) => {
             const promotionUser = success.data;
+            console.log(promotionUser);
+
 
             this.promotionUser = promotionUser;
           },

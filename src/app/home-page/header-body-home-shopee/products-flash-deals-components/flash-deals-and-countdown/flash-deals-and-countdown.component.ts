@@ -12,9 +12,9 @@ interface TimeLeftProps {
   styleUrl: './flash-deals-and-countdown.component.scss'
 })
 export class FlashDealsAndCountdownComponent implements OnInit, OnDestroy {
-  @Input() hours = 1;
-  @Input() minutes = 30;
-  @Input() seconds = 45;
+  @Input() hours!: number;
+  @Input() minutes!: number;
+  @Input() seconds!: number;
 
   totalTimeInMillis!: number;
   targetTime!: number;

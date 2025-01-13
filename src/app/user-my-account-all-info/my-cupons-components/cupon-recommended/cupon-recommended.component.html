@@ -7,7 +7,7 @@
     </div>
   </div>
   <div class="container-info-cupon">
-    <span>{{ stringTitle }}</span>
+    <span *ngIf="stringTitle">{{ stringTitle }}</span>
     <span>{{ obj.valueCupon | currency: 'BRL' : 'symbol' : '1.2-2' }}</span>
   </div>
   <div class="container-off-and-button">

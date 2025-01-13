@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CookieComponent } from './cookie.component';
+import { AllSvgModule } from '../../../../all-svg/all-svg.module';
 
 describe('CookieComponent', () => {
   let component: CookieComponent;
@@ -8,10 +9,11 @@ describe('CookieComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [CookieComponent]
+      declarations: [CookieComponent],
+      imports: [AllSvgModule]
     })
     .compileComponents();
-    
+
     fixture = TestBed.createComponent(CookieComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

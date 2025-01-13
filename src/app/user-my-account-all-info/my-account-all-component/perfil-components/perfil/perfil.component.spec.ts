@@ -6,6 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { UserService } from '../../../../login-and-register-user/service/user.service';
 import { GetUserPerfilService } from '../../../../login-and-register-user/service/get-user-perfil.service';
 import { User } from '../../../../login-and-register-user/interface/user';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('PerfilComponent', () => {
   let component: PerfilComponent;
@@ -14,7 +15,7 @@ describe('PerfilComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [PerfilComponent],
-      imports: [AllSvgModule, HttpClientModule],
+      imports: [AllSvgModule, HttpClientModule, RouterTestingModule],
       providers: [UserService, GetUserPerfilService]
     })
     .compileComponents();

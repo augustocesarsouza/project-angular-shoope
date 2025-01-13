@@ -11,10 +11,16 @@
       />
     </svg>
   </div>
-  <span (click)="clickMyAccount()" (keydown.enter)="clickMyAccount()" tabindex="0"
+  <span
+    class="span-my-account"
+    (click)="clickMyAccount()"
+    (keydown.enter)="clickMyAccount()"
+    tabindex="0"
     >Minha Conta</span
   >
-  <span>Minha Compras</span>
-  <span (click)="clickExitUser()" (keydown.enter)="clickExitUser()" tabindex="0">Sair</span>
+  <span class="span-my-purchase">Minha Compras</span>
+  <span (click)="clickExitUser()" (keydown.enter)="clickExitUser()" tabindex="0" class="span-exit"
+    >Sair</span
+  >
 </div>
 <!-- showContainerNameUser -->

@@ -10,10 +10,10 @@
           <img src="{{ item.promotionDTO.img }}" alt="{{ item.promotionDTO.title }}" />
         </div>
         <div class="container-title-and-description">
-          <h1>{{ item.promotionDTO.title }}</h1>
+          <h1 class="header-title">{{ item.promotionDTO.title }}</h1>
 
           <div class="container-description-imgs-date">
-            <span>{{ item.promotionDTO.description }}</span>
+            <span class="span-description">{{ item.promotionDTO.description }}</span>
 
             <div
               class="container-second-img-inner"
@@ -24,10 +24,13 @@
                 *ngFor="let itemList of item.promotionDTO.listImgInner"
                 src="{{ itemList }}"
                 alt="alt-img-of-list"
+                class="img-of-list"
               />
             </div>
 
-            <span>{{ formatDateUser(item.promotionDTO.date) }}</span>
+            <span class="span-date-validate-cupon">{{
+              formatDateUser(item.promotionDTO.date)
+            }}</span>
           </div>
         </div>
       </div>

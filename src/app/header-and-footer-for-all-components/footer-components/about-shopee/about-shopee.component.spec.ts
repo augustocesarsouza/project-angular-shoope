@@ -1,8 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AboutShopeeComponent } from './about-shopee.component';
-import { AllSvgModule } from '../../../../all-svg/all-svg.module';
 import { RouterTestingModule } from '@angular/router/testing';
+import { AllSvgModule } from '../../../all-svg/all-svg.module';
 
 describe('AboutShopeeComponent', () => {
   let component: AboutShopeeComponent;

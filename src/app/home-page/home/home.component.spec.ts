@@ -6,6 +6,7 @@ import { HeaderFirstComponent } from '../header-first/header-first.component';
 import { HeaderSecondComponent } from '../header-second/header-second.component';
 import { RouterTestingModule } from '@angular/router/testing';
 import { HomePageModule } from '../home-page.module';
+import { HttpClientModule } from '@angular/common/http';
 
 describe('HomeComponent', () => {
   let component: HomeComponent;
@@ -14,7 +15,7 @@ describe('HomeComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [HomeComponent, HeaderFirstComponent, HeaderSecondComponent],
-      imports: [AllSvgModule, RouterTestingModule, HomePageModule]
+      imports: [AllSvgModule, HttpClientModule, RouterTestingModule, HomePageModule]
     })
     .compileComponents();
 

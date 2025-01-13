@@ -17,10 +17,25 @@ describe('LanguageFloatingComponent', () => {
 
     fixture = TestBed.createComponent(LanguageFloatingComponent);
     component = fixture.componentInstance;
+
+    component.showContainerLenguage = true;
+
     fixture.detectChanges();
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should render svg arrow top', () => {
+    const arrowTop = fixture.nativeElement.querySelector(".container-arrow-top svg");
+    expect(arrowTop).not.toBeNull();
+  });
+
+  it('should render all span language', () => {
+    const spanAll = fixture.nativeElement.querySelectorAll(".span-language");
+    expect(spanAll.length).toEqual(2);
+    expect(spanAll[0].textContent).toBe("Português - BR");;
+    expect(spanAll[1].textContent).toBe("English");;
   });
 });

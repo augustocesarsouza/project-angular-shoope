@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ProductFlashDeals } from '../../login-and-register-user/interface/product-flash-deals';
-import { take } from 'rxjs';
+import { of, take } from 'rxjs';
 
 export interface ResultData {
   data: ProductFlashDeals[];
@@ -11,10 +11,15 @@ export interface ResultData {
   providedIn: 'root'
 })
 export class ProductsOfferFlashService {
+  isTest = false;
 
-constructor(private _http: HttpClient) { }
+  constructor(private _http: HttpClient) { }
 
   GetAllProduct(){
+    if(this.isTest){
+      return of({ data: [] });
+    }
+
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
       // 'Authorization': `Bearer ${token}`,

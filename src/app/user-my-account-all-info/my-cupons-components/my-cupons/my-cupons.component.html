@@ -10,7 +10,7 @@
   </div>
 
   <div class="container-input-add-cupon">
-    <span>Adicionar Cupom</span>
+    <span class="span-add-cupon">Adicionar Cupom</span>
     <div class="container-input-insert-code-cupon">
       <input
         placeholder="Insira o código do cupom aqui"
@@ -42,7 +42,9 @@
       tabindex="0"
     >
       <div>
-        <div>{{ item.nameTopCupon }} ({{ item.quantityCupons }})</div>
+        <div class="container-with-itens-obj-top">
+          {{ item.nameTopCupon }} ({{ item.quantityCupons }})
+        </div>
       </div>
     </div>
   </div>

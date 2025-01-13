@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CustomerServiceComponent } from './customer-service.component';
-import { AllSvgModule } from '../../../../all-svg/all-svg.module';
+import { AllSvgModule } from '../../../all-svg/all-svg.module';
 import { RouterTestingModule } from '@angular/router/testing';
 
 describe('CustomerServiceComponent', () => {

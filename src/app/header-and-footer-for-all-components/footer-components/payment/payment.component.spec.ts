@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PaymentComponent } from './payment.component';
-import { AllSvgModule } from '../../../../all-svg/all-svg.module';
+import { AllSvgModule } from '../../../all-svg/all-svg.module';
 
 describe('PaymentComponent', () => {
   let component: PaymentComponent;

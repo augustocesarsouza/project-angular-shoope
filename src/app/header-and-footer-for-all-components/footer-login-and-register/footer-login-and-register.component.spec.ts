@@ -1,8 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { FooterLoginAndRegisterComponent } from './footer-login-and-register.component';
-import { AllSvgModule } from '../../../all-svg/all-svg.module';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { AllSvgModule } from '../../all-svg/all-svg.module';
 
 describe('FooterLoginAndRegisterComponent', () => {
   let component: FooterLoginAndRegisterComponent;

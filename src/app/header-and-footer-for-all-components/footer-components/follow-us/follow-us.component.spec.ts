@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { FollowUsComponent } from './follow-us.component';
-import { AllSvgModule } from '../../../../all-svg/all-svg.module';
+import { AllSvgModule } from '../../../all-svg/all-svg.module';
 
 describe('FollowUsComponent', () => {
   let component: FollowUsComponent;

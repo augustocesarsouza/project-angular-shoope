@@ -1,6 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MyShopeeCoinsComponent } from './my-shopee-coins.component';
+import { RouterTestingModule } from '@angular/router/testing';
+import { HttpClientModule } from '@angular/common/http';
+import { AllSvgModule } from '../../../all-svg/all-svg.module';
 
 describe('MyShopeeCoinsComponent', () => {
   let component: MyShopeeCoinsComponent;
@@ -8,10 +11,11 @@ describe('MyShopeeCoinsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [MyShopeeCoinsComponent]
+      declarations: [MyShopeeCoinsComponent],
+      imports: [HttpClientModule, RouterTestingModule, AllSvgModule]
     })
     .compileComponents();
-    
+
     fixture = TestBed.createComponent(MyShopeeCoinsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

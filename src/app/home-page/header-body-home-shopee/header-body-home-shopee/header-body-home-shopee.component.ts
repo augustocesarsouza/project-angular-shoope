@@ -1,11 +1,16 @@
-import { AfterViewInit, Component, ElementRef, OnDestroy, QueryList, ViewChild, ViewChildren } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
+
+interface imgsTopProps {
+  src: string;
+  alt: string;
+}
 
 @Component({
   selector: 'app-header-body-home-shopee',
   templateUrl: './header-body-home-shopee.component.html',
   styleUrl: './header-body-home-shopee.component.scss'
 })
-export class HeaderBodyHomeShopeeComponent implements AfterViewInit, OnDestroy {
+export class HeaderBodyHomeShopeeComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild('containerFirstImages') containerFirstImages!: ElementRef<HTMLDivElement>;
   @ViewChild('ContainerButtonNavLeft') containerButtonNavLeft!: ElementRef<HTMLDivElement>;
   @ViewChild('ContainerButtonNavRight') containerButtonNavRight!: ElementRef<HTMLDivElement>;
@@ -15,6 +20,30 @@ export class HeaderBodyHomeShopeeComponent implements AfterViewInit, OnDestroy {
   whichImageIs = 0;
   isScrolling = false;
   settimeOutScrollLeftRight!: number | null;
+
+  imgsTopArray: imgsTopProps[] = [];
+
+  ngOnInit(): void {
+    this.imgsTopArray.push({
+      src: 'https://res.cloudinary.com/dyqsqg7pk/image/upload/v1729435381/img-shopee-body-home/br-11134258-7r98o-m18rnetp75sy9d_xxhdpi_qq5ak8.jpg',
+      alt: 'img-fashion-week-1'
+    });
+
+    this.imgsTopArray.push({
+      src: 'https://res.cloudinary.com/dyqsqg7pk/image/upload/v1729435368/img-shopee-body-home/br-11134258-7r98o-m1cqymgzfajm6e_xxhdpi_o6tp0q.jpg',
+      alt: 'img-fashion-week-2'
+    });
+
+    this.imgsTopArray.push({
+      src: 'https://res.cloudinary.com/dyqsqg7pk/image/upload/v1729435376/img-shopee-body-home/br-11134258-7r98o-m1d1kwbempq8be_xxhdpi_rmui7s.jpg',
+      alt: 'img-fashion-week-3'
+    });
+
+    this.imgsTopArray.push({
+      src: 'https://res.cloudinary.com/dyqsqg7pk/image/upload/v1729435372/img-shopee-body-home/br-11134258-7r98o-m1cragk1xtq8e8_xxhdpi_lpkzkn.jpg',
+      alt: 'img-fashion-week-4'
+    });
+  }
 
   ngAfterViewInit(): void {
     this.containerBallAll.forEach((el, i) => {

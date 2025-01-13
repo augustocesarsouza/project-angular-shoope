@@ -1,21 +1,21 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { RouterTestingModule } from '@angular/router/testing';
-import { HeaderToLoginAndRegisterComponent } from '../login-and-register-user/header-to-login-and-register/header-to-login-and-register.component';
 import { AllSvgModule } from '../../all-svg/all-svg.module';
+import { headerToAllComponentsComponent } from './header-to-login-and-register.component';
 
 describe('headerToAllComponentsComponent', () => {
-  let component: HeaderToLoginAndRegisterComponent;
-  let fixture: ComponentFixture<HeaderToLoginAndRegisterComponent>;
+  let component: headerToAllComponentsComponent;
+  let fixture: ComponentFixture<headerToAllComponentsComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [HeaderToLoginAndRegisterComponent],
+      declarations: [headerToAllComponentsComponent],
       imports: [AllSvgModule, RouterTestingModule]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(HeaderToLoginAndRegisterComponent);
+    fixture = TestBed.createComponent(headerToAllComponentsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

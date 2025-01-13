@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { DownloadAppShopeeComponent } from './download-app-shopee.component';
-import { AllSvgModule } from '../../../../all-svg/all-svg.module';
+import { AllSvgModule } from '../../../all-svg/all-svg.module';
 
 describe('DownloadAppShopeeComponent', () => {
   let component: DownloadAppShopeeComponent;

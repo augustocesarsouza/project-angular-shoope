@@ -26,14 +26,12 @@ export class HeaderFirstComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-
     const decryptedData = UserLocalStorage();
 
     if(!decryptedData.isNullUserLocalStorage){
       this.userLoggedIn = true;
       this.userLogged = decryptedData.user;
     }
-
 
     this.handleShowContainerChange = this.handleShowContainerChange.bind(this);
     this.handleShowContainerNotification = this.handleShowContainerNotification.bind(this);

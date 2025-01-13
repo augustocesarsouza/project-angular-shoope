@@ -83,6 +83,8 @@ export class PerfilComponent implements OnInit, AfterViewInit, OnDestroy {
     const spanCookiePreferencesFromMyAccount = document.querySelector("#span-cookie-preferences-from-my-account") as HTMLSpanElement;
     const spanPrivacySettingsFromMyAccount = document.querySelector("#span-privacy-settings-from-my-account") as HTMLSpanElement;
 
+    if(!spanPerfilFromMyAccount || !spanCardAndBankAccountsFromMyAccount || !spanAddressFromMyAccount || !spanChangePasswordFromMyAccount || !spanCookiePreferencesFromMyAccount || !spanPrivacySettingsFromMyAccount) return;
+
     spanCardAndBankAccountsFromMyAccount.style.color = "rgba(0, 0, 0, 0.65)";
     spanAddressFromMyAccount.style.color = "rgba(0, 0, 0, 0.65)";
     spanChangePasswordFromMyAccount.style.color = "rgba(0, 0, 0, 0.65)";
