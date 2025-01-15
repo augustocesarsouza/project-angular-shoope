@@ -9,6 +9,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AllSvgModule } from '../../../all-svg/all-svg.module';
 import { ItensIconComponent } from '../category-components/itens-icon/itens-icon.component';
+import { TipsForUsImgComponent } from '../tips-for-us-img/tips-for-us-img.component';
+import { CategoriesComponent } from '../categories-components/categories/categories.component';
+import { EachCategoryComponent } from '../categories-components/each-category/each-category.component';
 
 describe('HomeBodyMainComponent', () => {
   let component: HomeBodyMainComponent;
@@ -16,8 +19,7 @@ describe('HomeBodyMainComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [HomeBodyMainComponent, HeaderBodyHomeShopeeComponent, CategoryItensBarComponent, FlashDealsAndCountdownComponent,
-        ProductFlashDealsComponent, ItensIconComponent],
+      declarations: [HomeBodyMainComponent, HeaderBodyHomeShopeeComponent, CategoryItensBarComponent, FlashDealsAndCountdownComponent, ProductFlashDealsComponent, ItensIconComponent, TipsForUsImgComponent, CategoriesComponent, EachCategoryComponent],
       imports: [HttpClientModule, RouterTestingModule, AllSvgModule]
     })
     .compileComponents();

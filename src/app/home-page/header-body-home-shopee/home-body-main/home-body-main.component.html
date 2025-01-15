@@ -5,13 +5,21 @@
       <app-category-itens-bar></app-category-itens-bar>
     </div>
   </div>
-  <app-flash-deals-and-countdown
-    *ngIf="objTimeFlashDeals"
-    [hours]="objTimeFlashDeals.hours"
-    [minutes]="objTimeFlashDeals.minutes"
-    [seconds]="objTimeFlashDeals.seconds"
-  ></app-flash-deals-and-countdown>
+  <div class="container-main-after-category-itens">
+    <div class="container-countdown-and-product-flash-deals">
+      <app-flash-deals-and-countdown
+        *ngIf="objTimeFlashDeals"
+        [hours]="objTimeFlashDeals.hours"
+        [minutes]="objTimeFlashDeals.minutes"
+        [seconds]="objTimeFlashDeals.seconds"
+      ></app-flash-deals-and-countdown>
 
-  <app-product-flash-deals></app-product-flash-deals>
+      <app-product-flash-deals></app-product-flash-deals>
+    </div>
+
+    <app-tips-for-us-img></app-tips-for-us-img>
+
+    <app-categories></app-categories>
+  </div>
 </div>
 <!-- const res = await fetch(`${Url}/product-offer-flash/get-product-offer-flash-all`, { -->

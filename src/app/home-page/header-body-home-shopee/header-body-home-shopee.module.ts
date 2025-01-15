@@ -8,6 +8,9 @@ import { FlashDealsAndCountdownComponent } from './products-flash-deals-componen
 import { AllSvgModule } from '../../all-svg/all-svg.module';
 import { ProductFlashInfoComponent } from './products-flash-deals-components/product-flash-info/product-flash-info.component';
 import { ProductFlashDealsComponent } from './products-flash-deals-components/product-flash-deals/product-flash-deals.component';
+import { TipsForUsImgComponent } from './tips-for-us-img/tips-for-us-img.component';
+import { CategoriesComponent } from './categories-components/categories/categories.component';
+import { EachCategoryComponent } from './categories-components/each-category/each-category.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +20,10 @@ import { ProductFlashDealsComponent } from './products-flash-deals-components/pr
     ItensIconComponent,
     FlashDealsAndCountdownComponent,
     ProductFlashInfoComponent,
-    ProductFlashDealsComponent
+    ProductFlashDealsComponent,
+    TipsForUsImgComponent,
+    CategoriesComponent,
+    EachCategoryComponent
   ],
   imports: [
     CommonModule,

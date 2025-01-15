@@ -1,0 +1,15 @@
+:host {
+  display: flex;
+  width: 100%;
+}
+
+.container-tips-for-us-img-coupons{
+  display: flex;
+  width: 100%;
+
+  >img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+}
