@@ -13,6 +13,7 @@ import { TipsForUsImgComponent } from '../tips-for-us-img/tips-for-us-img.compon
 import { CategoriesComponent } from '../categories-components/categories/categories.component';
 import { EachCategoryComponent } from '../categories-components/each-category/each-category.component';
 import { ProductHighlightsForYouComponent } from '../product-highlights-components/product-highlights-for-you/product-highlights-for-you.component';
+import { DiscoveriesOfTheDayComponent } from '../discoveries-of-the-day-components/discoveries-of-the-day/discoveries-of-the-day.component';
 
 describe('HomeBodyMainComponent', () => {
   let component: HomeBodyMainComponent;
@@ -20,7 +21,7 @@ describe('HomeBodyMainComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [HomeBodyMainComponent, HeaderBodyHomeShopeeComponent, CategoryItensBarComponent, FlashDealsAndCountdownComponent, ProductFlashDealsComponent, ItensIconComponent, TipsForUsImgComponent, CategoriesComponent, EachCategoryComponent, ProductHighlightsForYouComponent],
+      declarations: [HomeBodyMainComponent, HeaderBodyHomeShopeeComponent, CategoryItensBarComponent, FlashDealsAndCountdownComponent, ProductFlashDealsComponent, ItensIconComponent, TipsForUsImgComponent, CategoriesComponent, EachCategoryComponent, ProductHighlightsForYouComponent, DiscoveriesOfTheDayComponent],
       imports: [HttpClientModule, RouterTestingModule, AllSvgModule],
     })
     .compileComponents();

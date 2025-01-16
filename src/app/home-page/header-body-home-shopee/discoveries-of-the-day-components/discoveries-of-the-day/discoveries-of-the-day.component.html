@@ -1,0 +1,63 @@
+<div class="container-discoveries-of-the-day-main">
+  <div class="container-discoveries-of-the-day" #containerDiscoveriesOfTheDay>
+    <h1>DESCOBERTAS DO DIA</h1>
+  </div>
+  <div class="container-discoveries-of-the-day-false" *ngIf="isOutOfView"></div>
+
+  <div class="container-all-product-discoveries-of-the-day-main">
+    <div class="container-all-product-discoveries-of-the-day">
+      <div
+        class="container-product-discoveries-of-the-day container-product-discoveries-{{ i }}"
+        *ngFor="let product of productDiscoveriesOfTheDay; let i = index"
+      >
+        <div class="container-imgs">
+          <img
+            src="{{ product.imgProduct }}"
+            alt="{{ product.title }}"
+            *ngIf="i === 59"
+            #containerAllProductDiscoveriesOfTheDay
+            class="img-product"
+          />
+          <img
+            src="{{ product.imgProduct }}"
+            alt="{{ product.title }}"
+            *ngIf="i !== 59"
+            class="img-product"
+          />
+
+          <img
+            src="{{ product.imgPartBottom }}"
+            alt="img-part-bottom"
+            *ngIf="product.imgPartBottom"
+            class="img-part-bottom"
+          />
+          <div class="container-discount-product">
+            <span *ngIf="product.discountPercentage > 0">-{{ product.discountPercentage }}%</span>
+          </div>
+
+          <div class="container-ad-and-span" *ngIf="product.isAd">
+            <span>Anúncio</span>
+          </div>
+        </div>
+
+        <div class="container-title-and-price-sales-product">
+          <div class="container-product-discoveries-describe">
+            <span>{{ spanTitle(product.title) }}</span>
+          </div>
+          <div class="container-price-product-and-sales">
+            <div class="container-price-product">
+              <h1 class="header-price">{{ spanPrice(product.price) }}</h1>
+            </div>
+
+            <div class="container-sales-product" *ngIf="product.quantitySold > 0">
+              <span>{{ spanQuantitySold(product.quantitySold) }} vendidos</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container-end-button-see-more">
+      <button>Ver Mais</button>
+    </div>
+  </div>
+</div>

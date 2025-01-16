@@ -13,6 +13,7 @@ import { CategoriesComponent } from './categories-components/categories/categori
 import { EachCategoryComponent } from './categories-components/each-category/each-category.component';
 import { ProductHighlightsForYouComponent } from './product-highlights-components/product-highlights-for-you/product-highlights-for-you.component';
 import { ProductHighlightsInfoComponent } from './product-highlights-components/product-highlights-info/product-highlights-info.component';
+import { DiscoveriesOfTheDayComponent } from './discoveries-of-the-day-components/discoveries-of-the-day/discoveries-of-the-day.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { ProductHighlightsInfoComponent } from './product-highlights-components/
     CategoriesComponent,
     EachCategoryComponent,
     ProductHighlightsForYouComponent,
-    ProductHighlightsInfoComponent
+    ProductHighlightsInfoComponent,
+    DiscoveriesOfTheDayComponent
   ],
   imports: [
     CommonModule,

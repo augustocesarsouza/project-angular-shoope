@@ -1,4 +1,4 @@
-import {  Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { environment } from '../../../../environments/environment';
 import CryptoJS from 'crypto-js';
@@ -24,7 +24,8 @@ export class HomeBodyMainComponent implements OnInit {
   objTimeFlashDeals: ObjTimeFleshOffer | null = null;
   // allProductFlashDeals!: ProductFlashDeals[];
 
-  constructor(private router: Router, private flashSaleCountdownService: FlashSaleCountdownService){}
+  constructor(private router: Router, private flashSaleCountdownService: FlashSaleCountdownService
+  ){}
 
   ngOnInit(): void {
     if (typeof document === 'undefined') return;

@@ -10,7 +10,7 @@
   flex-direction: column;
   // margin: 21px 0px;
   margin: 0px;
-  margin-top: 30px;
+  margin-top: 150px;
   margin-bottom: 30px;
   position: relative;
   // width: 1200px;
@@ -30,12 +30,25 @@
   // width: 1200px;
 }
 
+.container-main-after-category-itens-main {
+  // width: 1200px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
 .container-main-after-category-itens {
+  // width: 100%;
   width: 1200px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .container-countdown-and-product-flash-deals {
   display: flex;
   flex-direction: column;
   margin-bottom: 30px;
+  width: 100%;
 }
