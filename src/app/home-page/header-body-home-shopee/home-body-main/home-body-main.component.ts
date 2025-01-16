@@ -169,12 +169,6 @@ export class HomeBodyMainComponent implements OnInit {
     this.functionGetTheValueTimeFleshOffer(objsHoursFleshOffersFilter[1].time);
   }
 
-  // @ViewChild('carouselCustom') carouselCustom!: ElementRef<HTMLDivElement>;
-  // @ViewChild('containerArrowLeft') containerArrowLeft!: ElementRef<HTMLDivElement>;
-  // @ViewChild('containerArrowRight') containerArrowRight!: ElementRef<HTMLDivElement>;
-
-
-
   functionGetTheValueTimeFleshOffer = (time: Date) => {
     // const secretKey = import.meta.env.VITE__APP_SECRET_KEY_COUNTDOWN;
     const secretKey = environment.angularAppSecretKeyCountdown;

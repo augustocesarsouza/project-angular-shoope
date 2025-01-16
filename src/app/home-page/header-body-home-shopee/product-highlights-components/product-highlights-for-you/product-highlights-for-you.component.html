@@ -1,6 +1,7 @@
-<div class="container-all-product-flash-deals">
-  <div class="container-arrow-left">
-    <div #containerArrowLeft>
+<div class="container-highlights-for-you">
+  <h1>Destaques para você</h1>
+  <div class="container-arrow-left" #containerArrowLeft>
+    <div>
       <svg
         enableBackground="new 0 0 13 20"
         viewBox="0 0 13 20"
@@ -11,14 +12,14 @@
       </svg>
     </div>
   </div>
-  <div class="container-product-img-flash-info carousel-custom" #carouselCustom>
-    <app-product-flash-info
-      *ngFor="let item of allProductFlashDeals"
-      [product]="item"
-    ></app-product-flash-info>
+  <div class="container-product-highlight" #carouselCustom>
+    <app-product-highlights-info
+      [product]="product"
+      *ngFor="let product of allProductHighlight"
+    ></app-product-highlights-info>
   </div>
-  <div class="container-arrow-right">
-    <div #containerArrowRight>
+  <div class="container-arrow-right" #containerArrowRight>
+    <div>
       <svg
         enableBackground="new 0 0 13 20"
         viewBox="0 0 13 20"

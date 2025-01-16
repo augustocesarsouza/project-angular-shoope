@@ -11,6 +11,8 @@ import { ProductFlashDealsComponent } from './products-flash-deals-components/pr
 import { TipsForUsImgComponent } from './tips-for-us-img/tips-for-us-img.component';
 import { CategoriesComponent } from './categories-components/categories/categories.component';
 import { EachCategoryComponent } from './categories-components/each-category/each-category.component';
+import { ProductHighlightsForYouComponent } from './product-highlights-components/product-highlights-for-you/product-highlights-for-you.component';
+import { ProductHighlightsInfoComponent } from './product-highlights-components/product-highlights-info/product-highlights-info.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { EachCategoryComponent } from './categories-components/each-category/eac
     ProductFlashDealsComponent,
     TipsForUsImgComponent,
     CategoriesComponent,
-    EachCategoryComponent
+    EachCategoryComponent,
+    ProductHighlightsForYouComponent,
+    ProductHighlightsInfoComponent
   ],
   imports: [
     CommonModule,

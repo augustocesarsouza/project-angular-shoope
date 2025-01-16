@@ -12,7 +12,8 @@ describe('ProductFlashDealsComponent', () => {
   let fixture: ComponentFixture<ProductFlashDealsComponent>;
 
   const mockProductsOfferFlashService = {
-    GetAllProduct: jasmine.createSpy('GetAllProduct').and.returnValue(of({ data: [{
+    GetAllProduct: jasmine.createSpy('GetAllProduct').and.returnValue(of({ data:
+      [{
       id: 'f0581207-7fbb-4db8-b127-3b8ba2fac5e6',
       imgProduct: 'https://res.cloudinary.com/dyqsqg7pk/image/upload/v1736691104/img-flash-deals/ewbstgil2p3bbpai92rk.jpg',
       altValue: 'Image product 1',

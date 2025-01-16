@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, Input, NgZone, OnDestroy, OnInit } from '@angular/core';
+import { Component, Input, NgZone, OnDestroy, OnInit } from '@angular/core';
 
 interface TimeLeftProps {
   hours: number;
@@ -22,7 +22,7 @@ export class FlashDealsAndCountdownComponent implements OnInit, OnDestroy {
 
   private timer!: unknown;
 
-  constructor(private cdr: ChangeDetectorRef, private ngZone: NgZone){}
+  constructor(private ngZone: NgZone){}
 
   ngOnInit(): void {
     this.totalTimeInMillis =
@@ -34,10 +34,15 @@ export class FlashDealsAndCountdownComponent implements OnInit, OnDestroy {
 
     this.timeLeft = this.calculateTimeLeft();
 
-    this.timer = setInterval(() => {
-      this.timeLeft = this.calculateTimeLeft();
-      this.cdr.markForCheck();
-    }, 1000);
+    this.ngZone.runOutsideAngular(() => {
+      this.timer = setInterval(() => {
+        const newTimeLeft = this.calculateTimeLeft();
+
+        this.ngZone.run(() => {
+          this.timeLeft = newTimeLeft;
+        });
+      }, 1000);
+    });
   }
 
  calculateTimeLeft = () => {

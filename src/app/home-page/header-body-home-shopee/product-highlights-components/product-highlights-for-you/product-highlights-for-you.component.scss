@@ -1,0 +1,156 @@
+.container-highlights-for-you{
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+  >h1 {
+    font-size: 21px;
+    font-weight: 500;
+    color: #ee4d2d;
+    margin: 10px 0px;
+    padding-left: 20px;
+  }
+}
+
+.container-product-highlight{
+  display: flex;
+
+  overflow-x: hidden;
+}
+
+.img-free-shipping{
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+}
+
+.container-discount-percentage{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  background-color: #ffe97a;
+  color: #ec3814;
+  width: 50px;
+  border-radius: 1px;
+
+  >h1 {
+    font-size: 12px;
+  }
+
+  >svg {
+    width: 10px;
+  }
+
+  >span {
+    font-size: 14px;
+    font-weight: 500;
+  }
+}
+
+.container-popular{
+  /* display: flex; */
+  height: 16px;
+  position: relative;
+  width: 100%;
+
+  >span {
+    font-size: 12px;
+    font-weight: 700;
+    position: absolute;
+    left: 58px;
+    top: 1px;
+    color: #fff;
+    z-index: 7;
+  }
+}
+
+.container-background-faint{
+  background-color: #ffbda6;
+  border-radius: 8px;
+  z-index: 1;
+  width: inherit;
+  height: inherit;
+  left: 0;
+  position: absolute;
+  top: 0;
+}
+
+// interface ContainerBackgroundUpProps {
+//   $valuePercentage: number;
+// }
+
+.container-background-up{
+  background: linear-gradient(270deg, #ffb000, #eb1717);
+  border-radius: 8px 0px 0px 8px;
+  // width: ${props => props.$valuePercentage}%;
+  width: 50%;
+  height: inherit;
+  left: 0;
+  position: absolute;
+  top: 0;
+  z-index: 5;
+}
+
+.container-arrow-left{
+  position: absolute;
+  left: 0px;
+  top: 150px;
+  width: auto;
+  /* height: 100%; */
+  /* display: flex; */
+  display: none;
+  align-items: center;
+  justify-content: flex-start;
+  z-index: 1;
+
+
+  >div {
+    background-color:  #fff;
+    padding: 10px;
+    border-radius: 50%;
+    display: flex;
+    cursor: pointer;
+    box-shadow: 0px 0px 4px 0px black;
+  }
+
+  >div>svg {
+    fill: #0000008f;
+    width: 14px;
+    height: 14px;
+  }
+}
+
+.container-arrow-right{
+  position: absolute;
+  right: 0px;
+  top: 120px;
+  z-index: 1;
+  width: auto;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #00000061;
+  border-radius: 50%;
+
+  >div {
+    background-color:  #fff;
+    padding: 10px;
+    border-radius: 50%;
+    display: flex;
+    cursor: pointer;
+    box-shadow: 0px 0px 4px 0px black;
+  }
+
+  >div>svg {
+    fill: #0000008f;
+    width: 14px;
+    height: 14px;
+
+    rotate: 180deg;
+  }
+}

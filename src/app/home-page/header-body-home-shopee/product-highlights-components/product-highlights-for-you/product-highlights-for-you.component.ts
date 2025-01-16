@@ -1,22 +1,22 @@
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { Router } from '@angular/router';
-import { Categories } from '../../../../login-and-register-user/interface/categories';
-import { CategoriesService } from '../../../service/categories.service';
+import { ProductHighlightService } from '../../../service/product-highlight.service';
 import { UserLocalStorage } from '../../../../login-and-register-user/user-function/get-user-local-storage/user-local-storage';
+import { ProductHighlight } from '../../../../login-and-register-user/interface/product-highlight';
+import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-categories',
-  templateUrl: './categories.component.html',
-  styleUrl: './categories.component.scss'
+  selector: 'app-product-highlights-for-you',
+  templateUrl: './product-highlights-for-you.component.html',
+  styleUrl: './product-highlights-for-you.component.scss'
 })
-export class CategoriesComponent implements OnInit, AfterViewInit {
-  allCategory: Categories[] = [];
+export class ProductHighlightsForYouComponent implements OnInit, AfterViewInit {
+  allProductHighlight!: ProductHighlight[];
 
   @ViewChild('carouselCustom') carouselCustom!: ElementRef<HTMLDivElement>;
   @ViewChild('containerArrowLeft') containerArrowLeft!: ElementRef<HTMLDivElement>;
   @ViewChild('containerArrowRight') containerArrowRight!: ElementRef<HTMLDivElement>;
 
-  constructor(private router: Router, private CategoriesService: CategoriesService){}
+  constructor(private router: Router, private productHighlightService: ProductHighlightService){}
 
   ngOnInit(): void {
     const userResult = UserLocalStorage();
@@ -28,10 +28,10 @@ export class CategoriesComponent implements OnInit, AfterViewInit {
       const token = user.token;
       const userId = user.id;
 
-      this.CategoriesService.GetAllCategories(userId, token).subscribe({
+      this.productHighlightService.GetAllProductHighlights(userId, token).subscribe({
         next: (success) => {
           const data = success.data;
-          this.allCategory = data;
+          this.allProductHighlight = data;
         },
         error: error => {
           if(error.status === 400){
@@ -47,10 +47,6 @@ export class CategoriesComponent implements OnInit, AfterViewInit {
         }
       });
     }
-
-    this.allCategory = [
-      {id: '5d13f588-45a0-485c-b90a-0a89246428cd', imgCategory: 'http://res.cloudinary.com/dyqsqg7pk/image/upload/v1/category-all/rnznrjsikuwt66cbkhva', altValue: 'category-women-clothing', title: 'Roupas Femininas'},
-    ];
   }
 
   ngAfterViewInit(): void {
@@ -60,8 +56,8 @@ export class CategoriesComponent implements OnInit, AfterViewInit {
     const containerLeft = this.containerArrowLeft.nativeElement;
     const containerRight = this.containerArrowRight.nativeElement;
 
-    const scrollLeft = () => scrollElement?.scrollBy({ left: -1000, behavior: 'smooth' });
-    const scrollRight = () => scrollElement?.scrollBy({ left: 1000, behavior: 'smooth' });
+    const scrollLeft = () => scrollElement?.scrollBy({ left: -1200, behavior: 'auto' });
+    const scrollRight = () => scrollElement?.scrollBy({ left: 1200, behavior: 'auto' });
 
     const updateArrowsVisibility = () => {
       if (scrollElement) {
@@ -83,4 +79,5 @@ export class CategoriesComponent implements OnInit, AfterViewInit {
 
     updateArrowsVisibility();
   }
+
 }
