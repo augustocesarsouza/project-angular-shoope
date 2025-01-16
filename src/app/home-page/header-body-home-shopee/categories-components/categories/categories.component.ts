@@ -47,10 +47,6 @@ export class CategoriesComponent implements OnInit, AfterViewInit {
         }
       });
     }
-
-    this.allCategory = [
-      {id: '5d13f588-45a0-485c-b90a-0a89246428cd', imgCategory: 'http://res.cloudinary.com/dyqsqg7pk/image/upload/v1/category-all/rnznrjsikuwt66cbkhva', altValue: 'category-women-clothing', title: 'Roupas Femininas'},
-    ];
   }
 
   ngAfterViewInit(): void {

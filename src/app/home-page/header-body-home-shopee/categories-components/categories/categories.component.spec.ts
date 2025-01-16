@@ -5,6 +5,7 @@ import { EachCategoryComponent } from '../each-category/each-category.component'
 import { HttpClientModule } from '@angular/common/http';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AllSvgModule } from '../../../../all-svg/all-svg.module';
+import { CategoriesService } from '../../../service/categories.service';
 
 describe('CategoriesComponent', () => {
   let component: CategoriesComponent;
@@ -13,7 +14,8 @@ describe('CategoriesComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [CategoriesComponent, EachCategoryComponent],
-      imports: [HttpClientModule, RouterTestingModule, AllSvgModule]
+      imports: [HttpClientModule, RouterTestingModule, AllSvgModule],
+      providers: [CategoriesService]
     })
     .compileComponents();
 
@@ -38,7 +40,7 @@ describe('CategoriesComponent', () => {
   });
 
   it('should render svg right', () => {
-    const svgRight = fixture.nativeElement.querySelector(".icon-arrow-right");
+    const svgRight = fixture.nativeElement.querySelector(".container-arrow-right > div > svg");
     expect(svgRight).not.toBeNull();
   });
 });

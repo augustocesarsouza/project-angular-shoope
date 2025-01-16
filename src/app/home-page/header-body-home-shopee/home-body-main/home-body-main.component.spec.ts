@@ -12,6 +12,7 @@ import { ItensIconComponent } from '../category-components/itens-icon/itens-icon
 import { TipsForUsImgComponent } from '../tips-for-us-img/tips-for-us-img.component';
 import { CategoriesComponent } from '../categories-components/categories/categories.component';
 import { EachCategoryComponent } from '../categories-components/each-category/each-category.component';
+import { ProductHighlightsForYouComponent } from '../product-highlights-components/product-highlights-for-you/product-highlights-for-you.component';
 
 describe('HomeBodyMainComponent', () => {
   let component: HomeBodyMainComponent;
@@ -19,8 +20,8 @@ describe('HomeBodyMainComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [HomeBodyMainComponent, HeaderBodyHomeShopeeComponent, CategoryItensBarComponent, FlashDealsAndCountdownComponent, ProductFlashDealsComponent, ItensIconComponent, TipsForUsImgComponent, CategoriesComponent, EachCategoryComponent],
-      imports: [HttpClientModule, RouterTestingModule, AllSvgModule]
+      declarations: [HomeBodyMainComponent, HeaderBodyHomeShopeeComponent, CategoryItensBarComponent, FlashDealsAndCountdownComponent, ProductFlashDealsComponent, ItensIconComponent, TipsForUsImgComponent, CategoriesComponent, EachCategoryComponent, ProductHighlightsForYouComponent],
+      imports: [HttpClientModule, RouterTestingModule, AllSvgModule],
     })
     .compileComponents();
 
