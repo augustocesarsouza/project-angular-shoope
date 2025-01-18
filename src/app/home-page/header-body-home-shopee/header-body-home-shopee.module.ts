@@ -14,6 +14,9 @@ import { EachCategoryComponent } from './categories-components/each-category/eac
 import { ProductHighlightsForYouComponent } from './product-highlights-components/product-highlights-for-you/product-highlights-for-you.component';
 import { ProductHighlightsInfoComponent } from './product-highlights-components/product-highlights-info/product-highlights-info.component';
 import { DiscoveriesOfTheDayComponent } from './discoveries-of-the-day-components/discoveries-of-the-day/discoveries-of-the-day.component';
+import { FirstFooterComponent } from './footer-componenets/first-footer/first-footer.component';
+import { FooterMainComponent } from './footer-componenets/footer-main/footer-main.component';
+import { SecondFooterComponent } from './footer-componenets/second-footer/second-footer.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +32,10 @@ import { DiscoveriesOfTheDayComponent } from './discoveries-of-the-day-component
     EachCategoryComponent,
     ProductHighlightsForYouComponent,
     ProductHighlightsInfoComponent,
-    DiscoveriesOfTheDayComponent
+    DiscoveriesOfTheDayComponent,
+    FirstFooterComponent,
+    FooterMainComponent,
+    SecondFooterComponent
   ],
   imports: [
     CommonModule,

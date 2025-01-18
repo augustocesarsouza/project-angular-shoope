@@ -2,6 +2,8 @@ import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angula
 import { Router } from '@angular/router';
 import { ProductDiscoveriesOfTheDay } from '../../../../login-and-register-user/interface/product-discoveries-of-the-day';
 import { GetDiscoveriesOfTheDayIsOutOfViewService } from '../../../service/get-discoveries-of-the-day-is-out-of-view.service';
+import { ProductDiscoveriesOfDayService } from '../../../service/product-discoveries-of-day.service';
+import { UserLocalStorage } from '../../../../login-and-register-user/user-function/get-user-local-storage/user-local-storage';
 
 @Component({
   selector: 'app-discoveries-of-the-day',
@@ -12,28 +14,47 @@ export class DiscoveriesOfTheDayComponent implements OnInit, AfterViewInit {
   productDiscoveriesOfTheDay: ProductDiscoveriesOfTheDay[] = [];
 
   isOutOfView = false;
+  valorEstaParaBaixo = false;
 
   @ViewChild('containerDiscoveriesOfTheDay') containerDiscoveriesOfTheDay!: ElementRef<HTMLDivElement>;
   @ViewChild('containerAllProductDiscoveriesOfTheDay') containerAllProductDiscoveriesOfTheDay!: ElementRef<HTMLDivElement>;
 
-  constructor(private router: Router, private getDiscoveriesOfTheDayIsOutOfViewService: GetDiscoveriesOfTheDayIsOutOfViewService){}
+  constructor(private router: Router, private productDiscoveriesOfDayService: ProductDiscoveriesOfDayService,
+    private getDiscoveriesOfTheDayIsOutOfViewService: GetDiscoveriesOfTheDayIsOutOfViewService){}
 
   ngOnInit(): void {
-    const obj = {
-      id: "0ebe83f7-072b-4b63-b0cd-27439dfb72f6",
-      title: "Fones De Ouvido Sem Fio TWS 5.4 Bluetooth Estéreo Com Toque Intra-Auriculares Baixo Esportivo À Prova D'água Microfone Embutido -M47",
-      imgProduct: "http://res.cloudinary.com/dyqsqg7pk/image/upload/v1/product-discoveries-of-day/egn95xjgukpjlgsyyqbm",
-      imgPartBottom: "https://res.cloudinary.com/dyqsqg7pk/image/upload/v1729681997/img-flash-deals/br-11134258-7r98o-lzp49gh02mud40_tn_vqc0lf.png",
-      discountPercentage: 52,
-      isAd: true,
-      price: 42.99,
-      quantitySold: 175.00
-    };
+    const userResult = UserLocalStorage();
 
-    this.productDiscoveriesOfTheDay.push(obj);
+    if(!userResult.isNullUserLocalStorage){
+      const user = userResult.user;
 
-    for (let i = 0; i < 59; i++) {
-      this.productDiscoveriesOfTheDay.push(obj);
+      if(user === null) return;
+      const token = user.token;
+      const userId = user.id;
+
+      this.productDiscoveriesOfDayService.GetAllProductDiscoveriesOfDays(userId, token).subscribe({
+        next: (success) => {
+          const data = success.data;
+
+          // for (let i = 0; i < 60; i++) {
+          //   this.productDiscoveriesOfTheDay.push(data[0]);
+          // }
+
+          this.productDiscoveriesOfTheDay = data;
+        },
+        error: error => {
+          if(error.status === 400){
+            console.log(error);
+            // this.confirmEmail = false;
+          }
+
+          if(error.status === 403){
+            localStorage.removeItem('user');
+            this.router.navigate(['/buyer/login']);
+            // this.confirmEmail = false;
+          }
+        }
+      });
     }
   }
 
@@ -42,13 +63,20 @@ export class DiscoveriesOfTheDayComponent implements OnInit, AfterViewInit {
 
     this.getDiscoveriesOfTheDayIsOutOfViewService.discoveries$.subscribe((value) => {
       if(value !== null){
-        this.isOutOfView = value;
+        // this.isOutOfView = value;
+        if(value){
+          this.isOutOfView = true;
+        }else {
+          this.isOutOfView = false;
+        }
 
         this.updateContainerStyles(value);
+
       }
     });
 
     if ('IntersectionObserver' in window) {
+      let downButtonSeeMore = false;
       const observer = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
@@ -58,11 +86,19 @@ export class DiscoveriesOfTheDayComponent implements OnInit, AfterViewInit {
             const isAboveViewport = boundingClientRect.top < 0 && !isIntersecting;
 
             if (isAboveViewport) {
+              downButtonSeeMore = true;
+
               this.isOutOfView = false;
-              this.updateContainerStyles(false);
+
+              if(!this.isOutOfView){
+                this.updateContainerStyles(false);
+              }
             } else if (isIntersecting) {
-              this.isOutOfView = true;
-              this.updateContainerStyles(true);
+              if(downButtonSeeMore){
+                this.isOutOfView = true;
+                this.updateContainerStyles(true);
+                downButtonSeeMore = false;
+              }
             }
           });
         },
@@ -73,9 +109,11 @@ export class DiscoveriesOfTheDayComponent implements OnInit, AfterViewInit {
         }
       );
 
-      if (this.containerAllProductDiscoveriesOfTheDay?.nativeElement) {
-        observer.observe(this.containerAllProductDiscoveriesOfTheDay.nativeElement);
-      }
+      setTimeout(() => {
+        if (this.containerAllProductDiscoveriesOfTheDay?.nativeElement) {
+          observer.observe(this.containerAllProductDiscoveriesOfTheDay.nativeElement);
+        }
+      }, 50);
     }
   }
 
@@ -86,11 +124,10 @@ export class DiscoveriesOfTheDayComponent implements OnInit, AfterViewInit {
     container.style.opacity = isOutOfView ? '0.9' : '1';
     container.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
 
-    // Exemplo de lógica adicional durante a transição
     if (isOutOfView) {
-      console.log('Elemento fixado na posição superior.');
+      // Elemento fixado na posição superior.
     } else {
-      console.log('Elemento voltou ao fluxo normal da página.');
+      // Elemento voltou ao fluxo normal da página.
     }
   }
 

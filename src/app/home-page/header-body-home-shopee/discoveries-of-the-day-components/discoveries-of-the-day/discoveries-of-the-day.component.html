@@ -14,14 +14,14 @@
           <img
             src="{{ product.imgProduct }}"
             alt="{{ product.title }}"
-            *ngIf="i === 59"
+            *ngIf="i === productDiscoveriesOfTheDay.length - 1"
             #containerAllProductDiscoveriesOfTheDay
             class="img-product"
           />
           <img
             src="{{ product.imgProduct }}"
             alt="{{ product.title }}"
-            *ngIf="i !== 59"
+            *ngIf="i !== productDiscoveriesOfTheDay.length - 1"
             class="img-product"
           />
 
@@ -32,7 +32,9 @@
             class="img-part-bottom"
           />
           <div class="container-discount-product">
-            <span *ngIf="product.discountPercentage > 0">-{{ product.discountPercentage }}%</span>
+            <span *ngIf="product.discountPercentage && product.discountPercentage > 0"
+              >-{{ product.discountPercentage }}%</span
+            >
           </div>
 
           <div class="container-ad-and-span" *ngIf="product.isAd">
@@ -49,7 +51,10 @@
               <h1 class="header-price">{{ spanPrice(product.price) }}</h1>
             </div>
 
-            <div class="container-sales-product" *ngIf="product.quantitySold > 0">
+            <div
+              class="container-sales-product"
+              *ngIf="product.quantitySold && product.quantitySold > 0"
+            >
               <span>{{ spanQuantitySold(product.quantitySold) }} vendidos</span>
             </div>
           </div>

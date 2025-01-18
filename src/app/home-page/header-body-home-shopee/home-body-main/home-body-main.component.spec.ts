@@ -14,6 +14,7 @@ import { CategoriesComponent } from '../categories-components/categories/categor
 import { EachCategoryComponent } from '../categories-components/each-category/each-category.component';
 import { ProductHighlightsForYouComponent } from '../product-highlights-components/product-highlights-for-you/product-highlights-for-you.component';
 import { DiscoveriesOfTheDayComponent } from '../discoveries-of-the-day-components/discoveries-of-the-day/discoveries-of-the-day.component';
+import { FooterMainComponent } from '../footer-componenets/footer-main/footer-main.component';
 
 describe('HomeBodyMainComponent', () => {
   let component: HomeBodyMainComponent;
@@ -21,7 +22,7 @@ describe('HomeBodyMainComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [HomeBodyMainComponent, HeaderBodyHomeShopeeComponent, CategoryItensBarComponent, FlashDealsAndCountdownComponent, ProductFlashDealsComponent, ItensIconComponent, TipsForUsImgComponent, CategoriesComponent, EachCategoryComponent, ProductHighlightsForYouComponent, DiscoveriesOfTheDayComponent],
+      declarations: [HomeBodyMainComponent, HeaderBodyHomeShopeeComponent, CategoryItensBarComponent, FlashDealsAndCountdownComponent, ProductFlashDealsComponent, ItensIconComponent, TipsForUsImgComponent, CategoriesComponent, EachCategoryComponent, ProductHighlightsForYouComponent, DiscoveriesOfTheDayComponent, FooterMainComponent],
       imports: [HttpClientModule, RouterTestingModule, AllSvgModule],
     })
     .compileComponents();
