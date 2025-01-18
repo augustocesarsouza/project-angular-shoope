@@ -35,6 +35,8 @@
 .trending-searches {
   display: flex;
   flex-direction: column;
+  border-bottom: 1px solid #0000003d;
+  padding-bottom: 50px;
 
   >h1 {
     font-size: 15px;

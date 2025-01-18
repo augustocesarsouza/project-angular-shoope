@@ -113,7 +113,7 @@ export class DiscoveriesOfTheDayComponent implements OnInit, AfterViewInit {
         if (this.containerAllProductDiscoveriesOfTheDay?.nativeElement) {
           observer.observe(this.containerAllProductDiscoveriesOfTheDay.nativeElement);
         }
-      }, 50);
+      }, 100);
     }
   }
 

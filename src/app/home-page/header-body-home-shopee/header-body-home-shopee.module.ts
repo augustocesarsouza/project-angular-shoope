@@ -15,8 +15,9 @@ import { ProductHighlightsForYouComponent } from './product-highlights-component
 import { ProductHighlightsInfoComponent } from './product-highlights-components/product-highlights-info/product-highlights-info.component';
 import { DiscoveriesOfTheDayComponent } from './discoveries-of-the-day-components/discoveries-of-the-day/discoveries-of-the-day.component';
 import { FirstFooterComponent } from './footer-componenets/first-footer/first-footer.component';
-import { FooterMainComponent } from './footer-componenets/footer-main/footer-main.component';
 import { SecondFooterComponent } from './footer-componenets/second-footer/second-footer.component';
+import { HeaderAndFooterForAllComponentsModule } from '../../header-and-footer-for-all-components/header-and-footer-for-all-components.module';
+import { FooterMainComponent } from './footer-componenets/footer-main/footer-main.component';
 
 @NgModule({
   declarations: [
@@ -34,12 +35,13 @@ import { SecondFooterComponent } from './footer-componenets/second-footer/second
     ProductHighlightsInfoComponent,
     DiscoveriesOfTheDayComponent,
     FirstFooterComponent,
-    FooterMainComponent,
-    SecondFooterComponent
+    SecondFooterComponent,
+    FooterMainComponent
   ],
   imports: [
     CommonModule,
-    AllSvgModule
+    AllSvgModule,
+    HeaderAndFooterForAllComponentsModule
   ],
   exports: [
     HomeBodyMainComponent,
