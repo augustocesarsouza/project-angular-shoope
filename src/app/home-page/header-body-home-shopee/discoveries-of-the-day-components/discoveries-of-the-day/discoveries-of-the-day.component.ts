@@ -4,6 +4,8 @@ import { ProductDiscoveriesOfTheDay } from '../../../../login-and-register-user/
 import { GetDiscoveriesOfTheDayIsOutOfViewService } from '../../../service/get-discoveries-of-the-day-is-out-of-view.service';
 import { ProductDiscoveriesOfDayService } from '../../../service/product-discoveries-of-day.service';
 import { UserLocalStorage } from '../../../../login-and-register-user/user-function/get-user-local-storage/user-local-storage';
+import { spanQuantitySold } from '../function-to-discoveries-of-the-day/function-span-quantity-sold';
+import { spanPrice } from '../function-to-discoveries-of-the-day/function-span-quantity-sold';
 
 @Component({
   selector: 'app-discoveries-of-the-day',
@@ -12,6 +14,9 @@ import { UserLocalStorage } from '../../../../login-and-register-user/user-funct
 })
 export class DiscoveriesOfTheDayComponent implements OnInit, AfterViewInit {
   productDiscoveriesOfTheDay: ProductDiscoveriesOfTheDay[] = [];
+
+  spanQuantitySold = spanQuantitySold;
+  spanPrice = spanPrice;
 
   isOutOfView = false;
   valorEstaParaBaixo = false;
@@ -113,7 +118,7 @@ export class DiscoveriesOfTheDayComponent implements OnInit, AfterViewInit {
         if (this.containerAllProductDiscoveriesOfTheDay?.nativeElement) {
           observer.observe(this.containerAllProductDiscoveriesOfTheDay.nativeElement);
         }
-      }, 50);
+      }, 100);
     }
   }
 
@@ -137,23 +142,23 @@ export class DiscoveriesOfTheDayComponent implements OnInit, AfterViewInit {
     return stringChange;
   };
 
-  spanPrice = (price: number) => {
-    const formattedPrice = new Intl.NumberFormat('pt-BR', {
-      style: 'currency',
-      currency: 'BRL',
-      minimumFractionDigits: 2,
-    }).format(price);
+  // spanPrice = (price: number) => {
+  //   const formattedPrice = new Intl.NumberFormat('pt-BR', {
+  //     style: 'currency',
+  //     currency: 'BRL',
+  //     minimumFractionDigits: 2,
+  //   }).format(price);
 
-    return formattedPrice;
-  };
+  //   return formattedPrice;
+  // };
 
-  spanQuantitySold = (quantity: number) => {
-    if (quantity >= 1000) {
-      let formatted = (quantity / 1000).toFixed(quantity % 1000 === 0 ? 0 : 1);
-      formatted = formatted.replace('.', ',');
-      return `${formatted}mil`;
-    }
+  // spanQuantitySold = (quantity: number) => {
+  //   if (quantity >= 1000) {
+  //     let formatted = (quantity / 1000).toFixed(quantity % 1000 === 0 ? 0 : 1);
+  //     formatted = formatted.replace('.', ',');
+  //     return `${formatted}mil`;
+  //   }
 
-    return quantity.toString();
-  };
+  //   return quantity.toString();
+  // };
 }

@@ -6,6 +6,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { AllSvgModule } from '../../../../all-svg/all-svg.module';
 import { FirstFooterComponent } from '../first-footer/first-footer.component';
 import { SecondFooterComponent } from '../second-footer/second-footer.component';
+import { HeaderAndFooterForAllComponentsModule } from '../../../../header-and-footer-for-all-components/header-and-footer-for-all-components.module';
 
 describe('FooterMainComponent', () => {
   let component: FooterMainComponent;
@@ -14,7 +15,8 @@ describe('FooterMainComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [FooterMainComponent, FirstFooterComponent, SecondFooterComponent],
-      imports: [HttpClientModule, RouterTestingModule, AllSvgModule],
+      imports: [HttpClientModule, RouterTestingModule, AllSvgModule, HeaderAndFooterForAllComponentsModule],
+      // providers: [GetUserPerfilService],
     })
     .compileComponents();
 

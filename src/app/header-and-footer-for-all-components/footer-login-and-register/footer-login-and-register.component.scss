@@ -1,14 +1,24 @@
+:host {
+  margin-top: 50px;
+  width: 1150px;
+  padding: 0px 40px;
+}
+
 .container-footer-main{
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  margin-top: 50px;
+  width: 100%;
 }
 
 .container-footer{
   display: flex;
   justify-content: space-between;
-  width: 1150px;
+  width: 100%;
   margin-bottom: 10px;
+}
+
+app-rights-shopee{
+  width: 100%;
 }

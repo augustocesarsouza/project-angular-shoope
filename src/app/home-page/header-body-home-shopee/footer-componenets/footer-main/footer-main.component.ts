@@ -8,3 +8,5 @@ import { Component } from '@angular/core';
 export class FooterMainComponent {
 
 }
+
+// ARRUMAR FOOTER DO "USER/ACCOUNT" E OS OUTROS que usam "app-footer-login-and-register"
