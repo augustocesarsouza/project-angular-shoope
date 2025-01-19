@@ -17,11 +17,11 @@
       />
     </div>
     <div class="container-info-about-product-flash-offer">
-      <h1>{{ functionTitleFormat(el.title) }}</h1>
+      <h1 class="header-title-product-flash">{{ functionTitleFormat(el.title) }}</h1>
       <div class="container-price-original-and-price-with-discount-and-button-buy-now">
         <div class="container-price-original-and-price-with-discount">
           <div class="container-discount-percentage-main">
-            <span>{{ functionForPriceOriginal(el) }}</span>
+            <span class="span-price-original">{{ functionForPriceOriginal(el) }}</span>
             <div class="container-discount-percentage">
               <svg
                 width="10"
@@ -29,6 +29,7 @@
                 viewBox="0 0 10 16"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
+                class="svg-lightning"
               >
                 <path
                   d="M9.23077 0H4.23077L0 7.82222L3.5 9.14286V16L10 5.68889L6.53846 4.62222L9.23077 0Z"
@@ -48,17 +49,19 @@
                   </linearGradient>
                 </defs>
               </svg>
-              <span>-{{ el.discountPercentage }}%</span>
+              <span class="span-discount-percentage">-{{ el.discountPercentage }}%</span>
             </div>
           </div>
 
           <div class="container-price-product-main">
             <span>R$</span>
-            <span>{{ functionForPriceMainWithDiscount(el.priceProduct) }}</span>
+            <span class="span-price-product">{{
+              functionForPriceMainWithDiscount(el.priceProduct)
+            }}</span>
           </div>
           <div class="container-popular">
-            <div class="container-background-up"></div>
-            <span>POPULAR</span>
+            <div class="container-background-up" #containerBackgroundUp></div>
+            <span class="span-popular">POPULAR</span>
             <div class="container-background-faint"></div>
           </div>
         </div>

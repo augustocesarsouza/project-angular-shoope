@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FlashSaleCountdownService } from '../../service-all-components/flash-sale-countdown.service';
 import { ObjTime, ObjTimeFleshOffer } from '../../home-page/header-body-home-shopee/home-body-main/home-body-main.component';
@@ -14,7 +14,7 @@ import { ProductFlashDeals } from '../../login-and-register-user/interface/produ
 })
 export class FleshOfferEveryDayAndHoursComponent implements OnInit {
   constructor(private router: Router, private flashSaleCountdownService: FlashSaleCountdownService,
-    private productsOfferFlashService: ProductsOfferFlashService
+    private productsOfferFlashService: ProductsOfferFlashService, private cdr: ChangeDetectorRef
   ){}
 
   user!: User;
@@ -275,7 +275,7 @@ export class FleshOfferEveryDayAndHoursComponent implements OnInit {
         this.hourFlashOffer, tag, valuePageNumber).subscribe({
         next: (success) => {
           const data = success.data;
-          this.getAllProductHourProps = data;
+          this.getAllProductHourProps = [...data];
         },
         error: error => {
           if(error.status === 400){

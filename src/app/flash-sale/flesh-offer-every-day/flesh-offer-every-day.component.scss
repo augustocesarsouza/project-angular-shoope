@@ -71,12 +71,7 @@
   cursor: pointer;
   background-color: #414142;
 
-  >div {
-    /* padding: 10px; */
-    display: flex;
-  }
-
-  >div>svg {
+  >svg {
     fill: rgb(211 211 211);
     width: 20px;
     transform: rotate(180deg); /* Rotaciona o SVG em 180 graus */
@@ -101,12 +96,7 @@
   cursor: pointer;
   background-color: #414142;
 
-  >div {
-    /* padding: 10px; */
-    display: flex;
-  }
-
-  >div>svg {
+  >svg {
     fill: rgb(211 211 211);
     width: 20px;
     /* height: 14px; */

@@ -1,40 +1,54 @@
-import { Component, Input } from '@angular/core';
+import { Component, ElementRef, Input, OnChanges, OnDestroy, QueryList, SimpleChanges, ViewChildren } from '@angular/core';
 import { ProductFlashDeals } from '../../login-and-register-user/interface/product-flash-deals';
+import { functionForPriceMainWithDiscount, functionForPriceOriginal, functionTitleFormat } from './function-product-flash-offer';
 
 @Component({
   selector: 'app-product-flash-offer',
   templateUrl: './product-flash-offer.component.html',
   styleUrl: './product-flash-offer.component.scss'
 })
-export class ProductFlashOfferComponent {
+export class ProductFlashOfferComponent implements OnDestroy, OnChanges {
   // getAllProductHourProps: ProductFlashDeals[] = [];
   @Input() getAllProductHourProps!: ProductFlashDeals[];
+  @ViewChildren('containerBackgroundUp') containerBackgroundUpAll!: QueryList<ElementRef<HTMLElement>>;
+
+  settimeOutAny!: number;
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['getAllProductHourProps']) {
+      // console.log('Novo array recebido:', this.getAllProductHourProps);
+      this.updateView();
+    }
+  }
+
+  updateView(): void {
+    this.changeValuePopularityPercentage();
+  }
+
+  changeValuePopularityPercentage = () => {
+    clearTimeout(this.settimeOutAny);
+
+    this.settimeOutAny = setTimeout(() => {
+      const array = this.containerBackgroundUpAll.toArray();
+
+      array.forEach((element, index) => {
+        element.nativeElement.style.width = this.getAllProductHourProps[index].popularityPercentage.toString() + "%";
+
+      });
+
+    }, 100)as unknown as number;
+  }
 
   functionForPriceOriginal = (obj: ProductFlashDeals): string => {
-    const priceOriginal = obj.priceProduct / (1 - obj.discountPercentage / 100);
-
-    return (
-      'R$' +
-      priceOriginal.toLocaleString('pt-BR', {
-        minimumFractionDigits: 2,
-        maximumFractionDigits: 2,
-      })
-    );
+    return functionForPriceOriginal(obj);
   };
 
   functionTitleFormat = (title: string): string => {
-    const priceOriginal = title.slice(0, 50) + '...';
-
-    return priceOriginal;
+    return functionTitleFormat(title);
   };
 
   functionForPriceMainWithDiscount = (priceProduct: number): string => {
-    const priceOriginal = priceProduct;
-
-    return priceOriginal.toLocaleString('pt-BR', {
-      minimumFractionDigits: 2,
-      maximumFractionDigits: 2,
-    });
+    return functionForPriceMainWithDiscount(priceProduct);
   };
 
 
@@ -49,4 +63,8 @@ export class ProductFlashOfferComponent {
     // window.open(`/flash_sale_product/${id}`, '_blank');
     console.log(id);
   };
+
+  ngOnDestroy(): void {
+    clearTimeout(this.settimeOutAny);
+  }
 }
