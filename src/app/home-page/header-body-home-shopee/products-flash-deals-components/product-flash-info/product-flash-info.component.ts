@@ -21,7 +21,9 @@ export class ProductFlashInfoComponent implements OnInit {
   }
 
   onClickContainerProductFlashSale = () => {
+    // fazer o modulo com as rotas desse "flash_sale" tem quever como vai fazer
     // nav('/flash_sale', { state: { user: userLogged } });
-    // this.router.navigate(['/flash_sale']);
+
+    this.router.navigate(['/flash_sale']);
   };
 }

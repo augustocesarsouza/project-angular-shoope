@@ -18,6 +18,9 @@ const routes: Routes = [
   },
   {path: 'user',
     loadChildren: () => import('./user-my-account-all-info/user-my-account-all-info.module').then(m => m.UserMyAccountAllInfoModule)
+  },
+  {path: 'flash_sale',
+    loadChildren: () => import('./flash-sale/flash-sale.module').then(m => m.FlashSaleModule)
   }
 ];
 

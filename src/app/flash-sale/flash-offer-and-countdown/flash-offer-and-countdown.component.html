@@ -1,0 +1,26 @@
+<div class="container-flash-deals-about-position">
+  <div class="container-flash-deals-main">
+    <div class="container-flash-deals-header">
+      <div class="container-flash-deals-img">
+        <img
+          src="https://res.cloudinary.com/dyqsqg7pk/image/upload/v1729512130/img-flash-deals/2c66c570e9bc4309bc51_eb0lw4.png"
+          alt="img-about-flesh-offer"
+        />
+      </div>
+    </div>
+    <div class="container-finish-in">
+      <div class="container-chronometer">
+        <img
+          src="https://res.cloudinary.com/dyqsqg7pk/image/upload/v1730893687/flash-offer-img/3b9d94a588dd77fd5ec6_wlo4sr.png"
+          alt="img-chronometer"
+        />
+      </div>
+      <h1>TERMINA EM</h1>
+    </div>
+    <div class="countdown-container" *ngIf="timeLeft">
+      <div class="digit-box">{{ formatHourMinuteSecond(timeLeft.hours) }}</div>
+      <div class="digit-box">{{ formatHourMinuteSecond(timeLeft.minutes) }}</div>
+      <div class="digit-box">{{ formatHourMinuteSecond(timeLeft.seconds) }}</div>
+    </div>
+  </div>
+</div>

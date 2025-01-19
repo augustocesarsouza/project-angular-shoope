@@ -1,0 +1,49 @@
+<div class="container-category-product">
+  <div
+    class="container-category"
+    (click)="onClickCategory(i)"
+    (keydown.enter)="onClickCategory(i)"
+    tabindex="0"
+    *ngFor="let array of itensOfferFlesh; let i = index"
+    #containerCategory
+  >
+    <span>{{ array }}</span>
+  </div>
+
+  <div
+    class="container-category-more"
+    (click)="onClickCategory(-1)"
+    (keydown.enter)="onClickCategory(-1)"
+    tabindex="0"
+    (mouseenter)="onMouseEnterContainerCategoryMore()"
+    (mouseleave)="onMouseLeaveEnterContainerCategoryMore()"
+  >
+    <span>Mais</span>
+    <svg
+      enable-background="new 0 0 15 15"
+      viewBox="0 0 15 15"
+      x="0"
+      y="0"
+      class="shopee-svg-icon icon-down-arrow-filled svg-arrow-bottom"
+      #svgArrowBottom
+    >
+      <path d="m6.5 12.9-6-7.9s-1.4-1.5.5-1.5h13s1.8 0 .6 1.5l-6 7.9c-.1 0-.9 1.3-2.1 0z"></path>
+    </svg>
+  </div>
+  <div
+    *ngIf="showContainerAfterArrowIsTop"
+    class="container-itens-more-offer-flesh"
+    (mouseenter)="onMouseEnterContainerItensMoreOfferFlesh()"
+    (mouseleave)="onMouseLeaveContainerItensMoreOfferFlesh()"
+  >
+    <div
+      class="container-iten-more-offer-flesh"
+      *ngFor="let element of itensMoreOfferFlesh"
+      (click)="onClickNewItenMoreOfferFlesh(element)"
+      (keydown.enter)="onClickNewItenMoreOfferFlesh(element)"
+      tabindex="0"
+    >
+      <h1>{{ element }}</h1>
+    </div>
+  </div>
+</div>

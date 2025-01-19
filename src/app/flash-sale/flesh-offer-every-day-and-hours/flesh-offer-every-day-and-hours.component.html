@@ -1,0 +1,23 @@
+<app-flash-offer-and-countdown
+  *ngIf="objTimeFlashDeals"
+  [hours]="objTimeFlashDeals.hours"
+  [minutes]="objTimeFlashDeals.minutes"
+  [seconds]="objTimeFlashDeals.seconds"
+></app-flash-offer-and-countdown>
+
+<app-flesh-offer-every-day
+  *ngIf="allHoursFleshOffers"
+  [allHoursFleshOffers]="allHoursFleshOffers"
+  [getAllHoursFleshOffers]="getAllHoursFleshOffers"
+></app-flesh-offer-every-day>
+
+<app-category-to-product [getTagProductClicked]="getTagProductClicked"></app-category-to-product>
+
+<app-product-flash-offer
+  [getAllProductHourProps]="getAllProductHourProps"
+></app-product-flash-offer>
+
+<app-footer-for-flash-offer
+  [functionGetMoreProductPaginate]="functionGetMoreProductPaginate"
+></app-footer-for-flash-offer>
+<app-footer-login-and-register></app-footer-login-and-register>
