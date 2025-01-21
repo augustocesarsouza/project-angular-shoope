@@ -1,0 +1,106 @@
+<div class="container-image-product-and-all-image-part-bottom">
+  <div
+    class="container-image-product"
+    (click)="onClickClickImgProduct(productImgMain)"
+    (keydown.enter)="onClickClickImgProduct(productImgMain)"
+    tabindex="0"
+  >
+    <img
+      *ngIf="productImgMain && onMouseEnterMouseLeaveColor === null"
+      src="{{ productImgMain }}"
+      alt="img-main"
+    />
+
+    <img
+      *ngIf="onMouseEnterMouseLeaveColor"
+      src="{{ onMouseEnterMouseLeaveColor.imageUrl }}"
+      alt="{{ onMouseEnterMouseLeaveColor.imgAlt }}"
+    />
+
+    <img
+      *ngIf="getFlashSaleProduct.productsOfferFlashDTO.imgPartBottom"
+      src="{{ getFlashSaleProduct.productsOfferFlashDTO.imgPartBottom }}"
+      alt="img-part-bottom-floating"
+    />
+  </div>
+
+  <div class="container-carosel-product-flash-sale-all-info" *ngIf="productOptionImageAll">
+    <div class="container-arrow-left">
+      <div #containerArrowLeft>
+        <svg
+          enableBackground="new 0 0 11 11"
+          viewBox="0 0 11 11"
+          x="0"
+          y="0"
+          className="shopee-svg-icon rEiraU icon-arrow-right"
+        >
+          <path
+            d="m2.5 11c .1 0 .2 0 .3-.1l6-5c .1-.1.2-.3.2-.4s-.1-.3-.2-.4l-6-5c-.2-.2-.5-.1-.7.1s-.1.5.1.7l5.5 4.6-5.5 4.6c-.2.2-.2.5-.1.7.1.1.3.2.4.2z"
+          ></path>
+        </svg>
+      </div>
+    </div>
+    <div class="container-all-image-part-bottom" #carouselCustom>
+      <div
+        *ngFor="let productImg of productOptionImageAll.listImageUrlBottom; let i = index"
+        class="container-img-product-bottom"
+        #ContainerimgPartBottom
+      >
+        <img
+          class="img-product-bottom"
+          src="{{ productImg }}"
+          alt="img-part-bottom"
+          (click)="onClickImgsProductPartBottom(productImg)"
+          (keydown.enter)="onClickImgsProductPartBottom(productImg)"
+          tabindex="0"
+          (mouseenter)="onMouseEnterImgProductBottom(ContainerimgPartBottom, productImg)"
+          (mouseleave)="onMouseLeaveImgProductBottom()"
+        />
+      </div>
+    </div>
+    <div class="container-arrow-right">
+      <div #containerArrowRight>
+        <svg
+          enableBackground="new 0 0 11 11"
+          viewBox="0 0 11 11"
+          x="0"
+          y="0"
+          className="shopee-svg-icon rEiraU icon-arrow-right"
+        >
+          <path
+            d="m2.5 11c .1 0 .2 0 .3-.1l6-5c .1-.1.2-.3.2-.4s-.1-.3-.2-.4l-6-5c-.2-.2-.5-.1-.7.1s-.1.5.1.7l5.5 4.6-5.5 4.6c-.2.2-.2.5-.1.7.1.1.3.2.4.2z"
+          ></path>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-to-share-main">
+    <div class="container-to-share">
+      <h1>Compartilhar:</h1>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <div class="container-favorite-quantity">
+      <svg width="24" height="20" className="vgMiJB">
+        <path
+          d="M19.469 1.262c-5.284-1.53-7.47 4.142-7.47 4.142S9.815-.269 4.532 1.262C-1.937 3.138.44 13.832 12 19.333c11.559-5.501 13.938-16.195 7.469-18.07z"
+          stroke="#FF424F"
+          strokeWidth="1.5"
+          fill="none"
+          fillRule="evenodd"
+          strokeLinejoin="round"
+        ></path>
+      </svg>
+
+      <span>
+        {{ funcFormatFavoriteQuantity(getFlashSaleProduct.favoriteQuantity) }}
+      </span>
+    </div>
+  </div>
+</div>
+<!-- Tive uma ideia de criar outra tabela segurando o id do Product Flesh esse "productFlashSaleId" e tipo o "type" tipo "Cor"e as imagens -->
+<!-- só nao sei como ia ficar os nomes deles se eu colocar em um "LIST" nao tem como colocar o nome de cada img ou criaria varios registro com os nomes das img tem que ver isso -->

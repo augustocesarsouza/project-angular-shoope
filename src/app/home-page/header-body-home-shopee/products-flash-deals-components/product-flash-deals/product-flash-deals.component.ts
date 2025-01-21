@@ -43,7 +43,13 @@ export class ProductFlashDealsComponent implements OnInit, AfterViewInit {
     const containerRight = this.containerArrowRight.nativeElement;
 
     const scrollLeft = () => scrollElement?.scrollBy({ left: -1200, behavior: 'smooth' });
-    const scrollRight = () => scrollElement?.scrollBy({ left: 1200, behavior: 'smooth' });
+    // const scrollRight = () => scrollElement?.scrollBy({ left: 1200, behavior: 'smooth' });
+
+
+    const scrollRight = () => {
+      console.log(scrollElement);
+      scrollElement?.scrollBy({ left: 1200, behavior: 'smooth' });
+    };
 
     const updateArrowsVisibility = () => {
       if (scrollElement) {

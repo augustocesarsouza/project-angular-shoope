@@ -1,6 +1,7 @@
 import { Component, ElementRef, Input, OnChanges, OnDestroy, QueryList, SimpleChanges, ViewChildren } from '@angular/core';
 import { ProductFlashDeals } from '../../login-and-register-user/interface/product-flash-deals';
 import { functionForPriceMainWithDiscount, functionForPriceOriginal, functionTitleFormat } from './function-product-flash-offer';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-product-flash-offer',
@@ -13,6 +14,8 @@ export class ProductFlashOfferComponent implements OnDestroy, OnChanges {
   @ViewChildren('containerBackgroundUp') containerBackgroundUpAll!: QueryList<ElementRef<HTMLElement>>;
 
   settimeOutAny!: number;
+
+  constructor(private router: Router){}
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['getAllProductHourProps']) {
@@ -61,7 +64,10 @@ export class ProductFlashOfferComponent implements OnDestroy, OnChanges {
     // localStorage.setItem('countdowntime', encrypted);
 
     // window.open(`/flash_sale_product/${id}`, '_blank');
-    console.log(id);
+    // const url = this.router.navigate([`/flash_sale_product/${id}`]);
+    const url = this.router.serializeUrl(this.router.createUrlTree([`/flash_sale_product/${id}`]));
+
+    window.open(url, '_blank');
   };
 
   ngOnDestroy(): void {

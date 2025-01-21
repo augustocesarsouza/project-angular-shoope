@@ -1,0 +1,38 @@
+.container-product-was-clicked-main{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 21px;
+  margin-top: 6px;
+}
+
+.container-product-was-clicked{
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  width: 1200px;
+}
+
+.container-product-layers{
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 40px;
+
+  >div>span {
+    font-size: 14px;
+    color: rgb(0, 85, 170);
+  }
+
+  >div>svg {
+    width: 12px;
+    height: 12px;
+    fill: #000000a6;
+
+    transform: rotate(270deg);
+  }
+
+  >h1 {
+    font-size: 15px;
+    font-weight: 400;
+  }
+}

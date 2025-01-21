@@ -337,40 +337,5 @@ export class FleshOfferEveryDayAndHoursComponent implements OnInit {
         }
       });
     }
-
-    // const res = await fetch(
-    //   `${Url}/product-offer-flash/get-all-by-tag-product/${this.hourFlashOffer}/${this.tagProduct}/${pageNumber}/10`,
-    //   {
-    //     method: 'GET',
-    //   }
-    // ); // colocar aqui a validação token
-
-    // if (res.status === 200) {
-    //   const json = await res.json();
-    //   let value: GetAllProductHourProps[] = json.data;
-
-    //   const arrayProductHours: GetAllProductHourProps[] = [];
-
-    //   for (let i = 0; i < value.length; i++) {
-    //     const element = value[i];
-    //     arrayProductHours.push(element);
-    //   }
-
-    //   setGetAllProductHourProps((prev) => {
-    //     const copia = [...prev, ...arrayProductHours];
-
-    //     return copia;
-    //   });
-    // }
-
-    // if (res.status === 400) {
-    //   //ERROR
-    // }
-
-    // if (res.status === 403 || res.status === 401) {
-    //   localStorage.removeItem('user');
-    //   nav('/login');
-    //   return;
-    // }
   };
 }

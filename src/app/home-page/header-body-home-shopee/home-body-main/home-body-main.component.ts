@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { environment } from '../../../../environments/environment';
-import CryptoJS from 'crypto-js';
 import { FlashSaleCountdownService } from '../../../service-all-components/flash-sale-countdown.service';
 
 export interface ObjTimeFleshOffer {
@@ -171,14 +169,6 @@ export class HomeBodyMainComponent implements OnInit {
   }
 
   functionGetTheValueTimeFleshOffer = (time: Date) => {
-    // const secretKey = import.meta.env.VITE__APP_SECRET_KEY_COUNTDOWN;
-    const secretKey = environment.angularAppSecretKeyCountdown;
-
-    if (secretKey === undefined || time === null) return;
-
-    const encrypted = CryptoJS.AES.encrypt(JSON.stringify(time), secretKey).toString();
-    localStorage.setItem('countdowntime', encrypted);
-
     const flashSaleCountdown = this.flashSaleCountdownService.FlashSaleCountdownFunc(time);
 
     this.objTimeFlashDeals = flashSaleCountdown;

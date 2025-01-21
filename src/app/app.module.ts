@@ -7,10 +7,20 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule, provideHttpClient, withFetch } from '@angular/common/http';
 import { AllSvgModule } from './all-svg/all-svg.module';
 import { HomePageModule } from './home-page/home-page.module';
+import { ProductFlashSaleMainComponent } from './product-flash-sale-components/product-flash-sale-main/product-flash-sale-main.component';
+import { ProductFlashSaleAllInfoComponent } from './product-flash-sale-components/product-flash-sale-all-info/product-flash-sale-all-info.component';
+import { ProductFlashSaleFirstPartComponent } from './product-flash-sale-components/product-flash-sale-first-part/product-flash-sale-first-part.component';
+import { ProductFlashSaleSecondPartComponent } from './product-flash-sale-components/product-flash-sale-second-part/product-flash-sale-second-part.component';
+import { FlashSaleCountdownAfterClickedProductComponent } from './product-flash-sale-components/flash-sale-countdown-after-clicked-product/flash-sale-countdown-after-clicked-product.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    ProductFlashSaleMainComponent,
+    ProductFlashSaleAllInfoComponent,
+    ProductFlashSaleFirstPartComponent,
+    ProductFlashSaleSecondPartComponent,
+    FlashSaleCountdownAfterClickedProductComponent,
   ],
   imports: [
     BrowserModule,

@@ -5,6 +5,7 @@ import { EmailAndPhoneConfirmCodeComponent } from './user-my-account-all-info/my
 import { VerifyPasswordComponent } from './user-my-account-all-info/my-account-all-component/change-password/verify-password/verify-password.component';
 import { VerifyPasswordStepTwoComponent } from './user-my-account-all-info/my-account-all-component/change-password/verify-password-step-two/verify-password-step-two.component';
 import { FullCheckPasswordComponent } from './user-my-account-all-info/my-account-all-component/change-password/full-check-password/full-check-password.component';
+import { ProductFlashSaleMainComponent } from './product-flash-sale-components/product-flash-sale-main/product-flash-sale-main.component';
 
 const routes: Routes = [
   {path: '', pathMatch: 'full', redirectTo: 'login'},
@@ -21,7 +22,8 @@ const routes: Routes = [
   },
   {path: 'flash_sale',
     loadChildren: () => import('./flash-sale/flash-sale.module').then(m => m.FlashSaleModule)
-  }
+  },
+  {path: 'flash_sale_product/:id', component: ProductFlashSaleMainComponent}
 ];
 
 @NgModule({
