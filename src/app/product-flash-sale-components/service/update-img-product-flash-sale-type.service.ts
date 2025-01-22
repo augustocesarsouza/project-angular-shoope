@@ -1,12 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
-// export interface objImgType {
-//   img: string;
-//   wasClicked: boolean;
-//   mouseOverAfterClick: boolean;
-// }
-
 export interface objImgType {
   id: string;
   imgClicked: string;

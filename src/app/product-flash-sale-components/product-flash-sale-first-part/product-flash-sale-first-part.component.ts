@@ -33,31 +33,20 @@ export class ProductFlashSaleFirstPartComponent implements OnInit, AfterViewInit
   // const [clickImgProduct, setClickImgProduct] = useState<ProductOptionImageProps | null>(null);
   clickImgProduct: string | null = null;
   productOptionImageAll!: ProductOptionImageBottom;
-
-  private subscriptionService!: Subscription;
+  startIndex = 0;
 
   @ViewChild('carouselCustom') carouselCustom!: ElementRef<HTMLDivElement>;
   @ViewChild('containerArrowLeft') containerArrowLeft!: ElementRef<HTMLDivElement>;
   @ViewChild('containerArrowRight') containerArrowRight!: ElementRef<HTMLDivElement>;
+  private subscriptionService!: Subscription;
 
   constructor(private router: Router, private productOptionImageBottomService: ProductOptionImageBottomService,
     private updateImgProductFlashSaleTypeService: UpdateImgProductFlashSaleTypeService
   ){}
 
-  ngOnInit(): void {
-    // const obj1ProductMain = {
-    //   id: this.getFlashSaleProduct.productsOfferFlashDTO.id,
-    //   imageUrl: this.getFlashSaleProduct.productsOfferFlashDTO.imgProduct,
-    //   imgAlt: this.getFlashSaleProduct.productsOfferFlashDTO.altValue,
-    //   optionType: '',
-    //   titleOptionType: '',
-    // };
-
-    // setProductImgMain(obj1ProductMain);
-
+  ngOnInit(): void { // FAZER O SCROLL LATERAL AMANHA DA IMAGEM DE BAIXO, FAZER OS TEST DO BACKEND QUE FALTA 2
     this.productImgMain = this.getFlashSaleProduct.productsOfferFlashDTO.imgProduct;
     this.lastImgSelect = this.getFlashSaleProduct.productsOfferFlashDTO.imgProduct;
-    // this.updateImgProductFlashSaleTypeService.updateImgType(this.productImgMain);
 
     const userResult = UserLocalStorage();
 
@@ -91,10 +80,10 @@ export class ProductFlashSaleFirstPartComponent implements OnInit, AfterViewInit
       const containerRight = this.containerArrowRight.nativeElement;
 
       const scrollLeft = () => {
-        scrollElement?.scrollBy({ left: -600, behavior: 'smooth' });
+        scrollElement?.scrollBy({ left: -90, behavior: 'auto' });
       };
       const scrollRight = () => {
-        scrollElement?.scrollBy({ left: 600, behavior: 'smooth' });
+        scrollElement?.scrollBy({ left: 90, behavior: 'auto' });
       };
 
       const updateArrowsVisibility = () => {
@@ -120,9 +109,6 @@ export class ProductFlashSaleFirstPartComponent implements OnInit, AfterViewInit
       const containerImgProductBottom = document.querySelectorAll(".container-img-product-bottom") as NodeListOf<HTMLElement>;
       containerImgProductBottom[0].style.border = "1px solid red";
     }, 100)as unknown as number;
-
-
-
   }
 
   getByListFlashSaleProductImageAllId = async (
@@ -227,6 +213,14 @@ export class ProductFlashSaleFirstPartComponent implements OnInit, AfterViewInit
       this.productImgMain = obj.imgClicked;
     }
   };
+
+  onClickArrowRight(){
+    //
+  }
+
+  onClickArrowLeft(){
+    this.startIndex = this.startIndex - 1;
+  }
 
   ngOnDestroy(): void {
     clearTimeout(this.settimeOutAny);
