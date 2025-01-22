@@ -16,7 +16,6 @@ import { Subscription } from 'rxjs';
 })
 export class ProductFlashSaleFirstPartComponent implements OnInit, AfterViewInit, OnDestroy {
   @Input() getFlashSaleProduct!: FlashSaleProductAllInfo;
-  @Input() onMouseEnterMouseLeaveColor!: ProductOptionImage | null;
   settimeOutAny!: number;
 
   user!: User;
@@ -44,9 +43,11 @@ export class ProductFlashSaleFirstPartComponent implements OnInit, AfterViewInit
     private updateImgProductFlashSaleTypeService: UpdateImgProductFlashSaleTypeService
   ){}
 
-  ngOnInit(): void { // FAZER O SCROLL LATERAL AMANHA DA IMAGEM DE BAIXO, FAZER OS TEST DO BACKEND QUE FALTA 2
-    this.productImgMain = this.getFlashSaleProduct.productsOfferFlashDTO.imgProduct;
-    this.lastImgSelect = this.getFlashSaleProduct.productsOfferFlashDTO.imgProduct;
+  ngOnInit(): void {
+    if(this.getFlashSaleProduct.productsOfferFlashDTO){
+      this.productImgMain = this.getFlashSaleProduct.productsOfferFlashDTO.imgProduct;
+      this.lastImgSelect = this.getFlashSaleProduct.productsOfferFlashDTO.imgProduct;
+    }
 
     const userResult = UserLocalStorage();
 
@@ -55,8 +56,9 @@ export class ProductFlashSaleFirstPartComponent implements OnInit, AfterViewInit
 
       if(user){
         this.user = user;
-
-        this.getByListFlashSaleProductImageAllId(this.getFlashSaleProduct.productsOfferFlashDTO.id, user);
+        if(this.getFlashSaleProduct.productsOfferFlashDTO){
+          this.getByListFlashSaleProductImageAllId(this.getFlashSaleProduct.productsOfferFlashDTO.id, user);
+        }
       }
     }
 
@@ -123,7 +125,6 @@ export class ProductFlashSaleFirstPartComponent implements OnInit, AfterViewInit
         data.listImageUrlBottom = data.listImageUrlBottom.concat(data.listImageUrlBottom);
 
         this.productOptionImageAll = data;
-
       },
       error: error => {
         if(error.status === 400){
@@ -224,7 +225,8 @@ export class ProductFlashSaleFirstPartComponent implements OnInit, AfterViewInit
 
   ngOnDestroy(): void {
     clearTimeout(this.settimeOutAny);
-
-    this.subscriptionService.unsubscribe();
+    if (this.subscriptionService) {
+      this.subscriptionService.unsubscribe();
+    }
   }
 }

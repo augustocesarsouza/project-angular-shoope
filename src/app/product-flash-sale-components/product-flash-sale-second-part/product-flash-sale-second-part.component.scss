@@ -242,22 +242,22 @@
     color: rgb(34, 34, 34);
     font-size: 15px;
   }
+}
 
-  >div{
-    cursor: pointer;
-    margin-left: 20px;
+.container-installment-options{
+  cursor: pointer;
+  margin-left: 20px;
 
-    >span:nth-of-type(1) {
-      color: rgb(0, 85, 170);
-      margin-right: 5px;
-      font-size: 15px;
-    }
+  >span:nth-of-type(1) {
+    color: rgb(0, 85, 170);
+    margin-right: 5px;
+    font-size: 15px;
+  }
 
-    >svg:nth-of-type(1){
-      width: 10px;
-      height: 10px;
-      fill: rgb(0, 85, 170);
-    }
+  >svg:nth-of-type(1){
+    width: 10px;
+    height: 10px;
+    fill: rgb(0, 85, 170);
   }
 }
 

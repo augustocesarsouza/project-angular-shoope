@@ -1,5 +1,8 @@
 <app-header-main></app-header-main>
-<div class="container-product-was-clicked-main" *ngIf="getFlashSaleProduct">
+<div
+  class="container-product-was-clicked-main"
+  *ngIf="getFlashSaleProduct && getFlashSaleProduct.productsOfferFlashDTO"
+>
   <div class="container-product-was-clicked">
     <div class="container-product-layers">
       <div *ngFor="let el of productCategories">
@@ -8,7 +11,7 @@
           enableBackground="new 0 0 11 11"
           viewBox="0 0 11 11"
           role="img"
-          class="stardust-icon stardust-icon-arrow-down o5T9cj"
+          class="stardust-icon stardust-icon-arrow-down o5T9cj svg-arrow-right"
         >
           <path
             stroke="none"

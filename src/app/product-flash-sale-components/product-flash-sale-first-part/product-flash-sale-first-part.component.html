@@ -6,18 +6,14 @@
     tabindex="0"
   >
     <img
-      *ngIf="productImgMain && onMouseEnterMouseLeaveColor === null"
+      class="img-product-main"
+      *ngIf="productImgMain"
       src="{{ productImgMain }}"
       alt="img-main"
     />
 
     <img
-      *ngIf="onMouseEnterMouseLeaveColor"
-      src="{{ onMouseEnterMouseLeaveColor.imageUrl }}"
-      alt="{{ onMouseEnterMouseLeaveColor.imgAlt }}"
-    />
-
-    <img
+      class="img-part-bottom-floating"
       *ngIf="getFlashSaleProduct.productsOfferFlashDTO.imgPartBottom"
       src="{{ getFlashSaleProduct.productsOfferFlashDTO.imgPartBottom }}"
       alt="img-part-bottom-floating"

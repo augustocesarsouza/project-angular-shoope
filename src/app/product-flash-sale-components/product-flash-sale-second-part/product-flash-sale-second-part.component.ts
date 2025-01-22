@@ -86,7 +86,6 @@ export class ProductFlashSaleSecondPartComponent implements OnInit, OnDestroy {
   };
 
   funcFormatAvaliationQuantity = (avaliationQuantity: number) => {
-    avaliationQuantity = 1000;
     if (avaliationQuantity >= 1000) {
       // Divide por 1000 e formata com uma casa decimal
 
