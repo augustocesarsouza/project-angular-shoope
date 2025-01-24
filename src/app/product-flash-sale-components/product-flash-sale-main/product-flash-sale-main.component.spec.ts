@@ -16,6 +16,8 @@ import { ProductFlashSaleAllInfoComponent } from '../product-flash-sale-all-info
 import { ProductFlashSaleFirstPartComponent } from '../product-flash-sale-first-part/product-flash-sale-first-part.component';
 import { ProductFlashSaleSecondPartComponent } from '../product-flash-sale-second-part/product-flash-sale-second-part.component';
 import { FlashSaleCountdownAfterClickedProductComponent } from '../flash-sale-countdown-after-clicked-product/flash-sale-countdown-after-clicked-product.component';
+import { UserSellerProductOfferFlashComponent } from '../user-seller-product-offer-flash/user-seller-product-offer-flash.component';
+import { ProductOfferFlashDetailsComponent } from '../product-offer-flash-details/product-offer-flash-details.component';
 
 describe('ProductFlashSaleMainComponent', () => {
   let component: ProductFlashSaleMainComponent;
@@ -27,7 +29,7 @@ describe('ProductFlashSaleMainComponent', () => {
         HeaderSecondComponent, DownloadAppFloatingComponent, NameUserFloatingComponent,
         LanguageFloatingComponent, NotificationFloatingComponent, ProductFlashSaleAllInfoComponent,
         ProductFlashSaleFirstPartComponent, ProductFlashSaleSecondPartComponent,
-        FlashSaleCountdownAfterClickedProductComponent
+        FlashSaleCountdownAfterClickedProductComponent, UserSellerProductOfferFlashComponent, ProductOfferFlashDetailsComponent
       ],
       imports: [AllSvgModule, HttpClientTestingModule, RouterTestingModule],
       providers: [FlashSaleProductAllInfoService],

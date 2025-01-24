@@ -1,11 +1,11 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { User } from '../../login-and-register-user/interface/user';
-import { Router } from '@angular/router';
 import { ProductOfferFlashSellerService } from '../service/product-offer-flash-seller.service';
 import { ProductOfferFlashSeller } from '../../login-and-register-user/interface/product-offer-flash-seller';
 import { UserSellerProduct } from '../../login-and-register-user/interface/user-seller-product';
 import { formatDistanceToNow, parseISO } from 'date-fns';
 import { ptBR } from 'date-fns/locale';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-seller-product-offer-flash',

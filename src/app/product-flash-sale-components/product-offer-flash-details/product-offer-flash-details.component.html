@@ -1,0 +1,35 @@
+<div *ngIf="productOfferFlashDetails" class="container-main">
+  <h1>Detalhes do Produto</h1>
+
+  <div class="container-product-layers">
+    <div *ngFor="let el of productCategories; let i = index">
+      <span>{{ el }}</span>
+      <svg
+        *ngIf="productCategories.length - 1 > i"
+        enableBackground="new 0 0 11 11"
+        viewBox="0 0 11 11"
+        role="img"
+        class="stardust-icon stardust-icon-arrow-down o5T9cj svg-arrow-right"
+      >
+        <path
+          stroke="none"
+          d="m11 2.5c0 .1 0 .2-.1.3l-5 6c-.1.1-.3.2-.4.2s-.3-.1-.4-.2l-5-6c-.2-.2-.1-.5.1-.7s.5-.1.7.1l4.6 5.5 4.6-5.5c.2-.2.5-.2.7-.1.1.1.2.3.2.4z"
+        ></path>
+      </svg>
+    </div>
+  </div>
+  <div
+    class="container-all-property-product"
+    *ngFor="let key of getKeys(productOfferFlashDetails.detailsJson)"
+  >
+    <h3>{{ key }}</h3>
+
+    <div class="container-category-for">
+      <div>
+        <span [ngClass]="{ 'span-mark-product': key.trim() === 'Marca' }">{{
+          productOfferFlashDetails.detailsJson[key]
+        }}</span>
+      </div>
+    </div>
+  </div>
+</div>
