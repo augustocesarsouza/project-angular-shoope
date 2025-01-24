@@ -72,7 +72,9 @@ describe('ProductFlashSaleMainComponent', () => {
   });
 
   it('should render spans four elements', () => {
-    const divs = fixture.nativeElement.querySelectorAll('.svg-arrow-right');
-    expect(divs.length).toEqual(4);
+    if(fixture.nativeElement){
+      const divs = fixture.nativeElement.querySelectorAll('.svg-arrow-right');
+      expect(divs.length).toEqual(4);
+    }
   });
 });

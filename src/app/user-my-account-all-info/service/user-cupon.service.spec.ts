@@ -2,7 +2,6 @@ import { TestBed } from '@angular/core/testing';
 
 import { UserCuponService } from './user-cupon.service';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { ProductsOfferFlashService } from '../../home-page/service/products-offer-flash.service';
 
 describe('UserCuponService', () => {
   let service: UserCuponService;
@@ -10,7 +9,7 @@ describe('UserCuponService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
           imports: [HttpClientTestingModule],
-          providers: [ProductsOfferFlashService],
+          providers: [UserCuponService],
         });
     service = TestBed.inject(UserCuponService);
   });

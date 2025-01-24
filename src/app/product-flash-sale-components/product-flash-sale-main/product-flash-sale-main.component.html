@@ -27,5 +27,11 @@
     <app-product-flash-sale-all-info
       [getFlashSaleProduct]="getFlashSaleProduct"
     ></app-product-flash-sale-all-info>
+
+    <app-user-seller-product-offer-flash
+      *ngIf="productFlashSaleId && user"
+      [user]="user"
+      [productFlashSaleId]="productFlashSaleId"
+    ></app-user-seller-product-offer-flash>
   </div>
 </div>

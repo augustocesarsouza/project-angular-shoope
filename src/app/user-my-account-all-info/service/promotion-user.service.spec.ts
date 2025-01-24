@@ -1,7 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 import { PromotionUserService } from './promotion-user.service';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { ProductsOfferFlashService } from '../../home-page/service/products-offer-flash.service';
 
 
 describe('PromotionService', () => {
@@ -10,7 +9,7 @@ describe('PromotionService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
           imports: [HttpClientTestingModule],
-          providers: [ProductsOfferFlashService],
+          providers: [PromotionUserService],
         });
     service = TestBed.inject(PromotionUserService);
   });

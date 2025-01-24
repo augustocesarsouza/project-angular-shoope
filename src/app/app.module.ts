@@ -12,6 +12,7 @@ import { ProductFlashSaleAllInfoComponent } from './product-flash-sale-component
 import { ProductFlashSaleFirstPartComponent } from './product-flash-sale-components/product-flash-sale-first-part/product-flash-sale-first-part.component';
 import { ProductFlashSaleSecondPartComponent } from './product-flash-sale-components/product-flash-sale-second-part/product-flash-sale-second-part.component';
 import { FlashSaleCountdownAfterClickedProductComponent } from './product-flash-sale-components/flash-sale-countdown-after-clicked-product/flash-sale-countdown-after-clicked-product.component';
+import { UserSellerProductOfferFlashComponent } from './product-flash-sale-components/user-seller-product-offer-flash/user-seller-product-offer-flash.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { FlashSaleCountdownAfterClickedProductComponent } from './product-flash-
     ProductFlashSaleFirstPartComponent,
     ProductFlashSaleSecondPartComponent,
     FlashSaleCountdownAfterClickedProductComponent,
+    UserSellerProductOfferFlashComponent,
   ],
   imports: [
     BrowserModule,

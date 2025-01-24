@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FlashSaleCountdownService } from '../../service-all-components/flash-sale-countdown.service';
 import { ObjTime, ObjTimeFleshOffer } from '../../home-page/header-body-home-shopee/home-body-main/home-body-main.component';
@@ -14,7 +14,7 @@ import { ProductFlashDeals } from '../../login-and-register-user/interface/produ
 })
 export class FleshOfferEveryDayAndHoursComponent implements OnInit {
   constructor(private router: Router, private flashSaleCountdownService: FlashSaleCountdownService,
-    private productsOfferFlashService: ProductsOfferFlashService, private cdr: ChangeDetectorRef
+    private productsOfferFlashService: ProductsOfferFlashService
   ){}
 
   user!: User;
@@ -36,6 +36,12 @@ export class FleshOfferEveryDayAndHoursComponent implements OnInit {
     if (typeof document === 'undefined') return;
 
     const userResult = UserLocalStorage();
+
+    if(userResult.isNullUserLocalStorage){
+      localStorage.removeItem('user');
+      this.router.navigate(['/buyer/login']);
+      return;
+    };
 
     if(!userResult.isNullUserLocalStorage){
       const user = userResult.user;

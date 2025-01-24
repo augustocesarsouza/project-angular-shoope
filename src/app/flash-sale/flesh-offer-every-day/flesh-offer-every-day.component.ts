@@ -19,44 +19,49 @@ export class FleshOfferEveryDayComponent implements AfterViewInit {
   ngAfterViewInit(): void {
     if(typeof window === 'undefined')return;
 
-    this.containerEachSchedule.toArray().forEach((el) => {
-      el.nativeElement.style.background = "";
-      el.nativeElement.style.color = "rgb(195, 195, 195)";
-    });
+    if(this.containerEachSchedule && this.containerEachSchedule.length > 0){
+      this.containerEachSchedule.toArray().forEach((el) => {
+        el.nativeElement.style.background = "";
+        el.nativeElement.style.color = "rgb(195, 195, 195)";
+      });
 
-    const containerEach = this.containerEachSchedule.toArray()[0];
-    containerEach.nativeElement.style.background = "#ee4d2d";
-    containerEach.nativeElement.style.color = "white";
+      const containerEach = this.containerEachSchedule.toArray()[0];
+      containerEach.nativeElement.style.background = "#ee4d2d";
+      containerEach.nativeElement.style.color = "white";
+    }
 
-    const scrollElement = this.carouselCustom.nativeElement;
-    const containerLeft = this.containerArrowLeft.nativeElement;
-    const containerRight = this.containerArrowRight.nativeElement;
+    if(this.carouselCustom?.nativeElement && this.containerArrowLeft?.nativeElement && this.containerArrowRight?.nativeElement){
+      const scrollElement = this.carouselCustom.nativeElement;
+      const containerLeft = this.containerArrowLeft.nativeElement;
+      const containerRight = this.containerArrowRight.nativeElement;
 
-    const scrollLeft = () => scrollElement?.scrollBy({ left: -1200, behavior: 'auto' });
-    const scrollRight = () => scrollElement?.scrollBy({ left: 1200, behavior: 'auto' });
+      const scrollLeft = () => scrollElement?.scrollBy({ left: -1200, behavior: 'auto' });
+      const scrollRight = () => scrollElement?.scrollBy({ left: 1200, behavior: 'auto' });
 
-    const updateArrowsVisibility = () => {
-      if (scrollElement) {
-        let maxScrollLeft = scrollElement.scrollWidth - scrollElement.clientWidth;
+      const updateArrowsVisibility = () => {
+        if (scrollElement) {
+          let maxScrollLeft = scrollElement.scrollWidth - scrollElement.clientWidth;
 
-        if (maxScrollLeft === 0) {
-          maxScrollLeft = 10;
+          if (maxScrollLeft === 0) {
+            maxScrollLeft = 10;
+          }
+
+          containerLeft!.style.display = scrollElement.scrollLeft > 0 ? 'flex' : 'none';
+          containerRight!.style.display = scrollElement.scrollLeft >= maxScrollLeft ? 'none' : 'flex';
         }
+      };
 
-        containerLeft!.style.display = scrollElement.scrollLeft > 0 ? 'flex' : 'none';
-        containerRight!.style.display = scrollElement.scrollLeft >= maxScrollLeft ? 'none' : 'flex';
-      }
+      containerLeft?.addEventListener('click', scrollLeft);
+      containerRight?.addEventListener('click', scrollRight);
+      scrollElement?.addEventListener('scroll', updateArrowsVisibility);
+      window.addEventListener('resize', updateArrowsVisibility);
+
+      updateArrowsVisibility();
     };
-
-    containerLeft?.addEventListener('click', scrollLeft);
-    containerRight?.addEventListener('click', scrollRight);
-    scrollElement?.addEventListener('scroll', updateArrowsVisibility);
-    window.addEventListener('resize', updateArrowsVisibility);
-
-    updateArrowsVisibility();
   }
 
   onClickContainerEachSchdelu = (obj: ObjTime, i: number) => {
+    if(!this.containerEachSchedule) return;
     this.containerEachSchedule.toArray().forEach((el) => {
       el.nativeElement.style.background = "";
       el.nativeElement.style.color = "rgb(195, 195, 195)";
