@@ -3,6 +3,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FleshOfferEveryDayComponent } from './flesh-offer-every-day.component';
 import { ObjTime } from '../../home-page/header-body-home-shopee/home-body-main/home-body-main.component';
 import { AllSvgModule } from '../../all-svg/all-svg.module';
+import { ElementRef, QueryList } from '@angular/core';
 
 describe('FleshOfferEveryDayComponent', () => {
   let component: FleshOfferEveryDayComponent;
@@ -21,12 +22,34 @@ describe('FleshOfferEveryDayComponent', () => {
     .compileComponents();
 
     fixture = TestBed.createComponent(FleshOfferEveryDayComponent);
+
     component = fixture.componentInstance;
+
+    component.carouselCustom = {
+      nativeElement: document.createElement('div'),
+    } as ElementRef<HTMLDivElement>;
+
+    component.containerArrowLeft = {
+      nativeElement: document.createElement('div'),
+    } as ElementRef<HTMLDivElement>;
+
+    component.containerArrowRight = {
+      nativeElement: document.createElement('div'),
+    } as ElementRef<HTMLDivElement>;
+
+    // Mockando ViewChildren
+    component.containerEachSchedule = new QueryList<ElementRef<HTMLDivElement>>();
+    const mockElements = [
+      { nativeElement: document.createElement('div') },
+      { nativeElement: document.createElement('div') },
+    ];
+    component.containerEachSchedule.reset(mockElements);
 
     const allHoursFleshOffers: ObjTime[] = [];
     allHoursFleshOffers.push(objHoursFleshOffers);
 
     component.allHoursFleshOffers = allHoursFleshOffers;
+    component.getAllHoursFleshOffers = jasmine.createSpy('getAllHoursFleshOffers');
 
     fixture.detectChanges();
   });

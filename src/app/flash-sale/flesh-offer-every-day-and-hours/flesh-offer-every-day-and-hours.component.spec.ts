@@ -7,8 +7,6 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { CategoryToProductComponent } from '../category-to-product/category-to-product.component';
 import { ProductFlashOfferComponent } from '../product-flash-offer/product-flash-offer.component';
 import { FooterForFlashOfferComponent } from '../footer-for-flash-offer/footer-for-flash-offer.component';
-// import { FooterLoginAndRegisterComponent } from '../../header-and-footer-for-all-components/footer-login-and-register/footer-login-and-register.component';
-// import { CustomerServiceComponent } from '../../header-and-footer-for-all-components/footer-components/customer-service/customer-service.component';
 import { HeaderAndFooterForAllComponentsModule } from '../../header-and-footer-for-all-components/header-and-footer-for-all-components.module';
 import { FlashOfferAndCountdownComponent } from '../flash-offer-and-countdown/flash-offer-and-countdown.component';
 import { FleshOfferEveryDayComponent } from '../flesh-offer-every-day/flesh-offer-every-day.component';

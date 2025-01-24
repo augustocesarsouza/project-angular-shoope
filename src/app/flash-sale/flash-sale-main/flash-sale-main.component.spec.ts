@@ -40,6 +40,8 @@ describe('FlashSaleMainComponent', () => {
     .compileComponents();
 
     fixture = TestBed.createComponent(FlashSaleMainComponent);
+
+
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -30,6 +30,13 @@ export class DiscoveriesOfTheDayComponent implements OnInit, AfterViewInit {
   ngOnInit(): void {
     const userResult = UserLocalStorage();
 
+    if(userResult.isNullUserLocalStorage){
+      localStorage.removeItem('user');
+      this.router.navigate(['/buyer/login']);
+      return;
+    };
+
+
     if(!userResult.isNullUserLocalStorage){
       const user = userResult.user;
 

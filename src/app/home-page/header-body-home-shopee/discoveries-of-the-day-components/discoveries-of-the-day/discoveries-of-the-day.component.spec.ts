@@ -25,8 +25,8 @@ describe('DiscoveriesOfTheDayComponent', () => {
   const product = {
     id: "sodkoskd",
     title: "title1",
-    imgProduct: "imgProduct1",
-    imgPartBottom: "imgPartBottom1",
+    imgProduct: "https://res.cloudinary.com/dyqsqg7pk/image/upload/v1736691104/img-flash-deals/ewbstgil2p3bbpai92rk.jpg",
+    imgPartBottom: "https://res.cloudinary.com/dyqsqg7pk/image/upload/v1736691104/img-flash-deals/ewbstgil2p3bbpai92rk.jpg",
     discountPercentage: 10,
     isAd: true,
     price: 25.00,

@@ -2,7 +2,6 @@ import { TestBed } from '@angular/core/testing';
 
 import { AddressService } from './address.service';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { ProductsOfferFlashService } from '../../home-page/service/products-offer-flash.service';
 
 describe('AddressService', () => {
   let service: AddressService;
@@ -10,7 +9,7 @@ describe('AddressService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
           imports: [HttpClientTestingModule],
-          providers: [ProductsOfferFlashService],
+          providers: [AddressService],
         });
     service = TestBed.inject(AddressService);
   });
