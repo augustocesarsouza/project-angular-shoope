@@ -1,9 +1,9 @@
 <div *ngIf="productOfferFlashDetails" class="container-main">
-  <h1>Detalhes do Produto</h1>
+  <h1 class="header-detail-product">Detalhes do Produto</h1>
 
   <div class="container-product-layers">
     <div *ngFor="let el of productCategories; let i = index">
-      <span>{{ el }}</span>
+      <span class="span-title-category-product">{{ el }}</span>
       <svg
         *ngIf="productCategories.length - 1 > i"
         enableBackground="new 0 0 11 11"
@@ -22,13 +22,15 @@
     class="container-all-property-product"
     *ngFor="let key of getKeys(productOfferFlashDetails.detailsJson)"
   >
-    <h3>{{ key }}</h3>
+    <h3 class="header-product-deatils">{{ key }}</h3>
 
     <div class="container-category-for">
       <div>
-        <span [ngClass]="{ 'span-mark-product': key.trim() === 'Marca' }">{{
-          productOfferFlashDetails.detailsJson[key]
-        }}</span>
+        <span
+          class="span-product-details"
+          [ngClass]="{ 'span-mark-product': key.trim() === 'Marca' }"
+          >{{ productOfferFlashDetails.detailsJson[key] }}</span
+        >
       </div>
     </div>
   </div>
