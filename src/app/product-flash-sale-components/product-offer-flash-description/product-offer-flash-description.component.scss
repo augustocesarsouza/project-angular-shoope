@@ -1,0 +1,15 @@
+.container-main-description {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1000px;
+
+  >h1 {
+    font-size: 18px;
+    font-weight: 400;
+    margin-bottom: 20px;
+  }
+
+  >span {
+    font-size: 14px;
+  }
+}

@@ -40,5 +40,10 @@
       [user]="user"
       [productFlashSaleId]="productFlashSaleId"
     ></app-product-offer-flash-details>
+    <app-product-offer-flash-description
+      *ngIf="productFlashSaleId && user"
+      [user]="user"
+      [productFlashSaleId]="productFlashSaleId"
+    ></app-product-offer-flash-description>
   </div>
 </div>
