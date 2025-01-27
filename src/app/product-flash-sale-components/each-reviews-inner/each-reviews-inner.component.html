@@ -1,0 +1,211 @@
+<div class="container-img-and-svg">
+  <div>
+    <div class="container-img-user" *ngIf="product.userDTO.userImage">
+      <img src="{{ product.userDTO.userImage }}" alt="img-user" />
+    </div>
+
+    <div class="contaner-svg-without-image" *ngIf="!product.userDTO.userImage">
+      <svg
+        enableBackground="new 0 0 15 15"
+        viewBox="0 0 15 15"
+        x="0"
+        y="0"
+        className="shopee-svg-icon icon-headshot"
+      >
+        <g>
+          <circle cx="7.5" cy="4.5" fill="none" r="3.8" strokeMiterlimit="10"></circle>
+          <path
+            d="m1.5 14.2c0-3.3 2.7-6 6-6s6 2.7 6 6"
+            fill="none"
+            strokeLinecap="round"
+            strokeMiterlimit="10"
+          ></path>
+        </g>
+      </svg>
+    </div>
+  </div>
+  <div class="container-user-info">
+    <span>{{ product.userDTO.name }}</span>
+
+    <div class="container-quantity-star">
+      <div class="container-star-red-svg">
+        <!-- {countStarArray && countStarArray.map((el) => <SvgStar key={el} />)} -->
+        <app-svg-star *ngFor="let el of countStarArray"></app-svg-star>
+      </div>
+      <div class="container-star-black-svg" *ngIf="countStarArray">
+        <app-svg-star *ngFor="let star of emptyStars"></app-svg-star>
+      </div>
+    </div>
+    <div class="container-span-data-cration">
+      <span *ngIf="dateCreationString">{{ dateCreationString }}</span>
+      <span *ngIf="product">{{ product.variation }}</span>
+    </div>
+
+    <div class="container-cost-benefit-similar-to-ad-main">
+      <div class="container-cost-benefit-similar-to-ad">
+        <span>
+          Custo-benefício:
+          <span>{{ product.costBenefit }}</span>
+        </span>
+      </div>
+      <div class="container-cost-benefit-similar-to-ad">
+        <span>
+          Parecido com anúncio:
+          <span>{{ product.similarToAd }}</span>
+        </span>
+      </div>
+    </div>
+
+    <div class="container-comments">
+      <span>{{ product.message }}</span>
+    </div>
+
+    <div class="container-img-and-video-reviews">
+      <ng-container *ngIf="product.imgAndVideoReviewsProduct">
+        <ng-container *ngFor="let item of product.imgAndVideoReviewsProduct; let i = index">
+          <div
+            *ngIf="item.includes('/video/')"
+            class="container-img-video-reviews-main"
+            #containerImgAndVideoReviews
+            (click)="onClickVideoReviews(item, containerImgAndVideoReviews, i)"
+            (keydown.enter)="onClickVideoReviews(item, containerImgAndVideoReviews, i)"
+            tabindex="0"
+          >
+            <div class="container-img-video-reviews" #containerImgVideoReviews>
+              <div></div>
+            </div>
+            <div class="container-vide-media-and-minutes">
+              <app-svg-video-media></app-svg-video-media>
+              <span>{{ durationFormatted }}</span>
+            </div>
+          </div>
+
+          <div
+            *ngIf="item.includes('/image/')"
+            class="container-img-reviews"
+            #containerImgAndVideoReviews
+            (click)="onClickImageReviews(item, containerImgAndVideoReviews, i)"
+            (keydown.enter)="onClickImageReviews(item, containerImgAndVideoReviews, i)"
+            tabindex="0"
+          >
+            <img [src]="item" alt="img-reviews" />
+          </div>
+        </ng-container>
+      </ng-container>
+    </div>
+
+    <div class="container-img-and-vide-comments">
+      <div
+        class="container-arrow-left"
+        (click)="onClickArrowLeft()"
+        (keydown.enter)="onClickArrowLeft()"
+        tabindex="0"
+        #containerArrowLeft
+      >
+        <svg
+          enableBackground="new 0 0 11 11"
+          viewBox="0 0 11 11"
+          x="0"
+          y="0"
+          class="shopee-svg-icon rEiraU icon-arrow-right"
+        >
+          <path
+            d="m2.5 11c .1 0 .2 0 .3-.1l6-5c .1-.1.2-.3.2-.4s-.1-.3-.2-.4l-6-5c-.2-.2-.5-.1-.7.1s-.1.5.1.7l5.5 4.6-5.5 4.6c-.2.2-.2.5-.1.7.1.1.3.2.4.2z"
+          ></path>
+        </svg>
+      </div>
+      <div class="container-product-img-flash-info" #carouselCustom>
+        <ng-container *ngFor="let item of arrayImgAndVideo">
+          <div class="container-video-reviews" *ngIf="item.includes('/video/')">
+            <video
+              class="video"
+              src="{{ item }}"
+              (click)="onClickContainerVideoReviews()"
+              #videoReviews
+            ></video>
+
+            <div
+              class="container-svg-play-video"
+              (click)="onClickContainerSvgPlayVideo()"
+              (keydown.enter)="onClickContainerSvgPlayVideo()"
+              tabindex="0"
+              (mouseenter)="onMouseEnterSvgPlayVideo()"
+              (mouseleave)="onMouseLeaveSvgPlayVideo()"
+              *ngIf="showSvgPlay"
+            >
+              <app-svg-play-video></app-svg-play-video>
+            </div>
+          </div>
+
+          <div class="container-image-reviews" *ngIf="item.includes('/image/')">
+            <img
+              src="{{ item }}"
+              alt="img-cliked-product"
+              (click)="onClickContainerImageReviews()"
+              (keydown.enter)="onClickContainerImageReviews()"
+              tabindex="0"
+            />
+          </div>
+        </ng-container>
+      </div>
+      <div
+        class="container-arrow-right"
+        (click)="onClickArrowRight()"
+        (keydown.enter)="onClickArrowRight()"
+        tabindex="0"
+        #containerArrowRight
+      >
+        <svg
+          enableBackground="new 0 0 11 11"
+          viewBox="0 0 11 11"
+          x="0"
+          y="0"
+          class="shopee-svg-icon rEiraU icon-arrow-right"
+        >
+          <path
+            d="m2.5 11c .1 0 .2 0 .3-.1l6-5c .1-.1.2-.3.2-.4s-.1-.3-.2-.4l-6-5c-.2-.2-.5-.1-.7.1s-.1.5.1.7l5.5 4.6-5.5 4.6c-.2.2-.2.5-.1.7.1.1.3.2.4.2z"
+          ></path>
+        </svg>
+      </div>
+    </div>
+
+    <!--
+    <div class="container-video-reviews" *ngIf="productVideUrl && alreadyClickedVideo">
+      <video
+        class="video"
+        src="{{ productVideUrl }}"
+        (click)="onClickContainerVideoReviews()"
+        #videoReviews
+      ></video>
+
+      <div
+        class="container-svg-play-video"
+        (click)="onClickContainerSvgPlayVideo()"
+        (keydown.enter)="onClickContainerSvgPlayVideo()"
+        tabindex="0"
+        (mouseenter)="onMouseEnterSvgPlayVideo()"
+        (mouseleave)="onMouseLeaveSvgPlayVideo()"
+        *ngIf="showSvgPlay"
+      >
+        <app-svg-play-video></app-svg-play-video>
+      </div>
+    </div>
+
+    <div class="container-image-reviews" *ngIf="productImageUrl && alreadyClickedImage">
+      <img
+        src="{{ productImageUrl }}"
+        alt="img-cliked-product"
+        (click)="onClickContainerImageReviews()"
+        (keydown.enter)="onClickContainerImageReviews()"
+        tabindex="0"
+      />
+    </div> -->
+
+    <div class="container-like">
+      <div (click)="onClickContainerLike()" (keydown.enter)="onClickContainerLike()" tabindex="0">
+        <app-svg-like></app-svg-like>
+        <span>{{ allLikesReviews.length }}</span>
+      </div>
+    </div>
+  </div>
+</div>

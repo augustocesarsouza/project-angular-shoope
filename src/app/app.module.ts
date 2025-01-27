@@ -15,6 +15,8 @@ import { FlashSaleCountdownAfterClickedProductComponent } from './product-flash-
 import { UserSellerProductOfferFlashComponent } from './product-flash-sale-components/user-seller-product-offer-flash/user-seller-product-offer-flash.component';
 import { ProductOfferFlashDetailsComponent } from './product-flash-sale-components/product-offer-flash-details/product-offer-flash-details.component';
 import { ProductOfferFlashDescriptionComponent } from './product-flash-sale-components/product-offer-flash-description/product-offer-flash-description.component';
+import { ProductFleshSaleReviewsComponent } from './product-flash-sale-components/product-flesh-sale-reviews/product-flesh-sale-reviews.component';
+import { EachReviewsInnerComponent } from './product-flash-sale-components/each-reviews-inner/each-reviews-inner.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +29,8 @@ import { ProductOfferFlashDescriptionComponent } from './product-flash-sale-comp
     UserSellerProductOfferFlashComponent,
     ProductOfferFlashDetailsComponent,
     ProductOfferFlashDescriptionComponent,
+    ProductFleshSaleReviewsComponent,
+    EachReviewsInnerComponent,
   ],
   imports: [
     BrowserModule,

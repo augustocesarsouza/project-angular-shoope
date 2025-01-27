@@ -45,5 +45,11 @@
       [user]="user"
       [productFlashSaleId]="productFlashSaleId"
     ></app-product-offer-flash-description>
+    <app-product-flesh-sale-reviews
+      *ngIf="productFlashSaleId && user && getFlashSaleProduct"
+      [user]="user"
+      [productFlashSaleId]="productFlashSaleId"
+      [getFlashSaleProduct]="getFlashSaleProduct"
+    ></app-product-flesh-sale-reviews>
   </div>
 </div>

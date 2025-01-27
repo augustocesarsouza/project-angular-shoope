@@ -21,13 +21,18 @@ import { SvgShieldShopeeComponent } from './svg-shield-shopee/svg-shield-shopee.
 import { SvgLockComponent } from './svg-lock/svg-lock.component';
 import { SvgQuestionMarkComponent } from './svg-question-mark/svg-question-mark.component';
 import { CartBuySvgComponent } from './cart-buy-svg/cart-buy-svg.component';
+import { SvgStarComponent } from './svg-star/svg-star.component';
+import { SvgVideoMediaComponent } from './svg-video-media/svg-video-media.component';
+import { SvgPlayVideoComponent } from './svg-play-video/svg-play-video.component';
+import { SvgLikeComponent } from './svg-like/svg-like.component';
 
 @NgModule({
   imports: [
     CommonModule
   ],
-  declarations: [SvgArrowComponent, SvgCartComponent, SvgHelpComponent, SvgLanguageComponent, SvgLoupeComponent, SvgNotificationComponent, SvgShoopeComponent, SvgUserWithoutImgComponent, SvgEyeCloseComponent, SvgEyeOpenComponent, SvgCheckComponent, SvgExitComponent, SvgArrowRegisterComponent, CodeIsWrongXComponent, BodyUserComponent, SvgMoreComponent, SvgAddressComponent, SvgShieldShopeeComponent, SvgLockComponent, SvgQuestionMarkComponent, CartBuySvgComponent],
-  exports: [SvgArrowComponent, SvgCartComponent, SvgHelpComponent, SvgLanguageComponent, SvgLoupeComponent, SvgNotificationComponent, SvgShoopeComponent, SvgUserWithoutImgComponent, SvgEyeCloseComponent, SvgEyeOpenComponent, SvgCheckComponent, SvgExitComponent, SvgArrowRegisterComponent, CodeIsWrongXComponent, BodyUserComponent, SvgMoreComponent, SvgAddressComponent, SvgShieldShopeeComponent, SvgLockComponent, SvgQuestionMarkComponent, CartBuySvgComponent]
+  declarations: [SvgArrowComponent, SvgCartComponent, SvgHelpComponent, SvgLanguageComponent, SvgLoupeComponent, SvgNotificationComponent, SvgShoopeComponent, SvgUserWithoutImgComponent, SvgEyeCloseComponent, SvgEyeOpenComponent, SvgCheckComponent, SvgExitComponent, SvgArrowRegisterComponent, CodeIsWrongXComponent, BodyUserComponent, SvgMoreComponent, SvgAddressComponent, SvgShieldShopeeComponent, SvgLockComponent, SvgQuestionMarkComponent, CartBuySvgComponent, SvgStarComponent, SvgVideoMediaComponent, SvgPlayVideoComponent, SvgLikeComponent],
+  exports: [SvgArrowComponent, SvgCartComponent, SvgHelpComponent, SvgLanguageComponent, SvgLoupeComponent, SvgNotificationComponent, SvgShoopeComponent, SvgUserWithoutImgComponent, SvgEyeCloseComponent, SvgEyeOpenComponent, SvgCheckComponent, SvgExitComponent, SvgArrowRegisterComponent, CodeIsWrongXComponent, BodyUserComponent, SvgMoreComponent, SvgAddressComponent, SvgShieldShopeeComponent, SvgLockComponent, SvgQuestionMarkComponent, CartBuySvgComponent, SvgStarComponent,
+    SvgVideoMediaComponent, SvgPlayVideoComponent, SvgLikeComponent]
 
 })
 export class AllSvgModule { }

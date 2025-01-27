@@ -16,7 +16,7 @@ export class ProductOfferFlashDescriptionComponent implements OnInit  {
   productOfferFlashDescription!: ProductOfferFlashDescription;
 
   constructor(private router: Router, private productOfferFlashDescriptionService: ProductOfferFlashDescriptionService){}
-  // FAZER TEST AGORA DO FRONT AND BACK
+
   ngOnInit(): void {
     if (typeof document === 'undefined') return;
 

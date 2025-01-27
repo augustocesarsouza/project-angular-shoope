@@ -1,0 +1,97 @@
+<div class="container-main">
+  <h1>Avaliações do Produto</h1>
+
+  <div class="container-rate-avaliation-and-stars-and-select-which-star">
+    <div class="container-rate-avaliation-and-stars-main">
+      <div class="container-rate-avaliation-and-stars">
+        <span> {{ getFlashSaleProduct.productReviewsRate }} <span>de 5</span> </span>
+
+        <div class="container-star-quantity">
+          <div class="container-star-main" *ngFor="let el of quantityStarRender">
+            <div class="container-star" #containerStar>
+              <div class="container-star-img-full"></div>
+            </div>
+            <div class="container-star-img"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container-select-which-star">
+        <div
+          class="container-star-each"
+          (click)="onClickContainerStarEach(0)"
+          (keydown.enter)="onClickContainerStarEach(0)"
+          tabindex="0"
+        >
+          <span>Tudo</span>
+        </div>
+        <div
+          class="container-star-each"
+          (click)="onClickContainerStarEach(1)"
+          (keydown.enter)="onClickContainerStarEach(1)"
+          tabindex="0"
+        >
+          <span>5 Estrela (0)</span>
+        </div>
+        <div
+          class="container-star-each"
+          (click)="onClickContainerStarEach(2)"
+          (keydown.enter)="onClickContainerStarEach(2)"
+          tabindex="0"
+        >
+          <span>4 Estrela (0)</span>
+        </div>
+        <div
+          class="container-star-each"
+          (click)="onClickContainerStarEach(3)"
+          (keydown.enter)="onClickContainerStarEach(3)"
+          tabindex="0"
+        >
+          <span>3 Estrela (0)</span>
+        </div>
+        <div
+          class="container-star-each"
+          (click)="onClickContainerStarEach(4)"
+          (keydown.enter)="onClickContainerStarEach(4)"
+          tabindex="0"
+        >
+          <span>2 Estrela (0)</span>
+        </div>
+
+        <div
+          class="container-star-each"
+          (click)="onClickContainerStarEach(5)"
+          (keydown.enter)="onClickContainerStarEach(5)"
+          tabindex="0"
+        >
+          <span>1 Estrela (0)</span>
+        </div>
+
+        <div
+          class="container-star-each"
+          (click)="onClickContainerStarEach(6)"
+          (keydown.enter)="onClickContainerStarEach(6)"
+          tabindex="0"
+        >
+          <span>Com Comentários (0)</span>
+        </div>
+
+        <div
+          class="container-star-each"
+          (click)="onClickContainerStarEach(7)"
+          (keydown.enter)="onClickContainerStarEach(7)"
+          tabindex="0"
+        >
+          <span>Com Mídia (0)</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-reviews">
+      <app-each-reviews-inner
+        *ngFor="let product of productFlashSaleReviewAll"
+        [product]="product"
+      ></app-each-reviews-inner>
+    </div>
+  </div>
+</div>
