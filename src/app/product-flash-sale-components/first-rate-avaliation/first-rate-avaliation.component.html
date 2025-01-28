@@ -1,0 +1,33 @@
+<div class="container-rate-avaliation">
+  <div class="container-first-rate-avaliation">
+    <div class="container-rate-avaliation-and-stars">
+      <span>{{ getFlashSaleProduct.productReviewsRate }}</span>
+
+      <div class="container-star-quantity">
+        <div class="container-star-main" *ngFor="let el of quantityStarRender">
+          <div class="container-star">
+            <div class="container-star-img-full"></div>
+          </div>
+          <div class="container-star-img"></div>
+        </div>
+      </div>
+    </div>
+    <div class="span-white-stripe">|</div>
+    <div class="container-avaliation">
+      <span>
+        {{ funcFormatAvaliationQuantity(getFlashSaleProduct.quantityEvaluation) }}
+      </span>
+      <span>{{ 'Avaliações' }}</span>
+    </div>
+    <div class="span-white-stripe">|</div>
+    <div class="container-avaliation">
+      <span>
+        {{ functionQuantitySold(getFlashSaleProduct.quantitySold) }}
+      </span>
+      <span class="span-sold">Sold</span>
+    </div>
+  </div>
+  <div class="container-report">
+    <span>Denunciar</span>
+  </div>
+</div>

@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { take } from 'rxjs';
 import { User } from '../interface/user';
 import { UserLogin } from '../interface/user-login';
+import { environment } from '../../../environments/environment.prod';
 
 export interface ResultData {
   data: User;
@@ -48,6 +49,7 @@ export interface ChangePassword {
   providedIn: 'root'
 })
 export class UserService {
+  private baseUrl = environment.BASE_URL;
 
   constructor(private _http: HttpClient) { }
 

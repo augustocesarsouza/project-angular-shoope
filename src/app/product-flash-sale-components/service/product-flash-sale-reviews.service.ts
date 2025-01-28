@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ProductFlashSaleReview } from '../../login-and-register-user/interface/product-flash-sale-review';
 import { take } from 'rxjs';
+import { environment } from '../../../environments/environment.prod';
 
 export interface ResultData {
   data: ProductFlashSaleReview[];
@@ -11,6 +12,7 @@ export interface ResultData {
   providedIn: 'root'
 })
 export class ProductFlashSaleReviewsService {
+  private baseUrl = environment.BASE_URL;
   constructor(private _http: HttpClient) { }
 
   GetAllProductFlashSaleReviewsByProductsOfferFlashId(productOfferFlashId: string, userId: string, token: string){

@@ -3,7 +3,6 @@ import { FlashSaleProductAllInfo } from '../../login-and-register-user/interface
 import { Router } from '@angular/router';
 import { FlashSaleCountdown, FlashSaleCountdownService } from '../../service-all-components/flash-sale-countdown.service';
 import { countdownFlashSale } from '../../home-page/function-get-countdown-flash-sale/countdown-flash-sale';
-import { ProductFlashDeals } from '../../login-and-register-user/interface/product-flash-deals';
 import { ProductOfferFlashTypeService } from '../service/product-offer-flash-type.service';
 import { User } from '../../login-and-register-user/interface/user';
 import { UserLocalStorage } from '../../login-and-register-user/user-function/get-user-local-storage/user-local-storage';
@@ -19,7 +18,7 @@ export class ProductFlashSaleSecondPartComponent implements OnInit, OnDestroy {
   @Input() getFlashSaleProduct!: FlashSaleProductAllInfo;
   user!: User;
 
-  quantityStarRender = [0, 1, 2, 3, 4];
+  // quantityStarRender = [0, 1, 2, 3, 4];
   flashSaleCountdown!: FlashSaleCountdown;
   productOfferFlashType!: ProductOfferFlashType[]
 
@@ -32,6 +31,8 @@ export class ProductFlashSaleSecondPartComponent implements OnInit, OnDestroy {
   ){}
 
   ngOnInit(): void {
+    if(typeof document === "undefined" || document === null) return;
+
     const flashSaleCountdownFunc = countdownFlashSale(this.flashSaleCountdownService);
     this.flashSaleCountdown = flashSaleCountdownFunc;
 
@@ -92,55 +93,32 @@ export class ProductFlashSaleSecondPartComponent implements OnInit, OnDestroy {
     return stringTitle;
   };
 
-  funcFormatAvaliationQuantity = (avaliationQuantity: number) => {
-    if (avaliationQuantity >= 1000) {
-      // Divide por 1000 e formata com uma casa decimal
+  // functionForPriceOriginal = (productsOfferFlashDTO: ProductFlashDeals): string => {
+  //   const priceOriginal =
+  //     productsOfferFlashDTO.priceProduct / (1 - productsOfferFlashDTO.discountPercentage / 100);
 
-      const formattedQuantity = (avaliationQuantity / 1000).toFixed(1).replace('.', ',');
-      return `${formattedQuantity}mil`;
-    } else {
-      // Retorna o número sem formatação especial
-      return `${avaliationQuantity.toFixed(1).replace('.', ',')}`;
-    }
-  };
+  //   const priceOrigianl =
+  //     'R$' +
+  //     priceOriginal.toLocaleString('pt-BR', {
+  //       minimumFractionDigits: 2,
+  //       maximumFractionDigits: 2,
+  //     });
 
-  functionForPriceOriginal = (productsOfferFlashDTO: ProductFlashDeals): string => {
-    const priceOriginal =
-      productsOfferFlashDTO.priceProduct / (1 - productsOfferFlashDTO.discountPercentage / 100);
+  //   return priceOrigianl;
+  // };
 
-    const priceOrigianl =
-      'R$' +
-      priceOriginal.toLocaleString('pt-BR', {
-        minimumFractionDigits: 2,
-        maximumFractionDigits: 2,
-      });
+  // functionForPriceWithDiscount = (
+  //   productsOfferFlashDTO: ProductFlashDeals
+  // ): string => {
+  //   const priceOrigianl =
+  //     'R$' +
+  //     productsOfferFlashDTO.priceProduct.toLocaleString('pt-BR', {
+  //       minimumFractionDigits: 2,
+  //       maximumFractionDigits: 2,
+  //     });
 
-    return priceOrigianl;
-  };
-
-  functionQuantitySold = (quantitySold: number): string => {
-    if (quantitySold >= 1000) {
-      const formattedValue = (quantitySold / 1000).toFixed(1).replace(".", ",");
-
-      return `${formattedValue}mil`;
-    }
-
-    return quantitySold.toString();
-  };
-
-
-  functionForPriceWithDiscount = (
-    productsOfferFlashDTO: ProductFlashDeals
-  ): string => {
-    const priceOrigianl =
-      'R$' +
-      productsOfferFlashDTO.priceProduct.toLocaleString('pt-BR', {
-        minimumFractionDigits: 2,
-        maximumFractionDigits: 2,
-      });
-
-    return priceOrigianl;
-  };
+  //   return priceOrigianl;
+  // };
 
   onClickIncreaseQuantityOfProduct = () => {
     if(Number(this.quantityProduct) >= 1 && Number(this.quantityProduct) < this.getFlashSaleProduct.quantityPiece){

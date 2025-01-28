@@ -123,8 +123,9 @@ export class BodyLoginMainComponent implements AfterViewInit, OnDestroy {
     }
   }
 
-  async  onClickEnter(): Promise<Promise<void>> {
+  async onClickEnter(): Promise<Promise<void>> {
     if(!this.inputNumberHasValue || !this.inputPasswordHasValue) return;
+    if(typeof document === 'undefined') return;
 
     this.someInfoIsWrong = false;
 

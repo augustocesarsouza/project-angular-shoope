@@ -72,8 +72,6 @@ export class PerfilComponent implements OnInit, AfterViewInit, OnDestroy {
     if(typeof document === "undefined" || document === null) return;
 
     const value = setTimeout(() => {
-      if(typeof document === "undefined" || document === null) return;
-
       const buttonSavePerfil = document.querySelector(".button-save-perfil")as HTMLButtonElement;
       this.buttonSavePerfil = buttonSavePerfil;
 

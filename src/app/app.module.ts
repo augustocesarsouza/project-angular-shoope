@@ -17,6 +17,8 @@ import { ProductOfferFlashDetailsComponent } from './product-flash-sale-componen
 import { ProductOfferFlashDescriptionComponent } from './product-flash-sale-components/product-offer-flash-description/product-offer-flash-description.component';
 import { ProductFleshSaleReviewsComponent } from './product-flash-sale-components/product-flesh-sale-reviews/product-flesh-sale-reviews.component';
 import { EachReviewsInnerComponent } from './product-flash-sale-components/each-reviews-inner/each-reviews-inner.component';
+import { FirstRateAvaliationComponent } from './product-flash-sale-components/first-rate-avaliation/first-rate-avaliation.component';
+import { CoinsCreditCardPriceProductComponent } from './product-flash-sale-components/coins-credit-card-price-product/coins-credit-card-price-product.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +33,8 @@ import { EachReviewsInnerComponent } from './product-flash-sale-components/each-
     ProductOfferFlashDescriptionComponent,
     ProductFleshSaleReviewsComponent,
     EachReviewsInnerComponent,
+    FirstRateAvaliationComponent,
+    CoinsCreditCardPriceProductComponent,
   ],
   imports: [
     BrowserModule,

@@ -43,6 +43,8 @@ export class PhoneChangeComponent implements AfterViewInit, OnInit, OnDestroy {
   }
 
   ngAfterViewInit(): void {
+    if(typeof document === "undefined" || document === null) return;
+
     const inputNumberPhone = document.querySelector(".input-number-phone") as HTMLInputElement;
     this.inputNumberPhone = inputNumberPhone;
 

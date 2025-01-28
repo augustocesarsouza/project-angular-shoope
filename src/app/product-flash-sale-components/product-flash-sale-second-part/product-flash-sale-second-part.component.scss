@@ -14,174 +14,16 @@
   }
 }
 
-.container-rate-avaliation{
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.container-first-rate-avaliation{
-  display: flex;
-  align-items: center;
-}
-
-.container-rate-avaliation-and-stars{
-  display: flex;
-  line-height: 1;
-  margin-right: 15px;
-  height: 20px;
-
-  >span:nth-of-type(1){
-    font-size: 18px;
-    font-weight: 400;
-    color: red;
-    border-bottom: 1px solid red;
-    margin-right: 5px;
-  }
-}
-
-.container-star-quantity{
-  display: flex;
-}
-
-.container-star-main{
-  /* display: flex; */
-  margin-right: 1px;
-  position: relative;
-}
-
-.container-star{
-  width: 100%;
-  // width: ${props => props.$starIndex === 4 && props.$fifthHalfStar === true && "50%"};
-
-  // width: ${props => (props.$starIndex === 3) && props.$fourthHalfStar === true && "50%"};
-  // width: ${props => props.$starIndex === 4 && (props.$fourthHalfStar === true || props.$thirdHalfStar === true || props.$secondHalfStar === true || props.$firstHalfStar === true) && "0%"};
-
-  // width: ${props => props.$starIndex === 2 && props.$thirdHalfStar === true && "50%"};
-  // width: ${props => props.$starIndex === 3 && (props.$thirdHalfStar === true || props.$secondHalfStar === true || props.$firstHalfStar === true) && "0%"};
-
-  // width: ${props => props.$starIndex === 1 && props.$secondHalfStar === true && "50%"};
-  // width: ${props => props.$starIndex === 2 && (props.$secondHalfStar === true || props.$firstHalfStar === true) && "0%"};
-
-  // width: ${props => props.$starIndex === 0 && props.$firstHalfStar === true && "50%"};
-
-  // width: ${props => (props.$starIndex === 1 || props.$starIndex === 2 || props.$starIndex === 3 || props.$starIndex === 4)
-  // && (props.$firstHalfStar === true || props.$allStarWithoutFill === true) && "0%"};
-
-  // width: ${props => props.$starIndex === 0 && props.$allStarWithoutFill === true && "0%"};
-
-  height: 100%;
-  left: 0;
-  overflow: hidden;
-  position: absolute;
-  top: 0;
-  z-index: 1;
-}
-
-.container-star-img-full{
-  background-image: url(https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/productdetailspage/44c46951c46c5a5e8129.svg);
-  background-repeat: no-repeat;
-  background-size: contain;
-  height: 14px;
-  width: 14px;
-}
-
-.container-star-img{
-  background-image: url(https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/productdetailspage/2a44ed8141cd3a3ed0c9.svg);
-  background-repeat: no-repeat;
-  background-size: contain;
-  height: 14px;
-  width: 14px;
-}
-
-.span-white-stripe{
-  margin-right: 15px;
-  color: #0000004f;
-}
-
-.container-avaliation{
-  display: flex;
-  align-items: center;
-
-  >span:nth-of-type(1){
-    margin-right: 7px;
-    color: black;
-    font-size: 16px;
-    border-bottom: 1px solid black;
-    line-height: 1.3;
-  }
-
-  >span:nth-of-type(2){
-    font-size: 15px;
-    font-weight: 400;
-    color: #767676;
-  }
-}
-
-.container-report{
-  display: flex;
-
-  >span:nth-of-type(1){
-    font-size: 16px;
-    font-weight: 400;
-    color: rgba(0, 0, 0, 0.54);
-  }
-}
-
 .container-prince-product-and-more-info{
   display: flex;
   flex-direction: column;
   padding: 0px 0px 0px 20px;
 }
 
-.container-price-product{
-  display: flex;
-  align-items: center;
-  margin-bottom: 20px;
-
-  >span:nth-of-type(1){
-    font-size: 16px;
-    color: rgb(146, 146, 146);
-    text-decoration: line-through;
-    margin-right: 10px;
-  }
-
-  >span:nth-of-type(2){
-    font-size: 30px;
-    font-weight: 500;
-    color: rgb(208, 1, 27);
-    margin-right: 15px;
-  }
-}
-
-.container-discount-product{
-  display: flex;
-  background-color: red;
-  border-radius: 2px;
-  padding: 2px 4px;
-
-  >span {
-    font-size: 12px;
-    font-weight: 600;
-    color: #fff;
-  }
-}
-
 .container-coins-insurance-color-main{
   display: flex;
   align-items: center;
-  // align-items: ${props => props.$index === 5 ? "none" : "center"};
   margin-bottom: 25px;
-
-  // user-select: ${props => props.$index === 7 && "none"};
-
-  >h1 {
-    font-size: 15px;
-    font-weight: 400;
-    color: rgb(117, 117, 117);
-
-    width: 115px;
-  }
 }
 
 .container-coins-insurance-color-main-five {
@@ -190,75 +32,6 @@
 
 .container-coins-insurance-color-main-seven {
   user-select: none;
-}
-
-.container-coins-description{
-  display: flex;
-  align-items: center;
-  line-height: 1.2;
-
-  >img {
-    width: 16px;
-    height: 16px;
-    object-fit: cover;
-    margin-right: 5px;
-  }
-
-  >span {
-    color: rgb(85, 85, 85);
-    margin-right: 15px;
-  }
-
-  >svg {
-    width: 14px;
-    fill: rgb(85 85 85 / 69%);
-  }
-}
-
-.span-quantity-coins{
-  font-size: 15px;
-  color: rgb(255, 174, 4);
-}
-
-.container-credit-card{
-  display: flex;
-  align-items: center;
-  margin-bottom: 25px;
-
-  >h1 {
-    font-size: 15px;
-    font-weight: 400;
-    color: rgb(117, 117, 117);
-
-    width: 115px;
-  }
-}
-
-.container-credit-card-description{
-  display: flex;
-  align-items: center;
-
-  >span:nth-of-type(1) {
-    color: rgb(34, 34, 34);
-    font-size: 15px;
-  }
-}
-
-.container-installment-options{
-  cursor: pointer;
-  margin-left: 20px;
-
-  >span:nth-of-type(1) {
-    color: rgb(0, 85, 170);
-    margin-right: 5px;
-    font-size: 15px;
-  }
-
-  >svg:nth-of-type(1){
-    width: 10px;
-    height: 10px;
-    fill: rgb(0, 85, 170);
-  }
 }
 
 .container-insurance-description{
@@ -306,7 +79,6 @@
   }
 
   >input {
-    /* background-color: red; */
     width: 50px;
     cursor: pointer;
     text-align: center;
@@ -389,27 +161,6 @@
   }
 }
 
-// interface ContainerCoinsMainProps {
-//   $index: number;
-// }
-
-// .container-coins-insurance-color-main{
-//   display: flex;
-//   align-items: center;
-//   // align-items: ${props => props.$index === 5 ? "none" : "center"};
-//   margin-bottom: 25px;
-
-//   // user-select: ${props => props.$index === 7 && "none"};
-
-//   >h1 {
-//     font-size: 15px;
-//     font-weight: 400;
-//     color: rgb(117, 117, 117);
-
-//     width: 115px;
-//   }
-// }
-
 .container-colors-all{
   display: flex;
   flex-basis: 515px;
@@ -421,16 +172,10 @@
   gap: 7px;
 }
 
-// interface ContainerColorsProductDescriptionProps {
-//   $whichColorWasClicked: string;
-//   $divColors: string;
-// }
-
 .container-colors-product-description{
   display: flex;
   align-items: center;
   border: 1px solid #0000001c;
-  /* padding: 4px 5px; */
   padding: 8px;
   gap: 5px;
   cursor: pointer;
@@ -451,8 +196,6 @@
   &:hover {
     border-color: #ee4d2d;
   }
-
-  // border-color: ${props => props.$whichColorWasClicked === props.$divColors && "#ee4d2d"};
 
   >div  {
     bottom: 0;
@@ -478,8 +221,6 @@
       position: absolute;
       right: 1px;
       display: flex;
-
-      /* background-color: black; */
     }
   }
 }

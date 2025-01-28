@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { ProductOfferFlashSeller } from '../../login-and-register-user/interface/product-offer-flash-seller';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { take } from 'rxjs';
+import { environment } from '../../../environments/environment.prod';
 
 export interface ResultData {
   data: ProductOfferFlashSeller;
@@ -11,6 +12,7 @@ export interface ResultData {
   providedIn: 'root'
 })
 export class ProductOfferFlashSellerService {
+  private baseUrl = environment.BASE_URL;
 
   constructor(private _http: HttpClient) { }
 

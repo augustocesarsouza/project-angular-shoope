@@ -1,0 +1,115 @@
+.container-price-product{
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+
+  >span:nth-of-type(1){
+    font-size: 16px;
+    color: rgb(146, 146, 146);
+    text-decoration: line-through;
+    margin-right: 10px;
+  }
+
+  >span:nth-of-type(2){
+    font-size: 30px;
+    font-weight: 500;
+    color: rgb(208, 1, 27);
+    margin-right: 15px;
+  }
+}
+
+.container-discount-product{
+  display: flex;
+  background-color: red;
+  border-radius: 2px;
+  padding: 2px 4px;
+
+  >span {
+    font-size: 12px;
+    font-weight: 600;
+    color: #fff;
+  }
+}
+
+.container-coins-insurance-color-main{
+  display: flex;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.header-coins{
+  font-size: 15px;
+  font-weight: 400;
+  color: rgb(117, 117, 117);
+
+  width: 115px;
+}
+
+.container-coins-description{
+  display: flex;
+  align-items: center;
+  line-height: 1.2;
+
+  >img {
+    width: 16px;
+    height: 16px;
+    object-fit: cover;
+    margin-right: 5px;
+  }
+
+  >span {
+    color: rgb(85, 85, 85);
+    margin-right: 15px;
+  }
+
+  >svg {
+    width: 14px;
+    fill: rgb(85 85 85 / 69%);
+  }
+}
+
+.span-quantity-coins{
+  font-size: 15px;
+  color: rgb(255, 174, 4);
+}
+
+.container-credit-card{
+  display: flex;
+  align-items: center;
+  margin-bottom: 25px;
+
+  >h1 {
+    font-size: 15px;
+    font-weight: 400;
+    color: rgb(117, 117, 117);
+
+    width: 115px;
+  }
+}
+
+.container-credit-card-description{
+  display: flex;
+  align-items: center;
+
+  >span:nth-of-type(1) {
+    color: rgb(34, 34, 34);
+    font-size: 15px;
+  }
+}
+
+.container-installment-options{
+  cursor: pointer;
+  margin-left: 20px;
+
+  >span:nth-of-type(1) {
+    color: rgb(0, 85, 170);
+    margin-right: 5px;
+    font-size: 15px;
+  }
+
+  >svg:nth-of-type(1){
+    width: 10px;
+    height: 10px;
+    fill: rgb(0, 85, 170);
+  }
+}
