@@ -1,0 +1,22 @@
+.container-image-product{
+  display: flex;
+  width: 450px;
+  position: relative;
+  margin-bottom: 20px;
+  cursor: pointer;
+
+  > img:nth-of-type(1){
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+
+  > img:nth-of-type(2) {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+}

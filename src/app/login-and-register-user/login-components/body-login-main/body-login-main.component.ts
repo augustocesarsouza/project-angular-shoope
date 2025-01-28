@@ -1,9 +1,9 @@
 import { Component, AfterViewInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
-import Inputmask from 'inputmask';
-import CryptoJS from 'crypto-js';
 import { UserService } from '../../service/user.service';
 import { environment } from '../../../../environments/environment';
+import CryptoJS from 'crypto-js';
+import Inputmask from 'inputmask';
 
 interface PropsLogin {
   data: {

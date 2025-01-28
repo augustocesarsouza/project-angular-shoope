@@ -40,8 +40,6 @@ export class EachReviewsInnerComponent implements OnInit, AfterViewInit, OnDestr
   showImgsArray = false;
 
   ngOnInit(): void {
-    console.log(this.product);
-
     const arrayImgAndVideo = this.product.imgAndVideoReviewsProduct;
     this.arrayImgAndVideo = arrayImgAndVideo;
 

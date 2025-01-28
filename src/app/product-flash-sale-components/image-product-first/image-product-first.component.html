@@ -1,0 +1,15 @@
+<div
+  class="container-image-product"
+  (click)="onClickClickImgProduct(productImgMain)"
+  (keydown.enter)="onClickClickImgProduct(productImgMain)"
+  tabindex="0"
+>
+  <img class="img-product-main" *ngIf="productImgMain" src="{{ productImgMain }}" alt="img-main" />
+
+  <img
+    class="img-part-bottom-floating"
+    *ngIf="getFlashSaleProduct.productsOfferFlashDTO.imgPartBottom"
+    src="{{ getFlashSaleProduct.productsOfferFlashDTO.imgPartBottom }}"
+    alt="img-part-bottom-floating"
+  />
+</div>

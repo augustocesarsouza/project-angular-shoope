@@ -24,6 +24,14 @@
   display: flex;
   align-items: center;
   margin-bottom: 25px;
+
+  >h1 {
+    font-size: 15px;
+    font-weight: 400;
+    color: rgb(117, 117, 117);
+
+    width: 115px;
+  }
 }
 
 .container-coins-insurance-color-main-five {

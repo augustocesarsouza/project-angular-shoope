@@ -148,51 +148,6 @@ export class ProductFlashSaleFirstPartComponent implements OnInit, AfterViewInit
     });
   };
 
-  onClickClickImgProduct = (productImgMain: string | null) => {
-    if (productImgMain === null) return;
-
-    // if (productImgMain.optionType.length <= 0) {
-    //   // setNewProductOptionImageAll(null);
-    //   this.newProductOptionImageAll = null;
-    // }
-
-    // if (productImgMain.optionType.length > 0) {
-    //   const uuidProduct = uuidv4();
-
-    //   const productClicked = {
-    //     id: uuidProduct,
-    //     imageUrl: productImgMain.imageUrl,
-    //     imgAlt: productImgMain.imgAlt,
-    //     optionType: '',
-    //     titleOptionType: productImgMain.titleOptionType,
-    //   };
-    //   productClicked.id = uuidProduct;
-
-    //   // setClickImgProduct(productClicked);
-
-    //   // const array = [...productOptionImageAll];
-    //   // array.push(productClicked);
-    //   // setNewProductOptionImageAll(array);
-    //   return;
-    // }
-
-    // setClickImgProduct(productImgMain);
-    // this.clickImgProduct = productImgMain;
-    document.body.style.overflowY = 'hidden';
-  };
-
-  funcFormatFavoriteQuantity = (favoriteQuantity: number) => {
-    if (favoriteQuantity >= 1000) {
-      // Divide por 1000 e formata com uma casa decimal
-
-      const formattedQuantity = (favoriteQuantity / 1000).toFixed(1).replace('.', ',');
-      return `Favoritar (${formattedQuantity}mil)`;
-    } else {
-      // Retorna o número sem formatação especial
-      return `Favoritar (${favoriteQuantity.toFixed(1).replace('.', ',')}mil)`;
-    }
-  };
-
   onClickImgsProductPartBottom = (productImg: string) => {
     this.newProductOptionImageAll = null;
 

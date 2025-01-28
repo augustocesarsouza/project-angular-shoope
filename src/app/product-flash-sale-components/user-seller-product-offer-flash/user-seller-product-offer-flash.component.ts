@@ -21,7 +21,6 @@ export class UserSellerProductOfferFlashComponent implements OnInit {
   lastLoginDate = "";
   accountCreationDate = "";
 
-
   constructor(private router: Router, private productOfferFlashSellerService: ProductOfferFlashSellerService){}
 
   ngOnInit(): void {
@@ -83,17 +82,17 @@ export class UserSellerProductOfferFlashComponent implements OnInit {
     }
   }
 
-  formatChatNow = (chatNow: string) => {
-    const chatNowFormat = chatNow.slice(0, 12) + '...';
+  // formatChatNow = (chatNow: string) => {
+  //   const chatNowFormat = chatNow.slice(0, 12) + '...';
 
-    return chatNowFormat;
-  };
+  //   return chatNowFormat;
+  // };
 
-  formatViewPageStore = (string: string) => {
-    const stringFormat = string.slice(0, 13) + '...';
+  // formatViewPageStore = (string: string) => {
+  //   const stringFormat = string.slice(0, 13) + '...';
 
-    return stringFormat;
-  };
+  //   return stringFormat;
+  // };
 
   formatReviews = (reviews: number) => {
     if (reviews > 1000) {

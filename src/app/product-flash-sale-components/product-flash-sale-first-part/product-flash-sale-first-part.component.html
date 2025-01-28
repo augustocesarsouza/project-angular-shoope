@@ -1,24 +1,9 @@
 <div class="container-image-product-and-all-image-part-bottom">
-  <div
-    class="container-image-product"
-    (click)="onClickClickImgProduct(productImgMain)"
-    (keydown.enter)="onClickClickImgProduct(productImgMain)"
-    tabindex="0"
-  >
-    <img
-      class="img-product-main"
-      *ngIf="productImgMain"
-      src="{{ productImgMain }}"
-      alt="img-main"
-    />
-
-    <img
-      class="img-part-bottom-floating"
-      *ngIf="getFlashSaleProduct.productsOfferFlashDTO.imgPartBottom"
-      src="{{ getFlashSaleProduct.productsOfferFlashDTO.imgPartBottom }}"
-      alt="img-part-bottom-floating"
-    />
-  </div>
+  <app-image-product-first
+    *ngIf="getFlashSaleProduct && productImgMain"
+    [productImgMain]="productImgMain"
+    [getFlashSaleProduct]="getFlashSaleProduct"
+  ></app-image-product-first>
 
   <div class="container-carosel-product-flash-sale-all-info" *ngIf="productOptionImageAll">
     <div
@@ -78,33 +63,10 @@
       </svg>
     </div>
   </div>
-
-  <div class="container-to-share-main">
-    <div class="container-to-share">
-      <h1>Compartilhar:</h1>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-
-    <div class="container-favorite-quantity">
-      <svg width="24" height="20" className="vgMiJB">
-        <path
-          d="M19.469 1.262c-5.284-1.53-7.47 4.142-7.47 4.142S9.815-.269 4.532 1.262C-1.937 3.138.44 13.832 12 19.333c11.559-5.501 13.938-16.195 7.469-18.07z"
-          stroke="#FF424F"
-          strokeWidth="1.5"
-          fill="none"
-          fillRule="evenodd"
-          strokeLinejoin="round"
-        ></path>
-      </svg>
-
-      <span>
-        {{ funcFormatFavoriteQuantity(getFlashSaleProduct.favoriteQuantity) }}
-      </span>
-    </div>
-  </div>
+  <app-comshare-main-last
+    *ngIf="getFlashSaleProduct"
+    [getFlashSaleProduct]="getFlashSaleProduct"
+  ></app-comshare-main-last>
 </div>
 <!-- Tive uma ideia de criar outra tabela segurando o id do Product Flesh esse "productFlashSaleId" e tipo o "type" tipo "Cor"e as imagens -->
 <!-- só nao sei como ia ficar os nomes deles se eu colocar em um "LIST" nao tem como colocar o nome de cada img ou criaria varios registro com os nomes das img tem que ver isso -->
