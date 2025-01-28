@@ -29,7 +29,6 @@
 
     <div class="container-quantity-star">
       <div class="container-star-red-svg">
-        <!-- {countStarArray && countStarArray.map((el) => <SvgStar key={el} />)} -->
         <app-svg-star *ngFor="let el of countStarArray"></app-svg-star>
       </div>
       <div class="container-star-black-svg" *ngIf="countStarArray">
@@ -67,8 +66,8 @@
             *ngIf="item.includes('/video/')"
             class="container-img-video-reviews-main"
             #containerImgAndVideoReviews
-            (click)="onClickVideoReviews(item, containerImgAndVideoReviews, i)"
-            (keydown.enter)="onClickVideoReviews(item, containerImgAndVideoReviews, i)"
+            (click)="onClickVideoAndImageReviews(item, containerImgAndVideoReviews, i)"
+            (keydown.enter)="onClickVideoAndImageReviews(item, containerImgAndVideoReviews, i)"
             tabindex="0"
           >
             <div class="container-img-video-reviews" #containerImgVideoReviews>
@@ -84,8 +83,8 @@
             *ngIf="item.includes('/image/')"
             class="container-img-reviews"
             #containerImgAndVideoReviews
-            (click)="onClickImageReviews(item, containerImgAndVideoReviews, i)"
-            (keydown.enter)="onClickImageReviews(item, containerImgAndVideoReviews, i)"
+            (click)="onClickVideoAndImageReviews(item, containerImgAndVideoReviews, i)"
+            (keydown.enter)="onClickVideoAndImageReviews(item, containerImgAndVideoReviews, i)"
             tabindex="0"
           >
             <img [src]="item" alt="img-reviews" />
@@ -94,7 +93,7 @@
       </ng-container>
     </div>
 
-    <div class="container-img-and-vide-comments">
+    <div class="container-img-and-vide-comments" *ngIf="showImgsArray">
       <div
         class="container-arrow-left"
         (click)="onClickArrowLeft()"
@@ -116,19 +115,17 @@
       </div>
       <div class="container-product-img-flash-info" #carouselCustom>
         <ng-container *ngFor="let item of arrayImgAndVideo">
-          <div class="container-video-reviews" *ngIf="item.includes('/video/')">
-            <video
-              class="video"
-              src="{{ item }}"
-              (click)="onClickContainerVideoReviews()"
-              #videoReviews
-            ></video>
+          <div
+            class="container-video-reviews"
+            *ngIf="item.includes('/video/')"
+            (click)="onClickContainerSvgPlayVideo()"
+            (keydown.enter)="onClickContainerSvgPlayVideo()"
+            tabindex="0"
+          >
+            <video class="video" controls src="{{ item }}" #videoReviews>></video>
 
             <div
               class="container-svg-play-video"
-              (click)="onClickContainerSvgPlayVideo()"
-              (keydown.enter)="onClickContainerSvgPlayVideo()"
-              tabindex="0"
               (mouseenter)="onMouseEnterSvgPlayVideo()"
               (mouseleave)="onMouseLeaveSvgPlayVideo()"
               *ngIf="showSvgPlay"
@@ -168,38 +165,6 @@
         </svg>
       </div>
     </div>
-
-    <!--
-    <div class="container-video-reviews" *ngIf="productVideUrl && alreadyClickedVideo">
-      <video
-        class="video"
-        src="{{ productVideUrl }}"
-        (click)="onClickContainerVideoReviews()"
-        #videoReviews
-      ></video>
-
-      <div
-        class="container-svg-play-video"
-        (click)="onClickContainerSvgPlayVideo()"
-        (keydown.enter)="onClickContainerSvgPlayVideo()"
-        tabindex="0"
-        (mouseenter)="onMouseEnterSvgPlayVideo()"
-        (mouseleave)="onMouseLeaveSvgPlayVideo()"
-        *ngIf="showSvgPlay"
-      >
-        <app-svg-play-video></app-svg-play-video>
-      </div>
-    </div>
-
-    <div class="container-image-reviews" *ngIf="productImageUrl && alreadyClickedImage">
-      <img
-        src="{{ productImageUrl }}"
-        alt="img-cliked-product"
-        (click)="onClickContainerImageReviews()"
-        (keydown.enter)="onClickContainerImageReviews()"
-        tabindex="0"
-      />
-    </div> -->
 
     <div class="container-like">
       <div (click)="onClickContainerLike()" (keydown.enter)="onClickContainerLike()" tabindex="0">

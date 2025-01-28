@@ -109,17 +109,17 @@
   width: 115px;
   height: 32px;
   cursor: pointer;
+  color: rgba(0, 0, 0, .87);
 
   // border-color: ${props => props.$whichStarWasClicked === props.$whichContainerStarItIs ? "red" : "rgba(0, 0, 0, .09)"};
-  border-color: red;
+  // border-color: red;
 
   >span {
-    color: rgba(0, 0, 0, .87);
+    // color: rgba(0, 0, 0, .87);
     font-size: 14px;
     line-height: 1;
     width: 100%;
     text-align: center;
-    color: red;
     // color: ${props => props.$whichStarWasClicked === props.$whichContainerStarItIs ? "red" : "black"};
   }
 }

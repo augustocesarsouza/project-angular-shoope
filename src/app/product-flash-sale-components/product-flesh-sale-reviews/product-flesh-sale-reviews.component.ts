@@ -16,9 +16,17 @@ export class ProductFleshSaleReviewsComponent implements OnInit, AfterViewInit {
   @Input() getFlashSaleProduct!: FlashSaleProductAllInfo;
 
   @ViewChildren('containerStar') containerStars!: QueryList<ElementRef<HTMLDivElement>>;
+  @ViewChildren('containerStarEach') containerStarEachS!: QueryList<ElementRef<HTMLDivElement>>;
 
   productFlashSaleReviewAll!: ProductFlashSaleReview[];
+  arrayFilterStar: ProductFlashSaleReview[] | null = null;
   quantityStarRender = [0, 1, 2, 3, 4];
+
+  quantityStarOne = 0;
+  quantityStarTwo = 0;
+  quantityStarThree = 0;
+  quantityStarFour = 0;
+  quantityStarFive = 0;
 
   constructor(private router: Router, private productFlashSaleReviewsService: ProductFlashSaleReviewsService){}
 
@@ -30,6 +38,28 @@ export class ProductFleshSaleReviewsComponent implements OnInit, AfterViewInit {
         next: (success) => {
           const data = success.data;
           this.productFlashSaleReviewAll = data;
+
+          for (const elem of data) {
+            if(elem.starQuantity === 1){
+              this.quantityStarOne++;
+            }
+
+            if(elem.starQuantity === 2){
+              this.quantityStarTwo++;
+            }
+
+            if(elem.starQuantity === 3){
+              this.quantityStarThree++;
+            }
+
+            if(elem.starQuantity === 4){
+              this.quantityStarFour++;
+            }
+
+            if(elem.starQuantity === 5){
+              this.quantityStarFive++;
+            }
+          }
         },
         error: error => {
           if(error.status === 400){
@@ -49,6 +79,10 @@ export class ProductFleshSaleReviewsComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit(): void {
     this.getFlashSaleProductByProductFlashSaleId(this.getFlashSaleProduct);
+
+    const firstElement = this.containerStarEachS.toArray()[0];
+    firstElement.nativeElement.style.color = "red";
+    firstElement.nativeElement.style.borderColor = "red";
   }
 
   // ProductFlashSaleReview - FAZER TEST DO BACKEND, E CONTINUAR FAZENDO FRONT
@@ -86,8 +120,28 @@ export class ProductFleshSaleReviewsComponent implements OnInit, AfterViewInit {
   };
 
   onClickContainerStarEach = (whickContainerNumber: number) => {
-    console.log(whickContainerNumber);
+    this.containerStarEachS.toArray().forEach((el) => {
+      el.nativeElement.style.color = "rgba(0, 0, 0, .87)";
+      el.nativeElement.style.borderColor = "rgba(0, 0, 0, .09)";
+    })
 
+    const firstElement = this.containerStarEachS.toArray()[whickContainerNumber];
+    firstElement.nativeElement.style.color = "red";
+    firstElement.nativeElement.style.borderColor = "red";
+
+    if(whickContainerNumber === 0){
+      this.arrayFilterStar = null;
+    }
+
+    if(whickContainerNumber === 3){
+      const arrayFilterStar = this.productFlashSaleReviewAll.filter((el) => el.starQuantity === 3);
+      this.arrayFilterStar = arrayFilterStar;
+    }
+
+    if(whickContainerNumber === 5){
+      const arrayFilterStar = this.productFlashSaleReviewAll.filter((el) => el.starQuantity === 1);
+      this.arrayFilterStar = arrayFilterStar;
+    }
     // setWhichStarWasClicked(whickContainerNumber);
   };
 }

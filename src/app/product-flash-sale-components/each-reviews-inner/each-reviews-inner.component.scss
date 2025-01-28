@@ -108,7 +108,7 @@
   display: flex;
   width: 72px;
   height: 72px;
-  margin-right: 10px;
+  margin-right: 4px;
   border: 2px solid rgba(0, 0, 0, 0);
   // border: ${props => props.$index === props.$indexImg && "2px solid red"};
 
@@ -120,15 +120,13 @@
   }
 }
 
-
-
 .container-img-video-reviews-main{
   display: flex;
   position: relative;
 
   width: 72px;
   height: 72px;
-  margin-right: 10px;
+  margin-right: 4px;
 
   cursor: zoom-in;
   border: 2px solid rgba(0, 0, 0, 0);
@@ -174,6 +172,7 @@
   position: absolute;
   left: 40%;
   top: 35%;
+  pointer-events: none;
   cursor: pointer;
 
   >app-svg-play-video {
@@ -242,9 +241,10 @@
 .container-product-img-flash-info {
   display: flex;
 
-  overflow-x: scroll;
+  overflow-x: hidden;
   overflow-y: hidden;
   scroll-behavior: smooth;
+  margin-bottom: 5px;
 }
 
 .container-arrow-left{
@@ -297,6 +297,7 @@
   height: 505px;
   position: relative;
   transition: 500ms;
+  cursor: pointer;
 
   >video {
     width: 100%;

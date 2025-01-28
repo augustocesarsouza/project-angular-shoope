@@ -15,9 +15,6 @@ interface allLikesReviews {
 })
 export class EachReviewsInnerComponent implements OnInit, AfterViewInit, OnDestroy {
   @Input() product!: ProductFlashSaleReview;
-  productVideUrl: string | null = null;
-  productImageUrl: string | null = null;
-  alreadyClickedVideo = false;
   showSvgPlay = true;
 
   @ViewChild('videoReviews') videoReviews!: ElementRef<HTMLVideoElement>;
@@ -32,7 +29,6 @@ export class EachReviewsInnerComponent implements OnInit, AfterViewInit, OnDestr
   imgDataUrlString = "";
   durationFormatted = "";
   allLikesReviews: allLikesReviews[] = [];
-  alreadyClickedImage = false;
   settimeOutAny!: number;
 
   @ViewChild('carouselCustom') carouselCustom!: ElementRef<HTMLDivElement>;
@@ -41,19 +37,13 @@ export class EachReviewsInnerComponent implements OnInit, AfterViewInit, OnDestr
   valueBaseToSumScroll = 395;
 
   arrayImgAndVideo: string[] | null = null;
+  showImgsArray = false;
 
   ngOnInit(): void {
+    console.log(this.product);
+
     const arrayImgAndVideo = this.product.imgAndVideoReviewsProduct;
-
-    const indexToDuplicate = 2; // Por exemplo, duplicar o item no índice 2
-
-  // Verificar se o índice é válido
-  if (indexToDuplicate >= 0 && indexToDuplicate < arrayImgAndVideo.length) {
-    const itemToDuplicate = arrayImgAndVideo[indexToDuplicate];
-    arrayImgAndVideo.splice(indexToDuplicate + 1, 0, itemToDuplicate); // Insere após o item original
-  }
-
-  this.arrayImgAndVideo = arrayImgAndVideo;
+    this.arrayImgAndVideo = arrayImgAndVideo;
 
     const dateCreation = new Date(this.product.creationDate);
 
@@ -89,7 +79,9 @@ export class EachReviewsInnerComponent implements OnInit, AfterViewInit, OnDestr
       const maxStars = 5;
       this.emptyStars = Array.from({ length: maxStars - this.countStarArray.length });
     }
+  }
 
+  ngAfterViewInit(): void {
     (async () => {
       for (const element of this.product.imgAndVideoReviewsProduct) {
         if (element.includes('/video/')) {
@@ -103,48 +95,7 @@ export class EachReviewsInnerComponent implements OnInit, AfterViewInit, OnDestr
     })();
   }
 
-  ngAfterViewInit(): void {
-    clearTimeout(this.settimeOutAny);
-
-    this.settimeOutAny = setTimeout(() => {
-      if(typeof window === 'undefined')return;
-
-      const scrollElement = this.carouselCustom.nativeElement;
-      const containerLeft = this.containerArrowLeft.nativeElement;
-      const containerRight = this.containerArrowRight.nativeElement;
-
-      const scrollLeft = () => {
-        scrollElement?.scrollBy({ left: -this.valueBaseToSumScroll, behavior: 'auto' });
-      };
-      const scrollRight = () => {
-        scrollElement?.scrollBy({ left: this.valueBaseToSumScroll, behavior: 'auto' });
-      };
-
-      const updateArrowsVisibility = () => {
-        if (scrollElement) {
-          let maxScrollLeft = scrollElement.scrollWidth - scrollElement.clientWidth;
-
-          if (maxScrollLeft === 0) {
-            maxScrollLeft = 10;
-          }
-
-          containerLeft!.style.display = scrollElement.scrollLeft > 0 ? 'flex' : 'none';
-          containerRight!.style.display = scrollElement.scrollLeft >= maxScrollLeft ? 'none' : 'flex';
-        }
-      };
-
-      containerLeft?.addEventListener('click', scrollLeft);
-      containerRight?.addEventListener('click', scrollRight);
-      scrollElement?.addEventListener('scroll', updateArrowsVisibility);
-      window.addEventListener('resize', updateArrowsVisibility);
-
-      updateArrowsVisibility();
-    }, 100)as unknown as number;
-  }
-
   functionImg = async (product: string): Promise<string> => {
-    // Cria elementos <video> e <canvas> dinamicamente
-
     const video = document.createElement('video');
     const canvas = document.createElement('canvas');
     const context = canvas.getContext('2d');
@@ -189,56 +140,31 @@ export class EachReviewsInnerComponent implements OnInit, AfterViewInit, OnDestr
     return `${minutes.toString().padStart(1, '0')}:${seconds.toString().padStart(2, '0')}`;
   };
 
-  onClickContainerVideoReviews = () => {
-    if (this.videoReviews.nativeElement === null) return;
-
-    const video = this.videoReviews.nativeElement;
-    if (this.mouseEnterSvgPlayVideo) return;
-
-    if (video) {
-      if (video.paused) {
-        video.play();
-
-        // setShowSvgPlay(false);
-        this.showSvgPlay = false;
-      } else {
-        video.pause();
-        // setShowSvgPlay(true);
-        this.showSvgPlay = true;
-        // setMouseEnterSvgPlayVideo(true);
-        this.mouseEnterSvgPlayVideo = true;
-      }
-    }
-  };
-
   onClickContainerSvgPlayVideo = () => {
     if (this.videoReviews.nativeElement === null) return;
 
-    const video = this.videoReviews.nativeElement;
-    // setMouseEnterSvgPlayVideo(false);
-    this.mouseEnterSvgPlayVideo = false;
+    // const video = this.videoReviews.nativeElement;
+    this.showSvgPlay = !this.showSvgPlay;
 
-    if (video) {
-      if (video.paused) {
-        video.play();
-        // setShowSvgPlay(false);
-        this.showSvgPlay = false;
-      } else {
-        video.pause();
-        // setShowSvgPlay(true);
-        this.showSvgPlay = true;
-      }
-    }
+    // if (video) {
+    //   if (video.paused) {
+    //     video.play();
+    //     this.showSvgPlay = false;
+    //   } else {
+    //     video.pause();
+    //     this.showSvgPlay = true;
+    //   }
+    // }
   };
 
-  funcToScroll = (valueScroll: number) => {
+  funcToScroll = (valueScroll: number, behavior: ScrollBehavior = 'smooth') => {
     if(typeof window === 'undefined')return;
 
     const scrollElement = this.carouselCustom.nativeElement;
     const containerLeft = this.containerArrowLeft.nativeElement;
     const containerRight = this.containerArrowRight.nativeElement;
 
-    scrollElement?.scrollBy({ left: valueScroll, behavior: 'auto' });
+    scrollElement?.scrollBy({ left: valueScroll, behavior: behavior });
 
     const updateArrowsVisibility = () => {
       if (scrollElement) {
@@ -261,13 +187,47 @@ export class EachReviewsInnerComponent implements OnInit, AfterViewInit, OnDestr
 
   lastIndexClicked = 0;
 
-  onClickVideoReviews = (productVideUrl: string, containerImgVideoReviewsMain: HTMLDivElement, i: number) => {
+  funcScrollContainerImgAndVideo = () => {
+    if(typeof window === 'undefined')return;
+    const scrollElement = this.carouselCustom.nativeElement;
+    const containerLeft = this.containerArrowLeft.nativeElement;
+    const containerRight = this.containerArrowRight.nativeElement;
+
+    const scrollLeft = () => {
+      scrollElement?.scrollBy({ left: -this.valueBaseToSumScroll, behavior: 'auto' });
+    };
+    const scrollRight = () => {
+      scrollElement?.scrollBy({ left: this.valueBaseToSumScroll, behavior: 'auto' });
+    };
+
+    const updateArrowsVisibility = () => {
+      if (scrollElement) {
+        let maxScrollLeft = scrollElement.scrollWidth - scrollElement.clientWidth;
+
+        if (maxScrollLeft === 0) {
+          maxScrollLeft = 10;
+        }
+
+        containerLeft!.style.display = scrollElement.scrollLeft > 0 ? 'flex' : 'none';
+        containerRight!.style.display = scrollElement.scrollLeft >= maxScrollLeft ? 'none' : 'flex';
+      }
+    };
+
+    containerLeft?.addEventListener('click', scrollLeft);
+    containerRight?.addEventListener('click', scrollRight);
+    scrollElement?.addEventListener('scroll', updateArrowsVisibility);
+    window.addEventListener('resize', updateArrowsVisibility);
+
+    updateArrowsVisibility();
+  }
+
+  wasClickedOneTimeIndexGreaterThanOne = false;
+
+  onClickVideoAndImageReviews = (productVideUrl: string, containerImgVideoReviewsMain: HTMLDivElement, i: number) => {
     const computedStyle = window.getComputedStyle(containerImgVideoReviewsMain);
 
     const valueScroll = (i - this.lastIndexClicked) * this.valueBaseToSumScroll;
 
-    this.funcToScroll(valueScroll);
-
     this.lastIndexClicked = i;
 
     if(computedStyle.borderColor === "rgba(0, 0, 0, 0)"){
@@ -275,47 +235,30 @@ export class EachReviewsInnerComponent implements OnInit, AfterViewInit, OnDestr
         el.nativeElement.style.border = "2px solid rgba(0, 0, 0, 0)";
       });
 
-      this.productVideUrl = productVideUrl;
+      this.showImgsArray = true;
+
+      clearTimeout(this.settimeOutAny);
+
+      this.settimeOutAny = setTimeout(() => {
+        if(!this.wasClickedOneTimeIndexGreaterThanOne){
+          this.wasClickedOneTimeIndexGreaterThanOne = true;
+          this.funcToScroll(valueScroll, 'instant');
+        }else {
+          this.funcToScroll(valueScroll, 'smooth');
+        }
+        this.funcScrollContainerImgAndVideo();
+      }, 20)as unknown as number;
+
       containerImgVideoReviewsMain.style.border = '2px solid rgb(255, 0, 0)';
       containerImgVideoReviewsMain.style.padding = "2px 2px";
     }else {
-      this.productVideUrl = null;
+      this.showImgsArray = false;
+      this.lastIndexClicked = 0;
+      this.wasClickedOneTimeIndexGreaterThanOne = false;
       containerImgVideoReviewsMain.style.border = '2px solid rgba(0, 0, 0, 0)';
       containerImgVideoReviewsMain.style.padding = "0px 0px";
     }
-
-    this.productImageUrl = null;
-    this.alreadyClickedVideo = true;
-    this.alreadyClickedImage = false;
   };
-
-  onClickImageReviews = (productImageUrl: string, containerImgReviews: HTMLDivElement, i: number) => {
-    const computedStyle = window.getComputedStyle(containerImgReviews);
-
-    const valueScroll = (i - this.lastIndexClicked) * this.valueBaseToSumScroll;
-
-    this.funcToScroll(valueScroll);
-    // CONTINUAR ARRUMANDO ESSE SCROLL AMANHA E REVE A LOGICA
-    this.lastIndexClicked = i;
-
-    if(computedStyle.borderColor === "rgba(0, 0, 0, 0)"){
-      this.containerImgAndVideoReviewsS.forEach((el) => {
-        el.nativeElement.style.border = "2px solid rgba(0, 0, 0, 0)";
-      });
-
-      this.productImageUrl = productImageUrl;
-      containerImgReviews.style.border = '2px solid rgb(255, 0, 0)';
-      containerImgReviews.style.padding = "2px 2px";
-    }else {
-      this.productImageUrl = null;
-      containerImgReviews.style.border = '2px solid rgba(0, 0, 0, 0)';
-      containerImgReviews.style.padding = "0px 0px";
-    }
-
-    this.productVideUrl = null;
-    this.alreadyClickedVideo = false;
-    this.alreadyClickedImage = true;
-  }
 
   onClickContainerImageReviews = () => {
     console.log();
@@ -330,16 +273,34 @@ export class EachReviewsInnerComponent implements OnInit, AfterViewInit, OnDestr
   };
 
   onMouseLeaveSvgPlayVideo = () => {
-    // setMouseEnterSvgPlayVideo(false);
     this.mouseEnterSvgPlayVideo = false;
   };
 
   onClickArrowLeft(){
-    //
+    this.removeValuesContainerImgVideo();
+
+    this.lastIndexClicked = this.lastIndexClicked - 1;
+
+    const element = this.containerImgAndVideoReviewsS.toArray()[this.lastIndexClicked];
+    element.nativeElement.style.border = '2px solid rgb(255, 0, 0)';
+    element.nativeElement.style.padding = "2px 2px";
   }
 
   onClickArrowRight(){
-    //
+    this.removeValuesContainerImgVideo();
+
+    this.lastIndexClicked = this.lastIndexClicked + 1;
+
+    const element = this.containerImgAndVideoReviewsS.toArray()[this.lastIndexClicked];
+    element.nativeElement.style.border = '2px solid rgb(255, 0, 0)';
+    element.nativeElement.style.padding = "2px 2px";
+  }
+
+  removeValuesContainerImgVideo = () => {
+    this.containerImgAndVideoReviewsS.forEach((el) => {
+      el.nativeElement.style.border = "2px solid rgba(0, 0, 0, 0)";
+      el.nativeElement.style.padding = "0px 0px";
+    });
   }
 
   ngOnDestroy(): void {

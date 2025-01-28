@@ -19,6 +19,7 @@
       <div class="container-select-which-star">
         <div
           class="container-star-each"
+          #containerStarEach
           (click)="onClickContainerStarEach(0)"
           (keydown.enter)="onClickContainerStarEach(0)"
           tabindex="0"
@@ -27,48 +28,54 @@
         </div>
         <div
           class="container-star-each"
+          #containerStarEach
           (click)="onClickContainerStarEach(1)"
           (keydown.enter)="onClickContainerStarEach(1)"
           tabindex="0"
         >
-          <span>5 Estrela (0)</span>
+          <span>5 Estrela ({{ quantityStarFive }})</span>
         </div>
         <div
           class="container-star-each"
+          #containerStarEach
           (click)="onClickContainerStarEach(2)"
           (keydown.enter)="onClickContainerStarEach(2)"
           tabindex="0"
         >
-          <span>4 Estrela (0)</span>
+          <span>4 Estrela ({{ quantityStarFour }})</span>
         </div>
         <div
           class="container-star-each"
+          #containerStarEach
           (click)="onClickContainerStarEach(3)"
           (keydown.enter)="onClickContainerStarEach(3)"
           tabindex="0"
         >
-          <span>3 Estrela (0)</span>
+          <span>3 Estrela ({{ quantityStarThree }})</span>
         </div>
         <div
           class="container-star-each"
+          #containerStarEach
           (click)="onClickContainerStarEach(4)"
           (keydown.enter)="onClickContainerStarEach(4)"
           tabindex="0"
         >
-          <span>2 Estrela (0)</span>
+          <span>2 Estrela ({{ quantityStarTwo }})</span>
         </div>
 
         <div
           class="container-star-each"
+          #containerStarEach
           (click)="onClickContainerStarEach(5)"
           (keydown.enter)="onClickContainerStarEach(5)"
           tabindex="0"
         >
-          <span>1 Estrela (0)</span>
+          <span>1 Estrela ({{ quantityStarOne }})</span>
         </div>
 
         <div
           class="container-star-each"
+          #containerStarEach
           (click)="onClickContainerStarEach(6)"
           (keydown.enter)="onClickContainerStarEach(6)"
           tabindex="0"
@@ -78,6 +85,7 @@
 
         <div
           class="container-star-each"
+          #containerStarEach
           (click)="onClickContainerStarEach(7)"
           (keydown.enter)="onClickContainerStarEach(7)"
           tabindex="0"
@@ -88,10 +96,19 @@
     </div>
 
     <div class="container-reviews">
-      <app-each-reviews-inner
-        *ngFor="let product of productFlashSaleReviewAll"
-        [product]="product"
-      ></app-each-reviews-inner>
+      <ng-container *ngIf="arrayFilterStar !== null">
+        <app-each-reviews-inner
+          *ngFor="let product of arrayFilterStar"
+          [product]="product"
+        ></app-each-reviews-inner>
+      </ng-container>
+
+      <ng-container *ngIf="arrayFilterStar === null">
+        <app-each-reviews-inner
+          *ngFor="let product of productFlashSaleReviewAll"
+          [product]="product"
+        ></app-each-reviews-inner>
+      </ng-container>
     </div>
   </div>
 </div>
