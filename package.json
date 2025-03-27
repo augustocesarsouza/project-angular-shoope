@@ -41,7 +41,7 @@
     "@types/inputmask": "^5.0.7",
     "@types/jasmine": "~5.1.0",
     "@types/node": "^18.18.0",
-    "angular-eslint": "19.0.2",
+    "angular-eslint": "19.3.0",
     "eslint": "^9.16.0",
     "eslint-config-prettier": "^9.1.0",
     "jasmine-core": "~5.1.0",

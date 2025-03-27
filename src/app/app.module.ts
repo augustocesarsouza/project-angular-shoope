@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
+import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
-import { provideHttpClient, withFetch, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import {  withFetch, provideHttpClient, withInterceptorsFromDi, HttpClientModule } from '@angular/common/http';
 import { AllSvgModule } from './all-svg/all-svg.module';
 import { HomePageModule } from './home-page/home-page.module';
 import { ProductFlashSaleMainComponent } from './product-flash-sale-components/product-flash-sale-main/product-flash-sale-main.component';
@@ -23,7 +23,8 @@ import { UserCreatedProductInfoComponent } from './product-flash-sale-components
 import { ImageProductFirstComponent } from './product-flash-sale-components/image-product-first/image-product-first.component';
 import { ComshareMainLastComponent } from './product-flash-sale-components/comshare-main-last/comshare-main-last.component';
 
-@NgModule({ declarations: [
+@NgModule({
+  declarations: [
         AppComponent,
         ProductFlashSaleMainComponent,
         ProductFlashSaleAllInfoComponent,
@@ -41,13 +42,18 @@ import { ComshareMainLastComponent } from './product-flash-sale-components/comsh
         ImageProductFirstComponent,
         ComshareMainLastComponent,
     ],
-    bootstrap: [AppComponent], imports: [BrowserModule,
-        AppRoutingModule,
-        FormsModule,
-        AllSvgModule,
-        HomePageModule], providers: [
-        provideClientHydration(),
+    bootstrap: [AppComponent],
+    imports: [
+      BrowserModule,
+      AppRoutingModule,
+      FormsModule,
+      AllSvgModule,
+      HomePageModule,
+      HttpClientModule,  // Adiciona o HttpClientModule aqui
+    ],
+        providers: [
         provideHttpClient(withFetch()),
         provideHttpClient(withInterceptorsFromDi()),
-    ] })
+    ]
+  })
 export class AppModule { }
