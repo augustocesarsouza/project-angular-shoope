@@ -12,7 +12,7 @@ export interface ResultData {
   providedIn: 'root'
 })
 export class ProductHighlightService {
-  private baseUrl = environment.BASE_URL;
+  private baseUrl = environment.BASE_URL || '/api';
 
   constructor(private _http: HttpClient) { }
 
@@ -30,6 +30,6 @@ export class ProductHighlightService {
     // console.log(options);
 
 
-    return this._http.get<ResultData>(`/api/product-highlight/get-all-product-highlights`, options).pipe(take(1));
+    return this._http.get<ResultData>(`${this.baseUrl}/product-highlight/get-all-product-highlights`, options).pipe(take(1));
   }
 }

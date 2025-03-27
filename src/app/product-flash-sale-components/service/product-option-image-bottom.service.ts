@@ -12,7 +12,7 @@ export interface ResultData {
   providedIn: 'root'
 })
 export class ProductOptionImageBottomService {
-  private baseUrl = environment.BASE_URL;
+  private baseUrl = environment.BASE_URL || '/api';
 
   constructor(private _http: HttpClient) { }
 
@@ -30,6 +30,6 @@ export class ProductOptionImageBottomService {
     // console.log(options);
 
 
-    return this._http.get<ResultData>(`/api/product-option-image-bottom/get-by-list-flash-sale-product-image-all-id/${productsOfferFlashId}`, options).pipe(take(1));
+    return this._http.get<ResultData>(`${this.baseUrl}/product-option-image-bottom/get-by-list-flash-sale-product-image-all-id/${productsOfferFlashId}`, options).pipe(take(1));
   }
 }

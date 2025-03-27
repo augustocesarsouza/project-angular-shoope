@@ -13,7 +13,7 @@ export interface ResultData {
 })
 export class ProductsOfferFlashService {
   isTest = false;
-  private baseUrl = environment.BASE_URL;
+  private baseUrl = environment.BASE_URL || '/api';
 
   constructor(private _http: HttpClient) { }
 
@@ -35,7 +35,7 @@ export class ProductsOfferFlashService {
     // console.log(options);
 
 
-    return this._http.get<ResultData>(`/api/public/product-offer-flash/get-product-offer-flash-all`, options).pipe(take(1));
+    return this._http.get<ResultData>(`${this.baseUrl}/public/product-offer-flash/get-product-offer-flash-all`, options).pipe(take(1));
   }
 
   getAllByTagProductBy(userId: string, token: string, hourFlashOffer: string, tagProduct: string, pageNumber: number){
@@ -56,6 +56,6 @@ export class ProductsOfferFlashService {
     // console.log(options);
 
 
-    return this._http.get<ResultData>(`/api/product-offer-flash/get-all-by-tag-product/${hourFlashOffer}/${tagProduct}/${pageNumber}/10`, options).pipe(take(1));
+    return this._http.get<ResultData>(`${this.baseUrl}/product-offer-flash/get-all-by-tag-product/${hourFlashOffer}/${tagProduct}/${pageNumber}/10`, options).pipe(take(1));
   }
 }

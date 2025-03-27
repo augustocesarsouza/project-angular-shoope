@@ -9,11 +9,11 @@ export class UpdateNumberUrlMyAccountService {
 
   numberUrl$ = this.numberUrl.asObservable();
 
-   updateImgUser(number: number) {
-   this.numberUrl.next(number);
-   }
+  updateImgUser(number: number) {
+  this.numberUrl.next(number);
+  }
 
-   get currentUser(): number | null {
-   return this.numberUrl.getValue();
-   }
+  get currentUser(): number | null {
+  return this.numberUrl.getValue();
+  }
 }

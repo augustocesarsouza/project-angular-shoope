@@ -12,7 +12,7 @@ export interface ResultData {
   providedIn: 'root'
 })
 export class PromotionUserService {
-  private baseUrl = environment.BASE_URL;
+  private baseUrl = environment.BASE_URL || '/api';
 
   constructor(private _http: HttpClient) { }
 
@@ -30,6 +30,6 @@ export class PromotionUserService {
     // console.log(options);
 
 
-    return this._http.get<ResultData>(`/api/public/promotion-user/get-by-user-id-all-to-promotion-user/${userId}`, options).pipe(take(1));
+    return this._http.get<ResultData>(`${this.baseUrl}/public/promotion-user/get-by-user-id-all-to-promotion-user/${userId}`, options).pipe(take(1));
   }
 }

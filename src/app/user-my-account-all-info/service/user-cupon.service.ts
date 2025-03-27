@@ -12,7 +12,7 @@ export interface ResultData {
   providedIn: 'root'
 })
 export class UserCuponService {
-  private baseUrl = environment.BASE_URL;
+  private baseUrl = environment.BASE_URL || '/api';
 
   constructor(private _http: HttpClient) { }
 
@@ -30,6 +30,6 @@ export class UserCuponService {
     // console.log(options);
 
 
-    return this._http.get<ResultData>(`/api/user-cupon/get-all-cupon-by-user-id/${userId}`, options).pipe(take(1));
+    return this._http.get<ResultData>(`${this.baseUrl}/user-cupon/get-all-cupon-by-user-id/${userId}`, options).pipe(take(1));
   }
 }

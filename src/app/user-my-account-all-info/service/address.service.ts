@@ -16,7 +16,7 @@ export interface ResultDataArray {
   providedIn: 'root'
 })
 export class AddressService {
-  private baseUrl = environment.BASE_URL;
+  private baseUrl = environment.BASE_URL || '/api';
 
   constructor(private _http: HttpClient) { }
 
@@ -34,7 +34,7 @@ export class AddressService {
     // console.log(options);
 
 
-    return this._http.get<ResultDataArray>(`/api/address/get-address-by-user-id/${userId}`, options).pipe(take(1));
+    return this._http.get<ResultDataArray>(`${this.baseUrl}/address/get-address-by-user-id/${userId}`, options).pipe(take(1));
   }
 
   createAddress(address: unknown){
@@ -50,7 +50,7 @@ export class AddressService {
     // console.log(options);
 
 
-    return this._http.post<ResultData>(`/api/public/address/create`, address, options).pipe(take(1));
+    return this._http.post<ResultData>(`${this.baseUrl}/public/address/create`, address, options).pipe(take(1));
   }
 
   updateAddress(address: unknown){
@@ -66,7 +66,7 @@ export class AddressService {
     // console.log(options);
 
 
-    return this._http.put<ResultData>(`/api/public/address/update`, address, options).pipe(take(1));
+    return this._http.put<ResultData>(`${this.baseUrl}/public/address/update`, address, options).pipe(take(1));
   }
 
   updateAddressDefault(address: unknown){
@@ -82,7 +82,7 @@ export class AddressService {
     // console.log(options);
 
 
-    return this._http.put<ResultData>(`/api/public/address/update-only-default-address`, address, options).pipe(take(1));
+    return this._http.put<ResultData>(`${this.baseUrl}/public/address/update-only-default-address`, address, options).pipe(take(1));
   }
 
   deleteAddress(addressId: string){
@@ -98,6 +98,6 @@ export class AddressService {
     // console.log(options);
 
 
-    return this._http.delete<ResultData>(`/api/public/address/delete/${addressId}`, options).pipe(take(1));
+    return this._http.delete<ResultData>(`${this.baseUrl}/public/address/delete/${addressId}`, options).pipe(take(1));
   }
 }

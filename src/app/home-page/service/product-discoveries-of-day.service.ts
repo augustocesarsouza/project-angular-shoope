@@ -12,7 +12,7 @@ export interface ResultData {
   providedIn: 'root'
 })
 export class ProductDiscoveriesOfDayService {
-  private baseUrl = environment.BASE_URL;
+  private baseUrl = environment.BASE_URL || '/api';
 
   constructor(private _http: HttpClient) { }
 
@@ -34,6 +34,6 @@ export class ProductDiscoveriesOfDayService {
     // console.log(options);
 
 
-    return this._http.get<ResultData>(`/api/product-discoveries-of-day/get-all-product-discoveries-of-day`, options).pipe(take(1));
+    return this._http.get<ResultData>(`${this.baseUrl}/product-discoveries-of-day/get-all-product-discoveries-of-day`, options).pipe(take(1));
   }
 }

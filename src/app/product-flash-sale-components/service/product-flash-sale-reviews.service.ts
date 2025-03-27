@@ -12,7 +12,8 @@ export interface ResultData {
   providedIn: 'root'
 })
 export class ProductFlashSaleReviewsService {
-  private baseUrl = environment.BASE_URL;
+  private baseUrl = environment.BASE_URL || '/api';
+
   constructor(private _http: HttpClient) { }
 
   GetAllProductFlashSaleReviewsByProductsOfferFlashId(productOfferFlashId: string, userId: string, token: string){
@@ -29,6 +30,6 @@ export class ProductFlashSaleReviewsService {
     // console.log(options);
 
 
-    return this._http.get<ResultData>(`/api/product-flash-sale-reviews/get-all-product-flash-sale-reviews-by-product-flash-sale-id/${productOfferFlashId}`, options).pipe(take(1));
+    return this._http.get<ResultData>(`${this.baseUrl}/product-flash-sale-reviews/get-all-product-flash-sale-reviews-by-product-flash-sale-id/${productOfferFlashId}`, options).pipe(take(1));
   }
 }

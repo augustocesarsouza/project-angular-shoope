@@ -15,7 +15,7 @@ export class AddressComponent implements OnInit {
   user!: User;
 
   newAddress = false;
-  address: Address | null = null;
+  // address: Address | null = null;
   addressArray: Address[] = [];
   addressEdit: Address | null = null;
 

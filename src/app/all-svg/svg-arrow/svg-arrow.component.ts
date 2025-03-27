@@ -10,5 +10,4 @@ export class SvgArrowComponent {
   @Input() height = '10px';
   @Input() fill = 'white';
   @Input() rotate = 'rotate(0)';
-
 }

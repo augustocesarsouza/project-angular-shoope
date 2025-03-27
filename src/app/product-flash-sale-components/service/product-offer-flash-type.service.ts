@@ -12,7 +12,7 @@ export interface ResultData {
   providedIn: 'root'
 })
 export class ProductOfferFlashTypeService {
-  private baseUrl = environment.BASE_URL;
+  private baseUrl = environment.BASE_URL || '/api';
 
   constructor(private _http: HttpClient) { }
 
@@ -30,6 +30,6 @@ export class ProductOfferFlashTypeService {
     // console.log(options);
 
 
-    return this._http.get<ResultData>(`/api/product-offer-flash-type/get-all-product-offer-flash-type-by-products-offer-flash-id/${productOfferFlashId}`, options).pipe(take(1));
+    return this._http.get<ResultData>(`${this.baseUrl}/product-offer-flash-type/get-all-product-offer-flash-type-by-products-offer-flash-id/${productOfferFlashId}`, options).pipe(take(1));
   }
 }

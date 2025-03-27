@@ -12,7 +12,7 @@ export interface ResultData {
   providedIn: 'root'
 })
 export class CategoriesService {
-  private baseUrl = environment.BASE_URL;
+  private baseUrl = environment.BASE_URL || '/api';
 
   constructor(private _http: HttpClient) { }
 
@@ -34,6 +34,7 @@ export class CategoriesService {
     // console.log(options);
 
 
-    return this._http.get<ResultData>(`/api/categories/get-all-categories`, options).pipe(take(1));
+    // return this._http.get<ResultData>(`/api/categories/get-all-categories`, options).pipe(take(1));
+    return this._http.get<ResultData>(`${this.baseUrl}/categories/get-all-categories`, options).pipe(take(1));
   }
 }
