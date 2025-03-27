@@ -1,9 +1,10 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-svg-cart',
-  templateUrl: './svg-cart.component.html',
-  styleUrl: './svg-cart.component.scss'
+    selector: 'app-svg-cart',
+    templateUrl: './svg-cart.component.html',
+    styleUrl: './svg-cart.component.scss',
+    standalone: false
 })
 export class SvgCartComponent {
   @Input() width: string = '10px';

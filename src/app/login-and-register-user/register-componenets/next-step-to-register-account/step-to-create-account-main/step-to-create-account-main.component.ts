@@ -1,9 +1,10 @@
 import { Component, Input, AfterViewInit } from '@angular/core';
 
 @Component({
-  selector: 'app-step-to-create-account-main',
-  templateUrl: './step-to-create-account-main.component.html',
-  styleUrl: './step-to-create-account-main.component.scss'
+    selector: 'app-step-to-create-account-main',
+    templateUrl: './step-to-create-account-main.component.html',
+    styleUrl: './step-to-create-account-main.component.scss',
+    standalone: false
 })
 export class StepToCreateAccountMainComponent implements AfterViewInit {
   @Input() valueNumberPhoneCreate!: string;

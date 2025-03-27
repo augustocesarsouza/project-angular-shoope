@@ -2,9 +2,10 @@ import {  Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-third-step-create-account',
-  templateUrl: './third-step-create-account.component.html',
-  styleUrl: './third-step-create-account.component.scss'
+    selector: 'app-third-step-create-account',
+    templateUrl: './third-step-create-account.component.html',
+    styleUrl: './third-step-create-account.component.scss',
+    standalone: false
 })
 export class ThirdStepCreateAccountComponent implements OnInit {
   @Input() valueNumberPhoneCreate!: string;

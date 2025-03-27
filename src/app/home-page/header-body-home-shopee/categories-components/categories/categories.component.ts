@@ -5,9 +5,10 @@ import { CategoriesService } from '../../../service/categories.service';
 import { UserLocalStorage } from '../../../../login-and-register-user/user-function/get-user-local-storage/user-local-storage';
 
 @Component({
-  selector: 'app-categories',
-  templateUrl: './categories.component.html',
-  styleUrl: './categories.component.scss'
+    selector: 'app-categories',
+    templateUrl: './categories.component.html',
+    styleUrl: './categories.component.scss',
+    standalone: false
 })
 export class CategoriesComponent implements OnInit, AfterViewInit {
   allCategory: Categories[] = [];

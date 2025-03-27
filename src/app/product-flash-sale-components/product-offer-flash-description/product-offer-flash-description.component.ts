@@ -5,9 +5,10 @@ import { Router } from '@angular/router';
 import { ProductOfferFlashDescription } from '../../login-and-register-user/interface/product-offer-flash-description';
 
 @Component({
-  selector: 'app-product-offer-flash-description',
-  templateUrl: './product-offer-flash-description.component.html',
-  styleUrl: './product-offer-flash-description.component.scss'
+    selector: 'app-product-offer-flash-description',
+    templateUrl: './product-offer-flash-description.component.html',
+    styleUrl: './product-offer-flash-description.component.scss',
+    standalone: false
 })
 export class ProductOfferFlashDescriptionComponent implements OnInit  {
   @Input() user!: User;

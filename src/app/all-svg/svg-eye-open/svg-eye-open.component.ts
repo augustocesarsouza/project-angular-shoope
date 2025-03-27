@@ -1,9 +1,10 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-svg-eye-open',
-  templateUrl: './svg-eye-open.component.html',
-  styleUrl: './svg-eye-open.component.scss'
+    selector: 'app-svg-eye-open',
+    templateUrl: './svg-eye-open.component.html',
+    styleUrl: './svg-eye-open.component.scss',
+    standalone: false
 })
 export class SvgEyeOpenComponent {
   @Input() width = '10px';

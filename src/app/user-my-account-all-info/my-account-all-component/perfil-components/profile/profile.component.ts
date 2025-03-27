@@ -7,9 +7,10 @@ import { Subscription } from 'rxjs';
 import { UpdateNumberUrlMyAccountService } from '../../../../login-and-register-user/service/update-number-url-my-account.service';
 
 @Component({
-  selector: 'app-profile',
-  templateUrl: './profile.component.html',
-  styleUrl: './profile.component.scss'
+    selector: 'app-profile',
+    templateUrl: './profile.component.html',
+    styleUrl: './profile.component.scss',
+    standalone: false
 })
 export class ProfileComponent implements OnInit, AfterViewInit, OnDestroy {
   userObjState!: User | null;

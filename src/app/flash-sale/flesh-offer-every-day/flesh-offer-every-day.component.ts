@@ -2,9 +2,10 @@ import { AfterViewInit, Component, ElementRef, Input, QueryList, ViewChild, View
 import { ObjTime } from '../../home-page/header-body-home-shopee/home-body-main/home-body-main.component';
 
 @Component({
-  selector: 'app-flesh-offer-every-day',
-  templateUrl: './flesh-offer-every-day.component.html',
-  styleUrl: './flesh-offer-every-day.component.scss'
+    selector: 'app-flesh-offer-every-day',
+    templateUrl: './flesh-offer-every-day.component.html',
+    styleUrl: './flesh-offer-every-day.component.scss',
+    standalone: false
 })
 export class FleshOfferEveryDayComponent implements AfterViewInit {
   @Input() allHoursFleshOffers!: ObjTime[];

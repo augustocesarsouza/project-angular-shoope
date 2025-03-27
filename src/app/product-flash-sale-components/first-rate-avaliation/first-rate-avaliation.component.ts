@@ -2,9 +2,10 @@ import { Component, Input } from '@angular/core';
 import { FlashSaleProductAllInfo } from '../../login-and-register-user/interface/flash-sale-product-all-info';
 
 @Component({
-  selector: 'app-first-rate-avaliation',
-  templateUrl: './first-rate-avaliation.component.html',
-  styleUrl: './first-rate-avaliation.component.scss'
+    selector: 'app-first-rate-avaliation',
+    templateUrl: './first-rate-avaliation.component.html',
+    styleUrl: './first-rate-avaliation.component.scss',
+    standalone: false
 })
 export class FirstRateAvaliationComponent {
   @Input() getFlashSaleProduct!: FlashSaleProductAllInfo;

@@ -4,9 +4,10 @@ import { User } from '../../login-and-register-user/interface/user';
 import { UserLocalStorage } from '../../login-and-register-user/user-function/get-user-local-storage/user-local-storage';
 
 @Component({
-  selector: 'app-header-first',
-  templateUrl: './header-first.component.html',
-  styleUrl: './header-first.component.scss'
+    selector: 'app-header-first',
+    templateUrl: './header-first.component.html',
+    styleUrl: './header-first.component.scss',
+    standalone: false
 })
 export class HeaderFirstComponent implements OnInit, OnDestroy {
   showContainerDownloadAppFloating = false;

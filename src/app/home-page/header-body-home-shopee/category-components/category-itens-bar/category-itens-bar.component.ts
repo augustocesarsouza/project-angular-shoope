@@ -7,9 +7,10 @@ interface Category {
 }
 
 @Component({
-  selector: 'app-category-itens-bar',
-  templateUrl: './category-itens-bar.component.html',
-  styleUrl: './category-itens-bar.component.scss'
+    selector: 'app-category-itens-bar',
+    templateUrl: './category-itens-bar.component.html',
+    styleUrl: './category-itens-bar.component.scss',
+    standalone: false
 })
 export class CategoryItensBarComponent implements OnInit {
   allCategory: Category[] = [];

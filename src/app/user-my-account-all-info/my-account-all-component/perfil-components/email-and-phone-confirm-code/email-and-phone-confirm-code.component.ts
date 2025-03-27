@@ -7,9 +7,10 @@ import { ObjCodeUserPhoneToRegisterAccountService } from '../../../../login-and-
 import { Subscription } from 'rxjs';
 
 @Component({
-  selector: 'app-email-and-phone-confirm-code',
-  templateUrl: './email-and-phone-confirm-code.component.html',
-  styleUrl: './email-and-phone-confirm-code.component.scss',
+    selector: 'app-email-and-phone-confirm-code',
+    templateUrl: './email-and-phone-confirm-code.component.html',
+    styleUrl: './email-and-phone-confirm-code.component.scss',
+    standalone: false
 })
 export class EmailAndPhoneConfirmCodeComponent implements OnInit, AfterViewInit {
   emailThatWasSent: string | null = null;

@@ -6,9 +6,10 @@ import { ProductFlashSaleReview } from '../../login-and-register-user/interface/
 import { FlashSaleProductAllInfo } from '../../login-and-register-user/interface/flash-sale-product-all-info';
 
 @Component({
-  selector: 'app-product-flesh-sale-reviews',
-  templateUrl: './product-flesh-sale-reviews.component.html',
-  styleUrl: './product-flesh-sale-reviews.component.scss'
+    selector: 'app-product-flesh-sale-reviews',
+    templateUrl: './product-flesh-sale-reviews.component.html',
+    styleUrl: './product-flesh-sale-reviews.component.scss',
+    standalone: false
 })
 export class ProductFleshSaleReviewsComponent implements OnInit, AfterViewInit {
   @Input() user!: User;

@@ -1,9 +1,10 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-itens-icon',
-  templateUrl: './itens-icon.component.html',
-  styleUrl: './itens-icon.component.scss'
+    selector: 'app-itens-icon',
+    templateUrl: './itens-icon.component.html',
+    styleUrl: './itens-icon.component.scss',
+    standalone: false
 })
 export class ItensIconComponent {
   @Input() img = '';

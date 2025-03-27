@@ -3,9 +3,10 @@ import { CuponRecommendedProps } from '../my-cupons/my-cupons.component';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-cupon-recommended',
-  templateUrl: './cupon-recommended.component.html',
-  styleUrl: './cupon-recommended.component.scss'
+    selector: 'app-cupon-recommended',
+    templateUrl: './cupon-recommended.component.html',
+    styleUrl: './cupon-recommended.component.scss',
+    standalone: false
 })
 export class CuponRecommendedComponent implements OnInit {
   @Input() obj!: CuponRecommendedProps;

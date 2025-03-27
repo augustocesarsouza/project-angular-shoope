@@ -10,9 +10,10 @@ import { UpdateImgProductFlashSaleTypeService } from '../service/update-img-prod
 import { Subscription } from 'rxjs';
 
 @Component({
-  selector: 'app-product-flash-sale-first-part',
-  templateUrl: './product-flash-sale-first-part.component.html',
-  styleUrl: './product-flash-sale-first-part.component.scss'
+    selector: 'app-product-flash-sale-first-part',
+    templateUrl: './product-flash-sale-first-part.component.html',
+    styleUrl: './product-flash-sale-first-part.component.scss',
+    standalone: false
 })
 export class ProductFlashSaleFirstPartComponent implements OnInit, AfterViewInit, OnDestroy {
   @Input() getFlashSaleProduct!: FlashSaleProductAllInfo;

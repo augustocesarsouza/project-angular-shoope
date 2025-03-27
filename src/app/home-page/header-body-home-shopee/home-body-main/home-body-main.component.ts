@@ -14,9 +14,10 @@ export interface ObjTime {
 }
 
 @Component({
-  selector: 'app-home-body-main',
-  templateUrl: './home-body-main.component.html',
-  styleUrl: './home-body-main.component.scss'
+    selector: 'app-home-body-main',
+    templateUrl: './home-body-main.component.html',
+    styleUrl: './home-body-main.component.scss',
+    standalone: false
 })
 export class HomeBodyMainComponent implements OnInit {
   objTimeFlashDeals: ObjTimeFleshOffer | null = null;

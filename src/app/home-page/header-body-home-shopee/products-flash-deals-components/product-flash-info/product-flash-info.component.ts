@@ -3,9 +3,10 @@ import { ProductFlashDeals } from '../../../../login-and-register-user/interface
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-product-flash-info',
-  templateUrl: './product-flash-info.component.html',
-  styleUrl: './product-flash-info.component.scss'
+    selector: 'app-product-flash-info',
+    templateUrl: './product-flash-info.component.html',
+    styleUrl: './product-flash-info.component.scss',
+    standalone: false
 })
 export class ProductFlashInfoComponent implements OnInit {
   @Input() product!: ProductFlashDeals;

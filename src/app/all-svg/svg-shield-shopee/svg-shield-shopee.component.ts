@@ -1,9 +1,10 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-svg-shield-shopee',
-  templateUrl: './svg-shield-shopee.component.html',
-  styleUrl: './svg-shield-shopee.component.scss'
+    selector: 'app-svg-shield-shopee',
+    templateUrl: './svg-shield-shopee.component.html',
+    styleUrl: './svg-shield-shopee.component.scss',
+    standalone: false
 })
 export class SvgShieldShopeeComponent {
   @Input() width = '10px';

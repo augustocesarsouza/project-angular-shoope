@@ -1,9 +1,10 @@
 import { AfterViewInit, Component, ElementRef, QueryList, ViewChildren } from '@angular/core';
 
 @Component({
-  selector: 'app-purchase-components',
-  templateUrl: './purchase-components.component.html',
-  styleUrl: './purchase-components.component.scss'
+    selector: 'app-purchase-components',
+    templateUrl: './purchase-components.component.html',
+    styleUrl: './purchase-components.component.scss',
+    standalone: false
 })
 export class PurchaseComponentsComponent implements AfterViewInit {
   whichWasClickedTopLayer = "1";

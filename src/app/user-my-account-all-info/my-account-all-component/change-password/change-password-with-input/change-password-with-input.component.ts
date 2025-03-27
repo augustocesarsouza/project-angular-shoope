@@ -6,9 +6,10 @@ import {  ChangePassword, UserService } from '../../../../login-and-register-use
 import { UpdateNumberUrlMyAccountService } from '../../../../login-and-register-user/service/update-number-url-my-account.service';
 
 @Component({
-  selector: 'app-change-password-with-input',
-  templateUrl: './change-password-with-input.component.html',
-  styleUrl: './change-password-with-input.component.scss'
+    selector: 'app-change-password-with-input',
+    templateUrl: './change-password-with-input.component.html',
+    styleUrl: './change-password-with-input.component.scss',
+    standalone: false
 })
 export class ChangePasswordWithInputComponent implements OnInit, OnDestroy {
   userObjState!: User | null;

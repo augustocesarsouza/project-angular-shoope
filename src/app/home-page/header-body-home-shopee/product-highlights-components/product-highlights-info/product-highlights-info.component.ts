@@ -4,9 +4,10 @@ import { Router } from '@angular/router';
 import { GetDiscoveriesOfTheDayIsOutOfViewService } from '../../../service/get-discoveries-of-the-day-is-out-of-view.service';
 
 @Component({
-  selector: 'app-product-highlights-info',
-  templateUrl: './product-highlights-info.component.html',
-  styleUrl: './product-highlights-info.component.scss'
+    selector: 'app-product-highlights-info',
+    templateUrl: './product-highlights-info.component.html',
+    styleUrl: './product-highlights-info.component.scss',
+    standalone: false
 })
 export class ProductHighlightsInfoComponent implements OnInit, AfterViewInit {
   @Input() product!: ProductHighlight;

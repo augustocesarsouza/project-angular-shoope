@@ -6,9 +6,10 @@ import { Address } from '../../../../login-and-register-user/interface/address';
 import { AddressService } from '../../../service/address.service';
 
 @Component({
-  selector: 'app-address',
-  templateUrl: './address.component.html',
-  styleUrl: './address.component.scss'
+    selector: 'app-address',
+    templateUrl: './address.component.html',
+    styleUrl: './address.component.scss',
+    standalone: false
 })
 export class AddressComponent implements OnInit {
   token: string | null = null;

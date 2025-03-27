@@ -4,9 +4,10 @@ import { functionForPriceMainWithDiscount, functionForPriceOriginal, functionTit
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-product-flash-offer',
-  templateUrl: './product-flash-offer.component.html',
-  styleUrl: './product-flash-offer.component.scss'
+    selector: 'app-product-flash-offer',
+    templateUrl: './product-flash-offer.component.html',
+    styleUrl: './product-flash-offer.component.scss',
+    standalone: false
 })
 export class ProductFlashOfferComponent implements OnDestroy, OnChanges {
   // getAllProductHourProps: ProductFlashDeals[] = [];

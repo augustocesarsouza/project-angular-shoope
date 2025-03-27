@@ -15,10 +15,11 @@ interface UserToLocalStorage {
   token: string;
 }
 
-@Component({ // VERIFICAR AS OUTRAS VALIDAÇÃO DO MEU PERFIL O RESTO QUE FALTA DO "FORMULARIO" JÁ FIZ, Nome de Usuario
-  selector: 'app-perfil',
-  templateUrl: './perfil.component.html',
-  styleUrl: './perfil.component.scss'
+@Component({
+    selector: 'app-perfil',
+    templateUrl: './perfil.component.html',
+    styleUrl: './perfil.component.scss',
+    standalone: false
 })
 export class PerfilComponent implements OnInit, AfterViewInit, OnDestroy {
   userObjState!: User | null;

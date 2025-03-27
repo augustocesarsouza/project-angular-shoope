@@ -3,9 +3,10 @@ import { ProductFlashDeals } from '../../../../login-and-register-user/interface
 import { ProductsOfferFlashService } from '../../../service/products-offer-flash.service';
 
 @Component({
-  selector: 'app-product-flash-deals',
-  templateUrl: './product-flash-deals.component.html',
-  styleUrl: './product-flash-deals.component.scss'
+    selector: 'app-product-flash-deals',
+    templateUrl: './product-flash-deals.component.html',
+    styleUrl: './product-flash-deals.component.scss',
+    standalone: false
 })
 export class ProductFlashDealsComponent implements OnInit, AfterViewInit {
   allProductFlashDeals!: ProductFlashDeals[];

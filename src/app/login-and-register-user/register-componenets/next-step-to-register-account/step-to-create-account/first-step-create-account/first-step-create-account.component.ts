@@ -3,9 +3,10 @@ import { ObjCodeUserPhoneToRegisterAccountService } from '../../../../service/ob
 import { Subscription } from 'rxjs';
 
 @Component({
-  selector: 'app-first-step-create-account',
-  templateUrl: './first-step-create-account.component.html',
-  styleUrl: './first-step-create-account.component.scss'
+    selector: 'app-first-step-create-account',
+    templateUrl: './first-step-create-account.component.html',
+    styleUrl: './first-step-create-account.component.scss',
+    standalone: false
 })
 export class FirstStepCreateAccountComponent implements AfterViewInit, OnDestroy {
   @Input() changeValueStepIsNow!: (value: number) => void;

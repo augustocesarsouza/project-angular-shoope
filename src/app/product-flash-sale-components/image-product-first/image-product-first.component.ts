@@ -2,9 +2,10 @@ import { Component, Input } from '@angular/core';
 import { FlashSaleProductAllInfo } from '../../login-and-register-user/interface/flash-sale-product-all-info';
 
 @Component({
-  selector: 'app-image-product-first',
-  templateUrl: './image-product-first.component.html',
-  styleUrl: './image-product-first.component.scss'
+    selector: 'app-image-product-first',
+    templateUrl: './image-product-first.component.html',
+    styleUrl: './image-product-first.component.scss',
+    standalone: false
 })
 export class ImageProductFirstComponent {
   @Input() productImgMain!: string;

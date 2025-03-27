@@ -7,9 +7,10 @@ interface TimeLeftProps {
 }
 
 @Component({
-  selector: 'app-flash-deals-and-countdown',
-  templateUrl: './flash-deals-and-countdown.component.html',
-  styleUrl: './flash-deals-and-countdown.component.scss'
+    selector: 'app-flash-deals-and-countdown',
+    templateUrl: './flash-deals-and-countdown.component.html',
+    styleUrl: './flash-deals-and-countdown.component.scss',
+    standalone: false
 })
 export class FlashDealsAndCountdownComponent implements OnInit, OnDestroy {
   @Input() hours!: number;

@@ -9,9 +9,10 @@ import { UserService } from '../../../../login-and-register-user/service/user.se
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
-  selector: 'app-fill-cpf-and-birth-date',
-  templateUrl: './fill-cpf-and-birth-date.component.html',
-  styleUrl: './fill-cpf-and-birth-date.component.scss'
+    selector: 'app-fill-cpf-and-birth-date',
+    templateUrl: './fill-cpf-and-birth-date.component.html',
+    styleUrl: './fill-cpf-and-birth-date.component.scss',
+    standalone: false
 })
 export class FillCpfAndBirthDateComponent implements AfterViewInit, OnInit {
   user!: User | null;

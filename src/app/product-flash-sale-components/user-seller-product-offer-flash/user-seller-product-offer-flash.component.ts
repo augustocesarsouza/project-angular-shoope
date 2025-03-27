@@ -8,9 +8,10 @@ import { ptBR } from 'date-fns/locale';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-user-seller-product-offer-flash',
-  templateUrl: './user-seller-product-offer-flash.component.html',
-  styleUrl: './user-seller-product-offer-flash.component.scss'
+    selector: 'app-user-seller-product-offer-flash',
+    templateUrl: './user-seller-product-offer-flash.component.html',
+    styleUrl: './user-seller-product-offer-flash.component.scss',
+    standalone: false
 })
 export class UserSellerProductOfferFlashComponent implements OnInit {
   @Input() user!: User;

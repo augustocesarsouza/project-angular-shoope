@@ -1,9 +1,10 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-language-floating',
-  templateUrl: './language-floating.component.html',
-  styleUrl: './language-floating.component.scss'
+    selector: 'app-language-floating',
+    templateUrl: './language-floating.component.html',
+    styleUrl: './language-floating.component.scss',
+    standalone: false
 })
 export class LanguageFloatingComponent {
   @Input() handleShowContainerLenguage!: (newValue: boolean) => void;

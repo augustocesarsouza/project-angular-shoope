@@ -5,9 +5,10 @@ import { ProductOfferFlashDetailsService } from '../service/product-offer-flash-
 import { ProductOfferFlashDetails } from '../../login-and-register-user/interface/product-offer-flash-details';
 
 @Component({
-  selector: 'app-product-offer-flash-details',
-  templateUrl: './product-offer-flash-details.component.html',
-  styleUrl: './product-offer-flash-details.component.scss'
+    selector: 'app-product-offer-flash-details',
+    templateUrl: './product-offer-flash-details.component.html',
+    styleUrl: './product-offer-flash-details.component.scss',
+    standalone: false
 })
 export class ProductOfferFlashDetailsComponent implements OnInit {
   @Input() user!: User;

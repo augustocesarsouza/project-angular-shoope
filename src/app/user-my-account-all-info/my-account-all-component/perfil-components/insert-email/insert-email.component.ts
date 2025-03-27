@@ -5,9 +5,10 @@ import {   CodeSendEmailUserValidator, UserService } from '../../../../login-and
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-insert-email',
-  templateUrl: './insert-email.component.html',
-  styleUrl: './insert-email.component.scss'
+    selector: 'app-insert-email',
+    templateUrl: './insert-email.component.html',
+    styleUrl: './insert-email.component.scss',
+    standalone: false
 })
 export class InsertEmailComponent implements OnInit {
   canClickSendCodeEmail = false;

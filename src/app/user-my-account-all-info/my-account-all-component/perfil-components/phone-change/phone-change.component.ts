@@ -7,9 +7,10 @@ import { Router } from '@angular/router';
 import { ObjCodeUserPhoneToRegisterAccountService } from '../../../../login-and-register-user/service/obj-code-user-phone-to-register-account.service';
 
 @Component({
-  selector: 'app-phone-change',
-  templateUrl: './phone-change.component.html',
-  styleUrl: './phone-change.component.scss'
+    selector: 'app-phone-change',
+    templateUrl: './phone-change.component.html',
+    styleUrl: './phone-change.component.scss',
+    standalone: false
 })
 export class PhoneChangeComponent implements AfterViewInit, OnInit, OnDestroy {
   inputNumberPhone!: HTMLInputElement;

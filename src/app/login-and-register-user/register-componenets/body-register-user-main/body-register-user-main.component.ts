@@ -10,9 +10,10 @@ import { ObjCodeUserPhoneToRegisterAccountService } from '../../service/obj-code
 // }
 
 @Component({
-  selector: 'app-body-register-user-main',
-  templateUrl: './body-register-user-main.component.html',
-  styleUrl: './body-register-user-main.component.scss'
+    selector: 'app-body-register-user-main',
+    templateUrl: './body-register-user-main.component.html',
+    styleUrl: './body-register-user-main.component.scss',
+    standalone: false
 })
 export class BodyRegisterUserMainComponent implements AfterViewInit {
   buttonNext!: HTMLElement | null;

@@ -3,9 +3,10 @@ import { Router } from '@angular/router';
 import { UserService } from '../../../../service/user.service';
 
 @Component({
-  selector: 'app-second-step-create-account',
-  templateUrl: './second-step-create-account.component.html',
-  styleUrl: './second-step-create-account.component.scss'
+    selector: 'app-second-step-create-account',
+    templateUrl: './second-step-create-account.component.html',
+    styleUrl: './second-step-create-account.component.scss',
+    standalone: false
 })
 export class SecondStepCreateAccountComponent {
   @Input() changeValueStepIsNow!: (value: number) => void;

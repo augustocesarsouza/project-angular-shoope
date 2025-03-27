@@ -1,9 +1,10 @@
 import { Component, ElementRef, QueryList, ViewChild, ViewChildren } from '@angular/core';
 
 @Component({
-  selector: 'app-cookie',
-  templateUrl: './cookie.component.html',
-  styleUrl: './cookie.component.scss'
+    selector: 'app-cookie',
+    templateUrl: './cookie.component.html',
+    styleUrl: './cookie.component.scss',
+    standalone: false
 })
 export class CookieComponent {
   showArrowTop = false;

@@ -10,9 +10,10 @@ import { ProductOfferFlashType } from '../../login-and-register-user/interface/p
 import { objImgType, UpdateImgProductFlashSaleTypeService } from '../service/update-img-product-flash-sale-type.service';
 
 @Component({
-  selector: 'app-product-flash-sale-second-part',
-  templateUrl: './product-flash-sale-second-part.component.html',
-  styleUrl: './product-flash-sale-second-part.component.scss'
+    selector: 'app-product-flash-sale-second-part',
+    templateUrl: './product-flash-sale-second-part.component.html',
+    styleUrl: './product-flash-sale-second-part.component.scss',
+    standalone: false
 })
 export class ProductFlashSaleSecondPartComponent implements OnInit, OnDestroy {
   @Input() getFlashSaleProduct!: FlashSaleProductAllInfo;

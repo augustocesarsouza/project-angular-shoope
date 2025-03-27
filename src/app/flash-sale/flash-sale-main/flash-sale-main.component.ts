@@ -3,9 +3,10 @@ import { Router } from '@angular/router';
 import { ObjTimeFleshOffer } from '../../home-page/header-body-home-shopee/home-body-main/home-body-main.component';
 
 @Component({
-  selector: 'app-flash-sale-main',
-  templateUrl: './flash-sale-main.component.html',
-  styleUrl: './flash-sale-main.component.scss'
+    selector: 'app-flash-sale-main',
+    templateUrl: './flash-sale-main.component.html',
+    styleUrl: './flash-sale-main.component.scss',
+    standalone: false
 })
 export class FlashSaleMainComponent implements OnInit {
 

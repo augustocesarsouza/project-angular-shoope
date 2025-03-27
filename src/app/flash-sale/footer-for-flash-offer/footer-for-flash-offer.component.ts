@@ -1,9 +1,10 @@
 import { AfterViewInit, Component, ElementRef, Input, OnDestroy, ViewChild } from '@angular/core';
 
 @Component({
-  selector: 'app-footer-for-flash-offer',
-  templateUrl: './footer-for-flash-offer.component.html',
-  styleUrl: './footer-for-flash-offer.component.scss'
+    selector: 'app-footer-for-flash-offer',
+    templateUrl: './footer-for-flash-offer.component.html',
+    styleUrl: './footer-for-flash-offer.component.scss',
+    standalone: false
 })
 export class FooterForFlashOfferComponent implements AfterViewInit, OnDestroy {
   @ViewChild('containerFirstPart') containerFirstPart!: ElementRef<HTMLDivElement>;

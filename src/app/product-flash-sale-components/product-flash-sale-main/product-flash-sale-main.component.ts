@@ -6,9 +6,10 @@ import { FlashSaleProductAllInfoService } from '../service/flash-sale-product-al
 import { FlashSaleProductAllInfo } from '../../login-and-register-user/interface/flash-sale-product-all-info';
 
 @Component({
-  selector: 'app-product-flash-sale-main',
-  templateUrl: './product-flash-sale-main.component.html',
-  styleUrl: './product-flash-sale-main.component.scss'
+    selector: 'app-product-flash-sale-main',
+    templateUrl: './product-flash-sale-main.component.html',
+    styleUrl: './product-flash-sale-main.component.scss',
+    standalone: false
 })
 export class ProductFlashSaleMainComponent implements OnInit {
   productFlashSaleId!: string;

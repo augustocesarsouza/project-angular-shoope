@@ -8,9 +8,10 @@ import { ProductsOfferFlashService } from '../../home-page/service/products-offe
 import { ProductFlashDeals } from '../../login-and-register-user/interface/product-flash-deals';
 
 @Component({
-  selector: 'app-flesh-offer-every-day-and-hours',
-  templateUrl: './flesh-offer-every-day-and-hours.component.html',
-  styleUrl: './flesh-offer-every-day-and-hours.component.scss'
+    selector: 'app-flesh-offer-every-day-and-hours',
+    templateUrl: './flesh-offer-every-day-and-hours.component.html',
+    styleUrl: './flesh-offer-every-day-and-hours.component.scss',
+    standalone: false
 })
 export class FleshOfferEveryDayAndHoursComponent implements OnInit {
   constructor(private router: Router, private flashSaleCountdownService: FlashSaleCountdownService,

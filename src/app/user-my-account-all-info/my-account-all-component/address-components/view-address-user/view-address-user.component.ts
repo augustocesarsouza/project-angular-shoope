@@ -4,9 +4,10 @@ import { Router } from '@angular/router';
 import { AddressService } from '../../../service/address.service';
 
 @Component({
-  selector: 'app-view-address-user',
-  templateUrl: './view-address-user.component.html',
-  styleUrl: './view-address-user.component.scss'
+    selector: 'app-view-address-user',
+    templateUrl: './view-address-user.component.html',
+    styleUrl: './view-address-user.component.scss',
+    standalone: false
 })
 export class ViewAddressUserComponent {
   @Input() address!: Address[];

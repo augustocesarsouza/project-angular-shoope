@@ -5,9 +5,10 @@ import { Router } from '@angular/router';
 import { UserLocalStorage } from '../../../../login-and-register-user/user-function/get-user-local-storage/user-local-storage';
 
 @Component({
-  selector: 'app-change-email',
-  templateUrl: './change-email.component.html',
-  styleUrl: './change-email.component.scss'
+    selector: 'app-change-email',
+    templateUrl: './change-email.component.html',
+    styleUrl: './change-email.component.scss',
+    standalone: false
 })
 export class ChangeEmailComponent implements OnInit {
   canClickSendCodeEmail = false;

@@ -1,9 +1,10 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-code-is-wrong-x',
-  templateUrl: './code-is-wrong-x.component.html',
-  styleUrl: './code-is-wrong-x.component.scss'
+    selector: 'app-code-is-wrong-x',
+    templateUrl: './code-is-wrong-x.component.html',
+    styleUrl: './code-is-wrong-x.component.scss',
+    standalone: false
 })
 export class CodeIsWrongXComponent {
   @Input() width = '10px';

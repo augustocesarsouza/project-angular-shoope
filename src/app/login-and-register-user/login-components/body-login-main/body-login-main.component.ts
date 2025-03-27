@@ -20,9 +20,10 @@ interface UserDTOProps {
 }
 
 @Component({
-  selector: 'app-body-login-main',
-  templateUrl: './body-login-main.component.html',
-  styleUrl: './body-login-main.component.scss',
+    selector: 'app-body-login-main',
+    templateUrl: './body-login-main.component.html',
+    styleUrl: './body-login-main.component.scss',
+    standalone: false
 })
 export class BodyLoginMainComponent implements AfterViewInit, OnDestroy {
   showEyeOpen = false;

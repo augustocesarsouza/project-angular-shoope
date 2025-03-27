@@ -1,9 +1,10 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-svg-arrow-register',
-  templateUrl: './svg-arrow-register.component.html',
-  styleUrl: './svg-arrow-register.component.scss'
+    selector: 'app-svg-arrow-register',
+    templateUrl: './svg-arrow-register.component.html',
+    styleUrl: './svg-arrow-register.component.scss',
+    standalone: false
 })
 export class SvgArrowRegisterComponent {
   @Input() width = '10px';

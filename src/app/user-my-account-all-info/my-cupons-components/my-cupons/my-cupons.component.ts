@@ -24,9 +24,10 @@ export interface CuponRecommendedProps {
 }
 
 @Component({
-  selector: 'app-my-cupons',
-  templateUrl: './my-cupons.component.html',
-  styleUrl: './my-cupons.component.scss'
+    selector: 'app-my-cupons',
+    templateUrl: './my-cupons.component.html',
+    styleUrl: './my-cupons.component.scss',
+    standalone: false
 })
 export class MyCuponsComponent implements OnInit, OnDestroy {
   @ViewChild('buttonClaim') buttonClaim!: ElementRef<HTMLButtonElement>;

@@ -2,9 +2,10 @@ import { Component, Input } from '@angular/core';
 import { FlashSaleProductAllInfo } from '../../login-and-register-user/interface/flash-sale-product-all-info';
 
 @Component({
-  selector: 'app-comshare-main-last',
-  templateUrl: './comshare-main-last.component.html',
-  styleUrl: './comshare-main-last.component.scss'
+    selector: 'app-comshare-main-last',
+    templateUrl: './comshare-main-last.component.html',
+    styleUrl: './comshare-main-last.component.scss',
+    standalone: false
 })
 export class ComshareMainLastComponent {
   @Input() getFlashSaleProduct!: FlashSaleProductAllInfo;

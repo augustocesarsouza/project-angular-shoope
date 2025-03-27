@@ -3,9 +3,10 @@ import { UserLocalStorage } from '../../../../login-and-register-user/user-funct
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-card-back-accounts',
-  templateUrl: './card-back-accounts.component.html',
-  styleUrl: './card-back-accounts.component.scss'
+    selector: 'app-card-back-accounts',
+    templateUrl: './card-back-accounts.component.html',
+    styleUrl: './card-back-accounts.component.scss',
+    standalone: false
 })
 export class CardBackAccountsComponent implements OnInit {
   token: string | null = null;

@@ -1,9 +1,10 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-svg-notification',
-  templateUrl: './svg-notification.component.html',
-  styleUrl: './svg-notification.component.scss'
+    selector: 'app-svg-notification',
+    templateUrl: './svg-notification.component.html',
+    styleUrl: './svg-notification.component.scss',
+    standalone: false
 })
 export class SvgNotificationComponent {
   @Input() width = '10px';

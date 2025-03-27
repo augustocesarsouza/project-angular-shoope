@@ -9,9 +9,10 @@ interface allLikesReviews {
 }
 
 @Component({
-  selector: 'app-each-reviews-inner',
-  templateUrl: './each-reviews-inner.component.html',
-  styleUrl: './each-reviews-inner.component.scss'
+    selector: 'app-each-reviews-inner',
+    templateUrl: './each-reviews-inner.component.html',
+    styleUrl: './each-reviews-inner.component.scss',
+    standalone: false
 })
 export class EachReviewsInnerComponent implements OnInit, AfterViewInit, OnDestroy {
   @Input() product!: ProductFlashSaleReview;

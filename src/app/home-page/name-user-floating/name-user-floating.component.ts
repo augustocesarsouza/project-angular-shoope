@@ -2,9 +2,10 @@ import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-name-user-floating',
-  templateUrl: './name-user-floating.component.html',
-  styleUrl: './name-user-floating.component.scss'
+    selector: 'app-name-user-floating',
+    templateUrl: './name-user-floating.component.html',
+    styleUrl: './name-user-floating.component.scss',
+    standalone: false
 })
 export class NameUserFloatingComponent {
   @Input() handleShowContainerNameUser!: (newValue: boolean) => void;

@@ -5,9 +5,10 @@ import { ProductHighlight } from '../../../../login-and-register-user/interface/
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-product-highlights-for-you',
-  templateUrl: './product-highlights-for-you.component.html',
-  styleUrl: './product-highlights-for-you.component.scss'
+    selector: 'app-product-highlights-for-you',
+    templateUrl: './product-highlights-for-you.component.html',
+    styleUrl: './product-highlights-for-you.component.scss',
+    standalone: false
 })
 export class ProductHighlightsForYouComponent implements OnInit, AfterViewInit {
   allProductHighlight!: ProductHighlight[];

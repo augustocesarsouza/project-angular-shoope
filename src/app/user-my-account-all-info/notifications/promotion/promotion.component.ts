@@ -6,9 +6,10 @@ import { Router } from '@angular/router';
 import { PromotionUser } from '../../../login-and-register-user/interface/promotion-user';
 
 @Component({
-  selector: 'app-promotion',
-  templateUrl: './promotion.component.html',
-  styleUrl: './promotion.component.scss'
+    selector: 'app-promotion',
+    templateUrl: './promotion.component.html',
+    styleUrl: './promotion.component.scss',
+    standalone: false
 })
 export class PromotionComponent implements OnInit {
   userObjState!: User | null;

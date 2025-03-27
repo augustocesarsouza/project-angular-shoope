@@ -1,9 +1,10 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-svg-shoope',
-  templateUrl: './svg-shoope.component.html',
-  styleUrl: './svg-shoope.component.scss'
+    selector: 'app-svg-shoope',
+    templateUrl: './svg-shoope.component.html',
+    styleUrl: './svg-shoope.component.scss',
+    standalone: false
 })
 export class SvgShoopeComponent {
   @Input() width = '10px';

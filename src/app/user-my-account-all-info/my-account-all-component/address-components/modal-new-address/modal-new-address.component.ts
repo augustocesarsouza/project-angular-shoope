@@ -23,9 +23,10 @@ interface AddressCep {
 }
 
 @Component({
-  selector: 'app-modal-new-address',
-  templateUrl: './modal-new-address.component.html',
-  styleUrl: './modal-new-address.component.scss'
+    selector: 'app-modal-new-address',
+    templateUrl: './modal-new-address.component.html',
+    styleUrl: './modal-new-address.component.scss',
+    standalone: false
 })
 export class ModalNewAddressComponent implements OnInit, AfterViewInit, OnDestroy {
   token: string | null = null;

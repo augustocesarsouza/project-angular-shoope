@@ -6,9 +6,10 @@ import { Router } from '@angular/router';
 import { ShopeeUpdateUser } from '../../../login-and-register-user/interface/shopee-update-user';
 
 @Component({
-  selector: 'app-shopee-updates',
-  templateUrl: './shopee-updates.component.html',
-  styleUrl: './shopee-updates.component.scss'
+    selector: 'app-shopee-updates',
+    templateUrl: './shopee-updates.component.html',
+    styleUrl: './shopee-updates.component.scss',
+    standalone: false
 })
 export class ShopeeUpdatesComponent implements OnInit {
   userObjState!: User | null;

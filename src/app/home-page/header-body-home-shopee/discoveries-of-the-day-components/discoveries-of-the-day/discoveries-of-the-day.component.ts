@@ -8,9 +8,10 @@ import { spanQuantitySold } from '../function-to-discoveries-of-the-day/function
 import { spanPrice } from '../function-to-discoveries-of-the-day/function-span-quantity-sold';
 
 @Component({
-  selector: 'app-discoveries-of-the-day',
-  templateUrl: './discoveries-of-the-day.component.html',
-  styleUrl: './discoveries-of-the-day.component.scss'
+    selector: 'app-discoveries-of-the-day',
+    templateUrl: './discoveries-of-the-day.component.html',
+    styleUrl: './discoveries-of-the-day.component.scss',
+    standalone: false
 })
 export class DiscoveriesOfTheDayComponent implements OnInit, AfterViewInit {
   productDiscoveriesOfTheDay: ProductDiscoveriesOfTheDay[] = [];

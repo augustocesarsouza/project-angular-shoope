@@ -1,9 +1,10 @@
 import { Component, HostBinding, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-svg-check',
-  templateUrl: './svg-check.component.html',
-  styleUrl: './svg-check.component.scss'
+    selector: 'app-svg-check',
+    templateUrl: './svg-check.component.html',
+    styleUrl: './svg-check.component.scss',
+    standalone: false
 })
 export class SvgCheckComponent {
   @Input() width = '10px';
