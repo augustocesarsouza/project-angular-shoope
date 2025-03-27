@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PerfilComponent } from './perfil.component';
 import { AllSvgModule } from '../../../../all-svg/all-svg.module';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { UserService } from '../../../../login-and-register-user/service/user.service';
 import { GetUserPerfilService } from '../../../../login-and-register-user/service/get-user-perfil.service';
 import { User } from '../../../../login-and-register-user/interface/user';
@@ -14,10 +14,10 @@ describe('PerfilComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [PerfilComponent],
-      imports: [AllSvgModule, HttpClientModule, RouterTestingModule],
-      providers: [UserService, GetUserPerfilService]
-    })
+    declarations: [PerfilComponent],
+    imports: [AllSvgModule, RouterTestingModule],
+    providers: [UserService, GetUserPerfilService, provideHttpClient(withInterceptorsFromDi())]
+})
     .compileComponents();
 
     fixture = TestBed.createComponent(PerfilComponent);

@@ -4,7 +4,7 @@ import { FlashSaleMainComponent } from './flash-sale-main.component';
 import { AllSvgModule } from '../../all-svg/all-svg.module';
 import { HeaderMainComponent } from '../../home-page/header-main/header-main.component';
 import { FleshOfferEveryDayAndHoursComponent } from '../flesh-offer-every-day-and-hours/flesh-offer-every-day-and-hours.component';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { RouterTestingModule } from '@angular/router/testing';
 import { HeaderFirstComponent } from '../../home-page/header-first/header-first.component';
 import { HeaderSecondComponent } from '../../home-page/header-second/header-second.component';
@@ -29,14 +29,15 @@ describe('FlashSaleMainComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [FlashSaleMainComponent, HeaderMainComponent, FleshOfferEveryDayAndHoursComponent, HeaderFirstComponent,
+    declarations: [FlashSaleMainComponent, HeaderMainComponent, FleshOfferEveryDayAndHoursComponent, HeaderFirstComponent,
         HeaderSecondComponent, DownloadAppFloatingComponent, NameUserFloatingComponent, LanguageFloatingComponent,
         NotificationFloatingComponent, CategoryToProductComponent, ProductFlashOfferComponent,
         FooterForFlashOfferComponent, FooterLoginAndRegisterComponent, CustomerServiceComponent, AboutShopeeComponent,
         PaymentComponent, FlashOfferAndCountdownComponent, FleshOfferEveryDayComponent
-      ],
-      imports: [HttpClientModule, RouterTestingModule, AllSvgModule, HeaderAndFooterForAllComponentsModule]
-    })
+    ],
+    imports: [RouterTestingModule, AllSvgModule, HeaderAndFooterForAllComponentsModule],
+    providers: [provideHttpClient(withInterceptorsFromDi())]
+})
     .compileComponents();
 
     fixture = TestBed.createComponent(FlashSaleMainComponent);

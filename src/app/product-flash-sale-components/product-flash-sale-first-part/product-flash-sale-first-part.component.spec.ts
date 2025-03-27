@@ -2,12 +2,13 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ProductFlashSaleFirstPartComponent } from './product-flash-sale-first-part.component';
 import { RouterTestingModule } from '@angular/router/testing';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { AllSvgModule } from '../../all-svg/all-svg.module';
 import { ProductOptionImageBottomService } from '../service/product-option-image-bottom.service';
 import { UpdateImgProductFlashSaleTypeService } from '../service/update-img-product-flash-sale-type.service';
 import { FlashSaleProductAllInfo } from '../../login-and-register-user/interface/flash-sale-product-all-info';
 import { of } from 'rxjs';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 describe('ProductFlashSaleFirstPartComponent', () => {
   let component: ProductFlashSaleFirstPartComponent;
@@ -52,17 +53,20 @@ describe('ProductFlashSaleFirstPartComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ProductFlashSaleFirstPartComponent],
-      imports: [AllSvgModule, HttpClientTestingModule, RouterTestingModule],
-      providers: [
+    declarations: [ProductFlashSaleFirstPartComponent],
+    imports: [AllSvgModule, RouterTestingModule],
+    providers: [
         {
-        provide: ProductOptionImageBottomService,
-        useValue: mockProductOptionImageBottomService
-      },
-      {
-        provide: UpdateImgProductFlashSaleTypeService,
-      }],
-    })
+            provide: ProductOptionImageBottomService,
+            useValue: mockProductOptionImageBottomService
+        },
+        {
+            provide: UpdateImgProductFlashSaleTypeService,
+        },
+        provideHttpClient(withInterceptorsFromDi()),
+        provideHttpClientTesting()
+    ]
+})
     .compileComponents();
 
     fixture = TestBed.createComponent(ProductFlashSaleFirstPartComponent);

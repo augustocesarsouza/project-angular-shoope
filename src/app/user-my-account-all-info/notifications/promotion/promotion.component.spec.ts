@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PromotionComponent } from './promotion.component';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { RouterTestingModule } from '@angular/router/testing';
 import { PromotionUser } from '../../../login-and-register-user/interface/promotion-user';
 import { Promotion } from '../../../login-and-register-user/interface/promotion';
@@ -57,9 +57,10 @@ describe('PromotionComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [PromotionComponent],
-      imports: [HttpClientModule, RouterTestingModule]
-    })
+    declarations: [PromotionComponent],
+    imports: [RouterTestingModule],
+    providers: [provideHttpClient(withInterceptorsFromDi())]
+})
     .compileComponents();
 
     fixture = TestBed.createComponent(PromotionComponent);

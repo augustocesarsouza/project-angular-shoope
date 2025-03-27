@@ -4,7 +4,7 @@ import { BrowserModule, provideClientHydration } from '@angular/platform-browser
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule, provideHttpClient, withFetch } from '@angular/common/http';
+import { provideHttpClient, withFetch, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { AllSvgModule } from './all-svg/all-svg.module';
 import { HomePageModule } from './home-page/home-page.module';
 import { ProductFlashSaleMainComponent } from './product-flash-sale-components/product-flash-sale-main/product-flash-sale-main.component';
@@ -23,37 +23,31 @@ import { UserCreatedProductInfoComponent } from './product-flash-sale-components
 import { ImageProductFirstComponent } from './product-flash-sale-components/image-product-first/image-product-first.component';
 import { ComshareMainLastComponent } from './product-flash-sale-components/comshare-main-last/comshare-main-last.component';
 
-@NgModule({
-  declarations: [
-    AppComponent,
-    ProductFlashSaleMainComponent,
-    ProductFlashSaleAllInfoComponent,
-    ProductFlashSaleFirstPartComponent,
-    ProductFlashSaleSecondPartComponent,
-    FlashSaleCountdownAfterClickedProductComponent,
-    UserSellerProductOfferFlashComponent,
-    ProductOfferFlashDetailsComponent,
-    ProductOfferFlashDescriptionComponent,
-    ProductFleshSaleReviewsComponent,
-    EachReviewsInnerComponent,
-    FirstRateAvaliationComponent,
-    CoinsCreditCardPriceProductComponent,
-    UserCreatedProductInfoComponent,
-    ImageProductFirstComponent,
-    ComshareMainLastComponent,
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    HttpClientModule,
-    AllSvgModule,
-    HomePageModule,
-  ],
-  providers: [
-    provideClientHydration(),
-    provideHttpClient(withFetch()),
-  ],
-  bootstrap: [AppComponent]
-})
+@NgModule({ declarations: [
+        AppComponent,
+        ProductFlashSaleMainComponent,
+        ProductFlashSaleAllInfoComponent,
+        ProductFlashSaleFirstPartComponent,
+        ProductFlashSaleSecondPartComponent,
+        FlashSaleCountdownAfterClickedProductComponent,
+        UserSellerProductOfferFlashComponent,
+        ProductOfferFlashDetailsComponent,
+        ProductOfferFlashDescriptionComponent,
+        ProductFleshSaleReviewsComponent,
+        EachReviewsInnerComponent,
+        FirstRateAvaliationComponent,
+        CoinsCreditCardPriceProductComponent,
+        UserCreatedProductInfoComponent,
+        ImageProductFirstComponent,
+        ComshareMainLastComponent,
+    ],
+    bootstrap: [AppComponent], imports: [BrowserModule,
+        AppRoutingModule,
+        FormsModule,
+        AllSvgModule,
+        HomePageModule], providers: [
+        provideClientHydration(),
+        provideHttpClient(withFetch()),
+        provideHttpClient(withInterceptorsFromDi()),
+    ] })
 export class AppModule { }

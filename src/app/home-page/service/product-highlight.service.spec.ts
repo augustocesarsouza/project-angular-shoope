@@ -1,16 +1,17 @@
 import { TestBed } from '@angular/core/testing';
 
 import { ProductHighlightService } from './product-highlight.service';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 describe('ProductHighlightService', () => {
   let service: ProductHighlightService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-          imports: [HttpClientTestingModule],
-          providers: [ProductHighlightService],
-        });
+    imports: [],
+    providers: [ProductHighlightService, provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting()]
+});
     service = TestBed.inject(ProductHighlightService);
   });
 

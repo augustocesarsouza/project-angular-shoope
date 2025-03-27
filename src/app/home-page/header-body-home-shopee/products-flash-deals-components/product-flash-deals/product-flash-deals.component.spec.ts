@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ProductFlashDealsComponent } from './product-flash-deals.component';
 import { RouterTestingModule } from '@angular/router/testing';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { ProductFlashInfoComponent } from '../product-flash-info/product-flash-info.component';
 import { ProductsOfferFlashService } from '../../../service/products-offer-flash.service';
 import { of } from 'rxjs';
@@ -40,12 +40,12 @@ describe('ProductFlashDealsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ProductFlashDealsComponent, ProductFlashInfoComponent],
-      providers: [{
-        provide: ProductsOfferFlashService, useValue: mockProductsOfferFlashService
-      }],
-      imports: [HttpClientModule, RouterTestingModule]
-    })
+    declarations: [ProductFlashDealsComponent, ProductFlashInfoComponent],
+    imports: [RouterTestingModule],
+    providers: [{
+            provide: ProductsOfferFlashService, useValue: mockProductsOfferFlashService
+        }, provideHttpClient(withInterceptorsFromDi())]
+})
     .compileComponents();
 
     fixture = TestBed.createComponent(ProductFlashDealsComponent);

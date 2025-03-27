@@ -2,9 +2,10 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ProductOfferFlashDescriptionComponent } from './product-offer-flash-description.component';
 import { RouterTestingModule } from '@angular/router/testing';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { AllSvgModule } from '../../all-svg/all-svg.module';
 import { ProductOfferFlashDescriptionService } from '../service/product-offer-flash-description.service';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 describe('ProductOfferFlashDescriptionComponent', () => {
   let component: ProductOfferFlashDescriptionComponent;
@@ -18,10 +19,10 @@ describe('ProductOfferFlashDescriptionComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ProductOfferFlashDescriptionComponent],
-      imports: [AllSvgModule, HttpClientTestingModule, RouterTestingModule],
-      providers: [ProductOfferFlashDescriptionService]
-    })
+    declarations: [ProductOfferFlashDescriptionComponent],
+    imports: [AllSvgModule, RouterTestingModule],
+    providers: [ProductOfferFlashDescriptionService, provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting()]
+})
     .compileComponents();
 
     fixture = TestBed.createComponent(ProductOfferFlashDescriptionComponent);

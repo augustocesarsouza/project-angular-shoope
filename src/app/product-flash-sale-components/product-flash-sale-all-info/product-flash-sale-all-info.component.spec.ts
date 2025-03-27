@@ -3,11 +3,12 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ProductFlashSaleAllInfoComponent } from './product-flash-sale-all-info.component';
 import { ProductFlashSaleFirstPartComponent } from '../product-flash-sale-first-part/product-flash-sale-first-part.component';
 import { RouterTestingModule } from '@angular/router/testing';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { AllSvgModule } from '../../all-svg/all-svg.module';
 import { ProductFlashSaleSecondPartComponent } from '../product-flash-sale-second-part/product-flash-sale-second-part.component';
 import { FlashSaleProductAllInfo } from '../../login-and-register-user/interface/flash-sale-product-all-info';
 import { FlashSaleCountdownAfterClickedProductComponent } from '../flash-sale-countdown-after-clicked-product/flash-sale-countdown-after-clicked-product.component';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 describe('ProductFlashSaleAllInfoComponent', () => {
   let component: ProductFlashSaleAllInfoComponent;
@@ -42,11 +43,12 @@ describe('ProductFlashSaleAllInfoComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ProductFlashSaleAllInfoComponent, ProductFlashSaleFirstPartComponent, ProductFlashSaleSecondPartComponent,
+    declarations: [ProductFlashSaleAllInfoComponent, ProductFlashSaleFirstPartComponent, ProductFlashSaleSecondPartComponent,
         FlashSaleCountdownAfterClickedProductComponent
-      ],
-      imports: [AllSvgModule, HttpClientTestingModule, RouterTestingModule],
-    })
+    ],
+    imports: [AllSvgModule, RouterTestingModule],
+    providers: [provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting()]
+})
     .compileComponents();
 
     fixture = TestBed.createComponent(ProductFlashSaleAllInfoComponent);

@@ -1,16 +1,17 @@
 import { TestBed } from '@angular/core/testing';
 
 import { ProductDiscoveriesOfDayService } from './product-discoveries-of-day.service';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 describe('ProductDiscoveriesOfDayService', () => {
   let service: ProductDiscoveriesOfDayService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-                      imports: [HttpClientTestingModule],
-                      providers: [ProductDiscoveriesOfDayService],
-                    });
+    imports: [],
+    providers: [ProductDiscoveriesOfDayService, provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting()]
+});
     service = TestBed.inject(ProductDiscoveriesOfDayService);
   });
 

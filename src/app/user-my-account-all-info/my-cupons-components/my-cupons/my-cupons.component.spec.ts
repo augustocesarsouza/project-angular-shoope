@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MyCuponsComponent, ObjQuantityCupons } from './my-cupons.component';
 import { RouterTestingModule } from '@angular/router/testing';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 describe('MyCuponsComponent', () => {
   let component: MyCuponsComponent;
@@ -29,9 +29,10 @@ describe('MyCuponsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [MyCuponsComponent],
-      imports: [HttpClientModule, RouterTestingModule]
-    })
+    declarations: [MyCuponsComponent],
+    imports: [RouterTestingModule],
+    providers: [provideHttpClient(withInterceptorsFromDi())]
+})
     .compileComponents();
 
     fixture = TestBed.createComponent(MyCuponsComponent);

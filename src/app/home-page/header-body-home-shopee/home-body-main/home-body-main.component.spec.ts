@@ -5,7 +5,7 @@ import { HeaderBodyHomeShopeeComponent } from '../header-body-home-shopee/header
 import { CategoryItensBarComponent } from '../category-components/category-itens-bar/category-itens-bar.component';
 import { FlashDealsAndCountdownComponent } from '../products-flash-deals-components/flash-deals-and-countdown/flash-deals-and-countdown.component';
 import { ProductFlashDealsComponent } from '../products-flash-deals-components/product-flash-deals/product-flash-deals.component';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AllSvgModule } from '../../../all-svg/all-svg.module';
 import { ItensIconComponent } from '../category-components/itens-icon/itens-icon.component';
@@ -25,9 +25,10 @@ describe('HomeBodyMainComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [HomeBodyMainComponent, HeaderBodyHomeShopeeComponent, CategoryItensBarComponent, FlashDealsAndCountdownComponent, ProductFlashDealsComponent, ItensIconComponent, TipsForUsImgComponent, CategoriesComponent, EachCategoryComponent, ProductHighlightsForYouComponent, DiscoveriesOfTheDayComponent, FooterMainComponent, FirstFooterComponent, SecondFooterComponent],
-      imports: [HttpClientModule, RouterTestingModule, AllSvgModule, HeaderAndFooterForAllComponentsModule],
-    })
+    declarations: [HomeBodyMainComponent, HeaderBodyHomeShopeeComponent, CategoryItensBarComponent, FlashDealsAndCountdownComponent, ProductFlashDealsComponent, ItensIconComponent, TipsForUsImgComponent, CategoriesComponent, EachCategoryComponent, ProductHighlightsForYouComponent, DiscoveriesOfTheDayComponent, FooterMainComponent, FirstFooterComponent, SecondFooterComponent],
+    imports: [RouterTestingModule, AllSvgModule, HeaderAndFooterForAllComponentsModule],
+    providers: [provideHttpClient(withInterceptorsFromDi())]
+})
     .compileComponents();
 
     fixture = TestBed.createComponent(HomeBodyMainComponent);

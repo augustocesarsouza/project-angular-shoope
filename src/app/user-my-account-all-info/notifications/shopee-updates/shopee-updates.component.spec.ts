@@ -3,7 +3,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ShopeeUpdatesComponent } from './shopee-updates.component';
 import { AllSvgModule } from '../../../all-svg/all-svg.module';
 import { RouterTestingModule } from '@angular/router/testing';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { ShopeeUpdateUser } from '../../../login-and-register-user/interface/shopee-update-user';
 import { shopeeUpdate } from '../../../login-and-register-user/interface/shopee-update';
 
@@ -32,9 +32,10 @@ describe('ShopeeUpdatesComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ShopeeUpdatesComponent],
-      imports: [HttpClientModule, RouterTestingModule, AllSvgModule]
-    })
+    declarations: [ShopeeUpdatesComponent],
+    imports: [RouterTestingModule, AllSvgModule],
+    providers: [provideHttpClient(withInterceptorsFromDi())]
+})
     .compileComponents();
 
     fixture = TestBed.createComponent(ShopeeUpdatesComponent);

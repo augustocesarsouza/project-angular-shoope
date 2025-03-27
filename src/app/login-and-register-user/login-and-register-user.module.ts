@@ -11,28 +11,22 @@ import { ThirdStepCreateAccountComponent } from './register-componenets/next-ste
 import { StepToCreateAccountMainComponent } from './register-componenets/next-step-to-register-account/step-to-create-account-main/step-to-create-account-main.component';
 import { BodyRegisterUserMainComponent } from './register-componenets/body-register-user-main/body-register-user-main.component';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { HeaderAndFooterForAllComponentsModule } from '../header-and-footer-for-all-components/header-and-footer-for-all-components.module';
 
-@NgModule({
-  declarations: [
-    LoginComponent,
-    BodyLoginMainComponent,
-    RegisterMainComponent,
-    BodyRegisterUserMainComponent,
-    FirstStepCreateAccountComponent,
-    SecondStepCreateAccountComponent,
-    ThirdStepCreateAccountComponent,
-    StepToCreateAccountMainComponent,
-  ],
-  imports: [
-    CommonModule,
-    LoginAndRegisterUserRoutingModule,
-    AllSvgModule,
-    FormsModule,
-    HttpClientModule,
-    HeaderAndFooterForAllComponentsModule
-  ],
-  exports: []
-})
+@NgModule({ declarations: [
+        LoginComponent,
+        BodyLoginMainComponent,
+        RegisterMainComponent,
+        BodyRegisterUserMainComponent,
+        FirstStepCreateAccountComponent,
+        SecondStepCreateAccountComponent,
+        ThirdStepCreateAccountComponent,
+        StepToCreateAccountMainComponent,
+    ],
+    exports: [], imports: [CommonModule,
+        LoginAndRegisterUserRoutingModule,
+        AllSvgModule,
+        FormsModule,
+        HeaderAndFooterForAllComponentsModule], providers: [provideHttpClient(withInterceptorsFromDi())] })
 export class LoginUserModule { }

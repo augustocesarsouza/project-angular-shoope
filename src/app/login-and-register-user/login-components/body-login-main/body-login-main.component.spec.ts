@@ -4,7 +4,8 @@ import { BodyLoginMainComponent } from './body-login-main.component';
 import { AllSvgModule } from '../../../all-svg/all-svg.module';
 import { UserService } from '../../service/user.service';
 import { RouterTestingModule } from '@angular/router/testing';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 describe('BodyLoginMainComponent', () => {
   let component: BodyLoginMainComponent;
@@ -12,10 +13,10 @@ describe('BodyLoginMainComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [BodyLoginMainComponent],
-      imports: [AllSvgModule, RouterTestingModule, HttpClientTestingModule],
-      providers: [UserService]
-    })
+    declarations: [BodyLoginMainComponent],
+    imports: [AllSvgModule, RouterTestingModule],
+    providers: [UserService, provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting()]
+})
     .compileComponents();
 
     fixture = TestBed.createComponent(BodyLoginMainComponent);

@@ -4,7 +4,8 @@ import { FillCpfAndBirthDateComponent } from './fill-cpf-and-birth-date.componen
 import { AllSvgModule } from '../../../../all-svg/all-svg.module';
 import { UserService } from '../../../../login-and-register-user/service/user.service';
 import { RouterTestingModule } from '@angular/router/testing';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 describe('FillCpfAndBirthDateComponent', () => {
   let component: FillCpfAndBirthDateComponent;
@@ -12,10 +13,10 @@ describe('FillCpfAndBirthDateComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [FillCpfAndBirthDateComponent],
-      imports: [AllSvgModule, RouterTestingModule, HttpClientTestingModule],
-      providers: [UserService]
-    })
+    declarations: [FillCpfAndBirthDateComponent],
+    imports: [AllSvgModule, RouterTestingModule],
+    providers: [UserService, provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting()]
+})
     .compileComponents();
 
     fixture = TestBed.createComponent(FillCpfAndBirthDateComponent);

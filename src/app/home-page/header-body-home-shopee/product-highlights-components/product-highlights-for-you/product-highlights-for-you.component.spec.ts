@@ -5,9 +5,10 @@ import { ProductHighlightsInfoComponent } from '../product-highlights-info/produ
 import { AllSvgModule } from '../../../../all-svg/all-svg.module';
 import { RouterTestingModule } from '@angular/router/testing';
 import { ProductHighlightService } from '../../../service/product-highlight.service';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { of } from 'rxjs';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 describe('ProductHighlightsForYouComponent', () => {
   let component: ProductHighlightsForYouComponent;
@@ -32,13 +33,13 @@ describe('ProductHighlightsForYouComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ProductHighlightsForYouComponent, ProductHighlightsInfoComponent],
-      providers: [{
-              provide: ProductHighlightService, useValue: mockProductHighlightService
-            }],
-      imports: [RouterTestingModule, AllSvgModule, HttpClientTestingModule],
-      schemas: [CUSTOM_ELEMENTS_SCHEMA]
-    })
+    declarations: [ProductHighlightsForYouComponent, ProductHighlightsInfoComponent],
+    schemas: [CUSTOM_ELEMENTS_SCHEMA],
+    imports: [RouterTestingModule, AllSvgModule],
+    providers: [{
+            provide: ProductHighlightService, useValue: mockProductHighlightService
+        }, provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting()]
+})
     .compileComponents();
 
     fixture = TestBed.createComponent(ProductHighlightsForYouComponent);

@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ProductFlashSaleMainComponent } from './product-flash-sale-main.component';
 import { AllSvgModule } from '../../all-svg/all-svg.module';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { FlashSaleProductAllInfoService } from '../service/flash-sale-product-all-info.service';
 import { HeaderMainComponent } from '../../home-page/header-main/header-main.component';
@@ -19,6 +19,7 @@ import { FlashSaleCountdownAfterClickedProductComponent } from '../flash-sale-co
 import { UserSellerProductOfferFlashComponent } from '../user-seller-product-offer-flash/user-seller-product-offer-flash.component';
 import { ProductOfferFlashDetailsComponent } from '../product-offer-flash-details/product-offer-flash-details.component';
 import { ProductOfferFlashDescriptionComponent } from '../product-offer-flash-description/product-offer-flash-description.component';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 describe('ProductFlashSaleMainComponent', () => {
   let component: ProductFlashSaleMainComponent;
@@ -26,16 +27,16 @@ describe('ProductFlashSaleMainComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ProductFlashSaleMainComponent, HeaderMainComponent, HeaderFirstComponent,
+    declarations: [ProductFlashSaleMainComponent, HeaderMainComponent, HeaderFirstComponent,
         HeaderSecondComponent, DownloadAppFloatingComponent, NameUserFloatingComponent,
         LanguageFloatingComponent, NotificationFloatingComponent, ProductFlashSaleAllInfoComponent,
         ProductFlashSaleFirstPartComponent, ProductFlashSaleSecondPartComponent,
         FlashSaleCountdownAfterClickedProductComponent, UserSellerProductOfferFlashComponent, ProductOfferFlashDetailsComponent,
         ProductOfferFlashDescriptionComponent
-      ],
-      imports: [AllSvgModule, HttpClientTestingModule, RouterTestingModule],
-      providers: [FlashSaleProductAllInfoService],
-    })
+    ],
+    imports: [AllSvgModule, RouterTestingModule],
+    providers: [FlashSaleProductAllInfoService, provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting()]
+})
     .compileComponents();
 
     fixture = TestBed.createComponent(ProductFlashSaleMainComponent);

@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CategoryItensBarComponent } from './category-itens-bar.component';
 import { RouterTestingModule } from '@angular/router/testing';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { ItensIconComponent } from '../itens-icon/itens-icon.component';
 
 describe('CategoryItensBarComponent', () => {
@@ -11,9 +11,10 @@ describe('CategoryItensBarComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [CategoryItensBarComponent, ItensIconComponent],
-      imports: [HttpClientModule, RouterTestingModule]
-    })
+    declarations: [CategoryItensBarComponent, ItensIconComponent],
+    imports: [RouterTestingModule],
+    providers: [provideHttpClient(withInterceptorsFromDi())]
+})
     .compileComponents();
 
     fixture = TestBed.createComponent(CategoryItensBarComponent);

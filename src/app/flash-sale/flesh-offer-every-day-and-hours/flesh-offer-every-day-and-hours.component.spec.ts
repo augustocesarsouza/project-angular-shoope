@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { FleshOfferEveryDayAndHoursComponent } from './flesh-offer-every-day-and-hours.component';
 import { AllSvgModule } from '../../all-svg/all-svg.module';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { RouterTestingModule } from '@angular/router/testing';
 import { CategoryToProductComponent } from '../category-to-product/category-to-product.component';
 import { ProductFlashOfferComponent } from '../product-flash-offer/product-flash-offer.component';
@@ -23,11 +23,12 @@ describe('FleshOfferEveryDayAndHoursComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [FleshOfferEveryDayAndHoursComponent, CategoryToProductComponent, ProductFlashOfferComponent,
+    declarations: [FleshOfferEveryDayAndHoursComponent, CategoryToProductComponent, ProductFlashOfferComponent,
         FooterForFlashOfferComponent, FlashOfferAndCountdownComponent, FleshOfferEveryDayComponent
-      ],
-      imports: [HttpClientModule, RouterTestingModule, AllSvgModule, HeaderAndFooterForAllComponentsModule]
-    })
+    ],
+    imports: [RouterTestingModule, AllSvgModule, HeaderAndFooterForAllComponentsModule],
+    providers: [provideHttpClient(withInterceptorsFromDi())]
+})
     .compileComponents();
 
     fixture = TestBed.createComponent(FleshOfferEveryDayAndHoursComponent);

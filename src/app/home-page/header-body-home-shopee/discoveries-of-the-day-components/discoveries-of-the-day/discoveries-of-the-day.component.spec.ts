@@ -3,7 +3,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { DiscoveriesOfTheDayComponent } from './discoveries-of-the-day.component';
 import { AllSvgModule } from '../../../../all-svg/all-svg.module';
 import { RouterTestingModule } from '@angular/router/testing';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { spanPrice, spanQuantitySold } from '../function-to-discoveries-of-the-day/function-span-quantity-sold';
 
 // export interface ProductDiscoveriesOfTheDay {
@@ -35,9 +35,10 @@ describe('DiscoveriesOfTheDayComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [DiscoveriesOfTheDayComponent],
-      imports: [HttpClientModule, RouterTestingModule, AllSvgModule],
-    })
+    declarations: [DiscoveriesOfTheDayComponent],
+    imports: [RouterTestingModule, AllSvgModule],
+    providers: [provideHttpClient(withInterceptorsFromDi())]
+})
     .compileComponents();
 
     fixture = TestBed.createComponent(DiscoveriesOfTheDayComponent);

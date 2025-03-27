@@ -2,12 +2,13 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { UserSellerProductOfferFlashComponent } from './user-seller-product-offer-flash.component';
 import { RouterTestingModule } from '@angular/router/testing';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { AllSvgModule } from '../../all-svg/all-svg.module';
 import { ProductOfferFlashSellerService } from '../service/product-offer-flash-seller.service';
 import { of } from 'rxjs';
 import { formatDistanceToNow, parseISO } from 'date-fns';
 import { ptBR } from 'date-fns/locale';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 describe('UserSellerProductOfferFlashComponent', () => {
   let component: UserSellerProductOfferFlashComponent;
@@ -54,12 +55,12 @@ describe('UserSellerProductOfferFlashComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [UserSellerProductOfferFlashComponent],
-      imports: [AllSvgModule, HttpClientTestingModule, RouterTestingModule],
-      providers: [{
-          provide: ProductOfferFlashSellerService, useValue: mockProductOfferFlashSellerService
-      }],
-    })
+    declarations: [UserSellerProductOfferFlashComponent],
+    imports: [AllSvgModule, RouterTestingModule],
+    providers: [{
+            provide: ProductOfferFlashSellerService, useValue: mockProductOfferFlashSellerService
+        }, provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting()]
+})
     .compileComponents();
 
     fixture = TestBed.createComponent(UserSellerProductOfferFlashComponent);

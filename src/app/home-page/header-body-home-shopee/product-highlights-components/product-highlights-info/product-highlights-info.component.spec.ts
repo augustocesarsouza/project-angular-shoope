@@ -2,8 +2,9 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ProductHighlightsInfoComponent } from './product-highlights-info.component';
 import { RouterTestingModule } from '@angular/router/testing';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { AllSvgModule } from '../../../../all-svg/all-svg.module';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 describe('ProductHighlightsInfoComponent', () => {
   let component: ProductHighlightsInfoComponent;
@@ -19,9 +20,10 @@ describe('ProductHighlightsInfoComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ProductHighlightsInfoComponent],
-      imports: [AllSvgModule, HttpClientTestingModule, RouterTestingModule],
-    })
+    declarations: [ProductHighlightsInfoComponent],
+    imports: [AllSvgModule, RouterTestingModule],
+    providers: [provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting()]
+})
     .compileComponents();
 
     fixture = TestBed.createComponent(ProductHighlightsInfoComponent);
