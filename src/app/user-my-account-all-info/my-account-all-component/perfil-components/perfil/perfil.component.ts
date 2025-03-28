@@ -3,10 +3,11 @@ import { User } from '../../../../login-and-register-user/interface/user';
 import { UserLocalStorage } from '../../../../login-and-register-user/user-function/get-user-local-storage/user-local-storage';
 import { Router } from '@angular/router';
 import { GetUserPerfilService } from '../../../../login-and-register-user/service/get-user-perfil.service';
-import { environment } from '../../../../../environments/environment';
 import CryptoJS from 'crypto-js';
 import { UserService } from '../../../../login-and-register-user/service/user.service';
 import { UpdateNumberUrlMyAccountService } from '../../../../login-and-register-user/service/update-number-url-my-account.service';
+import { environment } from '../../../../../environments/environment';
+import { environmentDev } from '../../../../../environments/environment.prod';
 
 interface UserToLocalStorage {
   id: string;
@@ -429,7 +430,7 @@ export class PerfilComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   updateLocalStorage(userToLocalStorage: UserToLocalStorage){
-    const secretKey = environment.angularAppSecretKeyUser;
+    const secretKey = environmentDev.KEY_USER ?? environment.KEY_USER;
     const encrypted = CryptoJS.AES.encrypt(JSON.stringify(userToLocalStorage), secretKey).toString();
     localStorage.setItem('user', encrypted);
   }

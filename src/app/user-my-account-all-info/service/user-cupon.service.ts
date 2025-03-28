@@ -2,7 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { UserCupon } from '../../login-and-register-user/interface/user-cupon';
 import { take } from 'rxjs';
-import { environment } from '../../../environments/environment.prod';
+import { environmentDev } from '../../../environments/environment.prod';
 
 export interface ResultData {
   data: UserCupon[];
@@ -12,7 +12,7 @@ export interface ResultData {
   providedIn: 'root'
 })
 export class UserCuponService {
-  private baseUrl = environment.BASE_URL || '/api';
+  private baseUrl = environmentDev.BASE_URL || '/api';
 
   constructor(private _http: HttpClient) { }
 

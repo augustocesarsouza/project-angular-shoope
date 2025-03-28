@@ -4,6 +4,7 @@ import { UserService } from '../../service/user.service';
 import { environment } from '../../../../environments/environment';
 import CryptoJS from 'crypto-js';
 import Inputmask from 'inputmask';
+import { environmentDev } from '../../../../environments/environment.prod';
 
 interface PropsLogin {
   data: {
@@ -142,7 +143,7 @@ export class BodyLoginMainComponent implements AfterViewInit, OnDestroy {
         const value = success as PropsLogin;
         const data = value.data;
 
-        const secretKey = environment.angularAppSecretKeyUser;
+        const secretKey = environmentDev.KEY_USER ?? environment.KEY_USER;
 
         const encrypted = CryptoJS.AES.encrypt(JSON.stringify(data.userDTO), secretKey).toString();
 

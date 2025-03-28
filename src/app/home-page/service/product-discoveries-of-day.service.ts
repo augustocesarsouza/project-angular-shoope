@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { ProductDiscoveriesOfTheDay } from '../../login-and-register-user/interface/product-discoveries-of-the-day';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { take } from 'rxjs';
-import { environment } from '../../../environments/environment.prod';
+import { environmentDev } from '../../../environments/environment.prod';
 
 export interface ResultData {
   data: ProductDiscoveriesOfTheDay[];
@@ -12,7 +12,7 @@ export interface ResultData {
   providedIn: 'root'
 })
 export class ProductDiscoveriesOfDayService {
-  private baseUrl = environment.BASE_URL || '/api';
+  private baseUrl = environmentDev.BASE_URL || '/api';
 
   constructor(private _http: HttpClient) { }
 

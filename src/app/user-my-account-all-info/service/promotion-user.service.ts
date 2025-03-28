@@ -2,7 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { take } from 'rxjs';
 import { PromotionUser } from '../../login-and-register-user/interface/promotion-user';
-import { environment } from '../../../environments/environment.prod';
+import { environmentDev } from '../../../environments/environment.prod';
 
 export interface ResultData {
   data: PromotionUser[];
@@ -12,7 +12,7 @@ export interface ResultData {
   providedIn: 'root'
 })
 export class PromotionUserService {
-  private baseUrl = environment.BASE_URL || '/api';
+  private baseUrl = environmentDev.BASE_URL || '/api';
 
   constructor(private _http: HttpClient) { }
 

@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { take } from 'rxjs';
 import { User } from '../interface/user';
 import { UserLogin } from '../interface/user-login';
-import { environment } from '../../../environments/environment.prod';
+import { environmentDev } from '../../../environments/environment.prod';
 
 export interface ResultData {
   data: User;
@@ -49,7 +49,7 @@ export interface ChangePassword {
   providedIn: 'root'
 })
 export class UserService {
-  private baseUrl = environment.BASE_URL || '/api';
+  private baseUrl = environmentDev.BASE_URL || '/api';
   // Arrumar isso para ver porque ele nao está fazendo as requeisição
   // Testa o postman fazer get amanha para ver se vai funcicionar porque aqui ele nao tras nada testao back puchando no POSTMAN
 
