@@ -30,6 +30,6 @@ export class FlashSaleProductAllInfoService {
     // console.log(options);
 
 
-    return this._http.get<ResultData>(`/api/flash-sale-product-all-info/get-flash-sale-product-by-product-flash-sale-id/${productOfferFlashId}`, options).pipe(take(1));
+    return this._http.get<ResultData>(`${this.baseUrl}/flash-sale-product-all-info/get-flash-sale-product-by-product-flash-sale-id/${productOfferFlashId}`, options).pipe(take(1));
   }
 }
