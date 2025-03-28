@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "startProx": "ng serve --proxy-config proxy.conf.js",
-    "postinstall": "mkdir -p src/environments && echo \"export const environmentDev = { production: true, BASE_URL: '\"$BASE_URL\"', KEY_USER: '\"$KEY_USER\"' };\" > src/environments/environment.prod.ts",
+    "postinstall": "mkdir -p src/environments && echo \"export const environment = { production: true, BASE_URL: '\"$BASE_URL\"', KEY_USER: '\"$KEY_USER\"' };\" > src/environments/environment.prod.ts",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
