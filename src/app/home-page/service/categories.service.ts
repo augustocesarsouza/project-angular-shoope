@@ -2,7 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Categories } from '../../login-and-register-user/interface/categories';
 import { take } from 'rxjs';
-import { environmentDev } from '../../../environments/environment.prod';
+import { environment } from '../../../environments/environment';
 
 export interface ResultData {
   data: Categories[];
@@ -12,7 +12,7 @@ export interface ResultData {
   providedIn: 'root'
 })
 export class CategoriesService {
-  private baseUrl = environmentDev.BASE_URL || '/api';
+  private baseUrl = environment.BASE_URL || '/api';
 
   constructor(private _http: HttpClient) { }
 

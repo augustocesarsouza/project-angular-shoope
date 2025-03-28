@@ -2,7 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ProductHighlight } from '../../login-and-register-user/interface/product-highlight';
 import { take } from 'rxjs';
-import { environmentDev } from '../../../environments/environment.prod';
+import { environment } from '../../../environments/environment';
 
 export interface ResultData {
   data: ProductHighlight[];
@@ -12,7 +12,7 @@ export interface ResultData {
   providedIn: 'root'
 })
 export class ProductHighlightService {
-  private baseUrl = environmentDev.BASE_URL || '/api';
+  private baseUrl = environment.BASE_URL || '/api';
 
   constructor(private _http: HttpClient) { }
 

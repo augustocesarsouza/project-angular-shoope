@@ -2,7 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { take } from 'rxjs';
 import { FlashSaleProductAllInfo } from '../../login-and-register-user/interface/flash-sale-product-all-info';
-import { environmentDev } from '../../../environments/environment.prod';
+import { environment } from '../../../environments/environment';
 
 export interface ResultData {
   data: FlashSaleProductAllInfo;
@@ -12,7 +12,7 @@ export interface ResultData {
   providedIn: 'root'
 })
 export class FlashSaleProductAllInfoService {
-  private baseUrl = environmentDev.BASE_URL || '/api';
+  private baseUrl = environment.BASE_URL || '/api';
 
   constructor(private _http: HttpClient) { }
 

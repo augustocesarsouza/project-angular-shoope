@@ -2,7 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { take } from 'rxjs';
 import { Address } from '../../login-and-register-user/interface/address';
-import { environmentDev } from '../../../environments/environment.prod';
+import { environment } from '../../../environments/environment';
 
 export interface ResultData {
   data: Address;
@@ -16,7 +16,7 @@ export interface ResultDataArray {
   providedIn: 'root'
 })
 export class AddressService {
-  private baseUrl = environmentDev.BASE_URL || '/api';
+  private baseUrl = environment.BASE_URL || '/api';
 
   constructor(private _http: HttpClient) { }
 

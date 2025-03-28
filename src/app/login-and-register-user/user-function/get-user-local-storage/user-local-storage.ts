@@ -1,5 +1,5 @@
+
 import { environment } from "../../../../environments/environment";
-import { environmentDev } from "../../../../environments/environment.prod";
 import { ResultGetUserFromLocalStorage } from "../../interface/result-get-user-from-local-storage";
 import CryptoJS from 'crypto-js';
 
@@ -14,7 +14,7 @@ export const UserLocalStorage = (): ResultGetUserFromLocalStorage => {
 
   if (userLocalStorage) {
     // let secretKey = import.meta.env.VITE__APP_SECRET_KEY_USER;
-    const secretKey = environmentDev.KEY_USER ?? environment.KEY_USER;
+    const secretKey = environment.KEY_USER ?? environment.KEY_USER;
 
     if (secretKey === undefined) {
       return ResultGetUserFromLocalStorage;
