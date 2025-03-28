@@ -4,7 +4,8 @@ import { Component, Input } from '@angular/core';
     selector: 'app-svg-help',
     templateUrl: './svg-help.component.html',
     styleUrl: './svg-help.component.scss',
-    standalone: false
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false
 })
 export class SvgHelpComponent {
   @Input() width = '10px';

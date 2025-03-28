@@ -19,7 +19,8 @@ interface UserToLocalStorage {
     selector: 'app-perfil',
     templateUrl: './perfil.component.html',
     styleUrl: './perfil.component.scss',
-    standalone: false
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false
 })
 export class PerfilComponent implements OnInit, AfterViewInit, OnDestroy {
   userObjState!: User | null;

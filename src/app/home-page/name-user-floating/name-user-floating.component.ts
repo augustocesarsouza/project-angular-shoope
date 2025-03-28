@@ -5,7 +5,8 @@ import { Router } from '@angular/router';
     selector: 'app-name-user-floating',
     templateUrl: './name-user-floating.component.html',
     styleUrl: './name-user-floating.component.scss',
-    standalone: false
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false
 })
 export class NameUserFloatingComponent {
   @Input() handleShowContainerNameUser!: (newValue: boolean) => void;

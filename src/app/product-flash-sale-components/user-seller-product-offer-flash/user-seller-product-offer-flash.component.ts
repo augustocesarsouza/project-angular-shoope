@@ -11,7 +11,8 @@ import { Router } from '@angular/router';
     selector: 'app-user-seller-product-offer-flash',
     templateUrl: './user-seller-product-offer-flash.component.html',
     styleUrl: './user-seller-product-offer-flash.component.scss',
-    standalone: false
+      // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false
 })
 export class UserSellerProductOfferFlashComponent implements OnInit {
   @Input() user!: User;

@@ -5,7 +5,8 @@ import { FlashSaleProductAllInfo } from '../../login-and-register-user/interface
     selector: 'app-comshare-main-last',
     templateUrl: './comshare-main-last.component.html',
     styleUrl: './comshare-main-last.component.scss',
-    standalone: false
+      // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false
 })
 export class ComshareMainLastComponent {
   @Input() getFlashSaleProduct!: FlashSaleProductAllInfo;

@@ -4,7 +4,8 @@ import { Component } from '@angular/core';
     selector: 'app-header-second',
     templateUrl: './header-second.component.html',
     styleUrl: './header-second.component.scss',
-    standalone: false
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false
 })
 export class HeaderSecondComponent {
 

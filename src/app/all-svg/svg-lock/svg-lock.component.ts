@@ -4,7 +4,8 @@ import { Component, Input } from '@angular/core';
     selector: 'app-svg-lock',
     templateUrl: './svg-lock.component.html',
     styleUrl: './svg-lock.component.scss',
-    standalone: false
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false
 })
 export class SvgLockComponent {
   @Input() width = '10px';

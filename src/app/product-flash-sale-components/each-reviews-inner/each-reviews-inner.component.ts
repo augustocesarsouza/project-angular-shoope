@@ -12,7 +12,8 @@ interface allLikesReviews {
     selector: 'app-each-reviews-inner',
     templateUrl: './each-reviews-inner.component.html',
     styleUrl: './each-reviews-inner.component.scss',
-    standalone: false
+      // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false
 })
 export class EachReviewsInnerComponent implements OnInit, AfterViewInit, OnDestroy {
   @Input() product!: ProductFlashSaleReview;

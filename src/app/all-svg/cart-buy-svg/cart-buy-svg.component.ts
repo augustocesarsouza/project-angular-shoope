@@ -4,6 +4,7 @@ import { Component, Input } from '@angular/core';
     selector: 'app-cart-buy-svg',
     templateUrl: './cart-buy-svg.component.html',
     styleUrl: './cart-buy-svg.component.scss',
+    // eslint-disable-next-line @angular-eslint/prefer-standalone
     standalone: false
 })
 export class CartBuySvgComponent {

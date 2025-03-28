@@ -5,7 +5,8 @@ import { Router } from '@angular/router';
     selector: 'app-third-step-create-account',
     templateUrl: './third-step-create-account.component.html',
     styleUrl: './third-step-create-account.component.scss',
-    standalone: false
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false
 })
 export class ThirdStepCreateAccountComponent implements OnInit {
   @Input() valueNumberPhoneCreate!: string;

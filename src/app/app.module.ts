@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FormsModule } from '@angular/forms';
 import {  withFetch, provideHttpClient, withInterceptorsFromDi, HttpClientModule } from '@angular/common/http';
 import { AllSvgModule } from './all-svg/all-svg.module';
 import { HomePageModule } from './home-page/home-page.module';
@@ -38,22 +37,22 @@ import { ComshareMainLastComponent } from './product-flash-sale-components/comsh
         EachReviewsInnerComponent,
         FirstRateAvaliationComponent,
         CoinsCreditCardPriceProductComponent,
-        UserCreatedProductInfoComponent,
         ImageProductFirstComponent,
         ComshareMainLastComponent,
+        UserCreatedProductInfoComponent
     ],
     bootstrap: [AppComponent],
     imports: [
       BrowserModule,
       AppRoutingModule,
-      FormsModule,
       AllSvgModule,
       HomePageModule,
-      HttpClientModule,  // Adiciona o HttpClientModule aqui
+      HttpClientModule,
+
     ],
-        providers: [
+      providers: [
         provideHttpClient(withFetch()),
-        provideHttpClient(withInterceptorsFromDi()),
+      provideHttpClient(withInterceptorsFromDi()),
     ]
   })
 export class AppModule { }

@@ -12,7 +12,8 @@ import { ActivatedRoute, Router } from '@angular/router';
     selector: 'app-fill-cpf-and-birth-date',
     templateUrl: './fill-cpf-and-birth-date.component.html',
     styleUrl: './fill-cpf-and-birth-date.component.scss',
-    standalone: false
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false
 })
 export class FillCpfAndBirthDateComponent implements AfterViewInit, OnInit {
   user!: User | null;

@@ -9,7 +9,8 @@ interface imgsTopProps {
     selector: 'app-header-body-home-shopee',
     templateUrl: './header-body-home-shopee.component.html',
     styleUrl: './header-body-home-shopee.component.scss',
-    standalone: false
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false
 })
 export class HeaderBodyHomeShopeeComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild('containerFirstImages') containerFirstImages!: ElementRef<HTMLDivElement>;

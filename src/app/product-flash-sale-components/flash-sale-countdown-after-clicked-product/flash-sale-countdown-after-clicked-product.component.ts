@@ -10,7 +10,8 @@ interface TimeLeftProps {
     selector: 'app-flash-sale-countdown-after-clicked-product',
     templateUrl: './flash-sale-countdown-after-clicked-product.component.html',
     styleUrl: './flash-sale-countdown-after-clicked-product.component.scss',
-    standalone: false
+      // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false
 })
 export class FlashSaleCountdownAfterClickedProductComponent implements OnInit, OnDestroy {
   @Input() hours!: number;

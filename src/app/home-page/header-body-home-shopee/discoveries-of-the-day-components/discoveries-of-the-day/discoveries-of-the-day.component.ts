@@ -11,7 +11,8 @@ import { spanPrice } from '../function-to-discoveries-of-the-day/function-span-q
     selector: 'app-discoveries-of-the-day',
     templateUrl: './discoveries-of-the-day.component.html',
     styleUrl: './discoveries-of-the-day.component.scss',
-    standalone: false
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false
 })
 export class DiscoveriesOfTheDayComponent implements OnInit, AfterViewInit {
   productDiscoveriesOfTheDay: ProductDiscoveriesOfTheDay[] = [];

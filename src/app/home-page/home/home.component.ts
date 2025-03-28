@@ -5,7 +5,8 @@ import { Router } from '@angular/router';
     selector: 'app-home',
     templateUrl: './home.component.html',
     styleUrl: './home.component.scss',
-    standalone: false
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false
 })
 export class HomeComponent implements OnInit {
   currentUrlIsHome = true;

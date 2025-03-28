@@ -8,7 +8,8 @@ import { UserLocalStorage } from '../../../../login-and-register-user/user-funct
     selector: 'app-categories',
     templateUrl: './categories.component.html',
     styleUrl: './categories.component.scss',
-    standalone: false
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false
 })
 export class CategoriesComponent implements OnInit, AfterViewInit {
   allCategory: Categories[] = [];

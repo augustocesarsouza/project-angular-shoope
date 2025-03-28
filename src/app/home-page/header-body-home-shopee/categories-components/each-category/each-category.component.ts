@@ -5,7 +5,8 @@ import { Categories } from '../../../../login-and-register-user/interface/catego
     selector: 'app-each-category',
     templateUrl: './each-category.component.html',
     styleUrl: './each-category.component.scss',
-    standalone: false
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false
 })
 export class EachCategoryComponent {
   @Input() category!: Categories;

@@ -6,7 +6,8 @@ import { UserService } from '../../../../service/user.service';
     selector: 'app-second-step-create-account',
     templateUrl: './second-step-create-account.component.html',
     styleUrl: './second-step-create-account.component.scss',
-    standalone: false
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false
 })
 export class SecondStepCreateAccountComponent {
   @Input() changeValueStepIsNow!: (value: number) => void;

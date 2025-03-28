@@ -4,7 +4,8 @@ import { Component, Input } from '@angular/core';
     selector: 'app-svg-question-mark',
     templateUrl: './svg-question-mark.component.html',
     styleUrl: './svg-question-mark.component.scss',
-    standalone: false
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false
 })
 export class SvgQuestionMarkComponent {
   @Input() width = '10px';

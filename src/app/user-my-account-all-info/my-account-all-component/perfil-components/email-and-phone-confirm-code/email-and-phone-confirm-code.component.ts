@@ -10,7 +10,8 @@ import { Subscription } from 'rxjs';
     selector: 'app-email-and-phone-confirm-code',
     templateUrl: './email-and-phone-confirm-code.component.html',
     styleUrl: './email-and-phone-confirm-code.component.scss',
-    standalone: false
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false
 })
 export class EmailAndPhoneConfirmCodeComponent implements OnInit, AfterViewInit {
   emailThatWasSent: string | null = null;

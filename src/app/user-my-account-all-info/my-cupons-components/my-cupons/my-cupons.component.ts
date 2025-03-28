@@ -27,7 +27,8 @@ export interface CuponRecommendedProps {
     selector: 'app-my-cupons',
     templateUrl: './my-cupons.component.html',
     styleUrl: './my-cupons.component.scss',
-    standalone: false
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false
 })
 export class MyCuponsComponent implements OnInit, OnDestroy {
   @ViewChild('buttonClaim') buttonClaim!: ElementRef<HTMLButtonElement>;

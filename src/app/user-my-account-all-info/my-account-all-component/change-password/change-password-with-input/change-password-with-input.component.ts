@@ -9,7 +9,8 @@ import { UpdateNumberUrlMyAccountService } from '../../../../login-and-register-
     selector: 'app-change-password-with-input',
     templateUrl: './change-password-with-input.component.html',
     styleUrl: './change-password-with-input.component.scss',
-    standalone: false
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false
 })
 export class ChangePasswordWithInputComponent implements OnInit, OnDestroy {
   userObjState!: User | null;

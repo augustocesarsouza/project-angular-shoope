@@ -5,7 +5,8 @@ import { Router } from '@angular/router';
     selector: 'app-full-check-password',
     templateUrl: './full-check-password.component.html',
     styleUrl: './full-check-password.component.scss',
-    standalone: false
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false
 })
 export class FullCheckPasswordComponent implements AfterViewInit, OnDestroy {
   settimeOutArray: number[] = [];

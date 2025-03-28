@@ -6,7 +6,8 @@ import { Subscription } from 'rxjs';
     selector: 'app-first-step-create-account',
     templateUrl: './first-step-create-account.component.html',
     styleUrl: './first-step-create-account.component.scss',
-    standalone: false
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false
 })
 export class FirstStepCreateAccountComponent implements AfterViewInit, OnDestroy {
   @Input() changeValueStepIsNow!: (value: number) => void;

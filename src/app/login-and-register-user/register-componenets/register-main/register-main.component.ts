@@ -4,7 +4,8 @@ import { Component } from '@angular/core';
     selector: 'app-register-main',
     templateUrl: './register-main.component.html',
     styleUrl: './register-main.component.scss',
-    standalone: false
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false
 })
 export class RegisterMainComponent {
 

@@ -4,7 +4,8 @@ import { Component, Input } from '@angular/core';
     selector: 'app-notification-floating',
     templateUrl: './notification-floating.component.html',
     styleUrl: './notification-floating.component.scss',
-    standalone: false
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false
 })
 export class NotificationFloatingComponent {
   @Input() handleShowContainerNotification!: (newValue: boolean) => void;

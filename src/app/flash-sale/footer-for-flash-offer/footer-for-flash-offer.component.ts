@@ -4,7 +4,8 @@ import { AfterViewInit, Component, ElementRef, Input, OnDestroy, ViewChild } fro
     selector: 'app-footer-for-flash-offer',
     templateUrl: './footer-for-flash-offer.component.html',
     styleUrl: './footer-for-flash-offer.component.scss',
-    standalone: false
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false
 })
 export class FooterForFlashOfferComponent implements AfterViewInit, OnDestroy {
   @ViewChild('containerFirstPart') containerFirstPart!: ElementRef<HTMLDivElement>;

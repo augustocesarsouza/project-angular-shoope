@@ -14,7 +14,8 @@ interface ErrorLogin {
     selector: 'app-verify-password-step-two',
     templateUrl: './verify-password-step-two.component.html',
     styleUrl: './verify-password-step-two.component.scss',
-    standalone: false
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false
 })
 export class VerifyPasswordStepTwoComponent implements OnInit {
   showErrorPasswordWrong = false;

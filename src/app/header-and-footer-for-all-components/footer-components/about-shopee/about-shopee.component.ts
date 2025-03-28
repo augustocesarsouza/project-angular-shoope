@@ -4,7 +4,8 @@ import { Component } from '@angular/core';
     selector: 'app-about-shopee',
     templateUrl: './about-shopee.component.html',
     styleUrl: './about-shopee.component.scss',
-    standalone: false
+      // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false
 })
 export class AboutShopeeComponent {
 

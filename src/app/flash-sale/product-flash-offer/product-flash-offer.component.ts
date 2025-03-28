@@ -7,7 +7,8 @@ import { Router } from '@angular/router';
     selector: 'app-product-flash-offer',
     templateUrl: './product-flash-offer.component.html',
     styleUrl: './product-flash-offer.component.scss',
-    standalone: false
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false
 })
 export class ProductFlashOfferComponent implements OnDestroy, OnChanges {
   // getAllProductHourProps: ProductFlashDeals[] = [];

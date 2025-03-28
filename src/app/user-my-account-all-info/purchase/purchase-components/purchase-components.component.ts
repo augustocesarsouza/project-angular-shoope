@@ -4,7 +4,8 @@ import { AfterViewInit, Component, ElementRef, QueryList, ViewChildren } from '@
     selector: 'app-purchase-components',
     templateUrl: './purchase-components.component.html',
     styleUrl: './purchase-components.component.scss',
-    standalone: false
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false
 })
 export class PurchaseComponentsComponent implements AfterViewInit {
   whichWasClickedTopLayer = "1";

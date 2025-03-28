@@ -4,7 +4,8 @@ import { Component } from '@angular/core';
     selector: 'app-footer-main',
     templateUrl: './footer-main.component.html',
     styleUrl: './footer-main.component.scss',
-    standalone: false
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false
 })
 export class FooterMainComponent {
 

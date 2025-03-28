@@ -10,7 +10,8 @@ import { ObjCodeUserPhoneToRegisterAccountService } from '../../../../login-and-
     selector: 'app-phone-change',
     templateUrl: './phone-change.component.html',
     styleUrl: './phone-change.component.scss',
-    standalone: false
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false
 })
 export class PhoneChangeComponent implements AfterViewInit, OnInit, OnDestroy {
   inputNumberPhone!: HTMLInputElement;

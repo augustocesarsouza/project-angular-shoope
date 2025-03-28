@@ -4,7 +4,8 @@ import { Component, Input } from '@angular/core';
     selector: 'app-code-is-wrong-x',
     templateUrl: './code-is-wrong-x.component.html',
     styleUrl: './code-is-wrong-x.component.scss',
-    standalone: false
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false
 })
 export class CodeIsWrongXComponent {
   @Input() width = '10px';

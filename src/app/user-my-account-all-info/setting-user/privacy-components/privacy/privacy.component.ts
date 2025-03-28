@@ -6,7 +6,8 @@ import { Router } from '@angular/router';
     selector: 'app-privacy',
     templateUrl: './privacy.component.html',
     styleUrl: './privacy.component.scss',
-    standalone: false
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false
 })
 export class PrivacyComponent {
 

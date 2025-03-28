@@ -4,7 +4,9 @@ import { Component } from '@angular/core';
     selector: 'app-login',
     templateUrl: './login.component.html',
     styleUrl: './login.component.scss',
-    standalone: false
+      // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false
+
 })
 export class LoginComponent {
 

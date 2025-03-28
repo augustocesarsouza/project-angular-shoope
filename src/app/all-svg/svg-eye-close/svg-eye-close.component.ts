@@ -4,7 +4,8 @@ import { Component, Input } from '@angular/core';
     selector: 'app-svg-eye-close',
     templateUrl: './svg-eye-close.component.html',
     styleUrl: './svg-eye-close.component.scss',
-    standalone: false
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false
 })
 export class SvgEyeCloseComponent {
   @Input() width = '10px';

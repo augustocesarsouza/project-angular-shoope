@@ -4,7 +4,8 @@ import { Component } from '@angular/core';
     selector: 'app-svg-video-media',
     templateUrl: './svg-video-media.component.html',
     styleUrl: './svg-video-media.component.scss',
-    standalone: false
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false
 })
 export class SvgVideoMediaComponent {
 

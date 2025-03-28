@@ -4,7 +4,8 @@ import { Component } from '@angular/core';
     selector: 'app-payment',
     templateUrl: './payment.component.html',
     styleUrl: './payment.component.scss',
-    standalone: false
+      // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false
 })
 export class PaymentComponent {
 

@@ -7,7 +7,8 @@ import { GetDiscoveriesOfTheDayIsOutOfViewService } from '../../../service/get-d
     selector: 'app-product-highlights-info',
     templateUrl: './product-highlights-info.component.html',
     styleUrl: './product-highlights-info.component.scss',
-    standalone: false
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false
 })
 export class ProductHighlightsInfoComponent implements OnInit, AfterViewInit {
   @Input() product!: ProductHighlight;

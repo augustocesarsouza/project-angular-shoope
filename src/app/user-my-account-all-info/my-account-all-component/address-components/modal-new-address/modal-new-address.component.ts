@@ -26,7 +26,8 @@ interface AddressCep {
     selector: 'app-modal-new-address',
     templateUrl: './modal-new-address.component.html',
     styleUrl: './modal-new-address.component.scss',
-    standalone: false
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false
 })
 export class ModalNewAddressComponent implements OnInit, AfterViewInit, OnDestroy {
   token: string | null = null;

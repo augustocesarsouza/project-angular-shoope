@@ -6,7 +6,8 @@ import { FlashSaleProductAllInfo } from '../../login-and-register-user/interface
     selector: 'app-coins-credit-card-price-product',
     templateUrl: './coins-credit-card-price-product.component.html',
     styleUrl: './coins-credit-card-price-product.component.scss',
-    standalone: false
+      // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false
 })
 export class CoinsCreditCardPriceProductComponent {
   @Input() getFlashSaleProduct!: FlashSaleProductAllInfo;

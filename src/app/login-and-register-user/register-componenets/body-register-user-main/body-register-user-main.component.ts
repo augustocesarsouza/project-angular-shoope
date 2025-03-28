@@ -13,7 +13,8 @@ import { ObjCodeUserPhoneToRegisterAccountService } from '../../service/obj-code
     selector: 'app-body-register-user-main',
     templateUrl: './body-register-user-main.component.html',
     styleUrl: './body-register-user-main.component.scss',
-    standalone: false
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false
 })
 export class BodyRegisterUserMainComponent implements AfterViewInit {
   buttonNext!: HTMLElement | null;

@@ -50,6 +50,8 @@ export interface ChangePassword {
 })
 export class UserService {
   private baseUrl = environment.BASE_URL || '/api';
+  // Arrumar isso para ver porque ele nao está fazendo as requeisição
+  // Testa o postman fazer get amanha para ver se vai funcicionar porque aqui ele nao tras nada testao back puchando no POSTMAN
 
   constructor(private _http: HttpClient) { }
 
@@ -82,8 +84,6 @@ export class UserService {
     };
 
     // Colocar "Bearer" token e validar se der error o token tiver sem validação vai lançar error
-
-    console.log(options);
 
 
     return this._http.post<ResultData>(`${this.baseUrl}/public/user/create`, user, options).pipe(take(1));

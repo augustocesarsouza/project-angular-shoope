@@ -6,7 +6,8 @@ import { Router } from '@angular/router';
     selector: 'app-product-flash-info',
     templateUrl: './product-flash-info.component.html',
     styleUrl: './product-flash-info.component.scss',
-    standalone: false
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false
 })
 export class ProductFlashInfoComponent implements OnInit {
   @Input() product!: ProductFlashDeals;

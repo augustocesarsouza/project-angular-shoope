@@ -10,7 +10,8 @@ interface TimeLeftProps {
     selector: 'app-flash-offer-and-countdown',
     templateUrl: './flash-offer-and-countdown.component.html',
     styleUrl: './flash-offer-and-countdown.component.scss',
-    standalone: false
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false
 })
 export class FlashOfferAndCountdownComponent implements OnInit, OnDestroy {
 //  @Input() timeLeft!;

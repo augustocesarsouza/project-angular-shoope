@@ -4,7 +4,8 @@ import { Component, Input } from '@angular/core';
     selector: 'app-svg-more',
     templateUrl: './svg-more.component.html',
     styleUrl: './svg-more.component.scss',
-    standalone: false
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false
 })
 export class SvgMoreComponent {
   @Input() width = '10px';

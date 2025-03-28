@@ -23,7 +23,8 @@ interface UserDTOProps {
     selector: 'app-body-login-main',
     templateUrl: './body-login-main.component.html',
     styleUrl: './body-login-main.component.scss',
-    standalone: false
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false
 })
 export class BodyLoginMainComponent implements AfterViewInit, OnDestroy {
   showEyeOpen = false;

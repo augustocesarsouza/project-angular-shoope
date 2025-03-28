@@ -4,7 +4,8 @@ import { Component, Input } from '@angular/core';
     selector: 'app-svg-shoope',
     templateUrl: './svg-shoope.component.html',
     styleUrl: './svg-shoope.component.scss',
-    standalone: false
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false
 })
 export class SvgShoopeComponent {
   @Input() width = '10px';

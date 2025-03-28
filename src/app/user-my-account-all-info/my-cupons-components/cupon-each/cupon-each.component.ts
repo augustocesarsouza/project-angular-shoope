@@ -6,7 +6,8 @@ import { Router } from '@angular/router';
     selector: 'app-cupon-each',
     templateUrl: './cupon-each.component.html',
     styleUrl: './cupon-each.component.scss',
-    standalone: false
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false
 })
 export class CuponEachComponent {
   @Input() objCupons!: Cupon;

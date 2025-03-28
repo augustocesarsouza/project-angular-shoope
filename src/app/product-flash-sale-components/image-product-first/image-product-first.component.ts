@@ -5,7 +5,8 @@ import { FlashSaleProductAllInfo } from '../../login-and-register-user/interface
     selector: 'app-image-product-first',
     templateUrl: './image-product-first.component.html',
     styleUrl: './image-product-first.component.scss',
-    standalone: false
+      // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false
 })
 export class ImageProductFirstComponent {
   @Input() productImgMain!: string;

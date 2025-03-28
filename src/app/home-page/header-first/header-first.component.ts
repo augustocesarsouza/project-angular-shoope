@@ -7,7 +7,8 @@ import { UserLocalStorage } from '../../login-and-register-user/user-function/ge
     selector: 'app-header-first',
     templateUrl: './header-first.component.html',
     styleUrl: './header-first.component.scss',
-    standalone: false
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false
 })
 export class HeaderFirstComponent implements OnInit, OnDestroy {
   showContainerDownloadAppFloating = false;

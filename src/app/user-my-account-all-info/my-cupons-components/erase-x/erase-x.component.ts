@@ -4,7 +4,8 @@ import { Component, Input } from '@angular/core';
     selector: 'app-erase-x',
     templateUrl: './erase-x.component.html',
     styleUrl: './erase-x.component.scss',
-    standalone: false
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false
 })
 export class EraseXComponent {
   @Input() width = '10px';

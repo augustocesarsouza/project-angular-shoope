@@ -8,7 +8,8 @@ import { ProductOfferFlashDescription } from '../../login-and-register-user/inte
     selector: 'app-product-offer-flash-description',
     templateUrl: './product-offer-flash-description.component.html',
     styleUrl: './product-offer-flash-description.component.scss',
-    standalone: false
+      // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false
 })
 export class ProductOfferFlashDescriptionComponent implements OnInit  {
   @Input() user!: User;

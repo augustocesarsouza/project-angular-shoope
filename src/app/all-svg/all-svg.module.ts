@@ -28,7 +28,7 @@ import { SvgLikeComponent } from './svg-like/svg-like.component';
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
   ],
   declarations: [SvgArrowComponent, SvgCartComponent, SvgHelpComponent, SvgLanguageComponent, SvgLoupeComponent, SvgNotificationComponent, SvgShoopeComponent, SvgUserWithoutImgComponent, SvgEyeCloseComponent, SvgEyeOpenComponent, SvgCheckComponent, SvgExitComponent, SvgArrowRegisterComponent, CodeIsWrongXComponent, BodyUserComponent, SvgMoreComponent, SvgAddressComponent, SvgShieldShopeeComponent, SvgLockComponent, SvgQuestionMarkComponent, CartBuySvgComponent, SvgStarComponent, SvgVideoMediaComponent, SvgPlayVideoComponent, SvgLikeComponent],
   exports: [SvgArrowComponent, SvgCartComponent, SvgHelpComponent, SvgLanguageComponent, SvgLoupeComponent, SvgNotificationComponent, SvgShoopeComponent, SvgUserWithoutImgComponent, SvgEyeCloseComponent, SvgEyeOpenComponent, SvgCheckComponent, SvgExitComponent, SvgArrowRegisterComponent, CodeIsWrongXComponent, BodyUserComponent, SvgMoreComponent, SvgAddressComponent, SvgShieldShopeeComponent, SvgLockComponent, SvgQuestionMarkComponent, CartBuySvgComponent, SvgStarComponent,

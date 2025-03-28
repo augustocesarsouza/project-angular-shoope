@@ -10,7 +10,8 @@ interface Category {
     selector: 'app-category-itens-bar',
     templateUrl: './category-itens-bar.component.html',
     styleUrl: './category-itens-bar.component.scss',
-    standalone: false
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false
 })
 export class CategoryItensBarComponent implements OnInit {
   allCategory: Category[] = [];

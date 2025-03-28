@@ -4,7 +4,8 @@ import { Component, Input, AfterViewInit } from '@angular/core';
     selector: 'app-step-to-create-account-main',
     templateUrl: './step-to-create-account-main.component.html',
     styleUrl: './step-to-create-account-main.component.scss',
-    standalone: false
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false
 })
 export class StepToCreateAccountMainComponent implements AfterViewInit {
   @Input() valueNumberPhoneCreate!: string;

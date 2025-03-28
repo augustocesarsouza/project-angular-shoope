@@ -4,7 +4,8 @@ import { Component, Input } from '@angular/core';
     selector: 'app-itens-icon',
     templateUrl: './itens-icon.component.html',
     styleUrl: './itens-icon.component.scss',
-    standalone: false
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false
 })
 export class ItensIconComponent {
   @Input() img = '';

@@ -4,6 +4,7 @@ import { Component, Input } from '@angular/core';
     selector: 'app-svg-arrow',
     templateUrl: './svg-arrow.component.html',
     styleUrl: './svg-arrow.component.scss',
+    // eslint-disable-next-line @angular-eslint/prefer-standalone
     standalone: false
 })
 export class SvgArrowComponent {

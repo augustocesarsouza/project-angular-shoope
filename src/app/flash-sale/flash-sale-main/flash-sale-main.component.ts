@@ -6,7 +6,8 @@ import { ObjTimeFleshOffer } from '../../home-page/header-body-home-shopee/home-
     selector: 'app-flash-sale-main',
     templateUrl: './flash-sale-main.component.html',
     styleUrl: './flash-sale-main.component.scss',
-    standalone: false
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false
 })
 export class FlashSaleMainComponent implements OnInit {
 

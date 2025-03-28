@@ -9,7 +9,8 @@ import { FlashSaleProductAllInfo } from '../../login-and-register-user/interface
     selector: 'app-product-flash-sale-main',
     templateUrl: './product-flash-sale-main.component.html',
     styleUrl: './product-flash-sale-main.component.scss',
-    standalone: false
+      // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false
 })
 export class ProductFlashSaleMainComponent implements OnInit {
   productFlashSaleId!: string;

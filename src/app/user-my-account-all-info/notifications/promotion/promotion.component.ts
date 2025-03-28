@@ -9,7 +9,8 @@ import { PromotionUser } from '../../../login-and-register-user/interface/promot
     selector: 'app-promotion',
     templateUrl: './promotion.component.html',
     styleUrl: './promotion.component.scss',
-    standalone: false
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false
 })
 export class PromotionComponent implements OnInit {
   userObjState!: User | null;

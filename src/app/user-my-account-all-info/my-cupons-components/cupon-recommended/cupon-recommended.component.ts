@@ -6,7 +6,8 @@ import { Router } from '@angular/router';
     selector: 'app-cupon-recommended',
     templateUrl: './cupon-recommended.component.html',
     styleUrl: './cupon-recommended.component.scss',
-    standalone: false
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false
 })
 export class CuponRecommendedComponent implements OnInit {
   @Input() obj!: CuponRecommendedProps;

@@ -5,7 +5,8 @@ import { Router } from '@angular/router';
     selector: 'app-verify-password',
     templateUrl: './verify-password.component.html',
     styleUrl: './verify-password.component.scss',
-    standalone: false
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false
 })
 export class VerifyPasswordComponent {
 

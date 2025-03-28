@@ -8,7 +8,8 @@ import { FullCheckPasswordComponent } from './user-my-account-all-info/my-accoun
 import { ProductFlashSaleMainComponent } from './product-flash-sale-components/product-flash-sale-main/product-flash-sale-main.component';
 
 const routes: Routes = [
-  {path: '', pathMatch: 'full', redirectTo: 'login'},
+  // {path: '', pathMatch: 'full', redirectTo: 'login'},
+  // { path: '**', redirectTo: 'login' },
   {path: '', component: HomeComponent},
   {path: 'confirm-code-email', component: EmailAndPhoneConfirmCodeComponent},
   {path: 'verify', component: VerifyPasswordComponent},

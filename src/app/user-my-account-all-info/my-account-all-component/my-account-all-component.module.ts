@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 
 import { MyAccountAllComponentRoutingModule } from './my-account-all-component-routing.module';
 import { ProfileComponent } from './perfil-components/profile/profile.component';
@@ -21,6 +20,7 @@ import { VerifyPasswordStepTwoComponent } from './change-password/verify-passwor
 import { FullCheckPasswordComponent } from './change-password/full-check-password/full-check-password.component';
 import { ChangePasswordWithInputComponent } from './change-password/change-password-with-input/change-password-with-input.component';
 import { CookieComponent } from './cookie-components/cookie/cookie.component';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -32,7 +32,6 @@ import { CookieComponent } from './cookie-components/cookie/cookie.component';
     PhoneChangeComponent,
     FillCpfAndBirthDateComponent,
     CardBackAccountsComponent,
-    AddressComponent,
     ModalNewAddressComponent,
     ViewAddressUserComponent,
     VerifyPasswordComponent,
@@ -40,13 +39,14 @@ import { CookieComponent } from './cookie-components/cookie/cookie.component';
     FullCheckPasswordComponent,
     ChangePasswordWithInputComponent,
     CookieComponent,
+    AddressComponent
   ],
   imports: [
     CommonModule,
     MyAccountAllComponentRoutingModule,
     HomePageModule,
     AllSvgModule,
-    HeaderAndFooterForAllComponentsModule
+    HeaderAndFooterForAllComponentsModule,
   ]
 })
 export class MyAccountAllComponentModule { }

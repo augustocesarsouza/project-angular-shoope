@@ -11,7 +11,8 @@ import { ProductFlashDeals } from '../../login-and-register-user/interface/produ
     selector: 'app-flesh-offer-every-day-and-hours',
     templateUrl: './flesh-offer-every-day-and-hours.component.html',
     styleUrl: './flesh-offer-every-day-and-hours.component.scss',
-    standalone: false
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false
 })
 export class FleshOfferEveryDayAndHoursComponent implements OnInit {
   constructor(private router: Router, private flashSaleCountdownService: FlashSaleCountdownService,

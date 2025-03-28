@@ -8,7 +8,8 @@ import { Router } from '@angular/router';
     selector: 'app-insert-email',
     templateUrl: './insert-email.component.html',
     styleUrl: './insert-email.component.scss',
-    standalone: false
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false
 })
 export class InsertEmailComponent implements OnInit {
   canClickSendCodeEmail = false;

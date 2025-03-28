@@ -7,7 +7,8 @@ import { AddressService } from '../../../service/address.service';
     selector: 'app-view-address-user',
     templateUrl: './view-address-user.component.html',
     styleUrl: './view-address-user.component.scss',
-    standalone: false
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false
 })
 export class ViewAddressUserComponent {
   @Input() address!: Address[];

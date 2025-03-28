@@ -13,7 +13,8 @@ import { objImgType, UpdateImgProductFlashSaleTypeService } from '../service/upd
     selector: 'app-product-flash-sale-second-part',
     templateUrl: './product-flash-sale-second-part.component.html',
     styleUrl: './product-flash-sale-second-part.component.scss',
-    standalone: false
+      // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false
 })
 export class ProductFlashSaleSecondPartComponent implements OnInit, OnDestroy {
   @Input() getFlashSaleProduct!: FlashSaleProductAllInfo;

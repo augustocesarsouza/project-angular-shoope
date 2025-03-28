@@ -4,7 +4,8 @@ import { Component } from '@angular/core';
     selector: 'app-customer-service',
     templateUrl: './customer-service.component.html',
     styleUrl: './customer-service.component.scss',
-    standalone: false
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false
 })
 export class CustomerServiceComponent {
 

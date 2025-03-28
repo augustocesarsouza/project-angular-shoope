@@ -13,7 +13,8 @@ import { Subscription } from 'rxjs';
     selector: 'app-product-flash-sale-first-part',
     templateUrl: './product-flash-sale-first-part.component.html',
     styleUrl: './product-flash-sale-first-part.component.scss',
-    standalone: false
+      // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false
 })
 export class ProductFlashSaleFirstPartComponent implements OnInit, AfterViewInit, OnDestroy {
   @Input() getFlashSaleProduct!: FlashSaleProductAllInfo;

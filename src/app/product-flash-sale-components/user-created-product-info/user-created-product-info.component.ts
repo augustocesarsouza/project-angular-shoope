@@ -2,9 +2,10 @@ import { Component, Input } from '@angular/core';
 import { ProductOfferFlashSeller } from '../../login-and-register-user/interface/product-offer-flash-seller';
 
 @Component({
-    selector: 'app-user-created-product-info',
-    templateUrl: './user-created-product-info.component.html',
-    styleUrl: './user-created-product-info.component.scss',
+  selector: 'app-user-created-product-info',
+  templateUrl: './user-created-product-info.component.html',
+  styleUrl: './user-created-product-info.component.scss',
+    // eslint-disable-next-line @angular-eslint/prefer-standalone
     standalone: false
 })
 export class UserCreatedProductInfoComponent {

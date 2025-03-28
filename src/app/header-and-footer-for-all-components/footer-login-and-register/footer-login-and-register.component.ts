@@ -4,7 +4,8 @@ import { Component } from '@angular/core';
     selector: 'app-footer-login-and-register',
     templateUrl: './footer-login-and-register.component.html',
     styleUrl: './footer-login-and-register.component.scss',
-    standalone: false
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false
 })
 export class FooterLoginAndRegisterComponent {
 

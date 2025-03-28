@@ -4,7 +4,8 @@ import { Component, Input } from '@angular/core';
     selector: 'app-svg-user-without-img',
     templateUrl: './svg-user-without-img.component.html',
     styleUrl: './svg-user-without-img.component.scss',
-    standalone: false
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false
 })
 export class SvgUserWithoutImgComponent {
   @Input() width = '10px';

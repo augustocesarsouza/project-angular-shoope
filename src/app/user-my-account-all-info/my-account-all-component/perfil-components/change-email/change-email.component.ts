@@ -8,7 +8,8 @@ import { UserLocalStorage } from '../../../../login-and-register-user/user-funct
     selector: 'app-change-email',
     templateUrl: './change-email.component.html',
     styleUrl: './change-email.component.scss',
-    standalone: false
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false
 })
 export class ChangeEmailComponent implements OnInit {
   canClickSendCodeEmail = false;

@@ -5,7 +5,8 @@ import { Router } from '@angular/router';
     selector: 'app-category-to-product',
     templateUrl: './category-to-product.component.html',
     styleUrl: './category-to-product.component.scss',
-    standalone: false
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false
 })
 export class CategoryToProductComponent implements AfterViewInit, OnDestroy {
   @ViewChildren('containerCategory') containerCategory!: QueryList<ElementRef<HTMLDivElement>>;

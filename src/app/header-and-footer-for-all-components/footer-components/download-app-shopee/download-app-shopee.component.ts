@@ -4,7 +4,8 @@ import { Component } from '@angular/core';
     selector: 'app-download-app-shopee',
     templateUrl: './download-app-shopee.component.html',
     styleUrl: './download-app-shopee.component.scss',
-    standalone: false
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false
 })
 export class DownloadAppShopeeComponent {
 

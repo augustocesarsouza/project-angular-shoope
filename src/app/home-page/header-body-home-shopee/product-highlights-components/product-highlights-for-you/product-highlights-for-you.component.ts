@@ -8,7 +8,8 @@ import { Router } from '@angular/router';
     selector: 'app-product-highlights-for-you',
     templateUrl: './product-highlights-for-you.component.html',
     styleUrl: './product-highlights-for-you.component.scss',
-    standalone: false
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false
 })
 export class ProductHighlightsForYouComponent implements OnInit, AfterViewInit {
   allProductHighlight!: ProductHighlight[];

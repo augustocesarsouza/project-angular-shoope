@@ -10,7 +10,8 @@ import { UpdateNumberUrlMyAccountService } from '../../../../login-and-register-
     selector: 'app-profile',
     templateUrl: './profile.component.html',
     styleUrl: './profile.component.scss',
-    standalone: false
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false
 })
 export class ProfileComponent implements OnInit, AfterViewInit, OnDestroy {
   userObjState!: User | null;

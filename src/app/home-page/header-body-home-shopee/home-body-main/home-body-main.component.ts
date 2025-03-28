@@ -17,7 +17,8 @@ export interface ObjTime {
     selector: 'app-home-body-main',
     templateUrl: './home-body-main.component.html',
     styleUrl: './home-body-main.component.scss',
-    standalone: false
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false
 })
 export class HomeBodyMainComponent implements OnInit {
   objTimeFlashDeals: ObjTimeFleshOffer | null = null;

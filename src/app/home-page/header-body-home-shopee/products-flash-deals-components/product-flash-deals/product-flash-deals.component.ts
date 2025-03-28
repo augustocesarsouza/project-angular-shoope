@@ -6,7 +6,8 @@ import { ProductsOfferFlashService } from '../../../service/products-offer-flash
     selector: 'app-product-flash-deals',
     templateUrl: './product-flash-deals.component.html',
     styleUrl: './product-flash-deals.component.scss',
-    standalone: false
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false
 })
 export class ProductFlashDealsComponent implements OnInit, AfterViewInit {
   allProductFlashDeals!: ProductFlashDeals[];

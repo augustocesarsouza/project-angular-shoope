@@ -6,7 +6,8 @@ import { Router } from '@angular/router';
     selector: 'app-card-back-accounts',
     templateUrl: './card-back-accounts.component.html',
     styleUrl: './card-back-accounts.component.scss',
-    standalone: false
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false
 })
 export class CardBackAccountsComponent implements OnInit {
   token: string | null = null;

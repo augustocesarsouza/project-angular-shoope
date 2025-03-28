@@ -4,7 +4,8 @@ import { Component, Input } from '@angular/core';
     selector: 'app-svg-shield-shopee',
     templateUrl: './svg-shield-shopee.component.html',
     styleUrl: './svg-shield-shopee.component.scss',
-    standalone: false
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false
 })
 export class SvgShieldShopeeComponent {
   @Input() width = '10px';

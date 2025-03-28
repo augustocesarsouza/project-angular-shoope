@@ -4,7 +4,8 @@ import { Component, HostBinding, Input } from '@angular/core';
     selector: 'app-svg-check',
     templateUrl: './svg-check.component.html',
     styleUrl: './svg-check.component.scss',
-    standalone: false
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false
 })
 export class SvgCheckComponent {
   @Input() width = '10px';

@@ -4,7 +4,8 @@ import { Component, ElementRef, QueryList, ViewChild, ViewChildren } from '@angu
     selector: 'app-cookie',
     templateUrl: './cookie.component.html',
     styleUrl: './cookie.component.scss',
-    standalone: false
+      // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false
 })
 export class CookieComponent {
   showArrowTop = false;

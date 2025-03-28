@@ -9,6 +9,8 @@ import { AddressService } from '../../../service/address.service';
   selector: 'app-address',
   templateUrl: './address.component.html',
   styleUrl: './address.component.scss',
+    // eslint-disable-next-line @angular-eslint/prefer-standalone
+    standalone: false
 })
 export class AddressComponent implements OnInit {
   token: string | null = null;

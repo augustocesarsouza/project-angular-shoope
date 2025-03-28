@@ -5,7 +5,8 @@ import { FlashSaleProductAllInfo } from '../../login-and-register-user/interface
     selector: 'app-first-rate-avaliation',
     templateUrl: './first-rate-avaliation.component.html',
     styleUrl: './first-rate-avaliation.component.scss',
-    standalone: false
+      // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false
 })
 export class FirstRateAvaliationComponent {
   @Input() getFlashSaleProduct!: FlashSaleProductAllInfo;

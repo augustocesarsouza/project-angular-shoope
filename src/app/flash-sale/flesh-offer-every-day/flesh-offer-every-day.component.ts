@@ -5,7 +5,8 @@ import { ObjTime } from '../../home-page/header-body-home-shopee/home-body-main/
     selector: 'app-flesh-offer-every-day',
     templateUrl: './flesh-offer-every-day.component.html',
     styleUrl: './flesh-offer-every-day.component.scss',
-    standalone: false
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false
 })
 export class FleshOfferEveryDayComponent implements AfterViewInit {
   @Input() allHoursFleshOffers!: ObjTime[];

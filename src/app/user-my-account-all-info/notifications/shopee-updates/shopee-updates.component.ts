@@ -9,7 +9,8 @@ import { ShopeeUpdateUser } from '../../../login-and-register-user/interface/sho
     selector: 'app-shopee-updates',
     templateUrl: './shopee-updates.component.html',
     styleUrl: './shopee-updates.component.scss',
-    standalone: false
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false
 })
 export class ShopeeUpdatesComponent implements OnInit {
   userObjState!: User | null;
