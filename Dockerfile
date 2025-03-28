@@ -23,21 +23,25 @@
 
 # Use the Node alpine official image
 # https://hub.docker.com/_/node
+
 FROM node:lts-alpine
 
 # Create and change to the app directory.
 WORKDIR /app
 
-# Copy the files to the container image
+# Copy the package files first to leverage Docker cache for better performance.
 COPY package*.json ./
 
-# Install packages
+# Install the dependencies.
 RUN npm ci
 
-# Copy local code to the container image.
+# Now copy the rest of the application code, including the postinstall.js
 COPY . ./
 
-# Build the app.
+# Run postinstall script after dependencies are installed
+RUN node postinstall.js
+
+# Build the app (if applicable).
 RUN npm run build
 
 # Serve the app
