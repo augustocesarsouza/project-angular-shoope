@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "startProx": "ng serve --proxy-config proxy.conf.js",
-    "build": "ng build --prod",
+    "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:project-angular-shoope": "node dist/project-angular-shoope/server/server.mjs",
