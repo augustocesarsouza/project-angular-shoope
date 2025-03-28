@@ -14,31 +14,31 @@ export default {
   ],
   "src/app/user-my-account-all-info/user-my-account-all-info.module.ts": [
     {
-      "path": "chunk-33N7IAC3.js",
+      "path": "chunk-RSAXU723.js",
       "dynamicImport": false
     },
     {
-      "path": "chunk-6IWT2TZ7.js",
+      "path": "chunk-6CC2GIDL.js",
       "dynamicImport": true
     },
     {
-      "path": "chunk-YKK2PR57.js",
+      "path": "chunk-ZS2L66BA.js",
       "dynamicImport": true
     },
     {
-      "path": "chunk-427PVOLE.js",
+      "path": "chunk-YNUP564D.js",
       "dynamicImport": true
     },
     {
-      "path": "chunk-GJK2PPNS.js",
+      "path": "chunk-2ZHSYJTU.js",
       "dynamicImport": true
     },
     {
-      "path": "chunk-QES4MBJU.js",
+      "path": "chunk-ZI64RW5W.js",
       "dynamicImport": true
     },
     {
-      "path": "chunk-PJBYCRZC.js",
+      "path": "chunk-T5NK6HNW.js",
       "dynamicImport": true
     },
     {
@@ -48,13 +48,13 @@ export default {
   ],
   "src/app/flash-sale/flash-sale.module.ts": [
     {
-      "path": "chunk-DYYWVV2M.js",
+      "path": "chunk-5QJRYLOT.js",
       "dynamicImport": false
     }
   ],
   "src/app/login-and-register-user/login-and-register-user.module.ts": [
     {
-      "path": "chunk-5FUXRXVL.js",
+      "path": "chunk-N5YC5X6N.js",
       "dynamicImport": false
     },
     {
@@ -64,7 +64,7 @@ export default {
   ],
   "src/app/user-my-account-all-info/my-account-all-component/my-account-all-component.module.ts": [
     {
-      "path": "chunk-6IWT2TZ7.js",
+      "path": "chunk-6CC2GIDL.js",
       "dynamicImport": false
     },
     {
@@ -72,64 +72,64 @@ export default {
       "dynamicImport": false
     },
     {
-      "path": "chunk-UHCP7KSD.js",
+      "path": "chunk-C77I6VIG.js",
       "dynamicImport": false
     }
   ],
   "src/app/user-my-account-all-info/setting-user/setting-user.module.ts": [
     {
-      "path": "chunk-YKK2PR57.js",
+      "path": "chunk-ZS2L66BA.js",
       "dynamicImport": false
     },
     {
-      "path": "chunk-UHCP7KSD.js",
+      "path": "chunk-C77I6VIG.js",
       "dynamicImport": false
     }
   ],
   "src/app/user-my-account-all-info/purchase/purchase.module.ts": [
     {
-      "path": "chunk-427PVOLE.js",
+      "path": "chunk-YNUP564D.js",
       "dynamicImport": false
     },
     {
-      "path": "chunk-UHCP7KSD.js",
+      "path": "chunk-C77I6VIG.js",
       "dynamicImport": false
     }
   ],
   "src/app/user-my-account-all-info/notifications/notifications.module.ts": [
     {
-      "path": "chunk-GJK2PPNS.js",
+      "path": "chunk-2ZHSYJTU.js",
       "dynamicImport": false
     },
     {
-      "path": "chunk-UHCP7KSD.js",
+      "path": "chunk-C77I6VIG.js",
       "dynamicImport": false
     }
   ],
   "src/app/user-my-account-all-info/my-cupons-components/my-cupons-components.module.ts": [
     {
-      "path": "chunk-QES4MBJU.js",
+      "path": "chunk-ZI64RW5W.js",
       "dynamicImport": false
     },
     {
-      "path": "chunk-UHCP7KSD.js",
+      "path": "chunk-C77I6VIG.js",
       "dynamicImport": false
     }
   ],
   "src/app/user-my-account-all-info/my-shopee-coins-component/my-shopee-coins-component.module.ts": [
     {
-      "path": "chunk-PJBYCRZC.js",
+      "path": "chunk-T5NK6HNW.js",
       "dynamicImport": false
     },
     {
-      "path": "chunk-UHCP7KSD.js",
+      "path": "chunk-C77I6VIG.js",
       "dynamicImport": false
     }
   ]
 },
   assets: {
-    'index.csr.html': {size: 63766, hash: 'd55965f7f253d1db596207d78ab986e3570fa705bcd7d27ea737728a68715117', text: () => import('./assets-chunks/index_csr_html.mjs').then(m => m.default)},
-    'index.server.html': {size: 63943, hash: '64e54146b0eac645f8ab5d06004f3c200870b2c05eaa385b1b9327db613ad0f1', text: () => import('./assets-chunks/index_server_html.mjs').then(m => m.default)},
+    'index.csr.html': {size: 63766, hash: '608cfa36d8c5dc49e998432a6f3af383be589ed604ded1cb2850b9d97ea98b0b', text: () => import('./assets-chunks/index_csr_html.mjs').then(m => m.default)},
+    'index.server.html': {size: 63943, hash: '34d1ab8609f3ee008b4283c5689826e821fc562e6c1dff6bd0073ffcb5cdfdba', text: () => import('./assets-chunks/index_server_html.mjs').then(m => m.default)},
     'styles-SKS3PTMD.css': {size: 321, hash: 'WLFyag+OchI', text: () => import('./assets-chunks/styles-SKS3PTMD_css.mjs').then(m => m.default)}
   },
 };

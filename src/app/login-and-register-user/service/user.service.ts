@@ -50,6 +50,7 @@ export interface ChangePassword {
 })
 export class UserService {
   private baseUrl = environmentDev.BASE_URL || '/api';
+
   // Arrumar isso para ver porque ele nao está fazendo as requeisição
   // Testa o postman fazer get amanha para ver se vai funcicionar porque aqui ele nao tras nada testao back puchando no POSTMAN
 

@@ -4,6 +4,7 @@
   "scripts": {
     "ng": "ng",
     "startProx": "ng serve --proxy-config proxy.conf.js",
+    "postinstall": "echo \"export const environmentDev = { production: true, BASE_URL: '\"$BASE_URL\"' };\" > src/environments/environment.prod.ts",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
