@@ -4,6 +4,7 @@
   "scripts": {
     "ng": "ng",
     "startProx": "ng serve --proxy-config proxy.conf.js",
+    "postinstall": "node -e \"require('dotenv').config(); const fs = require('fs'); const envConfig = `export const environmentDev = { production: true, BASE_URL: process.env.BASE_URL, KEY_USER: process.env.KEY_USER };`; fs.writeFileSync('src/environments/environment.prod.ts', envConfig);\"",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
@@ -25,6 +26,7 @@
     "@angular/ssr": "^19.2.5",
     "crypto-js": "^4.2.0",
     "date-fns": "^4.1.0",
+    "dotenv": "^16.4.7",
     "express": "^4.18.2",
     "inputmask": "^5.0.9",
     "rxjs": "~7.8.0",
