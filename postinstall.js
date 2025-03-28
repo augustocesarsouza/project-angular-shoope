@@ -1,4 +1,4 @@
-import 'dotenv/config';
+// import 'dotenv/config';
 import { existsSync, mkdirSync, writeFileSync } from 'fs';
 
 // Criação da string de configuração do ambiente
