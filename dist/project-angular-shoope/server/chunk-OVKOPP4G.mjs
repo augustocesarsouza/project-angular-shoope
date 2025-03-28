@@ -1,0 +1,2 @@
+import './polyfills.server.mjs';
+import{b as e,i as n}from"./chunk-GIN22B5O.mjs";var a=(()=>{class r{constructor(){this.numberUrl=new e(0),this.numberUrl$=this.numberUrl.asObservable()}updateImgUser(t){this.numberUrl.next(t)}get currentUser(){return this.numberUrl.getValue()}static{this.\u0275fac=function(i){return new(i||r)}}static{this.\u0275prov=n({token:r,factory:r.\u0275fac,providedIn:"root"})}}return r})();export{a};
