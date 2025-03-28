@@ -29,19 +29,16 @@ FROM node:lts-alpine
 # Create and change to the app directory.
 WORKDIR /app
 
-# Copy the package files first to leverage Docker cache for better performance.
+# Copy the files to the container image
 COPY package*.json ./
 
-# Install the dependencies.
+# Install packages
 RUN npm ci
 
-# Now copy the rest of the application code, including the postinstall.js
+# Copy local code to the container image.
 COPY . ./
 
-# Run postinstall script after dependencies are installed
-RUN node postinstall.js
-
-# Build the app (if applicable).
+# Build the app.
 RUN npm run build
 
 # Serve the app
