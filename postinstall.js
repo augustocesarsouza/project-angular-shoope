@@ -1,8 +1,9 @@
 // postinstall.js
 require('dotenv').config();
-import { existsSync, mkdirSync, writeFileSync } from 'fs';
+const fs = require('fs');
 
-const envConfig = `export const environment = {
+// Criação da string de configuração do ambiente
+const envConfig = `export const environmentDev = {
   production: true,
   BASE_URL: '${process.env.BASE_URL || ''}',
   KEY_USER: '${process.env.KEY_USER || ''}'
@@ -10,11 +11,11 @@ const envConfig = `export const environment = {
 
 // Garantir que a pasta existe
 const dir = 'src/environments';
-if (!existsSync(dir)) {
-  mkdirSync(dir, { recursive: true });
+if (!fs.existsSync(dir)) {
+  fs.mkdirSync(dir, { recursive: true });
 }
 
 // Escrever o arquivo environment.prod.ts
-writeFileSync(`${dir}/environment.prod.ts`, envConfig);
+fs.writeFileSync(`${dir}/environment.prod.ts`, envConfig);
 
 console.log('Arquivo environment.prod.ts gerado com sucesso!');
